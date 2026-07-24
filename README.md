@@ -1,53 +1,19 @@
-# 進能服 (6692) 雙曲線成長戰略規劃 (FY26~FY28) 網頁與 GitHub 發布指南
+# 進能服 (6692) 三曲線三年成長計畫 (FY26~FY28) 董事會版網頁
 
-本專案將 `1.2.3 年度計畫_三年(FY26~FY28).md` 轉換為互動式、視覺化且圖表豐富的單頁 Web 應用程式 (HTML5 / CSS3 / Vanilla JS / Chart.js)。
+本專案根據最新高階主管與董事會策略文件 `進能服_三曲線三年計畫_FY26-FY28_董事會版.md` 重新設計並建置，採用高度視覺化（圖片、流程圖、指標卡片、對比表格與 Chart.js 圖表）取代傳統純文字簡報。
 
-## 網頁結構
+## 網頁架構 (董事會版)
 
-- **Part 1 總覽**：雙曲線架構對比表、三大價值鏈（電力/服務/資本）流程圖、六大事業部協同矩陣
-- **Part 2 第二曲線**：ATMOCE (B2B 利基產品/儲能賣功率)、維運事業 (全聯模式/據點地圖/1GW 存量)、建坤 SPV (電廠收購整新飛輪)
-- **Part 3 第三曲線**：充電服務 CPO (noodle 收購/順益合資)、綠電售電業 (自產自銷中樞閉環)、AIDC 算力 (富邦能源/on-site power/貨櫃 GPU)
-- **Part 4 其他補充**：六事業部 OKR 互動篩選、結構化第二意見（紅隊分析）、14 項待補充議題關鍵字搜尋與優先級過濾
+- **一、執行摘要與三曲線模型**：三曲線接力架構表、電力/服務/資本三條價值鏈流程圖、六事業部協同矩陣
+- **二、第一曲線 (現金引擎)**：四產品線 (光伏/光儲/儲能/微網) 差異化打法與 STP 客群矩陣
+- **三、第二曲線 (供給側基礎設施)**：ATMOCE B2B 防災客群、維運事業 (全聯模式/1GW/據點圖表)、建坤 SPV (國泰 95.1% 表外資本/整新飛輪)
+- **四、第三曲線 (需求側通路與終端)**：綠電售電業 (生態系中樞閉環)、充電 CPO (noodle 收購/順益貨車合資)、AIDC (富邦能源/On-site SOFC/貨櫃 GPU)
+- **五、三年路線圖與財務資本**：FY26 固本啟航 -> FY27 資產放量 -> FY28 閉環規模化、相對營收指數圖表、CapEx 表外避險表
+- **六、董事會待決議與風險評估**：董事會 3 大關鍵決議、11 項待決議與 Gate 條件矩陣、結構化第二意見紅隊分析
 
 ---
 
-## 🚀 發布至 GitHub Pages 步驟 (How to Publish on GitHub Pages)
+## 🚀 GitHub Pages 發布狀態
 
-### 步驟 1：在 GitHub 上建立新 Repository
-1. 開啟 [GitHub.com](https://github.com) 並登入帳號。
-2. 點擊右上角 `+` -> **New repository**。
-3. 命名 Repository（例如：`jin-neng-fu-strategy`）。
-4. 選擇 **Public**（公開）或 Private。
-5. **不要**勾選 "Initialize this repository with a README"（我們本機已有檔案）。
-6. 點擊 **Create repository**。
-
-### 步驟 2：推送本機檔案至 GitHub
-在本機專案資料夾下開啟 Terminal / PowerShell，執行以下指令：
-
-```bash
-# 1. 將所有檔案加入 Git 追蹤
-git add .
-
-# 2. 進行第一次 Commit
-git commit -m "feat: initial release of Jin-Neng-Fu strategic dashboard"
-
-# 3. 設定主要分支為 main
-git branch -M main
-
-# 4. 綁定 GitHub 遠端倉庫（請替換 YOUR-USERNAME 與 YOUR-REPO-NAME）
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-
-# 5. 推送程式碼至 GitHub
-git push -u origin main
-```
-
-### 步驟 3：開啟 GitHub Pages 靜態網站託管
-1. 進入您在 GitHub 上的 Repository 頁面。
-2. 點擊上方的 **Settings**（設定）。
-3. 在左側選單點擊 **Pages**。
-4. 在 **Build and deployment** > **Source** 選擇 `Deploy from a branch`。
-5. 在 **Branch** 選項選擇 `main` 分支與 `/ (root)` 資料夾，點擊 **Save**。
-6. 等待 1~2 分鐘，頁面上方將出現公開網址：
-   `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/`
-
-完成後即可複製網址分享簡報網頁！
+- 🌐 **公開網址**：[https://davidyeh51.github.io/jin-neng-fu-strategy/](https://davidyeh51.github.io/jin-neng-fu-strategy/)
+- 📦 **GitHub Repository**：[https://github.com/davidyeh51/jin-neng-fu-strategy](https://github.com/davidyeh51/jin-neng-fu-strategy)

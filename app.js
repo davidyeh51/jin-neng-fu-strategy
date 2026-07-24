@@ -1,4 +1,4 @@
-// JavaScript for 進能服 (6692) 雙曲線成長戰略網頁
+// JavaScript for 進能服 (6692) 三曲線三年成長計畫 (FY26~FY28) 董事會版網頁
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
@@ -112,7 +112,49 @@ function initPendingItemsFilter() {
 function initCharts() {
   if (typeof Chart === 'undefined') return;
 
-  // Chart 1: O&M Regional Density (MW / Priority)
+  // Chart 1: Three-Curve Revenue Index Projections (FY26~FY28)
+  const curveRevenueCtx = document.getElementById('threeCurveRevenueChart')?.getContext('2d');
+  if (curveRevenueCtx) {
+    new Chart(curveRevenueCtx, {
+      type: 'bar',
+      data: {
+        labels: ['FY26 固本啟航 (示意)', 'FY27 資產放量 (示意)', 'FY28 閉環規模化 (示意)'],
+        datasets: [
+          {
+            label: '第一曲線 (現金引擎: 光伏/儲能銷售/維運)',
+            data: [100, 118, 125],
+            backgroundColor: '#f59e0b',
+            borderRadius: 6
+          },
+          {
+            label: '第二曲線 (供給側: ATMOCE/維運1GW/建坤SPV)',
+            data: [8, 40, 95],
+            backgroundColor: '#10b981',
+            borderRadius: 6
+          },
+          {
+            label: '第三曲線 (需求側: CPO/售電業中樞/AIDC)',
+            data: [0, 10, 50],
+            backgroundColor: '#06b6d4',
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#9ca3af' } },
+          title: { display: true, text: '三曲線相對營收指數接力趨勢 (以 FY26 第一曲線 = 100 為基準)', color: '#9ca3af' }
+        },
+        scales: {
+          x: { stacked: false, ticks: { color: '#9ca3af' } },
+          y: { ticks: { color: '#9ca3af' }, title: { display: true, text: '相對指數', color: '#9ca3af' } }
+        }
+      }
+    });
+  }
+
+  // Chart 2: O&M Regional Density (P0-P3)
   const omCtx = document.getElementById('omCoverageChart')?.getContext('2d');
   if (omCtx) {
     new Chart(omCtx, {
@@ -133,29 +175,30 @@ function initCharts() {
           title: { display: true, text: '維運事業區域據點佈局規劃 (據點數)', color: '#9ca3af' }
         },
         scales: {
-          y: { ticks: { precision: 0 } }
+          y: { ticks: { precision: 0, color: '#9ca3af' } },
+          x: { ticks: { color: '#9ca3af' } }
         }
       }
     });
   }
 
-  // Chart 2: Synergy Radar / Distribution
-  const synergyCtx = document.getElementById('synergyChart')?.getContext('2d');
-  if (synergyCtx) {
-    new Chart(synergyCtx, {
+  // Chart 3: Capital Structure & Off-Balance Sheet Protection
+  const capCtx = document.getElementById('capitalStructureChart')?.getContext('2d');
+  if (capCtx) {
+    new Chart(capCtx, {
       type: 'doughnut',
       data: {
-        labels: ['ATMOCE (利基產品)', '維運事業 (存量1GW)', '建坤 (SPV電廠)', 'CPO (充電服務)', '綠電售電業 (通路)', 'AIDC (算力統包)'],
+        labels: ['建坤 SPV (國泰 95.1% 表外資金)', 'ATMOCE 產品 (壽險/法人 AUM 募資)', 'AIDC 專案 (富邦能源合資)', '進能服自有 CapEx (維運擴張/團隊)'],
         datasets: [{
-          data: [15, 20, 20, 15, 15, 15],
-          backgroundColor: ['#10b981', '#06b6d4', '#3b82f6', '#8b5cf6', '#f59e0b', '#ec4899']
+          data: [50, 20, 20, 10],
+          backgroundColor: ['#f59e0b', '#10b981', '#06b6d4', '#8b5cf6']
         }]
       },
       options: {
         responsive: true,
         plugins: {
           legend: { position: 'right', labels: { color: '#9ca3af' } },
-          title: { display: true, text: '六大事業部資源與價值鏈佔比', color: '#9ca3af' }
+          title: { display: true, text: '三曲線重資本出資來源規劃（極小化進能服自有 CapEx 壓力）', color: '#9ca3af' }
         }
       }
     });

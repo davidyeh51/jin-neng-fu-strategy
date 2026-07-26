@@ -3,702 +3,557 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>進能服 (6692) 三曲線三年成長計畫 (FY26~FY28) 董事會版</title>
-  <meta name="description" content="進能服 (6692) 三曲線三年成長計畫（FY26–FY28）董事會版：第一曲線現金引擎、第二曲線供給側基礎設施、第三曲線需求側通路與終端之高階戰略、財務資本與風險評估。">
+  <title>進能服 (6692) 成長戰略 v4 — 強中央富地方 × 3+3 框架</title>
+  <meta name="description" content="進能服 (6692) 以鴻海「分而治之」轉型邏輯重構：Divide & Conquer、強中央富地方、3+3 科學孵化、BOL 雙重槓桿、平台典範轉移。">
   <link rel="stylesheet" href="styles.css">
-  <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
-  <nav class="navbar">
-    <a href="#" class="nav-brand">
-      <span>進能服 6692</span>
-      <span class="badge">三曲線戰略 (董事會版)</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#part1" class="nav-link">一、執行摘要與模型</a></li>
-      <li><a href="#part2" class="nav-link">二、第一曲線 (現金引擎)</a></li>
-      <li><a href="#part3" class="nav-link">三、第二曲線 (基礎設施)</a></li>
-      <li><a href="#part4" class="nav-link">四、第三曲線 (通路終端)</a></li>
-      <li><a href="#part5" class="nav-link">五、路線圖與財務資本</a></li>
-      <li><a href="#part6" class="nav-link">六、董事會決議與風險</a></li>
-    </ul>
-    <div class="nav-controls">
-      <button id="themeToggleBtn" class="theme-toggle-btn">☀️ 淺色模式</button>
+<nav class="navbar">
+  <a href="#" class="nav-brand"><span>進能服 6692</span><span class="badge">v4 強中央富地方</span></a>
+  <ul class="nav-links">
+    <li><a href="#p1" class="nav-link">鴻海邏輯</a></li>
+    <li><a href="#p2" class="nav-link">Divide & Conquer</a></li>
+    <li><a href="#p3" class="nav-link">3+3 框架</a></li>
+    <li><a href="#p4" class="nav-link">組織架構</a></li>
+    <li><a href="#p5" class="nav-link">BOL 槓桿</a></li>
+    <li><a href="#p6" class="nav-link">事業部戰略</a></li>
+    <li><a href="#p7" class="nav-link">OKR 行動</a></li>
+    <li><a href="#p8" class="nav-link">風險與決議</a></li>
+  </ul>
+  <div class="nav-controls"><button id="themeToggleBtn" class="theme-toggle-btn">☀️ 淺色模式</button></div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div>
+    <div style="display:flex;gap:.4rem;margin-bottom:.6rem;flex-wrap:wrap">
+      <span class="card-badge badge-foxconn">鴻海轉型邏輯移植</span>
+      <span class="card-badge badge-hq">強中央・富地方</span>
+      <span class="card-badge badge-incubate">3+3 科學孵化</span>
     </div>
-  </nav>
+    <h1 class="hero-title">進能服 (6692)<br>成長戰略 v4</h1>
+    <p class="hero-subtitle">以鴻海「分而治之」轉型邏輯重構：<strong>從六大事業部並列，轉向強中央富地方的分層孵化架構</strong>。不燒錢賭未來，以 Divide & Conquer、BOL 雙重槓桿與平台典範轉移，實現三層接力。</p>
+    <div class="hero-stats">
+      <div class="stat-card"><div class="stat-value">5 大</div><div class="stat-label">鴻海底層邏輯</div></div>
+      <div class="stat-card"><div class="stat-value">3+3</div><div class="stat-label">產業 × 技術框架</div></div>
+      <div class="stat-card"><div class="stat-value">3 層</div><div class="stat-label">強中央・富地方・孵化</div></div>
+      <div class="stat-card"><div class="stat-value">1 GW</div><div class="stat-label">維運平台目標</div></div>
+    </div>
+  </div>
+  <div><img src="v2_hero.jpg" alt="進能服 v4 戰略架構視覺圖" class="hero-banner-img"></div>
+</header>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-        <span class="card-badge badge-curve1">獨立上櫃 6692</span>
-        <span class="card-badge badge-curve2">時間跨度：FY26~FY28</span>
-        <span class="card-badge badge-curve3">董事會高階決策簡報</span>
-      </div>
-      <h1 class="hero-title">進能服 (6692)<br>三曲線三年成長計畫</h1>
-      <p class="hero-subtitle">
-        以第一曲線的現金流，養第二曲線的基礎設施；以第二曲線的資產，養第三曲線的通路與終端。<strong>不燒錢賭未來，以曲線接力實現自產自銷閉環。</strong>
-      </p>
-      
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-value">3 條</div>
-          <div class="stat-label">成長曲線接力</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">6 大</div>
-          <div class="stat-label">核心事業部</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">1 GW</div>
-          <div class="stat-label">維運目標容量</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">95.1%</div>
-          <div class="stat-label">國泰持股建坤 (表外資金)</div>
-        </div>
-      </div>
+<main class="main-container">
 
-      <!-- Board Decision Notice Callout -->
-      <div class="board-alert-card">
-        <div class="board-alert-title">🏛️ 董事會三大關鍵決議事項預告</div>
-        <p style="font-size: 0.88rem; color: var(--text-main);">
-          1. <strong>CapEx 上限與分配</strong>：核定三年資本支出上限與分配原則。<br>
-          2. <strong>第三曲線 Gate 門檻</strong>：確定 CPO、售電業與 AIDC 啟動之關鍵條件。<br>
-          3. <strong>股權與 Governance 架構</strong>：確認建坤 SPV 與 AIDC 之合資主導權與避險設計。
-        </p>
+<!-- ===== P1: 鴻海轉型邏輯 ===== -->
+<section id="p1" class="section">
+  <div class="section-header"><span class="section-tag">Part 1</span><h2 class="section-title">鴻海轉型的可移植核心</h2></div>
+
+  <div class="card" style="margin-bottom:1.5rem">
+    <h3 class="card-title" style="margin-bottom:.8rem">🔑 五個底層邏輯</h3>
+    <div class="custom-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>#</th><th>核心</th><th>鴻海的做法</th><th>對進能服的意涵</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Divide & Conquer</strong></td><td>拆分可控與不可控，100% 資源投入可控</td><td>停止讓售電業執照等外部變數卡住內部可控的建設</td></tr>
+          <tr><td>2</td><td><strong>強中央，富地方</strong></td><td>既有事業群馬照跑舞照跳；總部從米蟲翻轉為基建提供者</td><td>第二曲線自負盈虧，第三曲線由總部孵化</td></tr>
+          <tr><td>3</td><td><strong>3+3 科學孵化</strong></td><td>廣泛訪談專家 → 邏輯拆解 → 提早四年精準押注</td><td>六個事業部不是六個目標，是 3+3 的載體</td></tr>
+          <tr><td>4</td><td><strong>BOL 雙重槓桿</strong></td><td>財務上合資分散至 241 據點；生態上農耕隊帶中小企業出海</td><td>建坤模式複製化；維運改加盟平台</td></tr>
+          <tr><td>5</td><td><strong>平台典範轉移</strong></td><td>從被動接單到主動開發，從封閉節點到隨插即用平台</td><td>從 EPC/O&M 承包商轉為綠電與算力供電平台</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title" style="margin-bottom:.8rem">🔄 2019 鴻海困境 vs. 進能服現況對照</h3>
+    <div class="custom-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>維度</th><th>鴻海 2019</th><th>進能服現況</th></tr></thead>
+        <tbody>
+          <tr><td><strong>外部危機</strong></td><td>營收 5 兆觸天花板，智慧型手機首度衰退</td><td>地面型光伏趨飽和，FIT 費率逐年遞減，工程利潤壓縮</td></tr>
+          <tr><td><strong>市場標籤</strong></td><td>「只能靠一支蘋果」</td><td>「只能靠光伏工程」</td></tr>
+          <tr><td><strong>內部危機</strong></td><td>事業群諸侯割據、各自為政</td><td>六大事業部若並列推進，將複製同樣的資源排擠</td></tr>
+          <tr><td><strong>創新困境</strong></td><td>缺乏共同拓展新領域的資源分配機制</td><td>缺乏總部層級的資本配置與孵化機制</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P2: Divide & Conquer ===== -->
+<section id="p2" class="section">
+  <div class="section-header"><span class="section-tag">Part 2</span><h2 class="section-title">Divide & Conquer 的實際切分</h2></div>
+
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <h3 class="card-title" style="color:var(--emerald);margin-bottom:.8rem">✅ 可控因素 — 投入 100% 資源</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>項目</th><th>事業部</th><th>為何可控</th></tr></thead>
+          <tbody>
+            <tr><td>維運據點密度與 SOP</td><td>維運</td><td>完全取決於自身執行力</td></tr>
+            <tr><td>案場收購鑑價模型</td><td>建坤</td><td>自建能力，不依賴外部核准</td></tr>
+            <tr><td>ATMOCE 產品設計與定價</td><td>ATMOCE</td><td>產品主導權在自己手上</td></tr>
+            <tr><td>SOFC/CHP 技術整合</td><td>技術中台</td><td>與台達的合作進度可管理</td></tr>
+            <tr><td>內部轉移定價與治理</td><td>總部</td><td>純內部決策</td></tr>
+            <tr><td>資本合作夥伴關係</td><td>總部</td><td>可主動經營</td></tr>
+            <tr><td>防災儲能客戶開發</td><td>ATMOCE</td><td>客戶關係可主動建立</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    
-    <div class="hero-media">
-      <img src="board_hero.jpg" alt="進能服三曲線成長戰略視覺圖" class="hero-banner-img">
+
+    <div class="card">
+      <h3 class="card-title" style="color:var(--rose);margin-bottom:.8rem">🚫 不可控因素 — 放下焦慮</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>項目</th><th>影響對象</th><th>應對方式</th></tr></thead>
+          <tbody>
+            <tr><td>售電業執照核發時程</td><td>售電業/建坤</td><td>雙路徑準備，不當前提</td></tr>
+            <tr><td>FIT 政策與電價調整</td><td>建坤/售電業</td><td>模型內建費率敏感度分析</td></tr>
+            <tr><td>AIDC 客戶決策時程</td><td>AIDC</td><td>用二線客戶做中間驗證</td></tr>
+            <tr><td>CATL 鈉離子電池衝擊</td><td>ATMOCE</td><td>技術路線保持開放</td></tr>
+            <tr><td>地緣政治與國安審查</td><td>全體</td><td>預留替代方案</td></tr>
+            <tr><td>台電輔助服務市場費率</td><td>ATMOCE</td><td>已改走防災韌性路線</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main class="main-container">
+  <div class="card" style="border-color:var(--amber)">
+    <h3 class="card-title" style="color:var(--amber);margin-bottom:.5rem">⚡ 最關鍵的一項修正</h3>
+    <p style="font-size:.92rem;color:var(--text-muted)">先前版本將「售電業執照」設為整個生態系前提，等於讓不可控的事情卡住所有可控建設。修正：<strong>把發電資產、VPP 節點、客戶關係全部做到極致，執照到位時局勢自然翻轉。不等待。</strong></p>
+  </div>
+</section>
 
-    <!-- ==================== PART 1: 執行摘要與三曲線模型 ==================== -->
-    <section id="part1" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 1</span>
-        <h2 class="section-title">執行摘要與三曲線接力模型</h2>
+<!-- ===== P3: 3+3 框架 ===== -->
+<section id="p3" class="section">
+  <div class="section-header"><span class="section-tag">Part 3</span><h2 class="section-title">3+3 戰略框架</h2></div>
+
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom:.8rem">🏭 三大未來產業（需求端）</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>產業</th><th>內涵</th><th>對應事業載體</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI 算力供電</strong></td><td>AIDC 專案開發、on-site power、貨櫃 GPU</td><td>AIDC 事業部</td></tr>
+            <tr><td><strong>交通電氣化</strong></td><td>充電服務營運，聚焦商用車/貨車利基</td><td>CPO 事業部</td></tr>
+            <tr><td><strong>韌性電力</strong></td><td>防災備援、VPP 聚合、綠電通路</td><td>ATMOCE + 售電業</td></tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <!-- 三曲線對比表 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <h3 class="card-title">📊 三曲線戰略模型架構</h3>
-            <p class="card-subtitle">時序性曲線接力：每一條曲線的成熟，都為下一條曲線提供燃料（現金、資產或通路）</p>
-          </div>
-        </div>
-        
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>曲線</th>
-                <th>本質</th>
-                <th>事業組成</th>
-                <th>三年戰略角色</th>
-                <th>核心紀律</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="card-badge badge-curve1">第一曲線</span></td>
-                <td><strong>既有業務・現金引擎</strong></td>
-                <td>光伏、光儲、儲能、微網（銷售）＋ 既有維運</td>
-                <td>成熟市場穩定的現金流來源，餵養第二曲線</td>
-                <td>差異化打法穩住現金流與市占，不燒錢賭未來</td>
-              </tr>
-              <tr>
-                <td><span class="card-badge badge-curve2">第二曲線</span></td>
-                <td><strong>供給側基礎設施</strong></td>
-                <td>ATMOCE 體系、維運事業 (1GW)、建坤 SPV</td>
-                <td>建立可持有、可產品化、可募資的長期資產</td>
-                <td>資產產品化，透過表外資金與法人募資減輕負債壓力</td>
-              </tr>
-              <tr>
-                <td><span class="card-badge badge-curve3">第三曲線</span></td>
-                <td><strong>需求側通路與終端</strong></td>
-                <td>充電服務 CPO、綠電售電業、AIDC 算力</td>
-                <td>打通「自產自銷」閉環，放大資產變現與溢價</td>
-                <td>售電業為中樞，第一二曲線發的電賣給自家用電終端</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom:.8rem">🔧 三大核心技術（能力端）</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>技術</th><th>內涵</th><th>建構方式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>儲能 EMS 與 VPP</strong></td><td>分散節點調度、聚合與交易</td><td>ATMOCE 遍地開花累積</td></tr>
+            <tr><td><strong>SOFC/CHP 熱電共生</strong></td><td>全日供電 + 廢熱回收降 PUE</td><td>沙崙驗證 → AIDC 商業化</td></tr>
+            <tr><td><strong>電廠鑑價與數據化 O&M</strong></td><td>資產估值 + 發電異常偵測</td><td>建坤鑑價 + 維運監控</td></tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </div>
 
-      <!-- 三曲線飛輪與三條價值鏈 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 1rem;">🔗 貫穿三曲線的三條價值鏈</h3>
-        
-        <div class="grid-3">
-          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 700; color: var(--emerald); font-size: 1.1rem; margin-bottom: 0.5rem;">⚡ 電力價值鏈</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">實現發電至用電之自產自銷閉環：</p>
-            <div class="flow-steps" style="flex-direction: column; gap: 0.5rem;">
-              <div class="flow-step">第一曲線 建置案場</div>
-              <div style="text-align: center; color: var(--emerald);">↓</div>
-              <div class="flow-step">建坤 SPV (第二曲線持有發電資產)</div>
-              <div style="text-align: center; color: var(--emerald);">↓</div>
-              <div class="flow-step">綠電售電業 (第三曲線賣電)</div>
-              <div style="text-align: center; color: var(--emerald);">↓</div>
-              <div class="flow-step">AIDC / CPO (第三曲線用電終端)</div>
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.75rem;">* ATMOCE VPP 聚合容量同步注入售電業</p>
-          </div>
+  <div class="card">
+    <h3 class="card-title" style="margin-bottom:.5rem">📊 3+3 產業 × 技術匹配度</h3>
+    <p class="card-subtitle" style="margin-bottom:.8rem">資源分配判準：任何投入案必須回答「服務哪一個產業？強化哪一項技術？」兩者皆答不出來，一律不投。</p>
+    <canvas id="threeThreeChart" style="max-height:230px"></canvas>
+  </div>
+</section>
 
-          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 700; color: var(--cyan); font-size: 1.1rem; margin-bottom: 0.5rem;">🛠️ 服務價值鏈</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">跨曲線的服務黏著與品類擴張：</p>
-            <div class="flow-steps" style="flex-direction: column; gap: 0.5rem;">
-              <div class="flow-step">第一曲線 光伏案場維運起步</div>
-              <div style="text-align: center; color: var(--cyan);">↓</div>
-              <div class="flow-step">儲能設備 & 充電樁 (CPO) 維護</div>
-              <div style="text-align: center; color: var(--cyan);">↓</div>
-              <div class="flow-step">AIDC 貨櫃 GPU 設備長約維運</div>
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.75rem;">* 打開 1GW 服務天花板</p>
-          </div>
+<!-- ===== P4: 強中央富地方 組織架構 ===== -->
+<section id="p4" class="section">
+  <div class="section-header"><span class="section-tag">Part 4</span><h2 class="section-title">強中央，富地方的三層組織架構</h2></div>
 
-          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 700; color: var(--amber); font-size: 1.1rem; margin-bottom: 0.5rem;">💰 資本價值鏈</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">資本飛輪降低對進能服自有資本依賴：</p>
-            <div class="flow-steps" style="flex-direction: column; gap: 0.5rem;">
-              <div class="flow-step">建坤電廠收購 / AIDC 開發</div>
-              <div style="text-align: center; color: var(--amber);">↓</div>
-              <div class="flow-step">ATMOCE 產品向法人(壽險/國泰/富邦)募資</div>
-              <div style="text-align: center; color: var(--amber);">↓</div>
-              <div class="flow-step">資產產品化 → 再收購飛輪</div>
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.75rem;">* 國泰 95.1% 出資承接重資本</p>
-          </div>
-        </div>
+  <!-- 富地方 -->
+  <div class="card" style="margin-bottom:1.5rem;border-left:3px solid var(--emerald)">
+    <span class="card-badge badge-rich">富地方 — 既有事業，維持現金流</span>
+    <h3 class="card-title" style="margin-top:.5rem;margin-bottom:.8rem">馬照跑舞照跳，獨立 P&L</h3>
+    <div class="grid-3">
+      <div class="info-box" style="border-color:var(--emerald)"><h4 style="color:var(--emerald)">建坤 SPV</h4><p>電廠持有現金流 — 國泰 95.1% 出資，進金生 4.9% 操盤</p></div>
+      <div class="info-box" style="border-color:var(--emerald)"><h4 style="color:var(--emerald)">維運事業</h4><p>全聯模式服務費 — 加盟平台 + 自建據點混合模式</p></div>
+      <div class="info-box" style="border-color:var(--emerald)"><h4 style="color:var(--emerald)">ATMOCE</h4><p>產品分潤與功率月租 — B2B 防災儲能 + 遍地開花 VPP</p></div>
+    </div>
+  </div>
+
+  <!-- 強中央 -->
+  <div class="card" style="margin-bottom:1.5rem;border-left:3px solid var(--purple)">
+    <span class="card-badge badge-hq">強中央 — 進能服總部</span>
+    <h3 class="card-title" style="margin-top:.5rem;margin-bottom:.5rem">從米蟲翻轉為基礎建設提供者</h3>
+    <p class="card-subtitle" style="margin-bottom:1rem">中央不搶事業群功勞，只做三件事：分配資本、建共用平台、孵新事業。</p>
+    <div class="grid-4">
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple)">💰 資本配置</h4><p>SPV 募資平台、壽險/財團合作、資源優先序</p></div>
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple)">📊 數據平台</h4><p>統一監控、資產鑑價模型、發電數據庫</p></div>
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple)">🔧 技術中台</h4><p>儲能 EMS、SOFC/CHP、跨事業部技術支援</p></div>
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple)">🚀 新事業孵化</h4><p>第三曲線投資、併購與虧損期承擔</p></div>
+    </div>
+  </div>
+
+  <!-- 孵化層 -->
+  <div class="card" style="margin-bottom:1.5rem;border-left:3px solid var(--cyan)">
+    <span class="card-badge badge-incubate">孵化中 — 第三曲線，中央出資出人</span>
+    <h3 class="card-title" style="margin-top:.5rem;margin-bottom:.8rem">成熟後下放為新的富地方</h3>
+    <div class="grid-3">
+      <div class="info-box" style="border-color:var(--cyan)"><h4 style="color:var(--cyan)">綠電售電業</h4><p>通路樞紐 — 打通自產自銷閉環</p></div>
+      <div class="info-box" style="border-color:var(--cyan)"><h4 style="color:var(--cyan)">AIDC 算力</h4><p>算力供電需求出海口 — ft. 富邦能源</p></div>
+      <div class="info-box" style="border-color:var(--cyan)"><h4 style="color:var(--cyan)">CPO 充電</h4><p>交通電氣化需求出海口 — 貨車利基</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title" style="margin-bottom:.8rem">📊 三層組織資源分配架構</h3>
+    <canvas id="layerChart" style="max-height:260px"></canvas>
+  </div>
+</section>
+
+<!-- ===== P5: BOL 槓桿與平台 ===== -->
+<section id="p5" class="section">
+  <div class="section-header"><span class="section-tag">Part 5</span><h2 class="section-title">BOL 雙重槓桿與平台典範轉移</h2></div>
+
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <h3 class="card-title" style="color:var(--amber);margin-bottom:.8rem">💰 財務槓桿：建坤模式複製化（SPV 工廠）</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>要素</th><th>標準化內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>股權結構</strong></td><td>資本方 90-95%，進能服 5-10% 操盤</td></tr>
+            <tr><td><strong>進能服貢獻</strong></td><td>標的篩選、鑑價、收購執行、整新、長期維運</td></tr>
+            <tr><td><strong>資本方貢獻</strong></td><td>收購與整新資金</td></tr>
+            <tr><td><strong>長期承諾</strong></td><td>持續技術升級與設備更新 (非一次性交付)</td></tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <!-- 六大事業部協同矩陣 -->
-      <div class="card">
-        <h3 class="card-title" style="margin-bottom: 1rem;">🤝 六大事業部協同矩陣</h3>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>協同場景</th>
-                <th>ATMOCE</th>
-                <th>維運事業</th>
-                <th>建坤 SPV</th>
-                <th>CPO 充電</th>
-                <th>綠電售電業</th>
-                <th>AIDC 算力</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>建坤收購電廠</strong></td>
-                <td>包裝為分潤產品</td>
-                <td>接手維運</td>
-                <td>收購＋整新</td>
-                <td>—</td>
-                <td>售電通路</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td><strong>AIDC 專案開發</strong></td>
-                <td>儲能方案</td>
-                <td>設備維運</td>
-                <td>—</td>
-                <td>—</td>
-                <td>綠電供應</td>
-                <td>開發＋統包</td>
-              </tr>
-              <tr>
-                <td><strong>CPO 場站上線</strong></td>
-                <td>VPP 節點</td>
-                <td>充電樁維運</td>
-                <td>—</td>
-                <td>營運</td>
-                <td>綠電供應</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td><strong>售電業簽新客</strong></td>
-                <td>VPP 聚合</td>
-                <td>確保發電品質</td>
-                <td>電力供給</td>
-                <td>充電綠電</td>
-                <td>簽約</td>
-                <td>用電需求</td>
-              </tr>
-              <tr>
-                <td><strong>防災儲能部署</strong></td>
-                <td>客戶簽約</td>
-                <td>設備維運</td>
-                <td>—</td>
-                <td>場站配儲</td>
-                <td>—</td>
-                <td>配儲方案</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="card">
+      <h3 class="card-title" style="color:var(--emerald);margin-bottom:.8rem">🌾 生態槓桿：維運農耕隊 (加盟平台)</h3>
+      <div class="custom-table-wrapper">
+        <table class="custom-table">
+          <thead><tr><th>維度</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>加盟對象</strong></td><td>台灣現有中小型光伏維運商</td></tr>
+            <tr><td><strong>進能服提供</strong></td><td>統一監控平台、標準 SOP、備品集中採購、品牌接案通路</td></tr>
+            <tr><td><strong>加盟商提供</strong></td><td>在地人力、既有客戶關係、區域覆蓋</td></tr>
+            <tr><td><strong>招募條件</strong></td><td>保證接案量、備品成本優勢、平台免費使用</td></tr>
+            <tr><td><strong>效果</strong></td><td>1GW 目標從<strong>資本密集</strong>轉為<strong>平台生意</strong></td></tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- ==================== PART 2: 第一曲線 (現金引擎) ==================== -->
-    <section id="part2" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 2</span>
-        <h2 class="section-title">第一曲線：既有光伏與儲能業務（現金引擎）</h2>
+  <div class="card">
+    <h3 class="card-title" style="margin-bottom:.8rem">🔄 從承包商到平台：典範轉移對照</h3>
+    <div class="custom-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>維度</th><th>過去 (EPC/O&M 承包)</th><th>現在與未來 (能源平台)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>客戶關係</strong></td><td>被動接案，業主要什麼做什麼</td><td>主動開發產品，向市場證明能力</td></tr>
+          <tr><td><strong>技術主導權</strong></td><td>提供工程與維護技術</td><td>掌握鑑價、EMS、SOFC、數據全棧能力</td></tr>
+          <tr><td><strong>價值定位</strong></td><td>供應鏈中的工程節點</td><td>隨插即用的綠電平台與算力供電平台</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid-4" style="margin-top:1rem">
+      <div class="info-box" style="border-color:var(--emerald)"><h4 style="color:var(--emerald)">ATMOCE 平台</h4><p style="font-size:.82rem">法人可接入的發電分潤與防災儲能產品貨架</p></div>
+      <div class="info-box" style="border-color:var(--cyan)"><h4 style="color:var(--cyan)">維運平台</h4><p style="font-size:.82rem">案場業主與維運商可接入的監控服務網絡</p></div>
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple)">售電平台</h4><p style="font-size:.82rem">綠電需求方可接入的電力交易通路</p></div>
+      <div class="info-box" style="border-color:var(--amber)"><h4 style="color:var(--amber)">算力供電平台</h4><p style="font-size:.82rem">AIDC 業主可接入的 on-site power 統包</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P6: 事業部戰略 ===== -->
+<section id="p6" class="section">
+  <div class="section-header"><span class="section-tag">Part 6</span><h2 class="section-title">各事業部戰略與商業模型</h2></div>
+
+  <!-- 富地方層 -->
+  <h3 style="color:var(--emerald);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span class="card-badge badge-rich">富地方層</span> 獨立 P&L・穩定現金流</h3>
+
+  <div class="card" style="margin-bottom:1.5rem">
+    <h3 class="card-title">🏭 建坤 SPV — 賣電不賣工程</h3>
+    <p class="card-subtitle" style="margin-bottom:1rem">持有光伏電廠 SPV，專注資產收購、整新與長期持有。</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="margin-bottom:.5rem">💵 收入結構</h4>
+        <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>收入來源</th><th>計費基礎</th></tr></thead><tbody>
+          <tr><td>FIT 躉售收入</td><td>kWh × FIT 費率</td></tr>
+          <tr><td>PPA 轉供收入</td><td>kWh × PPA 合約電價</td></tr>
+          <tr><td>T-REC 收入</td><td>張 × 市價</td></tr>
+          <tr><td>整新後資產增值</td><td>IRR 提升 → 資產重估</td></tr>
+          <tr><td>SPV 股權處分</td><td>視退場策略</td></tr>
+        </tbody></table></div>
       </div>
-
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve1">現金流地基</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">四條產品線，四套打法，同一個利潤引擎</h3>
-            <p class="card-subtitle">第一曲線的任務：在成熟市場中用差異化打法穩住現金流與市占，為第二、三曲線提供銀彈與案場庫存。</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">☀️ 光伏：雙軌競爭打法</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>最低價/最多電</strong>：對價格敏感的 S1 用電大戶打「最低價」（對標華為與優化型產品）；對重視長期發電量客戶打「最多電」（以 ATMOCE 發電效率優化為武器）。
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">🔋 光儲：大光小儲・自發自用</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>防逆送邏輯</strong>：發電全在廠內用掉。訴求多電多證（T-REC 憑證雙增）與超約抑制（削減尖峰罰款）；副訴求為 TOU 時間電價套利。
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">⚡ 儲能：賣功率</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>賣功率而非備援</strong>：以 ATMOCE 為武器，最佳搭配是與既有光伏案場整合，填補自用率不足 35-50% 的缺口。
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--purple); margin-bottom: 0.5rem;">🏫 微網：防災優先</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>政府標案與韌性</strong>：配合校園避難場所標案，主訴求防災韌性。游說規格書納入技術評分項，避免純價格戰。
-            </p>
-          </div>
-        </div>
-
-        <h4 style="margin-bottom: 0.75rem;">📋 第一曲線產品線與 STP 客群對照</h4>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr><th>產品線</th><th>競爭焦點</th><th>核心武器</th><th>對應 STP 區隔</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>光伏</strong></td><td>最低價／最多電</td><td>華為・優化型產品／ATMOCE 發電效率</td><td>S1 用電大戶、S2 綠電壓力、S6 新建物法規</td></tr>
-              <tr><td><strong>光儲（大光小儲）</strong></td><td>自發自用（防逆送）</td><td>多電多證／超約抑制／TOU 時間電價</td><td>S1／S6 案場延伸</td></tr>
-              <tr><td><strong>儲能</strong></td><td>賣功率</td><td>ATMOCE 雲端能管平台</td><td>S5 錶後儲能</td></tr>
-              <tr><td><strong>微網（防災）</strong></td><td>政府標案</td><td>台達電・震江（BESS）／POXA・META（EMS）</td><td>S4 防災型微電網</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div>
+        <h4 style="margin-bottom:.5rem">📋 收購篩選框架</h4>
+        <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>維度</th><th>最低門檻</th><th>優選</th></tr></thead><tbody>
+          <tr><td>規模</td><td>≥ 500kW</td><td>≥ 2MW</td></tr>
+          <tr><td>FIT 年限</td><td>≥ 8 年</td><td>≥ 12 年</td></tr>
+          <tr><td>PR 值</td><td>≥ 65%</td><td>≥ 70%</td></tr>
+          <tr><td>位置</td><td>南部優先</td><td>近維運據點</td></tr>
+          <tr><td>設備</td><td>無結構損壞</td><td>僅需模組/逆變器換</td></tr>
+        </tbody></table></div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- ==================== PART 3: 第二曲線 (供給側基礎設施) ==================== -->
-    <section id="part3" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 3</span>
-        <h2 class="section-title">第二曲線：供給側基礎設施</h2>
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <h3 class="card-title">🛒 維運事業 — 全聯模式 → 加盟平台</h3>
+      <p class="card-subtitle" style="margin-bottom:1rem">策略修正：自建據點 → 加盟平台（農耕隊），資本密集轉平台生意。目標 1GW。</p>
+      <canvas id="omChart" style="max-height:200px"></canvas>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">⚡ ATMOCE — 利基產品 × B2B</h3>
+      <p class="card-subtitle" style="margin-bottom:.8rem">賣發電收益與賣儲能功率。客群：醫院、長照、數據中心、半導體、防災據點。「客戶買的不是便宜的電，是不能斷的電。」</p>
+      <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>收入來源</th><th>計費基礎</th></tr></thead><tbody>
+        <tr><td>光伏管理費</td><td>AUM × 年費率</td></tr>
+        <tr><td>超額發電分潤</td><td>超越基準值發電量</td></tr>
+        <tr><td>儲能功率月租</td><td>kW × 月費率</td></tr>
+        <tr><td>防災保障費</td><td>年度合約制</td></tr>
+        <tr><td>未來 VPP 調度</td><td>待市場成熟啟動</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+
+  <!-- 孵化層 -->
+  <h3 style="color:var(--cyan);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span class="card-badge badge-incubate">孵化層</span> 由中央出資出人・成熟後下放</h3>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3 class="card-title">🔌 綠電售電業</h3>
+      <p class="card-subtitle" style="margin-bottom:.8rem">通路樞紐・生態系中樞。雙路徑並行：收購大自然或自行設立。不讓單一路徑成瓶頸。</p>
+      <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>收入來源</th><th>計費基礎</th></tr></thead><tbody>
+        <tr><td>CPPA 售電收入</td><td>kWh × 合約電價</td></tr>
+        <tr><td>轉供服務費</td><td>kWh × 轉供費率</td></tr>
+        <tr><td>T-REC 銷售</td><td>張 × 市價</td></tr>
+        <tr><td>電力交易利差</td><td>買入 vs. 賣出價差</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">🧠 AIDC 算力供電</h3>
+      <p class="card-subtitle" style="margin-bottom:.8rem">ft. 富邦能源。三位一體：專案開發 + on-site power (SOFC/CHP) + 貨櫃 GPU 統包維運。差異化：SOFC 廢熱回收降 PUE。</p>
+      <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>收入來源</th><th>計費基礎</th></tr></thead><tbody>
+        <tr><td>專案開發費</td><td>專案總額 × 比例</td></tr>
+        <tr><td>On-site power</td><td>kW × 月費</td></tr>
+        <tr><td>貨櫃 GPU 統包</td><td>專案報價</td></tr>
+        <tr><td>維運管理費</td><td>年度合約</td></tr>
+        <tr><td>PUE 優化分潤</td><td>節能效益分享</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">🚛 CPO 充電服務</h3>
+      <p class="card-subtitle" style="margin-bottom:.8rem">交通電氣化終端。雙路徑：收購 noodle 或順益合資貨車 CPO。避開乘用車紅海。</p>
+      <div class="custom-table-wrapper"><table class="custom-table"><thead><tr><th>收入來源</th><th>計費基礎</th></tr></thead><tbody>
+        <tr><td>充電服務費</td><td>kWh × 電價 + 服務費</td></tr>
+        <tr><td>場站分潤</td><td>與地主/業者分潤</td></tr>
+        <tr><td>車隊管理費</td><td>車隊規模 × 月費</td></tr>
+        <tr><td>綠電溢價</td><td>T-REC 綁定充電認證</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P7: OKR 行動 ===== -->
+<section id="p7" class="section">
+  <div class="section-header"><span class="section-tag">Part 7</span><h2 class="section-title">OKR 即刻行動矩陣</h2></div>
+
+  <div class="tab-controls">
+    <button class="tab-btn okr-tab-btn active" data-division="all">全部</button>
+    <button class="tab-btn okr-tab-btn" data-division="hq">強中央 (總部)</button>
+    <button class="tab-btn okr-tab-btn" data-division="jiankun">建坤</button>
+    <button class="tab-btn okr-tab-btn" data-division="om">維運</button>
+    <button class="tab-btn okr-tab-btn" data-division="atmoce">ATMOCE</button>
+    <button class="tab-btn okr-tab-btn" data-division="retailer">售電業</button>
+    <button class="tab-btn okr-tab-btn" data-division="aidc">AIDC</button>
+    <button class="tab-btn okr-tab-btn" data-division="cpo">CPO</button>
+  </div>
+
+  <div class="grid-2">
+    <!-- 總部 OKR -->
+    <div class="okr-card" data-division="hq"><div class="info-box" style="border-color:var(--purple);height:100%">
+      <span class="card-badge badge-hq">強中央・總部</span>
+      <h4 style="margin:.4rem 0;color:var(--purple)">O1: 資本配置與 SPV 標準化</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-medium">8w</span> 完成 SPV 標準化架構文件（股權、權責、退場）</li>
+        <li><span class="p-high">12w</span> 接觸 3 家新資本夥伴（壽險/財團）</li>
+        <li><span class="p-medium">6w</span> 建立 3+3 判準的資源分配評分表</li>
+      </ul>
+      <h4 style="margin:.6rem 0 .3rem;color:var(--purple)">O2: 數據與技術中台</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-high">10w</span> 統一監控平台，首批案場接入</li>
+        <li><span class="p-medium">8w</span> 電廠資產鑑價模型 v1</li>
+        <li><span class="p-medium">6w</span> SOFC/CHP 技術中台組織歸屬</li>
+      </ul>
+      <h4 style="margin:.6rem 0 .3rem;color:var(--purple)">O3: 管理機制與治理</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-medium">4w</span> 導入一分鐘發言月度檢討會</li>
+        <li><span class="p-medium">8w</span> 內部轉移定價設計（維運 vs 建坤）</li>
+        <li><span class="p-high">10w</span> 孵化期虧損承擔規則與畢業標準</li>
+      </ul>
+    </div></div>
+
+    <!-- 建坤 OKR -->
+    <div class="okr-card" data-division="jiankun"><div class="info-box" style="border-color:var(--emerald);height:100%">
+      <span class="card-badge badge-rich">富地方・建坤</span>
+      <h4 style="margin:.4rem 0;color:var(--emerald)">收購標的與整新驗證</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-high">10w</span> 建立收購標的資料庫，掃描 ≥20 案場</li>
+        <li><span class="p-highest">16w</span> 首案完成 DD 並進入議價</li>
+        <li><span class="p-high">收購後12w</span> 首案整新完成，PR ≥ +10%</li>
+      </ul>
+    </div></div>
+
+    <!-- 維運 OKR -->
+    <div class="okr-card" data-division="om"><div class="info-box" style="border-color:var(--emerald);height:100%">
+      <span class="card-badge badge-rich">富地方・維運</span>
+      <h4 style="margin:.4rem 0;color:var(--emerald)">加盟驗證與覆蓋擴張</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-highest">8w</span> 加盟可行性驗證，接觸 10 家維運商</li>
+        <li><span class="p-high">16w</span> 簽首批 3 家加盟或完成 3 據點選址</li>
+        <li><span class="p-high">16w</span> 維運合約覆蓋 ≥50MW</li>
+      </ul>
+    </div></div>
+
+    <!-- ATMOCE OKR -->
+    <div class="okr-card" data-division="atmoce"><div class="info-box" style="border-color:var(--emerald);height:100%">
+      <span class="card-badge badge-rich">富地方・ATMOCE</span>
+      <h4 style="margin:.4rem 0;color:var(--emerald)">產品首單與 VPP 節點</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-medium">8w</span> 分潤標準合約與防災儲能定價模型</li>
+        <li><span class="p-highest">16w</span> 首個分潤案場簽約 (≥500kW)</li>
+        <li><span class="p-highest">16w</span> 首個儲能月租合約，首個 VPP 節點</li>
+      </ul>
+    </div></div>
+
+    <!-- 售電業 OKR -->
+    <div class="okr-card" data-division="retailer"><div class="info-box" style="border-color:var(--cyan);height:100%">
+      <span class="card-badge badge-incubate">孵化層・售電業</span>
+      <h4 style="margin:.4rem 0;color:var(--cyan)">雙路徑並行取照</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-high">10w</span> 大自然售電業估值與 DD</li>
+        <li><span class="p-high">10w</span> 同步啟動自行申請文件準備</li>
+        <li><span class="p-highest">16w</span> 確定路徑，簽收購協議或提交申請</li>
+      </ul>
+    </div></div>
+
+    <!-- AIDC OKR -->
+    <div class="okr-card" data-division="aidc"><div class="info-box" style="border-color:var(--cyan);height:100%">
+      <span class="card-badge badge-incubate">孵化層・AIDC</span>
+      <h4 style="margin:.4rem 0;color:var(--cyan)">富邦合作與客戶驗證</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-high">8w</span> 與富邦能源完成合作備忘錄 MOU</li>
+        <li><span class="p-high">12w</span> 鎖定 2 家二線客戶 (封裝/PCB) 做驗證</li>
+        <li><span class="p-high">14w</span> 完成貨櫃 GPU 產品規格定義</li>
+      </ul>
+    </div></div>
+
+    <!-- CPO OKR -->
+    <div class="okr-card" data-division="cpo"><div class="info-box" style="border-color:var(--cyan);height:100%">
+      <span class="card-badge badge-incubate">孵化層・CPO</span>
+      <h4 style="margin:.4rem 0;color:var(--cyan)">路徑確定與貨車調研</h4>
+      <ul style="font-size:.83rem;color:var(--text-muted);padding-left:1.1rem">
+        <li><span class="p-high">10w</span> noodle 估值與順益合資架構評估</li>
+        <li><span class="p-high">14w</span> 簽訂 LOI 或合資備忘錄</li>
+        <li><span class="p-high">12w</span> 貨車充電需求調研 (如選順益路徑)</li>
+      </ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== P8: 風險與決議 ===== -->
+<section id="p8" class="section">
+  <div class="section-header"><span class="section-tag">Part 8</span><h2 class="section-title">結構化第二意見、風險與待補充清單</h2></div>
+
+  <!-- 紅隊分析 -->
+  <div class="card" style="margin-bottom:1.5rem;border-color:rgba(244,63,94,.4)">
+    <span class="card-badge badge-danger">紅隊觀點</span>
+    <h3 class="card-title" style="margin-top:.5rem;color:var(--rose);margin-bottom:.8rem">🛡️ 結構化第二意見</h3>
+    <div class="grid-2">
+      <div style="background:rgba(244,63,94,.05);padding:1.1rem;border-radius:var(--radius-md);border:1px solid var(--rose-glow)">
+        <h4 style="color:var(--rose);margin-bottom:.4rem">⚠️ 最有力的反對論點</h4>
+        <p style="font-size:.88rem;color:var(--text-muted)">鴻海推動強中央的前提是 5 兆營收撐著，總部可以燒錢孵化。進能服的規模不同，強中央可能變成「總部管理費吃掉事業部利潤」。<strong>方法論的可移植性 ≠ 規模條件的可移植性。</strong></p>
       </div>
-
-      <!-- 事業一：ATMOCE -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve2">第二曲線・事業一</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">ATMOCE 體系（進能服子公司）｜利基產品 × B2B</h3>
-            <p class="card-subtitle">「賣發電收益」與「賣儲能功率」：把一次性工程升級為可產品化、可募資之資產</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">☀️ 光伏：賣發電（投資分潤）</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • 「你出屋頂/資金，我出開發能力，雙方分潤」。ATMOCE 不是 EPC，賺發電收益管理費與分潤差（類似 ETF5050 結構，掌控設計與定價權）。
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">🔋 儲能：賣功率（防災備援）</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • 「遍地開花」部署小型儲能單元。短期賺取防災備援月租；長期匯聚分散節點為未來 VPP (虛擬電廠) 調度基礎。
-            </p>
-          </div>
-        </div>
-
-        <h4 style="margin-bottom: 0.75rem;">🏥 B2B 防災高需求客群</h4>
-        <div class="grid-4" style="margin-bottom: 1.5rem;">
-          <div style="font-size: 0.85rem; background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">🏥 <strong>醫院 / 長照機構</strong><br><span style="color: var(--text-muted);">停電危及生命安全</span></div>
-          <div style="font-size: 0.85rem; background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">💻 <strong>數據中心 / 半導體</strong><br><span style="color: var(--text-muted);">停電每小時千萬損失</span></div>
-          <div style="font-size: 0.85rem; background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">🏛️ <strong>政府防災據點</strong><br><span style="color: var(--text-muted);">法規要求備援電力</span></div>
-          <div style="font-size: 0.85rem; background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">🏭 <strong>科學園區關鍵設施</strong><br><span style="color: var(--text-muted);">供電韌性保障</span></div>
-        </div>
+      <div class="info-box">
+        <h4 style="color:var(--amber);margin-bottom:.4rem">💡 三個替代假設</h4>
+        <ol style="font-size:.85rem;color:var(--text-muted);padding-left:1.1rem">
+          <li><strong>趨勢而非方法</strong>：鴻海的成功可能是押對 AI 趨勢，非組織方法本身。</li>
+          <li><strong>農耕隊行不通</strong>：中小維運商是競爭者，可能不願把客戶關係交平台。</li>
+          <li><strong>售電業執照半可控</strong>：遊說、資本調整、併購都能影響核發，完全歸入不可控可能是過早放棄。</li>
+        </ol>
       </div>
+    </div>
+  </div>
 
-      <!-- 事業二：維運事業 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve2">第二曲線・事業二</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">維運事業（全聯模式 × 1GW 存量目標）</h3>
-            <p class="card-subtitle">用價格戰搶 1GW 存量市場，以據點密度換反應速度 (小時達)</p>
-          </div>
-        </div>
+  <!-- 一頁式決策摘要 -->
+  <div class="card" style="margin-bottom:1.5rem;border-color:var(--amber)">
+    <h3 class="card-title" style="color:var(--amber);margin-bottom:.8rem">📋 一頁式決策摘要</h3>
+    <div class="grid-5">
+      <div class="info-box" style="border-color:var(--amber)"><h4 style="color:var(--amber);font-size:.9rem">做什麼</h4><p style="font-size:.8rem">以 3+3 取代六線並列，作為資源分配判準</p></div>
+      <div class="info-box" style="border-color:var(--purple)"><h4 style="color:var(--purple);font-size:.9rem">怎麼組織</h4><p style="font-size:.8rem">強中央富地方。第二曲線獨立P&L；總部孵化第三曲線</p></div>
+      <div class="info-box" style="border-color:var(--emerald)"><h4 style="color:var(--emerald);font-size:.9rem">怎麼分資源</h4><p style="font-size:.8rem">Divide & Conquer。可控投 100%；不可控只做情境準備</p></div>
+      <div class="info-box" style="border-color:var(--cyan)"><h4 style="color:var(--cyan);font-size:.9rem">怎麼降風險</h4><p style="font-size:.8rem">BOL 雙槓桿。SPV 工廠＋加盟平台取代自建</p></div>
+      <div class="info-box" style="border-color:var(--rose)"><h4 style="color:var(--rose);font-size:.9rem">最先驗證</h4><p style="font-size:.8rem">維運加盟接受度、富邦 AIDC 條件、第二曲線正現金流</p></div>
+    </div>
+  </div>
 
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-          <div>
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">🛒 全聯模式 vs. 維運事業機制</h4>
-            <div class="custom-table-wrapper">
-              <table class="custom-table">
-                <thead><tr><th>全聯零售業</th><th>維運事業</th></tr></thead>
-                <tbody>
-                  <tr><td>低毛利高周轉</td><td>低單價高覆蓋</td></tr>
-                  <tr><td>密集開店搶距離</td><td>密集設站搶反應時間 (小時達)</td></tr>
-                  <tr><td>會員制鎖定消費者</td><td>長約制鎖定案場業主</td></tr>
-                  <tr><td>PB 自有品牌利潤高</td><td>設備代購/整新利潤高</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+  <!-- 待補充清單 -->
+  <div class="card">
+    <h3 class="card-title" style="margin-bottom:.8rem">📌 待補充清單 (15 項議題)</h3>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+      <input type="text" id="pendingSearchInput" class="search-input" placeholder="🔍 搜尋待補充項目...">
+      <select id="priorityFilter" class="search-input" style="max-width:180px">
+        <option value="all">所有優先級</option>
+        <option value="最高">最高</option>
+        <option value="高">高</option>
+      </select>
+    </div>
+    <div class="custom-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>#</th><th>層級</th><th>待補充項目</th><th>重要性</th></tr></thead>
+        <tbody>
+          <tr class="pending-item-row" data-priority="最高"><td>1</td><td>總部</td><td>強中央的人力與費用預算上限（佔營收比重）</td><td><span class="p-highest">最高</span></td></tr>
+          <tr class="pending-item-row" data-priority="最高"><td>2</td><td>總部</td><td>第三曲線孵化期的虧損承擔上限與畢業標準</td><td><span class="p-highest">最高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>3</td><td>總部</td><td>技術中台的人才來源（自建 vs. 挖角 vs. 外包）</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>4</td><td>總部</td><td>六事業部負責人對總部資源分配權的接受度</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>5</td><td>建坤</td><td>標準化 SPV 架構的稅務與法律設計</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>6</td><td>建坤</td><td>新資本夥伴的名單與接觸優先序</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="最高"><td>7</td><td>維運</td><td>加盟模式的實地驗證——區域維運商意願調查</td><td><span class="p-highest">最高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>8</td><td>維運</td><td>與建坤的內部轉移定價機制</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>9</td><td>ATMOCE</td><td>防災儲能月租的客戶付費意願驗證</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>10</td><td>ATMOCE</td><td>VPP 經濟臨界點——需多少節點有效運作</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>11</td><td>售電業</td><td>大自然售電業的客戶合約品質與轉換靈活性</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>12</td><td>售電業</td><td>執照取得的可施力空間評估（是否真為不可控）</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="最高"><td>13</td><td>AIDC</td><td>富邦能源合作架構（投資比例/管理權/專案分工）</td><td><span class="p-highest">最高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>14</td><td>AIDC</td><td>進能服 AIDC 專案開發經驗與團隊能力</td><td><span class="p-high">高</span></td></tr>
+          <tr class="pending-item-row" data-priority="高"><td>15</td><td>CPO</td><td>noodle 估值與順益合資的股權結構</td><td><span class="p-high">高</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-          <div>
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">📍 據點佈局與密度規劃</h4>
-            <div class="custom-table-wrapper">
-              <table class="custom-table">
-                <thead><tr><th>優先級</th><th>區域</th><th>案場密度</th><th>據點需求</th></tr></thead>
-                <tbody>
-                  <tr><td><span class="p-highest">P0</span></td><td>台南 / 高雄 / 屏東</td><td>最高</td><td>2 - 3 站</td></tr>
-                  <tr><td><span class="p-high">P1</span></td><td>彰化 / 雲林 / 嘉義</td><td>高</td><td>2 站</td></tr>
-                  <tr><td><span class="p-medium">P2</span></td><td>桃園 / 新竹 / 苗栗</td><td>中</td><td>1 站</td></tr>
-                  <tr><td><span>P3</span></td><td>東部 / 離島</td><td>低</td><td>暫不設站</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+</main>
 
-        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md);">
-          <canvas id="omCoverageChart" style="max-height: 230px;"></canvas>
-        </div>
-      </div>
+<footer>
+  <p>© 2026 進能服 (6692) 成長戰略 v4 — 強中央富地方 × 3+3 框架 Dashboard</p>
+  <p style="font-size:.75rem;margin-top:.3rem">洞察來源：商周 MEGA TALK《打造 10 兆新鴻海》</p>
+</footer>
 
-      <!-- 事業三：建坤 SPV -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve2">第二曲線・事業三</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">建坤 SPV（持有電廠資產・賣電不賣工程）</h3>
-            <p class="card-subtitle">重點：國泰 95.1% 出資承接重資本，大幅降低進能服自有 CapEx 壓力！</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">🏛️ 表外股權結構與資本避險設計</h4>
-            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-              <div style="flex: 1; background: rgba(245, 158, 11, 0.1); border: 1.5px solid var(--amber); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
-                <div style="font-size: 1.4rem; font-weight: 800; color: var(--amber);">國泰 95.1%</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">財務投資者・主要出資方（表外）</div>
-              </div>
-              <div style="flex: 1; background: rgba(16, 185, 129, 0.1); border: 1.5px solid var(--emerald); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
-                <div style="font-size: 1.4rem; font-weight: 800; color: var(--emerald);">進金生 4.9%</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">策略操盤方・管理團隊</div>
-              </div>
-            </div>
-            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.75rem;">* 電廠收購資本主要由國泰承擔，不佔用進能服資產負債表 CapEx。</p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">⚙️ 電廠收購＋整新升級機制</h4>
-            <ul style="padding-left: 1.2rem; font-size: 0.88rem; color: var(--text-muted);">
-              <li><strong>收購對象：</strong>老化案場、經營不善 SPV、急於退場財務投資人。</li>
-              <li><strong>鑑價模型：</strong>設備殘值 × 剩餘 FIT 年限 × PR 值衰減曲線。</li>
-              <li><strong>整新效果：</strong>更換 TOPCon/BC 模組與逆變器，PR 值提升 10-20%，延長發電現金流。</li>
-            </ul>
-          </div>
-        </div>
-
-        <h4 style="margin-bottom: 0.75rem;">📋 建坤電廠收購門檻框架</h4>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead><tr><th>篩選維度</th><th>最低門檻</th><th>優選條件</th></tr></thead>
-            <tbody>
-              <tr><td>規模</td><td>≥ 500kW</td><td>≥ 2MW</td></tr>
-              <tr><td>剩餘 FIT 年限</td><td>≥ 8 年</td><td>≥ 12 年</td></tr>
-              <tr><td>當前 PR 值</td><td>≥ 65%</td><td>≥ 70%（整新潛力大）</td></tr>
-              <tr><td>地理位置</td><td>南部優先</td><td>接近維運據點覆蓋範圍</td></tr>
-              <tr><td>設備狀態</td><td>無結構性損壞</td><td>僅需模組 / 逆變器更換</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== PART 4: 第三曲線 (需求側通路與終端) ==================== -->
-    <section id="part4" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 4</span>
-        <h2 class="section-title">第三曲線：需求側通路與終端</h2>
-      </div>
-
-      <!-- 事業一：綠電售電業 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve3">第三曲線・生態中樞</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">綠電售電業（進能服子公司）｜打通自產自銷閉環</h3>
-            <p class="card-subtitle">中樞意義：無售電業則建坤僅能躉售台電、VPP 無法變現；有售電業則六事業部形成定價閉環！</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--purple); margin-bottom: 0.5rem;">🛣️ 雙進入路徑分析</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>路徑 A (首選)</strong>：收購大自然售電業——直接取得執照與既有客戶，速度最快。<br>
-              • <strong>路徑 B (備案)</strong>：待地熱/AIDC 專案成功後自行設立——架構自主但時程較長。
-            </p>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">💵 收入模型與利潤閉環</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              • <strong>CPPA 企業售電收入</strong> (長期合約)<br>
-              • <strong>轉供服務費</strong> + <strong>T-REC 綠電憑證獨立/綁定銷售</strong><br>
-              • <strong>電力交易利差</strong> (低買高賣需量管理)
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 事業二：充電 CPO -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve3">第三曲線・事業二</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">充電服務 CPO（交通電氣化終端）</h3>
-            <p class="card-subtitle">差異化佈局：收購 noodle 或與順益合資進軍高功率貨車 CPO</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">🚗 路徑 A：收購 noodle</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">既有充電營運商，具場站與客戶基礎。收購後導入售電業 100% 綠電供應與維運服務。</p>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">🚛 路徑 B：順益合資貨車 CPO</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">結合順益商用車通路，切入高功率、固定路線貨車充電，差異化避開乘用車紅海。</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 事業三：AIDC -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-curve3">第三曲線・事業三</span>
-            <h3 class="card-title" style="margin-top: 0.5rem;">AIDC（AI 資料中心專案開發 ft. 富邦能源）</h3>
-            <p class="card-subtitle">三位一體戰略：專案開發商 ＋ On-site power ＋ 貨櫃 GPU 統包暨維運</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">🏗️ 專案開發商</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">負責 AIDC 選址、規劃與許可，借助富邦能源資本與能源經驗。</p>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md);">
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">⚡ On-site Power 供電</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">SOFC/CHP 結合儲能現場供電，廢熱回收降低 PUE，解決北部電網緊缺。</p>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md);">
-            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">📦 貨櫃 GPU 統包營運</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">電力、冷卻、網路 Turnkey 建置，完成後轉入維運事業長期長約。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== PART 5: 路線圖與財務資本 ==================== -->
-    <section id="part5" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 5</span>
-        <h2 class="section-title">FY26–FY28 三年路線圖與財務資本規劃</h2>
-      </div>
-
-      <!-- 三年路線圖 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 1rem;">🗓️ 三年執行路線圖（第一養第二、第二養第三）</h3>
-        
-        <div class="grid-3">
-          <div style="background: var(--bg-secondary); border: 1px solid var(--amber); padding: 1.25rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-curve1">FY26 固本啟航</span>
-            <h4 style="margin: 0.5rem 0; color: var(--amber);">第一曲線全力衝刺</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>第一曲線</strong>：四產品線全面落地，光伏交叉導入光儲＋ATMOCE。</li>
-              <li><strong>第二曲線</strong>：基礎建設＋首單驗證 (ATMOCE 首案 ≥500kW、維運 3 據點 50MW、建坤首案議價)。</li>
-              <li><strong>第三曲線</strong>：前期評估與談判 (簽 LOI/MOU，不做重資本投入)。</li>
-            </ul>
-          </div>
-
-          <div style="background: var(--bg-secondary); border: 1px solid var(--emerald); padding: 1.25rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-curve2">FY27 資產放量</span>
-            <h4 style="margin: 0.5rem 0; color: var(--emerald);">第二曲線放量反哺</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>第一曲線</strong>：維持現金引擎，深化光儲滲透率與據點邊際成本效益。</li>
-              <li><strong>第二曲線</strong>：建坤持續收購整新 (PR≥+10%)、維運向 1GW 推進、ATMOCE VPP 節點佈局。</li>
-              <li><strong>第三曲線</strong>：取照與試點 (售電業取得資格/簽 CPPA、CPO 首站、AIDC Pilot)。</li>
-            </ul>
-          </div>
-
-          <div style="background: var(--bg-secondary); border: 1px solid var(--cyan); padding: 1.25rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-curve3">FY28 閉環規模化</span>
-            <h4 style="margin: 0.5rem 0; color: var(--cyan);">三曲線飛輪規模化</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>第一曲線</strong>：作為生態系信任與案源地基。</li>
-              <li><strong>第二曲線</strong>：電廠組合 IRR 提升資產重估、維運逼近 1GW、VPP 調度經濟性。</li>
-              <li><strong>第三曲線</strong>：售電業為中樞形成閉環 (CPPA 損益平衡、CPO 貨車快充網、AIDC 商轉)。</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- 財務輪廓與資本強度 Chart.js -->
-      <div class="grid-2" style="margin-bottom: 2rem;">
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 0.5rem;">📈 營收相對指數成長趨勢 (示意)</h3>
-          <p class="card-subtitle" style="margin-bottom: 1rem;">第一曲線提供基底，第二三曲線依序放量（非財務承諾）</p>
-          <canvas id="threeCurveRevenueChart" style="max-height: 250px;"></canvas>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 0.5rem;">🛡️ 重資本出資結構 (表外避險)</h3>
-          <p class="card-subtitle" style="margin-bottom: 1rem;">國泰 95.1% + ATMOCE 募資承接重資本，保護進能服自有現金</p>
-          <canvas id="capitalStructureChart" style="max-height: 250px;"></canvas>
-        </div>
-      </div>
-
-      <!-- 資本來源分析表 -->
-      <div class="card">
-        <h3 class="card-title" style="margin-bottom: 1rem;">💰 三曲線資本強度與資金來源規劃表</h3>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr><th>資本項目</th><th>主要資金來源 (示意)</th><th>對進能服自有資本之壓力</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>建坤電廠收購／整新</strong></td><td>國泰 95.1% 出資（SPV 表外）＋ 專案融資 (PF)</td><td><span class="p-medium">低 (表外為主)</span></td></tr>
-              <tr><td><strong>ATMOCE 分潤產品</strong></td><td>壽險／法人募資（AUM 模式）</td><td><span class="p-medium">低 (募資承接)</span></td></tr>
-              <tr><td><strong>維運據點擴張</strong></td><td>進能服自有 + 營運現金流</td><td><span class="p-high">中 (人力與據點 OpEx)</span></td></tr>
-              <tr><td><strong>售電業／CPO 收購</strong></td><td>進能服自有 + 策略夥伴</td><td><span class="p-highest">中高 (需董事會核定上限)</span></td></tr>
-              <tr><td><strong>AIDC 專案開發</strong></td><td>富邦能源合資</td><td><span class="p-high">依合資架構而定 (關鍵未定項)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== PART 6: 董事會待決議與風險評估 ==================== -->
-    <section id="part6" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 6</span>
-        <h2 class="section-title">董事會待決議與風險評估 (紅隊分析)</h2>
-      </div>
-
-      <!-- 結構化第二意見 Red Teaming -->
-      <div class="card" style="margin-bottom: 2rem; border-color: rgba(244, 63, 94, 0.4);">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-danger">紅隊觀點</span>
-            <h3 class="card-title" style="margin-top: 0.5rem; color: var(--rose);">🛡️ 結構化第二意見與潛在風險評估</h3>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div style="background: rgba(244, 63, 94, 0.05); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--rose-glow);">
-            <h4 style="color: var(--rose); margin-bottom: 0.5rem;">⚠️ 最有力的反對論點</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-              六事業體同時推進屬激進佈局。第二曲線尚未產生穩定現金流即啟動第三曲線，市場投資人將質疑「是建生態系還是分散資源？」。回應：靠第一養第二、第二養第三之嚴格時序節律，但前提為前兩曲線季度數字須如期達標。
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">💡 三個替代假設 (可能出錯之處)</h4>
-            <ol style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>大自然售電整合風險：</strong>既有合約若缺乏轉供彈性，整合成本恐高於自行設立。</li>
-              <li><strong>貨車 CPO 市場未熟：</strong>電動貨車採購若觀望，合資將變成「等市場」。</li>
-              <li><strong>富邦能源合作定位：</strong>若富邦僅為財務出資者，AIDC 開發執行壓力全在進能服。</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <!-- 董事會待決議 11 項 Matrix -->
-      <div class="card">
-        <h3 class="card-title" style="margin-bottom: 1rem;">📌 董事會待決議與待補充項目矩陣 (11 項議題)</h3>
-        
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <input type="text" id="pendingSearchInput" class="search-input" placeholder="🔍 搜尋待決議項目或事業層級...">
-          <select id="priorityFilter" class="search-input" style="max-width: 200px;">
-            <option value="all">所有優先級</option>
-            <option value="最高">最高優先級 (Gate/CapEx)</option>
-            <option value="高">高優先級</option>
-          </select>
-        </div>
-
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>事業／層級</th>
-                <th>待決議／待補充項目</th>
-                <th>重要性</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="pending-item-row" data-priority="最高"><td>1</td><td>整體戰略</td><td>三曲線 CapEx 三年上限與各曲線分配額度</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>2</td><td>整體戰略</td><td>六線並進的總資本需求估算與資金來源核定</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>3</td><td>第三曲線</td><td>第三曲線三事業 (CPO/售電/AIDC) 的啟動 Gate 門檻條件</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>4</td><td>AIDC 算力</td><td>富邦能源合作架構（投資比例／管理權／專案分工）</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>5</td><td>整體戰略</td><td>第一、二曲線正現金流的季度檢核機制與里程碑</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>6</td><td>ATMOCE</td><td>防災儲能月租定價模型與客戶 WTP 驗證；VPP 經濟臨界點</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>7</td><td>維運事業</td><td>1GW 目標的時間框架、人力預算；與建坤內部轉移定價</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>8</td><td>建坤 SPV</td><td>收購資金結構（國泰注資 vs. 專案融資 PF）</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>9</td><td>充電 CPO</td><td>noodle 估值/DD 結果；順益合資股權與管理權分配</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>10</td><td>綠電售電業</td><td>大自然客戶合約品質與轉換靈活性；自行設立審批時程</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>11</td><td>AIDC 算力</td><td>進能服 AIDC 開發經驗與團隊能力；SOFC 沙崙驗證對商業化時程影響</td><td><span class="p-high">高</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 進能服 (6692) 三曲線三年成長計畫 (FY26~FY28) 董事會版 Dashboard.</p>
-  </footer>
-
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,17 +1,183 @@
-document.addEventListener('DOMContentLoaded',()=>{initThemeToggle();initScrollSpy();initOKRTabs();initPendingItemsFilter();initCharts()});
-function initThemeToggle(){const b=document.getElementById('themeToggleBtn');if(!b)return;const t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);u(b,t);b.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);u(b,n)})}
-function u(b,t){b.innerHTML=t==='dark'?'☀️ 淺色模式':'🌙 深色模式'}
-function initScrollSpy(){const s=document.querySelectorAll('.section');const l=document.querySelectorAll('.nav-link');window.addEventListener('scroll',()=>{let c='';s.forEach(x=>{if(pageYOffset>=x.offsetTop-100)c=x.id});l.forEach(x=>{x.classList.remove('active');if(x.getAttribute('href')==='#'+c)x.classList.add('active')})})}
-function initOKRTabs(){const bs=document.querySelectorAll('.okr-tab-btn');const cs=document.querySelectorAll('.okr-card');bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=b.getAttribute('data-division');cs.forEach(c=>{c.style.display=(d==='all'||c.getAttribute('data-division')===d)?'block':'none'})}))}
-function initPendingItemsFilter(){const s=document.getElementById('pendingSearchInput');const p=document.getElementById('priorityFilter');const r=document.querySelectorAll('.pending-item-row');if(!s||!p)return;function f(){const q=s.value.toLowerCase();const v=p.value;r.forEach(row=>{const t=row.textContent.toLowerCase();const pr=row.getAttribute('data-priority');row.style.display=(t.includes(q)&&(v==='all'||pr===v))?'':'none'})}s.addEventListener('input',f);p.addEventListener('change',f)}
-function initCharts(){if(typeof Chart==='undefined')return;
-// Chart 1: Foxconn parallel — Three-layer resource allocation
-const c1=document.getElementById('layerChart')?.getContext('2d');
-if(c1){new Chart(c1,{type:'doughnut',data:{labels:['強中央 (資本配置/數據/技術/孵化)','富地方・建坤 SPV','富地方・維運事業','富地方・ATMOCE','孵化層・綠電售電業','孵化層・AIDC','孵化層・CPO'],datasets:[{data:[25,15,15,15,10,10,10],backgroundColor:['#8b5cf6','#10b981','#059669','#047857','#06b6d4','#0284c7','#0891b2']}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#9ca3af',font:{size:11}}},title:{display:true,text:'強中央富地方三層組織資源分配架構',color:'#9ca3af'}}}})}
-// Chart 2: 3+3 Framework
-const c2=document.getElementById('threeThreeChart')?.getContext('2d');
-if(c2){new Chart(c2,{type:'bar',data:{labels:['AI 算力供電','交通電氣化','韌性電力'],datasets:[{label:'未來產業 (需求端)',data:[90,60,80],backgroundColor:'#06b6d4',borderRadius:6},{label:'核心技術支撐度',data:[75,40,85],backgroundColor:'#10b981',borderRadius:6}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{color:'#9ca3af'}},title:{display:true,text:'3+3 三大未來產業 × 核心技術匹配度 (示意)',color:'#9ca3af'}},scales:{x:{ticks:{color:'#9ca3af'}},y:{ticks:{color:'#9ca3af'}}}}})}
-// Chart 3: O&M coverage
-const c3=document.getElementById('omChart')?.getContext('2d');
-if(c3){new Chart(c3,{type:'bar',data:{labels:['台南/高雄/屏東 (P0)','彰化/雲林/嘉義 (P1)','桃園/新竹/苗栗 (P2)','東部/離島 (P3)'],datasets:[{label:'據點需求 (站)',data:[3,2,1,0],backgroundColor:['#10b981','#06b6d4','#3b82f6','#9ca3af'],borderRadius:6}]},options:{responsive:true,plugins:{legend:{display:false},title:{display:true,text:'維運事業區域據點規劃 (加盟 + 自建混合)',color:'#9ca3af'}},scales:{y:{ticks:{precision:0,color:'#9ca3af'}},x:{ticks:{color:'#9ca3af'}}}}})}
+// JavaScript for 進能服 (6692) 成長戰略 v5
+
+document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
+  initScrollSpy();
+  initOKRTabs();
+  initPendingItemsFilter();
+  initCharts();
+});
+
+// 1. Theme Toggle (Dark / Light)
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('themeToggleBtn');
+  if (!toggleBtn) return;
+
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateToggleBtnText(toggleBtn, currentTheme);
+
+  toggleBtn.addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateToggleBtnText(toggleBtn, newTheme);
+  });
+}
+
+function updateToggleBtnText(btn, theme) {
+  btn.innerHTML = theme === 'dark' ? '☀️ 淺色模式' : '🌙 深色模式';
+}
+
+// 2. Navigation ScrollSpy
+function initScrollSpy() {
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (pageYOffset >= section.offsetTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
+// 3. OKR Tabs Filtering
+function initOKRTabs() {
+  const tabBtns = document.querySelectorAll('.okr-tab-btn');
+  const okrCards = document.querySelectorAll('.okr-card');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const targetDivision = btn.getAttribute('data-division');
+      okrCards.forEach(card => {
+        card.style.display = (targetDivision === 'all' || card.getAttribute('data-division') === targetDivision) ? 'block' : 'none';
+      });
+    });
+  });
+}
+
+// 4. Pending Items Search & Filter
+function initPendingItemsFilter() {
+  const searchInput = document.getElementById('pendingSearchInput');
+  const priorityFilter = document.getElementById('priorityFilter');
+  const rows = document.querySelectorAll('.pending-item-row');
+
+  if (!searchInput || !priorityFilter) return;
+
+  function filterItems() {
+    const query = searchInput.value.toLowerCase();
+    const selectedPriority = priorityFilter.value;
+
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const priority = row.getAttribute('data-priority');
+
+      const matchesSearch = text.includes(query);
+      const matchesPriority = selectedPriority === 'all' || priority === selectedPriority;
+
+      row.style.display = (matchesSearch && matchesPriority) ? '' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', filterItems);
+  priorityFilter.addEventListener('change', filterItems);
+}
+
+// 5. Chart.js Visualizations
+function initCharts() {
+  if (typeof Chart === 'undefined') return;
+
+  // Chart 1: Serialized Priority & Cash Flow Timeline
+  const priorityCtx = document.getElementById('priorityTimelineChart')?.getContext('2d');
+  if (priorityCtx) {
+    new Chart(priorityCtx, {
+      type: 'bar',
+      data: {
+        labels: ['P0 建坤 SPV (FY26)', 'P0 維運 50MW (FY26)', 'P1 售電業 (FY27)', 'P1 ATMOCE 儲能 (FY27)', 'P2 AIDC 算力 (FY28)', 'P3 CPO (主動延後)'],
+        datasets: [
+          {
+            label: '自身資本消耗強度 (高/中/低)',
+            data: [1, 2, 4, 3, 1, 5],
+            backgroundColor: '#06b6d4',
+            borderRadius: 6
+          },
+          {
+            label: '管理注意力需求強度 (高/中/低)',
+            data: [3, 5, 3, 3, 5, 3],
+            backgroundColor: '#f59e0b',
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#9ca3af' } },
+          title: { display: true, text: '六大事業部資本 vs 管理注意力雙軸評估 (強度分數)', color: '#9ca3af' }
+        },
+        scales: {
+          y: { ticks: { color: '#9ca3af' }, title: { display: true, text: '相對強度 (1=極低, 5=極高)', color: '#9ca3af' } },
+          x: { ticks: { color: '#9ca3af' } }
+        }
+      }
+    });
+  }
+
+  // Chart 2: Divide & Conquer Factor Breakdown
+  const factorCtx = document.getElementById('factorCategoryChart')?.getContext('2d');
+  if (factorCtx) {
+    new Chart(factorCtx, {
+      type: 'pie',
+      data: {
+        labels: ['可控因素 (100% 資源投入)', '半可控因素 (持有電廠/策略施力)', '不可控因素 (情境準備/不讓卡住)'],
+        datasets: [{
+          data: [10, 3, 6],
+          backgroundColor: ['#10b981', '#06b6d4', '#f43f5e']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'right', labels: { color: '#9ca3af' } },
+          title: { display: true, text: '分而治之 (Divide & Conquer) 因素類型比例', color: '#9ca3af' }
+        }
+      }
+    });
+  }
+
+  // Chart 3: HQ 3-Stage Evolution
+  const hqCtx = document.getElementById('hqStageChart')?.getContext('2d');
+  if (hqCtx) {
+    new Chart(hqCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['階段一 (FY26): 投資併購職能', '階段二 (FY27): 數據平台 (監控/鑑價)', '階段三 (FY28): 技術中台 (EMS/SOFC)'],
+        datasets: [{
+          data: [40, 35, 25],
+          backgroundColor: ['#8b5cf6', '#06b6d4', '#10b981']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'right', labels: { color: '#9ca3af' } },
+          title: { display: true, text: '強中央 (Strong HQ) 三階段職能發展權重', color: '#9ca3af' }
+        }
+      }
+    });
+  }
 }

@@ -1,744 +1,2662 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="dark">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>進能服 (6692) 成長戰略規劃 v5 — 序列化優先序 × 強中央三階段 × 分而治之</title>
-  <meta name="description" content="進能服 (6692) 成長戰略 v5：對內溝通暨董事會轉型計畫。序列化不並行（P0~P3）、強中央三階段建置（M&A/數據/技術）、分而治之資源紀律。">
-  <link rel="stylesheet" href="styles.css">
-  <!-- Chart.js for data visualization -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%230C3A63%27/%3E%3Cpath d=%27M10 50h12V32H10zm16 0h12V20H26zm16 0h12V8H42z%27 fill=%27%231BB1BF%27/%3E%3Ccircle cx=%2748%27 cy=%2714%27 r=%276%27 fill=%27%23E09A2B%27/%3E%3C/svg%3E">
+<title>進能服 (6692) 成長戰略規劃 v6 實戰決策平台 ｜ 董事會暨全公司轉型討論中樞</title>
+<meta name="description" content="進能服 (6692) 成長戰略規劃 v6：沃德利地圖自製外包紀律 ‧ 中美晶標竿與電力交付算力服務設計 ‧ 泓德電力主權與容量訂閱制 ‧ FY2027 業務方向四軌與 BP ‧ 五角色 25 問">
+
+<style>
+:root{
+  --blue:#1968AD; --blue-d:#12518A; --blue-dd:#0C3A63; --blue-soft:#E8F1F9;
+  --teal:#1BB1BF; --teal-d:#12818C; --teal-soft:#E2F5F7;
+  --ink:#12293D; --muted:#5B7285; --line:#D9E3EC; --paper:#F4F7FA; --card:#fff;
+  --amber:#E09A2B; --amber-soft:#FCF2DE;
+  --coral:#D95F45; --coral-soft:#FBEAE5;
+  --grey:#9FB1C0; --grey-soft:#EDF1F5;
+  --green:#2E7D32; --green-soft:#E8F5E9;
+  --purple:#6B46C1; --purple-soft:#F3E8FF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  background:var(--paper); color:var(--ink); line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:50; height:54px;
+  display:flex; align-items:center; gap:8px; padding:0 20px;
+  background:rgba(255,255,255,.96); backdrop-filter:blur(10px);
+  border-bottom:2px solid var(--blue);
+}
+.topbar .brand{display:flex; align-items:center; gap:9px; margin-right:14px; white-space:nowrap; text-decoration:none}
+.topbar .brand .mk{flex:0 0 26px}
+.topbar .brand .tx{font-weight:800; font-size:.88rem; letter-spacing:.02em; color:var(--ink); line-height:1.15}
+.topbar .brand .tx small{display:block; font-weight:700; font-size:.66rem; letter-spacing:.08em; color:var(--blue)}
+.topnav{display:flex; gap:4px; flex:1; min-width:0; overflow-x:auto; scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{
+  text-decoration:none; color:var(--muted); font-size:.82rem; font-weight:600;
+  padding:6px 11px; border-radius:4px; white-space:nowrap; border:1px solid transparent;
+  transition:all .15s ease;
+}
+.topnav a:hover{color:var(--blue); background:var(--blue-soft)}
+.topnav a.active{color:#fff; background:var(--blue); font-weight:700}
+.topbar .meta{font-size:.74rem; color:var(--muted); white-space:nowrap; font-weight:600}
+@media(max-width:1160px){.topbar .meta{display:none}}
+@media(max-width:860px){.topbar .brand .tx{font-size:.78rem}}
+
+/* ---------- views / slides ---------- */
+.view{display:none}
+.view.active{display:block}
+.slide{
+  display:none; min-height:100vh; padding:74px 44px 84px;
+  max-width:1380px; margin:0 auto; flex-direction:column;
+}
+.slide.active{display:flex}
+.slide-header{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:16px}
+.eyebrow{font-size:.75rem; font-weight:800; letter-spacing:.14em; color:var(--teal-d); text-transform:uppercase; margin-bottom:5px}
+.slide-header h1,.slide-header h2{font-size:clamp(1.3rem,2.6vw,1.85rem); line-height:1.3; font-weight:800; max-width:32em; color:var(--ink)}
+.slide-header h1::after,.slide-header h2::after{
+  content:""; display:block; width:64px; height:4px; margin-top:8px;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+}
+.slide-header .sub{margin-top:8px; color:var(--muted); font-size:.9rem; max-width:58em; line-height:1.55}
+.flags{display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end}
+.flag{font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:3px; white-space:nowrap}
+.flag.blue{background:var(--blue-soft); color:var(--blue-d)}
+.flag.teal{background:var(--teal-soft); color:var(--teal-d)}
+.flag.amber{background:var(--amber-soft); color:#9a6a10}
+.flag.coral{background:var(--coral-soft); color:#b4432c}
+.flag.green{background:var(--green-soft); color:var(--green)}
+.flag.purple{background:var(--purple-soft); color:var(--purple)}
+.flag.grey{background:var(--grey-soft); color:var(--muted)}
+.slide-body{flex:1; display:flex; flex-direction:column; gap:16px}
+.slide-foot{display:flex; justify-content:space-between; gap:16px; margin-top:20px; padding-top:10px; border-top:1px solid var(--line); font-size:.73rem; color:var(--muted); background:rgba(255,255,255,.6); border-radius:3px; padding-left:8px; padding-right:8px}
+.slide-foot .pageno{white-space:nowrap; font-weight:800; color:var(--blue)}
+
+/* ---------- layout grids ---------- */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch}
+.three-col{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.four-col{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.split-45{display:grid; grid-template-columns:45% 1fr; gap:16px; align-items:start}
+.split-55{display:grid; grid-template-columns:1fr 45%; gap:16px; align-items:start}
+.split-img-right{display:grid; grid-template-columns:1.05fr 1.15fr; gap:16px; align-items:start}
+.split-img-left{display:grid; grid-template-columns:1.15fr 1.05fr; gap:16px; align-items:start}
+
+@media(max-width:1050px){
+  .slide{padding:70px 16px 90px}
+  .two-col,.three-col,.four-col,.split-45,.split-55,.split-img-right,.split-img-left{grid-template-columns:1fr}
+}
+
+/* ---------- components ---------- */
+.card{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:4px; padding:16px 18px; box-shadow:0 3px 10px rgba(18,41,61,.04)}
+.card.teal{border-top-color:var(--teal)}
+.card.amber{border-top-color:var(--amber)}
+.card.coral{border-top-color:var(--coral)}
+.card.green{border-top-color:var(--green)}
+.card.purple{border-top-color:var(--purple)}
+.card.grey{border-top-color:var(--grey)}
+.card h3{font-size:.98rem; font-weight:800; margin-bottom:8px; color:var(--ink); display:flex; align-items:center; gap:6px}
+.card p{font-size:.87rem; color:var(--muted); line-height:1.55}
+
+.metric{border-radius:4px; padding:12px 14px; border:1px solid var(--line); background:#fff; border-left:5px solid var(--blue); box-shadow:0 2px 8px rgba(18,41,61,.03)}
+.metric .k{font-size:clamp(1.3rem,2.2vw,1.8rem); font-weight:900; line-height:1.1; color:var(--blue); font-variant-numeric:tabular-nums}
+.metric .t{font-size:.78rem; color:var(--muted); margin-top:5px; line-height:1.4}
+.metric.teal{border-left-color:var(--teal)} .metric.teal .k{color:var(--teal-d)}
+.metric.amber{border-left-color:var(--amber)} .metric.amber .k{color:#9a6a10}
+.metric.coral{border-left-color:var(--coral)} .metric.coral .k{color:#b4432c}
+.metric.green{border-left-color:var(--green)} .metric.green .k{color:var(--green)}
+.metric.purple{border-left-color:var(--purple)} .metric.purple .k{color:var(--purple)}
+.metric.grey{border-left-color:var(--grey)} .metric.grey .k{color:var(--muted)}
+
+.big-callout{
+  background:linear-gradient(120deg,var(--blue-dd),var(--blue) 62%,var(--teal-d)); color:#fff;
+  border-radius:4px; padding:18px 22px; position:relative; overflow:hidden;
+}
+.big-callout .label{font-size:.72rem; letter-spacing:.14em; opacity:.85; font-weight:800; margin-bottom:5px}
+.big-callout .answer{font-size:clamp(1.05rem,2vw,1.4rem); font-weight:800; line-height:1.35}
+.big-callout .more{margin-top:7px; font-size:.86rem; opacity:.92; line-height:1.52}
+
+.table-wrap{background:#fff; border:1px solid var(--line); border-radius:4px; overflow-x:auto; box-shadow:0 4px 14px rgba(7,29,59,.04)}
+table{width:100%; border-collapse:collapse; font-size:.84rem; min-width:540px}
+th{background:var(--blue); color:#fff; text-align:left; font-weight:700; padding:8px 12px; white-space:nowrap; font-size:.82rem}
+th.sub{background:var(--blue-d)}
+td{padding:8px 12px; border-bottom:1px solid #EDF1F5; vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FAFCFE}
+tbody tr:hover{background:#F0F6FC}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+td.ctr,th.ctr{text-align:center}
+.hl-row{background:var(--amber-soft) !important}
+.hl-row td{font-weight:700}
+.bad-row{background:var(--coral-soft) !important}
+.good-row{background:var(--green-soft) !important}
+
+.table-toggle{display:block; width:100%; padding:8px 12px; border:0; border-top:1px solid var(--line); background:var(--blue-soft); color:var(--blue-dd); text-align:left; font:700 .78rem inherit; cursor:pointer}
+.table-toggle:hover{background:#d8e6f5}
+.table-extra{display:none}
+.table-wrap.expanded .table-extra{display:table-row}
+
+.chip{display:inline-block; font-size:.68rem; font-weight:700; padding:2px 7px; border-radius:3px; white-space:nowrap}
+.chip.blue{background:var(--blue-soft); color:var(--blue-d)}
+.chip.teal{background:var(--teal-soft); color:var(--teal-d)}
+.chip.amber{background:var(--amber-soft); color:#9a6a10}
+.chip.coral{background:var(--coral-soft); color:#b4432c}
+.chip.green{background:var(--green-soft); color:var(--green)}
+.chip.purple{background:var(--purple-soft); color:var(--purple)}
+.chip.grey{background:var(--grey-soft); color:var(--muted)}
+
+.note{background:var(--amber-soft); border-left:4px solid var(--amber); padding:10px 14px; font-size:.85rem; border-radius:0 3px 3px 0}
+.warn{background:var(--coral-soft); border-left:4px solid var(--coral); padding:10px 14px; font-size:.85rem; border-radius:0 3px 3px 0}
+.tip{background:var(--green-soft); border-left:4px solid var(--green); padding:10px 14px; font-size:.85rem; border-radius:0 3px 3px 0}
+
+.fig{background:#fff; border:1px solid var(--line); border-radius:4px; padding:12px 14px; box-shadow:0 3px 12px rgba(18,41,61,.04)}
+.fig .cap{font-size:.74rem; color:var(--muted); margin-top:8px; text-align:center}
+.fig .figtitle{font-size:.85rem; font-weight:800; margin-bottom:8px; color:var(--blue-dd); display:flex; align-items:center; gap:6px}
+.fig svg{display:block; width:100%; height:auto}
+.fig svg path[stroke]:not([fill]){fill:none}
+svg text{font-family:inherit}
+
+/* ---------- home ---------- */
+.home{min-height:100vh}
+.hero{
+  position:relative; overflow:hidden; color:#fff;
+  background:linear-gradient(115deg,var(--blue-dd) 0%,var(--blue) 55%,#1580A8 100%);
+  padding:88px 44px 48px;
+}
+.hero .inner{max-width:1380px; margin:0 auto; position:relative; z-index:2}
+.hero .kicker{font-size:.8rem; font-weight:800; letter-spacing:.16em; color:#8FD9E4}
+.hero h1{font-size:clamp(1.7rem,3.8vw,2.7rem); font-weight:900; line-height:1.24; margin-top:10px; max-width:24em}
+.hero .lede{margin-top:12px; max-width:52em; font-size:.95rem; opacity:.93; line-height:1.65}
+.hero .herometa{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap}
+.hero .herometa span{font-size:.74rem; font-weight:700; background:rgba(255,255,255,.16); padding:5px 12px; border-radius:3px}
+.hero .deco{position:absolute; right:-60px; top:-40px; width:840px; opacity:.35; pointer-events:none; z-index:1}
+@media(max-width:1000px){.hero{padding:75px 16px 36px} .hero .deco{width:540px; right:-120px; opacity:.24}}
+.homebody{max-width:1380px; margin:0 auto; padding:28px 44px 52px}
+@media(max-width:1000px){.homebody{padding:20px 16px 42px}}
+
+.part-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.part-card{
+  display:block; text-decoration:none; color:var(--ink); background:#fff;
+  border:1px solid var(--line); border-top:4px solid var(--blue); border-radius:4px; padding:20px;
+  transition:transform .15s ease, box-shadow .15s ease; position:relative; overflow:hidden;
+}
+.part-card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(18,41,61,.1)}
+.part-card.c2{border-top-color:var(--teal)} .part-card.c3{border-top-color:var(--amber)} .part-card.c4{border-top-color:var(--coral)} .part-card.c5{border-top-color:var(--green)} .part-card.c6{border-top-color:var(--purple)} .part-card.c7{border-top-color:var(--grey)}
+.part-card .pc-eyebrow{font-size:.72rem; font-weight:800; letter-spacing:.14em; color:var(--blue)}
+.part-card.c2 .pc-eyebrow{color:var(--teal-d)} .part-card.c3 .pc-eyebrow{color:#9a6a10} .part-card.c4 .pc-eyebrow{color:#b4432c} .part-card.c5 .pc-eyebrow{color:var(--green)} .part-card.c6 .pc-eyebrow{color:var(--purple)} .part-card.c7 .pc-eyebrow{color:var(--muted)}
+.part-card h2{font-size:1.15rem; font-weight:800; margin:8px 0 6px; line-height:1.35}
+.part-card p{color:var(--muted); font-size:.85rem; line-height:1.55}
+.part-card .pc-flags{margin-top:10px; display:flex; gap:5px; flex-wrap:wrap}
+.part-card .pc-go{margin-top:12px; font-weight:800; color:var(--blue); font-size:.83rem}
+.part-card .pc-icon{position:absolute; right:14px; top:14px; opacity:.85}
+
+.quick-spec-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px}
+.home-foot{padding-top:18px; font-size:.74rem; color:var(--muted); border-top:1px solid var(--line); margin-top:26px; line-height:1.8}
+
+/* ---------- bottom controls ---------- */
+.deckbar{position:fixed; left:0; right:0; bottom:0; z-index:50; pointer-events:none; display:none}
+.progress{height:4px; background:#DFE7EE}
+.progress .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--teal)); transition:width .25s ease}
+.hint{position:absolute; left:20px; bottom:14px; font-size:.74rem; color:var(--muted); background:rgba(255,255,255,.95); padding:4px 10px; border-radius:3px; border:1px solid var(--line)}
+.ctrl{position:absolute; right:16px; bottom:12px; display:flex; align-items:center; gap:8px; pointer-events:auto}
+.ctrl .counter{font-size:.78rem; color:var(--muted); background:rgba(255,255,255,.95); border:1px solid var(--line); padding:5px 12px; border-radius:3px; font-variant-numeric:tabular-nums}
+.ctrl button{
+  width:32px; height:32px; border:1px solid var(--line); background:rgba(255,255,255,.95);
+  border-radius:3px; cursor:pointer; font-size:1.1rem; color:var(--ink); font-weight:800;
+  display:flex; align-items:center; justify-content:center; transition:background .15s;
+}
+.ctrl button:hover{background:var(--blue); color:#fff}
+@media(max-width:800px){.hint{display:none}}
+</style>
 </head>
 <body>
+<!-- Global SVG Defs for Arrowheads -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1968AD"/>
+    </marker>
+  </defs>
+</svg>
 
-  <!-- Sticky Navbar -->
-  <nav class="navbar">
-    <a href="#" class="nav-brand">
-      <span>進能服 6692</span>
-      <span class="badge">戰略 v5 (對內/董事會版)</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#summary" class="nav-link">摘要與主張</a></li>
-      <li><a href="#part1" class="nav-link">一、轉型必要性</a></li>
-      <li><a href="#part2" class="nav-link">二、方法論疊加</a></li>
-      <li><a href="#part3" class="nav-link">三_序列化優先序</a></li>
-      <li><a href="#part4" class="nav-link">四、強中央三階段</a></li>
-      <li><a href="#part5" class="nav-link">五、事業部戰略</a></li>
-      <li><a href="#part6" class="nav-link">六、OKR 矩陣</a></li>
-      <li><a href="#part7" class="nav-link">七/八_路線與風險</a></li>
-    </ul>
-    <div class="nav-controls">
-      <button id="themeToggleBtn" class="theme-toggle-btn">☀️ 淺色模式</button>
-    </div>
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+  <a class="brand" href="#home">
+    <svg class="mk" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#1968AD" opacity=".9"/>
+      <rect x="14" y="0" width="12" height="12" rx="2" fill="#1BB1BF" opacity=".9"/>
+      <rect x="0" y="14" width="12" height="12" rx="2" fill="#1BB1BF" opacity=".6"/>
+      <rect x="14" y="14" width="12" height="12" rx="2" fill="#1968AD"/>
+    </svg>
+    <div class="tx">進能服 6692<small>戰略規劃 v6 ‧ 決策中樞</small></div>
+  </a>
+  <nav class="topnav">
+    <a href="#home" data-nav="home">封面</a>
+    <a href="#p1" data-nav="p1">Part 1 轉型必要性 (4頁)</a>
+    <a href="#p2" data-nav="p2">Part 2 沃德利地圖 (4頁)</a>
+    <a href="#p3" data-nav="p3">Part 3 標竿與服務設計 (4頁)</a>
+    <a href="#p4" data-nav="p4">Part 4 業務四軌與 BP (3頁)</a>
+    <a href="#p5" data-nav="p5">Part 5 優先序與三年路線 (4頁)</a>
+    <a href="#p6" data-nav="p6">Part 6 五角色 25 問 (5頁)</a>
+    <a href="#p7" data-nav="p7">Part 7 第二意見與待辦 (3頁)</a>
   </nav>
+  <div class="meta">基準：2026/09 ｜ 呈閱：董事會、全公司主管</div>
+</div>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-        <span class="card-badge badge-p0">序列化優先序 (P0~P3)</span>
-        <span class="card-badge badge-hq">強中央三階段建置</span>
-        <span class="card-badge badge-controllable">分而治之資源紀律</span>
-        <span class="card-badge badge-p1">FY2026–FY2028</span>
-      </div>
-      <h1 class="hero-title">進能服 (6692)<br>成長戰略規劃 v5</h1>
-      <p class="hero-subtitle">
-        以鴻海轉型方法論重構：<strong>序列化，不並行</strong>——拒絕六線並進導致六個半成品，以「資本」與「管理注意力」雙重約束推導出明確優先序，建構強中央分階段服務公路。
+<!-- ================= HOME VIEW ================= -->
+<div class="view active home" id="view-home">
+  <div class="hero">
+    <svg class="deco" viewBox="0 0 900 520" aria-hidden="true">
+      <g fill="#fff" opacity=".22">
+        <path d="M300 60 L470 8 L600 60 L430 112 Z"/>
+        <path d="M620 130 L790 78 L900 122 L730 174 Z"/>
+        <path d="M250 250 L420 198 L540 244 L370 296 Z"/>
+        <path d="M660 330 L830 278 L900 305 L730 357 Z"/>
+      </g>
+      <g fill="#8FD9E4" opacity=".35">
+        <circle cx="560" cy="180" r="50"/>
+        <circle cx="420" cy="330" r="40"/>
+      </g>
+      <g stroke="#fff" stroke-width="2" fill="none" opacity=".4">
+        <path d="M120 190 L470 402"/><circle cx="120" cy="190" r="5"/>
+        <path d="M180 400 L300 400 Q330 400 330 370 L330 300"/><circle cx="180" cy="400" r="5"/>
+        <path d="M700 420 L560 470 L200 470"/><circle cx="200" cy="470" r="5"/>
+      </g>
+    </svg>
+    <div class="inner">
+      <div class="kicker">進能服 6692 · FY2026–FY2028 成長戰略規劃 v6 實戰決策中樞</div>
+      <h1>中美晶賣材料給算力，進能服賣可用率給算力</h1>
+      <p class="lede">
+        本決策中樞完整收錄進能服 v6 戰略轉型全貌：從地面型光伏飽和與諸侯制極限、沃德利地圖「值得獨一無二的自製，平平無奇的外包」紀律，到中美晶續升綠能 1000 億合約解構、泓德容量訂閱制與富邦能源衝突查證、FY2027 四軌 BP（簽約 20 億 vs 落地 10 億）、三年序列化優先序與五角色 25 問抉擇。
       </p>
-      
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-value">P0</div>
-          <div class="stat-label">建坤 SPV + 維運 (FY26)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">50 MW</div>
-          <div class="stat-label">維運據點規模經濟門檻</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">3 階段</div>
-          <div class="stat-label">強中央 (M&A/數據/技術)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">95.1%</div>
-          <div class="stat-label">國泰持股建坤 (表外槓桿)</div>
-        </div>
-      </div>
-
-      <!-- v5 Key Callout -->
-      <div class="v5-callout">
-        <div class="v5-callout-title">📢 v5 對內與董事會之三大轉型主張</div>
-        <p style="font-size: 0.88rem; color: var(--text-main);">
-          1. <strong>序列化，不並行</strong>：受限於每年僅能支援一事業部資本與一位副總兼任現實，明確優先序 (P0建坤/維運 → P1售電/ATMOCE → P2 AIDC → P3 CPO延後)。<br>
-          2. <strong>建強中央，但分三年</strong>：不是一次建龐大總部，而是依業務順序長出「M&A/投資併購 (FY26) → 數據平台 (FY27) → 技術中台 (FY28)」。中央是造公路，不是收權！<br>
-          3. <strong>分而治之 (Divide & Conquer)</strong>：100% 資源投入可控之事 (鑑價/維運SOP/產品)；對半可控 (售電執照) 以持有電廠為施力點；對不可控 (FIT/政策) 僅做情境準備。
-        </p>
+      <div class="herometa">
+        <span>雙曲線六事業部</span>
+        <span>沃德利自製外包紀律</span>
+        <span>SPV 表外財務槓桿</span>
+        <span>電力交付算力三層服務</span>
+        <span>FY27 簽約 20 億 / 落地 10 億</span>
+        <span>五角色 25 問 A/B 代價</span>
       </div>
     </div>
-    
-    <div class="hero-media">
-      <img src="v5_hero.jpg" alt="進能服 v5 戰略規劃視覺圖" class="hero-banner-img">
+  </div>
+
+  <div class="homebody">
+    <div class="part-cards">
+      <a class="part-card" href="#p1-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><rect x="1" y="1" width="11" height="11" rx="2" fill="#1968AD" opacity=".3"/><rect x="16" y="1" width="11" height="11" rx="2" fill="#1968AD" opacity=".6"/><rect x="1" y="16" width="11" height="11" rx="2" fill="#1968AD" opacity=".6"/><rect x="16" y="16" width="11" height="11" rx="2" fill="#1968AD"/></svg>
+        <div class="pc-eyebrow">PART 1</div>
+        <h2>轉型必要性與方法論</h2>
+        <p>告別諸侯割據與光伏利潤壓縮。聚焦分而治之資源紀律、3+3 事業領域與核心技術、建坤式 SPV 財務槓桿及管理節奏。</p>
+        <div class="pc-flags"><span class="chip blue">4 頁</span><span class="chip teal">v6 變動總表</span><span class="chip amber">SPV 槓桿</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c2" href="#p2-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><path d="M4 24 L24 4 M4 4 L4 24 L24 24" stroke="#1BB1BF" stroke-width="2.5" fill="none"/></svg>
+        <div class="pc-eyebrow">PART 2</div>
+        <h2>沃德利地圖：自製外包紀律</h2>
+        <p>值得獨一無二的自己做，平平無奇的外包給世界。五大模組地形診斷、資本右側 vs 注意力左側、五條能力沉澱產品化路線。</p>
+        <div class="pc-flags"><span class="chip teal">4 頁</span><span class="chip blue">全景地圖</span><span class="chip coral">外包紀律</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c3" href="#p3-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><path d="M14 2 L26 24 L2 24 Z" stroke="#E09A2B" stroke-width="2.5" fill="none"/></svg>
+        <div class="pc-eyebrow">PART 3</div>
+        <h2>競爭標竿與服務設計</h2>
+        <p>中美晶/續升 1000 億存量深度拆解；進能服三張牌（SPV/SOFC/防災）；電力交付算力三層金字塔；泓德富邦能源衝突紅旗。</p>
+        <div class="pc-flags"><span class="chip amber">4 頁</span><span class="chip purple">續升標竿</span><span class="chip coral">三層服務</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c4" href="#p4-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><rect x="3" y="14" width="5" height="10" fill="#D95F45"/><rect x="11" y="9" width="5" height="15" fill="#D95F45"/><rect x="19" y="4" width="5" height="20" fill="#D95F45"/></svg>
+        <div class="pc-eyebrow">PART 4</div>
+        <h2>FY2027 業務四軌與 BP</h2>
+        <p>光儲 3 億、微網 3 億、資產管理 4 億、AIDC 10 億。簽約 20 億與落地 10 億的三個結構性讀法，以及業務線與事業部對照。</p>
+        <div class="pc-flags"><span class="chip coral">3 頁</span><span class="chip blue">20億簽約</span><span class="chip teal">10億落地</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c5" href="#p5-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" stroke="#2E7D32" stroke-width="2.5" fill="none"/><path d="M14 7 L14 14 L19 19" stroke="#2E7D32" stroke-width="2.5"/></svg>
+        <div class="pc-eyebrow">PART 5</div>
+        <h2>優先序與三年路線圖</h2>
+        <p>拒絕六線並進導致半成品。P0（建坤/維運/AIDC前置）至 P3 序列化推進；三年落地路線與強中央三階段（M&A/知識/中台）。</p>
+        <div class="pc-flags"><span class="chip green">4 頁</span><span class="chip amber">P0~P3序列化</span><span class="chip blue">強中央三階</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c6" href="#p6-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><path d="M4 14 h20 M14 4 v20" stroke="#6B46C1" stroke-width="2.5"/></svg>
+        <div class="pc-eyebrow">PART 6</div>
+        <h2>五角色 25 問：決策抉擇</h2>
+        <p>董事長、總經理、事業中心主管、業務主管、業務成員各 5 題。每題嚴格列出 A/B 方案與各自代價，作為年度討論底稿。</p>
+        <div class="pc-flags"><span class="chip purple">5 頁</span><span class="chip coral">25 題抉擇</span><span class="chip teal">A/B 代價</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
+
+      <a class="part-card c7" href="#p7-1">
+        <svg class="pc-icon" width="28" height="28" viewBox="0 0 28 28"><path d="M14 4 L24 22 L4 22 Z" stroke="#5B7285" stroke-width="2.5" fill="none"/><line x1="14" y1="11" x2="14" y2="16" stroke="#5B7285" stroke-width="2.5"/><circle cx="14" cy="19" r="1.2" fill="#5B7285"/></svg>
+        <div class="pc-eyebrow">PART 7</div>
+        <h2>第二意見與待補充清單</h2>
+        <p>最有力的反對論點、四大替代假設、改變評估之正面/負面訊號、11 項缺乏支撐假設壓力測試，與 17 項待補充清單。</p>
+        <div class="pc-flags"><span class="chip grey">3 頁</span><span class="chip coral">批判思考</span><span class="chip blue">17項清單</span></div>
+        <div class="pc-go">進入章節 &rarr;</div>
+      </a>
     </div>
-  </header>
 
-  <main class="main-container">
-
-    <!-- ==================== 摘要：這份文件要說服你什麼 ==================== -->
-    <section id="summary" class="section">
-      <div class="section-header">
-        <span class="section-tag">Executive Summary</span>
-        <h2 class="section-title">轉型摘要：告別諸侯割據，打造中央公路</h2>
+    <!-- Quick Spec Grid -->
+    <div class="quick-spec-grid">
+      <div class="metric blue">
+        <div class="k">20 億 / 10 億</div>
+        <div class="t">FY2027 簽約 vs 落地營收（落差來自 AIDC 跨期）</div>
       </div>
-
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <h3 class="card-title">💡 為什麼目前的「諸侯制」必須轉型？</h3>
-            <p class="card-subtitle">諸侯制在單一光伏工程時代是高效的，但在推進六大事業部時必然失效：缺口在於「無人做跨 BU 資源分配與能力共用」</p>
-          </div>
-        </div>
-
-        <div class="grid-3" style="margin-top: 1rem;">
-          <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid var(--amber); padding: 1.2rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 800; color: var(--amber); font-size: 1.1rem; margin-bottom: 0.4rem;">1. 序列化，不並行</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">每年僅能支援一事業部資本，且一位副總兼任六部。並行必致六個半成品，主動延後 CPO 才能聚焦 P0 資源。</p>
-          </div>
-
-          <div style="background: rgba(139, 92, 246, 0.08); border: 1.5px solid var(--purple); padding: 1.2rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 800; color: var(--purple); font-size: 1.1rem; margin-bottom: 0.4rem;">2. 建強中央，但分三年</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">中央定位是「造高鐵與公路的基建提供者」，不跟 BU 搶生意、不干預日常營運。依業務階段逐年長出職能。</p>
-          </div>
-
-          <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid var(--emerald); padding: 1.2rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 800; color: var(--emerald); font-size: 1.1rem; margin-bottom: 0.4rem;">3. 分而治之的資源紀律</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">100% 資源投入可控之事。不再讓「售電業執照」等外部變數卡住內部可控建設（持電廠即可解鎖）。</p>
-          </div>
-        </div>
+      <div class="metric teal">
+        <div class="k">P0 優先序</div>
+        <div class="t">建坤 SPV ＋ 維運（FY26 轉正與唯一現金牛）</div>
       </div>
-    </section>
-
-    <!-- ==================== 第一部：為什麼現在必須改 ==================== -->
-    <section id="part1" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 1</span>
-        <h2 class="section-title">第一部：為什麼現在必須改？</h2>
+      <div class="metric amber">
+        <div class="k">三層服務</div>
+        <div class="t">電力交付算力（綠電合規 → On-site → 可用率責任）</div>
       </div>
-
-      <div class="grid-2" style="margin-bottom: 2rem;">
-        <div class="card">
-          <h3 class="card-title" style="color: var(--amber); margin-bottom: 0.5rem;">📉 1.1 外部：產業典範的位移</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">
-            地面型案場趨於飽和、FIT 費率逐年遞減、工程利潤持續壓縮。單靠光伏工程的成長模式已接近天花板（與鴻海 2019 年「只能靠一支蘋果」同構）。<strong>進能服有機會在觸頂前啟動轉型。</strong>
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title" style="color: var(--rose); margin-bottom: 0.5rem;">⚠️ 1.2 內部：諸侯制的極限</h3>
-          <div class="custom-table-wrapper">
-            <table class="custom-table">
-              <thead><tr><th>現況</th><th>說明與挑戰</th></tr></thead>
-              <tbody>
-                <tr><td><strong>總部職能</strong></td><td>財務、總務、人事、法務（皆為支援職能）</td></tr>
-                <tr><td><strong>BU 運作方式</strong></td><td>地方諸侯制，各 BU 自由發展，無橫向公路</td></tr>
-                <tr><td><strong>組織現實</strong></td><td>六個事業部由一位資深副總兼任，搭配資深業務主管</td></tr>
-                <tr><td><strong>致命缺口</strong></td><td>無跨 BU 資本配置、無數據技術平台、無新事業孵化機制</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="metric green">
+        <div class="k">3 張牌</div>
+        <div class="t">建坤 SPV 槓桿 ＋ SOFC 熱電 ＋ 防災表後儲能</div>
       </div>
-
-      <!-- 轉型不是收權卡片 -->
-      <div class="card" style="border-left: 4px solid var(--emerald);">
-        <h3 class="card-title" style="color: var(--emerald); margin-bottom: 0.5rem;">🤝 1.3 轉型不是收權：給董事會與各 BU 的承諾</h3>
-        <div class="grid-2" style="margin-top: 1rem;">
-          <div style="background: rgba(16, 185, 129, 0.05); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--emerald-glow);">
-            <h4 style="color: var(--emerald); margin-bottom: 0.4rem;">✅ 中央要做的三件事</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>分配資本</strong>（依 3+3 判準配置資金）</li>
-              <li><strong>建共用平台</strong>（數據、鑑價模型、技術中台）</li>
-              <li><strong>孵化新事業</strong>（承擔第三曲線前期虧損）</li>
-            </ul>
-          </div>
-          <div style="background: rgba(244, 63, 94, 0.05); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--rose-glow);">
-            <h4 style="color: var(--rose); margin-bottom: 0.4rem;">🚫 中央不做的事</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>不干預 BU 日常營運</strong></li>
-              <li><strong>不搶 BU 的業績功勞</strong></li>
-              <li><strong>不增加 BU 的行政負擔</strong></li>
-            </ul>
-          </div>
-        </div>
+      <div class="metric coral">
+        <div class="k">富邦能源</div>
+        <div class="t">最高優先查證：是否為泓德關聯平台之衝突警訊</div>
       </div>
-    </section>
-
-    <!-- ==================== 第二部：方法論疊加層 ==================== -->
-    <section id="part2" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 2</span>
-        <h2 class="section-title">第二部：方法論疊加層（鴻海轉型邏輯）</h2>
+      <div class="metric purple">
+        <div class="k">25 問抉擇</div>
+        <div class="t">覆蓋董事長至業務基層，攤開 A/B 方案真實代價</div>
       </div>
+    </div>
 
-      <!-- 2.1 分而治之 (Divide & Conquer) 三分類表 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 0.5rem;">🎯 2.1 分而治之：可控、半可控與不可控切分</h3>
-        <p class="card-subtitle" style="margin-bottom: 1rem;">將資源 100% 投入可控之事並做至極致；對半可控找對施力點；對不可控僅作情境準備</p>
-        
-        <div class="grid-3" style="margin-bottom: 1.5rem;">
-          <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid var(--emerald); padding: 1.1rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-controllable">可控因素 (100% 資源)</span>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); margin-top: 0.6rem; padding-left: 1.1rem;">
-              <li>建坤案場鑑價模型與標的資料庫</li>
-              <li>電廠整新工程與 PR 值提升 (執行力)</li>
-              <li>維運據點服務密度與 SOP</li>
-              <li>ATMOCE 產品設計、定價與表後儲能</li>
-              <li>SOFC/CHP 沙崙技術驗證 (台達合作)</li>
-              <li>國泰、富邦資本合作夥伴關係</li>
-              <li>內部治理與轉移定價機制</li>
-            </ul>
-          </div>
+    <div class="home-foot">
+      進能服（6692）成長戰略規劃 v6 實戰決策中樞 ｜ 呈閱董事會暨全公司主管 ｜ 支援鍵盤 ← → 鍵切換、Home 回首頁、F 鍵全螢幕
+    </div>
+  </div>
+</div>
 
-          <div style="background: rgba(6, 182, 212, 0.08); border: 1.5px solid var(--cyan); padding: 1.1rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-semi">半可控因素 (策略施力)</span>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); margin-top: 0.6rem; padding-left: 1.1rem;">
-              <li><strong>售電業執照取得</strong>：關鍵在於持有再生能源電廠！透過建坤累積資產可實質解鎖。</li>
-              <li><strong>富邦能源 AIDC 合作條件</strong>：透過談判與資源承諾影響。</li>
-              <li><strong>國泰 SPV 投資決策速度</strong>：透過標準化流程與關係縮短。</li>
-            </ul>
-          </div>
-
-          <div style="background: rgba(244, 63, 94, 0.08); border: 1.5px solid var(--rose); padding: 1.1rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-uncontrollable">不可控因素 (情境準備)</span>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); margin-top: 0.6rem; padding-left: 1.1rem;">
-              <li>FIT 政策與電價費率調整 (內建敏感度)</li>
-              <li>台電輔助服務費率 (已改走防災路線)</li>
-              <li>AIDC 大客戶決策時程 (用二線廠驗證)</li>
-              <li>CATL 鈉離子電池衝擊 (路線開放)</li>
-              <li>電動貨車滲透速度 (CPO 延後啟動)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md);">
-          <canvas id="factorCategoryChart" style="max-height: 200px;"></canvas>
-        </div>
+<!-- ================= PART 1: 轉型必要性與方法論 ================= -->
+<div class="view" id="view-p1">
+  <!-- P1-1 -->
+  <section class="slide" id="slide-p1-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 轉型必要性與方法論</div>
+        <h2>v6 相對 v5 的變動總表與戰略躍遷</h2>
+        <div class="sub">從 v5 的模組經銷與一站式工程，全面修正為「沃德利自製外包紀律、中美晶標竿拆解與電力交付可用率責任」。</div>
       </div>
-
-      <!-- 2.2 3+3 框架 功能分類版 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 0.5rem;">🧩 2.2 3+3 框架 (功能分類版)</h3>
-        <p class="card-subtitle" style="margin-bottom: 1rem;">三大事業領域 (需求端) × 三大核心技術 (能力端)：取代老闆直覺，任何投資必須回答服務哪個領域、強化哪項技術！</p>
-        
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-          <div>
-            <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">🏢 三大事業領域（需求端）</h4>
-            <div class="custom-table-wrapper">
-              <table class="custom-table">
-                <thead><tr><th>領域</th><th>內涵</th><th>事業載體</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>電力資產</strong></td><td>電廠收購、整新、持有與增值</td><td>建坤 SPV</td></tr>
-                  <tr><td><strong>能源服務</strong></td><td>維運、發電分潤、儲能功率、售電</td><td>維運、ATMOCE、售電業</td></tr>
-                  <tr><td><strong>算力供電</strong></td><td>AIDC 開發、on-site power、貨櫃 GPU</td><td>AIDC (CPO為交通延伸)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div>
-            <h4 style="color: var(--emerald); margin-bottom: 0.5rem;">🔧 三大核心技術（能力端）</h4>
-            <div class="custom-table-wrapper">
-              <table class="custom-table">
-                <thead><tr><th>技術</th><th>內涵</th><th>建構路徑</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>電廠鑑價與數據 O&M</strong></td><td>資產估值模型＋異常偵測</td><td>建坤鑑價＋維運平台</td></tr>
-                  <tr><td><strong>儲能 EMS 與 VPP</strong></td><td>表後儲能、分散節點調度</td><td>ATMOCE 遍地開花</td></tr>
-                  <tr><td><strong>SOFC/CHP 熱電共生</strong></td><td>全日供電＋廢熱回收降 PUE</td><td>沙崙驗證 → AIDC 商轉</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+      <div class="flags">
+        <span class="flag blue">v6 升級</span><span class="flag teal">8大修正</span><span class="flag coral">非一站式</span>
       </div>
-
-      <!-- 2.3 SPV 財務槓桿與 2.4 管理節奏 -->
-      <div class="grid-2">
-        <div class="card">
-          <h3 class="card-title" style="color: var(--amber); margin-bottom: 0.5rem;">🏛️ 2.3 SPV 財務槓桿 (BOL 邏輯)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-            建坤 (國泰 95.1% 出資、進金生 4.9% 操盤) 是標準 BOL 結構——出技術營運，資本方出錢，風險不安在自己資產負債表。確認可複製資本夥伴為<strong>國泰與富邦</strong>。
-          </p>
-          <div class="custom-table-wrapper">
-            <table class="custom-table">
-              <thead><tr><th>要素</th><th>標準化內容</th></tr></thead>
-              <tbody>
-                <tr><td><strong>股權結構</strong></td><td>資本方 90-95%，進能服 5-10% 操盤</td></tr>
-                <tr><td><strong>進能服貢獻</strong></td><td>篩選、鑑價、收購執行、整新、長期維運</td></tr>
-                <tr><td><strong>資本方貢獻</strong></td><td>收購與整新資金</td></tr>
-                <tr><td><strong>退場機制</strong></td><td>持有至 FIT 到期 or 出售 SPV 股權</td></tr>
-              </tbody>
-            </table>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8" stroke="#1968AD" stroke-width="2.5"/><path d="M17 7h4v4" stroke="#1968AD" stroke-width="2.5"/></svg>
+            戰略躍遷：從「右側平庸採購」走向「左側高價值責任」
           </div>
+          <svg viewBox="0 0 540 280">
+            <rect x="10" y="10" width="520" height="260" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Left Box -->
+            <rect x="30" y="35" width="210" height="210" rx="6" fill="#FFF" stroke="#E09A2B" stroke-dasharray="4,4"/>
+            <text x="45" y="60" fill="#9a6a10" font-size="12" font-weight="800">舊思維陷阱 (v5 以前)</text>
+            <rect x="45" y="75" width="180" height="30" rx="3" fill="#FCF2DE"/>
+            <text x="55" y="95" fill="#9a6a10" font-size="11">模組對外銷售經銷權 (商品化)</text>
+            <rect x="45" y="115" width="180" height="30" rx="3" fill="#FCF2DE"/>
+            <text x="55" y="135" fill="#9a6a10" font-size="11">總部自建監控數據平台 (重複造輪)</text>
+            <rect x="45" y="155" width="180" height="30" rx="3" fill="#FCF2DE"/>
+            <text x="55" y="175" fill="#9a6a10" font-size="11">售電業列為核心引擎 (正面硬碰)</text>
+            <rect x="45" y="195" width="180" height="30" rx="3" fill="#FCF2DE"/>
+            <text x="55" y="215" fill="#9a6a10" font-size="11">AIDC 賣硬體貨櫃組裝 (低毛利)</text>
+            <!-- Transition Arrow -->
+            <path d="M255 140 L285 140" stroke="#1968AD" stroke-width="3" marker-end="url(#arr)"/>
+            <text x="250" y="125" fill="#1968AD" font-size="10" font-weight="800">v6躍遷</text>
+            <!-- Right Box -->
+            <rect x="300" y="35" width="210" height="210" rx="6" fill="#FFF" stroke="#10b981"/>
+            <text x="315" y="60" fill="#10b981" font-size="12" font-weight="800">v6 新定位 (高護城河)</text>
+            <rect x="315" y="75" width="180" height="30" rx="3" fill="#E8F5E9"/>
+            <text x="325" y="95" fill="#2E7D32" font-size="11">降為採購職能 (降自用成本)</text>
+            <rect x="315" y="115" width="180" height="30" rx="3" fill="#E8F5E9"/>
+            <text x="325" y="135" fill="#2E7D32" font-size="11">平台外購 ‧ 故障知識圖譜自建</text>
+            <rect x="315" y="155" width="180" height="30" rx="3" fill="#E8F5E9"/>
+            <text x="325" y="175" fill="#2E7D32" font-size="11">降為防禦配置 (持電廠解鎖)</text>
+            <rect x="315" y="195" width="180" height="30" rx="3" fill="#E8F5E9"/>
+            <text x="325" y="215" fill="#2E7D32" font-size="11">賣電力交付與可用率責任 (高利潤)</text>
+          </svg>
+          <div class="cap">圖 1.1：進能服戰略心智模型從「工程統包雜貨店」轉為「可用率與資產管理專家」</div>
         </div>
 
-        <div class="card">
-          <h3 class="card-title" style="color: var(--purple); margin-bottom: 0.5rem;">⏱️ 2.4 管理節奏機制</h3>
-          <div class="custom-table-wrapper">
-            <table class="custom-table">
-              <thead><tr><th>機制</th><th>鴻海做法</th><th>進能服 v5 應用</th></tr></thead>
-              <tbody>
-                <tr><td><strong>一分鐘發言</strong></td><td>發言限時一分鐘，逼迫剔除廢話</td><td>六事業部月度檢討會，強制排序能力訓練</td></tr>
-                <tr><td><strong>透明治理</strong></td><td>推動輪值 CEO 打破壁壘</td><td>各 BU 主管輪值參與總部資源分配會議</td></tr>
-                <tr><td><strong>文化轉向</strong></td><td>從爭權奪利轉向合作共榮</td><td>跨 BU 綜效納入績效指標，而非僅算 BU 損益</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 第三部：雙重約束下的優先序 ==================== -->
-    <section id="part3" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 3</span>
-        <h2 class="section-title">第三部：雙重約束下的序列化優先序 (P0 ~ P3)</h2>
-      </div>
-
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 0.5rem;">⚖️ 兩個稀缺資源約束：資本 vs. 管理注意力</h3>
-        <p class="card-subtitle" style="margin-bottom: 1rem;">
-          <strong>約束一：資本</strong> (未來兩年每年僅能支援一事業部) | <strong>約束二：管理注意力</strong> (六個事業部目前由一位資深副總兼任)<br>
-          現金流現實：FY2026 唯一的現金牛是<strong>維運事業</strong>，建坤於 2026 年內轉正。<strong>「第二曲線供養第三曲線」在 FY2026 不成立，故第三曲線必須序列化啟動！</strong>
-        </p>
-
-        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
-          <canvas id="priorityTimelineChart" style="max-height: 230px;"></canvas>
-        </div>
-
-        <h4 style="margin-bottom: 0.75rem;">📋 建議序列化優先序表 (P0 ~ P3)</h4>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
+        <div class="table-wrap">
+          <table>
             <thead>
-              <tr><th>順位</th><th>期間</th><th>事業部</th><th>啟動理由與戰略價值</th><th>資源需求與約束</th></tr>
+              <tr><th>#</th><th>v5 的寫法</th><th>v6 的修正</th><th>戰略依據</th></tr>
             </thead>
             <tbody>
+              <tr><td>1</td><td>模組銷售列為第一曲線事業</td><td><span class="chip coral">降級</span> 為採購職能</td><td>沃德利：模組已完全商品化，經銷無護城河</td></tr>
+              <tr><td>2</td><td>總部階段二自建數據平台</td><td><span class="chip teal">外購平台</span>，故障知識圖譜自建</td><td>沃德利：平台在右側可買，現場故障知識在左側買不到</td></tr>
+              <tr><td>3</td><td>售電業是生態系中樞節點</td><td><span class="chip amber">防禦配置</span>，非成長引擎</td><td>續升已有 1000 億合約存量，正面競爭無勝算</td></tr>
+              <tr><td>4</td><td>CPO 延後因為時機與綜效</td><td><span class="chip grey">主動延後</span> 因為無中左模組</td><td>硬體、平台、場站全在右側，無獨家技術</td></tr>
+              <tr><td>5</td><td>AIDC 提供貨櫃 GPU 統包</td><td><span class="chip blue">賣電力交付責任</span>，需保險支撐</td><td>硬體組裝任何 EPC 皆可，可用率責任無法外包</td></tr>
+              <tr><td>6</td><td>富邦能源是 AIDC 合作方</td><td>富邦能源是算力唯一入口 (需查證)</td><td>中美晶有環球晶當入口，進能服無自有算力端</td></tr>
+              <tr class="hl-row"><td>7</td><td>—</td><td>新增 FY2027 業務四軌與 BP</td><td>簽約 20 億 vs 落地 10 億結構性對齊</td></tr>
+              <tr class="hl-row"><td>8</td><td>—</td><td>新增五角色 25 問（A/B 方案）</td><td>董事長、總經理至基層決策代價攤開討論</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 變動總表</div>
+      <div class="pageno">1.1</div>
+    </div>
+  </section>
+
+  <!-- P1-2 -->
+  <section class="slide" id="slide-p1-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 轉型必要性與方法論</div>
+        <h2>外部產業典範位移與內部諸侯制極限</h2>
+        <div class="sub">地面型光伏飽和、FIT 費率逐年遞減；諸侯制曾創造奇蹟，但推進六大事業部時缺乏資源分配與公路連結。</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">天花板危機</span><span class="flag amber">諸侯制極限</span><span class="flag blue">中央造路</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <h3>⚠️ 外部：產業典範位移與成長天花板</h3>
+            <p>
+              台灣地面型案場飽和、審批趨嚴、FIT 費率連年調降，工程毛利已自 15% 壓縮至個位數。單靠光伏工程已近天花板，同構於 2019 年鴻海「只能靠一支蘋果」。<strong>差別在於：鴻海 5 兆才觸頂，進能服有機會在觸頂前啟動轉型。</strong>
+            </p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>組織維度</th><th>現況分析</th><th>潛在致命缺口</th></tr></thead>
+              <tbody>
+                <tr><td><strong>總部職能</strong></td><td>財務、總務、人事、法務（純支援）</td><td>無戰略資本配置，無法跨 BU 調度資金</td></tr>
+                <tr><td><strong>BU 運作</strong></td><td>地方諸侯制，各 BU 自由放任發展</td><td>各 BU 各自造輪子，資源平均分散導致平均不足</td></tr>
+                <tr><td><strong>組織現實</strong></td><td>六事業部由一位資深副總兼任</td><td>副總精力被瑣事佔滿，新事業無孵化虧損期容忍</td></tr>
+                <tr class="bad-row"><td><strong>戰略盲區</strong></td><td>諸侯割據，無橫向共用基礎設施</td><td><strong>諸侯制的問題不是諸侯太強，是諸侯之間沒有公路！</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="#1968AD" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#1968AD" stroke-width="2"/></svg>
+            轉型不是收權：中央定位為「高鐵與公路」的公共基建者
+          </div>
+          <svg viewBox="0 0 540 320">
+            <!-- Left: Feudal -->
+            <rect x="20" y="20" width="230" height="280" rx="6" fill="#FFF5F5" stroke="#F87171"/>
+            <text x="40" y="45" fill="#b4432c" font-size="12" font-weight="800">現況：無公路的諸侯割據</text>
+            <circle cx="75" cy="95" r="28" fill="#FEE2E2" stroke="#EF4444"/><text x="63" y="99" font-size="10" fill="#991B1B">光伏</text>
+            <circle cx="195" cy="95" r="28" fill="#FEE2E2" stroke="#EF4444"/><text x="183" y="99" font-size="10" fill="#991B1B">維運</text>
+            <circle cx="75" cy="185" r="28" fill="#FEE2E2" stroke="#EF4444"/><text x="60" y="189" font-size="10" fill="#991B1B">儲能</text>
+            <circle cx="195" cy="185" r="28" fill="#FEE2E2" stroke="#EF4444"/><text x="183" y="189" font-size="10" fill="#991B1B">售電</text>
+            <text x="45" y="250" fill="#7F1D1D" font-size="10">❌ 各自採購平台、各做各的</text>
+            <text x="45" y="270" fill="#7F1D1D" font-size="10">❌ 一位副總身兼六職瀕臨崩潰</text>
+
+            <!-- Right: High Road -->
+            <rect x="290" y="20" width="230" height="280" rx="6" fill="#F0FDF4" stroke="#34D399"/>
+            <text x="310" y="45" fill="#065F46" font-size="12" font-weight="800">目標：強中央建造服務公路</text>
+            <rect x="310" y="70" width="190" height="50" rx="4" fill="#E8F1F9" stroke="#1968AD"/>
+            <text x="330" y="92" fill="#12518A" font-size="11" font-weight="800">強中央 (分配資本/建平台/孵化)</text>
+            <text x="325" y="110" fill="#5B7285" font-size="9">不干預營運 ‧ 不搶業績 ‧ 不增行政負擔</text>
+            <!-- Road connections -->
+            <path d="M405 120 L350 170 M405 120 L460 170 M405 120 L350 230 M405 120 L460 230" stroke="#1BB1BF" stroke-width="2.5" stroke-dasharray="3,3"/>
+            <rect x="320" y="170" width="60" height="30" rx="3" fill="#D1FAE5"/><text x="332" y="190" font-size="10" fill="#065F46">建坤SPV</text>
+            <rect x="430" y="170" width="60" height="30" rx="3" fill="#D1FAE5"/><text x="445" y="190" font-size="10" fill="#065F46">維運</text>
+            <rect x="320" y="230" width="60" height="30" rx="3" fill="#D1FAE5"/><text x="445" y="250" font-size="10" fill="#065F46">AIDC</text>
+            <rect x="430" y="230" width="60" height="30" rx="3" fill="#D1FAE5"/><text x="332" y="250" font-size="10" fill="#065F46">ATMOCE</text>
+            <text x="315" y="285" fill="#065F46" font-size="10" font-weight="700">✓ 共用鑑價估值與故障知識庫公路</text>
+          </svg>
+          <div class="cap">圖 1.2：中央不是收權干預，而是鋪設讓地方諸侯高速奔馳的高鐵與公路</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第一部</div>
+      <div class="pageno">1.2</div>
+    </div>
+  </section>
+
+  <!-- P1-3 -->
+  <section class="slide" id="slide-p1-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 轉型必要性與方法論</div>
+        <h2>分而治之：可控性切分與 3+3 戰略框架</h2>
+        <div class="sub">投入 100% 資源於可控內部要素，半可控策略施力，不可控僅做情境準備；任何投資必須回答 3+3 判準。</div>
+      </div>
+      <div class="flags">
+        <span class="flag green">可控 100%</span><span class="flag teal">半可控施力</span><span class="flag coral">不可控防禦</span><span class="flag purple">3+3判準</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-45">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>可控級別</th><th>戰略項目</th><th>行動與資源紀律</th></tr></thead>
+            <tbody>
+              <tr class="good-row">
+                <td><strong>可控</strong><br><small>100% 投入</small></td>
+                <td>
+                  • 建坤案場收購鑑價模型<br>
+                  • 維運故障知識圖譜制度化<br>
+                  • ATMOCE 防災儲能產品定義<br>
+                  • SOFC/CHP 沙崙技術整合<br>
+                  • 國泰/富邦資本夥伴關係
+                </td>
+                <td><strong>全力投入自身能力沉澱</strong>，打造不隨景氣變動的定價權與營運效率。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>半可控</strong><br><small>策略性施力</small></td>
+                <td>
+                  • <strong>售電業執照取得</strong><br>
+                  • 富邦能源 AIDC 合作條件<br>
+                  • 國泰 SPV 決策速度
+                </td>
+                <td>關鍵在於<strong>持有再生能源電廠</strong>即可順利申請，不空等，以資產為槓桿主動施力。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>不可控</strong><br><small>僅情境準備</small></td>
+                <td>
+                  • <strong>公部門微網標案決標時點</strong><br>
+                  • FIT 費率調整與電價政策<br>
+                  • 台電輔助服務費率暴跌<br>
+                  • 電動車滲透速度 (CPO)
+                </td>
+                <td><strong>不押單一外部事件</strong>。以民間防災客戶作微網緩衝，收購模型內建電價敏感度。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1968AD" stroke-width="2" fill="none"/></svg>
+            3+3 框架：三大事業領域 × 三大核心技術
+          </div>
+          <svg viewBox="0 0 540 290">
+            <rect x="15" y="15" width="510" height="260" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Top row: 3 Areas -->
+            <rect x="30" y="30" width="150" height="100" rx="4" fill="#E8F1F9" stroke="#1968AD"/>
+            <text x="45" y="55" fill="#12518A" font-size="12" font-weight="800">① 電力資產</text>
+            <text x="45" y="75" fill="#5B7285" font-size="10">電廠收購 ‧ 整新 ‧ 增值</text>
+            <text x="45" y="95" fill="#1968AD" font-size="9" font-weight="700">載體：建坤 SPV / 國泰</text>
+
+            <rect x="195" y="30" width="150" height="100" rx="4" fill="#E2F5F7" stroke="#1BB1BF"/>
+            <text x="210" y="55" fill="#12818C" font-size="12" font-weight="800">② 能源服務</text>
+            <text x="210" y="75" fill="#5B7285" font-size="10">維運分潤 ‧ 儲能 ‧ 綠電售電</text>
+            <text x="210" y="95" fill="#12818C" font-size="9" font-weight="700">載體：維運 / ATMOCE</text>
+
+            <rect x="360" y="30" width="150" height="100" rx="4" fill="#FCF2DE" stroke="#E09A2B"/>
+            <text x="375" y="55" fill="#9a6a10" font-size="12" font-weight="800">③ 算力供電</text>
+            <text x="375" y="75" fill="#5B7285" font-size="10">AIDC 開發 ‧ on-site 交付</text>
+            <text x="375" y="95" fill="#9a6a10" font-size="9" font-weight="700">載體：AIDC 專案團隊</text>
+
+            <!-- Arrows -->
+            <path d="M105 130 L105 155 M270 130 L270 155 M435 130 L435 155" stroke="#9FB1C0" stroke-width="2" stroke-dasharray="3,3"/>
+
+            <!-- Bottom row: 3 Technologies -->
+            <rect x="30" y="155" width="150" height="100" rx="4" fill="#FFF" stroke="#1968AD"/>
+            <text x="45" y="180" fill="#12518A" font-size="11" font-weight="800">技術 A：鑑價與 O&M</text>
+            <text x="45" y="200" fill="#5B7285" font-size="9">估值模型 ＋ 故障知識庫</text>
+            <text x="45" y="225" fill="#2E7D32" font-size="9">路徑：建坤 ＋ 維運沉澱</text>
+
+            <rect x="195" y="155" width="150" height="100" rx="4" fill="#FFF" stroke="#1BB1BF"/>
+            <text x="210" y="180" fill="#12818C" font-size="11" font-weight="800">技術 B：儲能 EMS/VPP</text>
+            <text x="210" y="200" fill="#5B7285" font-size="9">表後分散節點調度聚合</text>
+            <text x="210" y="225" fill="#2E7D32" font-size="9">路徑：ATMOCE 節點遍地</text>
+
+            <rect x="360" y="155" width="150" height="100" rx="4" fill="#FFF" stroke="#E09A2B"/>
+            <text x="375" y="180" fill="#9a6a10" font-size="11" font-weight="800">技術 C：SOFC/CHP</text>
+            <text x="375" y="200" fill="#5B7285" font-size="9">熱電共生 ＋ 降低 PUE</text>
+            <text x="375" y="225" fill="#2E7D32" font-size="9">路徑：沙崙驗證 → AIDC</text>
+          </svg>
+          <div class="cap">圖 1.3：資源分配鐵律：任何專案若不能同時回答「服務哪一領域？強化哪項技術？」，一律不投！</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第二部</div>
+      <div class="pageno">1.3</div>
+    </div>
+  </section>
+
+  <!-- P1-4 -->
+  <section class="slide" id="slide-p1-4">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 轉型必要性與方法論</div>
+        <h2>SPV 財務槓桿的複製與管理節奏機制</h2>
+        <div class="sub">建坤模式本質為 BOL：壽險出資 95.1%、進能服操盤 4.9%，資產與債務不壓在資產負債表上，複製至富邦與國泰。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">SPV 槓桿</span><span class="flag teal">BOL 機制</span><span class="flag amber">一分鐘發言</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#1968AD" stroke-width="2.5"/></svg>
+            建坤式 SPV 標準槓桿架構：以 5% 自有資金撬動 20 倍資產規模
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Capital Partner -->
+            <rect x="20" y="30" width="180" height="90" rx="4" fill="#E8F1F9" stroke="#1968AD"/>
+            <text x="35" y="55" fill="#12518A" font-size="12" font-weight="800">國泰 / 富邦 資本方</text>
+            <text x="35" y="75" fill="#5B7285" font-size="10">• 出資 90% ~ 95.1% 資金</text>
+            <text x="35" y="95" fill="#5B7285" font-size="10">• 追求低風險穩定年化回報</text>
+
+            <!-- 6692 Operator -->
+            <rect x="20" y="150" width="180" height="100" rx="4" fill="#E2F5F7" stroke="#1BB1BF"/>
+            <text x="35" y="175" fill="#12818C" font-size="12" font-weight="800">進能服 6692 (操盤方)</text>
+            <text x="35" y="195" fill="#5B7285" font-size="10">• 出資 4.9% ~ 10%</text>
+            <text x="35" y="215" fill="#5B7285" font-size="10">• 鑑價收購 ‧ 整新 ‧ 維運管理</text>
+            <text x="35" y="235" fill="#2E7D32" font-size="9" font-weight="700">✓ 表外資產 ‧ 賺取穩定服務費</text>
+
+            <!-- SPV Project -->
+            <rect x="280" y="80" width="240" height="130" rx="6" fill="#FFF" stroke="#E09A2B" stroke-width="2"/>
+            <text x="300" y="110" fill="#9a6a10" font-size="14" font-weight="800">建坤 SPV / 資產管理工廠</text>
+            <text x="300" y="135" fill="#5B7285" font-size="11">收購電廠資產 ‧ 儲能設施 ‧ AIDC 灰區</text>
+            <rect x="300" y="150" width="200" height="25" rx="3" fill="#FCF2DE"/>
+            <text x="310" y="167" fill="#9a6a10" font-size="10" font-weight="700">每年現金回流進能服維運與操盤費</text>
+            <text x="300" y="195" fill="#991B1B" font-size="9">代價：投資決策速度受制於壽險審委會</text>
+
+            <!-- Flow lines -->
+            <path d="M200 75 L280 120" stroke="#1968AD" stroke-width="2.5" marker-end="url(#arr)"/>
+            <path d="M200 200 L280 160" stroke="#1BB1BF" stroke-width="2.5" marker-end="url(#arr)"/>
+          </svg>
+          <div class="cap">圖 1.4：進能服出技術與營運，資本方出大錢，標準化 SPV 工廠模式</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>機制維度</th><th>標準化規範</th><th>戰略實效</th></tr></thead>
+            <tbody>
               <tr>
-                <td><span class="card-badge badge-p0">P0</span></td>
+                <td><strong>股權結構</strong></td>
+                <td>資本方 90%~95.1%，進能服 4.9%~10% 操盤</td>
+                <td>風險與巨額負債不壓在自身資產負債表</td>
+              </tr>
+              <tr>
+                <td><strong>進能服貢獻</strong></td>
+                <td>標的篩選、收購鑑價、整新工程、長期運維</td>
+                <td>將一次性工程款轉為 15~20 年穩定 O&M 現金流</td>
+              </tr>
+              <tr>
+                <td><strong>資本方貢獻</strong></td>
+                <td>收購資金與整新專案融資背書</td>
+                <td>解鎖數十億併購動能，無須稀釋母公司股權</td>
+              </tr>
+              <tr>
+                <td><strong>一分鐘發言</strong></td>
+                <td>六事業部月度檢討會，每部限定一分鐘</td>
+                <td><strong>訓練排序能力比會議效率更重要</strong>，杜絕拖沓</td>
+              </tr>
+              <tr>
+                <td><strong>透明治理</strong></td>
+                <td>各 BU 主管輪值參與總部資源分配會議</td>
+                <td>打破諸侯壁壘，建立全域資源共享心態</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第二部</div>
+      <div class="pageno">1.4</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PART 2: 沃德利地圖——自製與外包紀律 ================= -->
+<div class="view" id="view-p2">
+  <!-- P2-1 -->
+  <section class="slide" id="slide-p2-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 沃德利地圖——自製與外包紀律</div>
+        <h2>進能服沃德利地圖全景：四象限定位</h2>
+        <div class="sub">「值得獨一無二的，自己做；可以平平無奇的，外包給世界。」界定進能服各項業務在價值鏈與演化軸上的精確座標。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">沃德利地圖</span><span class="flag teal">四象限</span><span class="flag coral">護城河判讀</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#1968AD" stroke-width="2"/><path d="M12 3v18M3 12h18" stroke="#1968AD" stroke-width="1.5"/></svg>
+            進能服戰略沃德利地圖 (Wardley Map)
+          </div>
+          <svg viewBox="0 0 540 330">
+            <!-- Background grids -->
+            <rect x="40" y="20" width="480" height="270" fill="#F8FAFC" stroke="#CBD5E1"/>
+            <!-- 4 evolution columns -->
+            <line x1="160" y1="20" x2="160" y2="290" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <line x1="280" y1="20" x2="280" y2="290" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <line x1="400" y1="20" x2="400" y2="290" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <!-- Labels top -->
+            <text x="70" y="38" fill="#5B7285" font-size="11" font-weight="700">創生 Genesis</text>
+            <text x="195" y="38" fill="#5B7285" font-size="11" font-weight="700">定制 Custom</text>
+            <text x="315" y="38" fill="#5B7285" font-size="11" font-weight="700">產品 Product</text>
+            <text x="430" y="38" fill="#5B7285" font-size="11" font-weight="700">商品 Commodity</text>
+            <!-- Vertical axis: Value chain -->
+            <text x="10" y="65" fill="#12518A" font-size="10" font-weight="800" transform="rotate(-90 15,65)">服務承諾</text>
+            <text x="10" y="135" fill="#12518A" font-size="10" font-weight="800" transform="rotate(-90 15,135)">核心能力</text>
+            <text x="10" y="205" fill="#12518A" font-size="10" font-weight="800" transform="rotate(-90 15,205)">產品系統</text>
+            <text x="10" y="270" fill="#12518A" font-size="10" font-weight="800" transform="rotate(-90 15,270)">基礎設施</text>
+
+            <!-- Nodes: Service -->
+            <circle cx="100" cy="65" r="7" fill="#D95F45"/><text x="112" y="68" font-size="9" font-weight="700" fill="#B4432C">AIDC 電力交付責任</text>
+            <circle cx="210" cy="60" r="6" fill="#E09A2B"/><text x="220" y="64" font-size="9" fill="#9A6A10">防災供電 / 小時達SLA</text>
+            <circle cx="340" cy="65" r="5" fill="#1968AD"/><text x="350" y="69" font-size="9" fill="#1968AD">CPPA 合約模板 / 分潤</text>
+
+            <!-- Nodes: Capabilities -->
+            <circle cx="120" cy="130" r="6" fill="#D95F45"/><text x="130" y="134" font-size="9" fill="#B4432C">SOFC/CHP ‧ VPP聚合</text>
+            <circle cx="220" cy="120" r="8" fill="#2E7D32"/><text x="232" y="124" font-size="10" font-weight="800" fill="#2E7D32">故障知識圖譜 ‧ 鑑價模型</text>
+            <circle cx="250" cy="145" r="6" fill="#1BB1BF"/><text x="260" y="149" font-size="9" fill="#12818C">SPV 資本結構化能力</text>
+            <circle cx="340" cy="135" r="5" fill="#5B7285"/><text x="350" y="139" font-size="9" fill="#5B7285">售電業執照 (Gate 非 Moat)</text>
+
+            <!-- Nodes: Systems -->
+            <circle cx="340" cy="205" r="6" fill="#1968AD"/><text x="350" y="209" font-size="9" fill="#1968AD">監控平台 (外購) ‧ EMS</text>
+            <circle cx="450" cy="205" r="5" fill="#5B7285"/><text x="430" y="222" font-size="9" fill="#5B7285">派工工單 ‧ 通用AI</text>
+
+            <!-- Nodes: Infra -->
+            <circle cx="460" cy="265" r="7" fill="#9FB1C0"/><text x="380" y="278" font-size="9" fill="#5B7285">電池電芯 / 太陽能模組 / 逆變器 / GPU</text>
+            <!-- Bottom axis label -->
+            <text x="230" y="315" fill="#12518A" font-size="11" font-weight="700">演化程度 (Uncertainty → Commodity) &rarr;</text>
+          </svg>
+          <div class="cap">圖 2.1：綠圈（故障知識與鑑價）為獨特護城河；右下灰圈（硬體與軟體平台）一律外購</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>價值鏈層級</th><th>創生 Genesis</th><th>定制 Custom</th><th>產品 Product</th><th>商品 Commodity</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>服務承諾</strong></td>
+                <td><span class="chip coral">AIDC電力交付責任</span></td>
+                <td>防災供電保障<br>小時達維運SLA</td>
+                <td>CPPA 合約模板<br>發電分潤合約</td>
+                <td>—</td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>核心能力</strong></td>
+                <td>SOFC/CHP熱電整合<br>VPP 聚合調度</td>
+                <td><strong>鑑價整新知識<br>故障知識圖譜<br>SPV 資本結構</strong></td>
+                <td>售電業執照<br><small>(資格非護城河)</small></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>產品系統</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td><strong>監控平台 (外購)</strong><br>EMS 儲能軟體</td>
+                <td>派工工單系統<br>通用 AI API</td>
+              </tr>
+              <tr>
+                <td><strong>基礎設施</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>電池電芯 / 模組<br>逆變器 / GPU / 雲端</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第三部</div>
+      <div class="pageno">2.1</div>
+    </div>
+  </section>
+
+  <!-- P2-2 -->
+  <section class="slide" id="slide-p2-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 沃德利地圖——自製與外包紀律</div>
+        <h2>五大模組地形診斷：終結偽努力</h2>
+        <div class="sub">三種常見誤判：錯把控制感當競爭力、錯把技術難度等同戰略價值、用右側偽努力逃避左側真困難。</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">模組降級</span><span class="flag teal">平台外購</span><span class="flag amber">執照非Moat</span><span class="flag blue">AIDC賣責任</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>業務模組</th><th>地形診斷與位置</th><th>戰略處方與自製/外包邊界</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>① 模組銷售</strong></td>
+                <td>整格落在<strong>右下角商品區</strong></td>
+                <td><span class="chip coral">降級採購職能</span>。模組已完全商品化，不再設獨立事業部與業務衝刺，保留降成本功能。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>② 數據平台</strong></td>
+                <td>界線劃錯：平台在右，知識在左</td>
+                <td><strong>監控系統外購</strong>；但<strong>「故障知識圖譜」堅持自建</strong>。發電異常診斷規則買不到，隨維運量複利成長。</td>
+              </tr>
+              <tr>
+                <td><strong>③ 售電業執照</strong></td>
+                <td>執照是 <strong>Gate</strong>，不是 <strong>Moat</strong></td>
+                <td>執照全台千篇一律無差異化。差異在於：<strong>有電可賣 (建坤資產)</strong> 與 <strong>合約責任設計</strong>。絕不付高額溢價併購。</td>
+              </tr>
+              <tr>
+                <td><strong>④ CPO 充電</strong></td>
+                <td>缺乏中左模組，非時機問題</td>
+                <td>樁體、平台、場站全在右側；車隊排程是順益的知識非進能服的。<span class="chip grey">主動延後啟動</span>。</td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>⑤ AIDC 算力</strong></td>
+                <td>賣的是<strong>責任</strong>，不是統包組裝</td>
+                <td>GPU、冷卻、貨櫃任何 EPC 都能組裝；唯獨「保證電力到位、PUE 達標、SLA 違約賠付」無法外包。<span class="chip blue">核心賣點</span>。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" fill="none" stroke="#1968AD" stroke-width="2"/></svg>
+            自製 vs 外包過濾漏斗：嚴格杜絕偽努力
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Funnel layers -->
+            <polygon points="40 30, 500 30, 420 90, 120 90" fill="#E8F1F9" stroke="#1968AD"/>
+            <text x="200" y="55" fill="#12518A" font-size="12" font-weight="800">1. 是否位於沃德利地圖左側？</text>
+            <text x="215" y="75" fill="#5B7285" font-size="10">否 (在產品/商品區) &rarr; <tspan fill="#D95F45" font-weight="700">直接外包/外購 (如監控平台)</tspan></text>
+
+            <polygon points="120 100, 420 100, 360 160, 180 160" fill="#E2F5F7" stroke="#1BB1BF"/>
+            <text x="205" y="125" fill="#12818C" font-size="12" font-weight="800">2. 是否能隨規模複利累積？</text>
+            <text x="210" y="145" fill="#5B7285" font-size="10">否 (一次性或他人知識) &rarr; <tspan fill="#E09A2B" font-weight="700">標準化合作 (如 CPO)</tspan></text>
+
+            <polygon points="180 170, 360 170, 310 230, 230 230" fill="#D1FAE5" stroke="#10b981"/>
+            <text x="220" y="195" fill="#065F46" font-size="12" font-weight="800">3. 值得獨一無二？</text>
+            <text x="220" y="215" fill="#065F46" font-size="10">是 &rarr; <tspan fill="#2E7D32" font-weight="800">投入 100% 注意力自建</tspan></text>
+
+            <rect x="200" y="245" width="140" height="28" rx="4" fill="#2E7D32"/>
+            <text x="210" y="263" fill="#FFF" font-size="11" font-weight="800">進能服真正護城河</text>
+          </svg>
+          <div class="cap">圖 2.2：用嚴格漏斗過濾，杜絕把內部工程精力浪費在右側商品採購上</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第三部</div>
+      <div class="pageno">2.2</div>
+    </div>
+  </section>
+
+  <!-- P2-3 -->
+  <section class="slide" id="slide-p2-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 沃德利地圖——自製與外包紀律</div>
+        <h2>雙重約束與副總管理注意力極致聚焦</h2>
+        <div class="sub">資本買右側、注意力建左側。副總身兼六個事業部是不可承受之重，其時間必須 100% 投入左側高價值決策。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">雙重約束</span><span class="flag amber">副總注意力</span><span class="flag green">左側高價值</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-55">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>約束維度</th><th>作用區域</th><th>典型戰略動作</th><th>常見致命錯誤</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>資本約束</strong></td>
+                <td>地圖<strong>右側</strong></td>
+                <td>收購電廠、收購執照、採購硬體、租用雲端平台</td>
+                <td>用資本去建左側（例如自研平台）＝<strong>燒錢又無差異化</strong></td>
+              </tr>
+              <tr>
+                <td><strong>注意力/人才約束</strong></td>
+                <td>地圖<strong>左側</strong></td>
+                <td>鑑價模型判斷、故障知識萃取、責任邊界設計、壽險關係</td>
+                <td>用注意力去搞右側（親自比價選設備）＝<strong>浪費最寶貴人才</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="big-callout" style="margin-top:14px;padding:14px 18px">
+            <div class="label">副總時間分配鐵律</div>
+            <div class="answer" style="font-size:1.15rem">兼任六事業部的資深副總，時間只能花在左側！</div>
+            <div class="more">右側的平台選型、設備採購與行政手續，必須完全授權或外包。</div>
+          </div>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#1968AD" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#1968AD" stroke-width="2"/></svg>
+            副總時間配置對比：應親自做 vs 應交出去
+          </div>
+          <svg viewBox="0 0 540 290">
+            <!-- Left: Do personally -->
+            <rect x="20" y="20" width="240" height="250" rx="6" fill="#F0FDF4" stroke="#10b981"/>
+            <text x="35" y="45" fill="#065F46" font-size="13" font-weight="800">✅ 應親自做（地圖左側）</text>
+            <rect x="35" y="60" width="210" height="30" rx="3" fill="#D1FAE5"/><text x="45" y="80" font-size="11" fill="#065F46">• 案場鑑價的最終投資判斷</text>
+            <rect x="35" y="98" width="210" height="30" rx="3" fill="#D1FAE5"/><text x="45" y="118" font-size="11" fill="#065F46">• 與國泰/富邦談 SPV 合資結構</text>
+            <rect x="35" y="136" width="210" height="30" rx="3" fill="#D1FAE5"/><text x="45" y="156" font-size="11" fill="#065F46">• 與大客戶談 SLA 責任邊界</text>
+            <rect x="35" y="174" width="210" height="30" rx="3" fill="#D1FAE5"/><text x="45" y="194" font-size="11" fill="#065F46">• 與富邦能源談 AIDC 分工</text>
+            <rect x="35" y="212" width="210" height="30" rx="3" fill="#D1FAE5"/><text x="45" y="232" font-size="11" fill="#065F46">• 故障知識的萃取與制度化</text>
+
+            <!-- Right: Delegate -->
+            <rect x="280" y="20" width="240" height="250" rx="6" fill="#FFF5F5" stroke="#F87171"/>
+            <text x="295" y="45" fill="#991B1B" font-size="13" font-weight="800">❌ 應交出去（地圖右側）</text>
+            <rect x="295" y="60" width="210" height="30" rx="3" fill="#FEE2E2"/><text x="305" y="80" font-size="11" fill="#991B1B">• 監控平台供應商選型導入</text>
+            <rect x="295" y="98" width="210" height="30" rx="3" fill="#FEE2E2"/><text x="305" y="118" font-size="11" fill="#991B1B">• 太陽能硬體與模組採購</text>
+            <rect x="295" y="136" width="210" height="30" rx="3" fill="#FEE2E2"/><text x="305" y="156" font-size="11" fill="#991B1B">• 派工系統操作與工單設定</text>
+            <rect x="295" y="174" width="210" height="30" rx="3" fill="#FEE2E2"/><text x="305" y="194" font-size="11" fill="#991B1B">• 運維據點行政設立流程</text>
+            <rect x="295" y="212" width="210" height="30" rx="3" fill="#FEE2E2"/><text x="305" y="232" font-size="11" fill="#991B1B">• 一般工程施作現場管理</text>
+          </svg>
+          <div class="cap">圖 2.3：解放高管注意力，嚴格執行授權與職能專業化</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第三部</div>
+      <div class="pageno">2.3</div>
+    </div>
+  </section>
+
+  <!-- P2-4 -->
+  <section class="slide" id="slide-p2-4">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 沃德利地圖——自製與外包紀律</div>
+        <h2>五條產品化遷移路線：能力沉澱與複製</h2>
+        <div class="sub">將過去仰賴個人英雄主義的非標經驗，轉化為全公司可授權、可規模複製的標準化產品線。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">產品化</span><span class="flag teal">資產沉澱</span><span class="flag green">規模複製</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-right">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>現在狀態 (定制)</th><th>沉澱後狀態 (標準產品)</th><th>戰略與商業意義</th><th>推進時程</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>個案鑑價靠高管判斷</td><td><strong>標準化鑑價評分表</strong></td><td>加速國泰/富邦投資決策，去個人化</td><td>FY2026</td></tr>
+              <tr><td>2</td><td>整新工法仰賴資深經驗</td><td><strong>標準工法 SOP 與報價包</strong></td><td>整新從單點專案升級為可複製產品線</td><td>FY2026–27</td></tr>
+              <tr class="hl-row"><td>3</td><td>師傅經驗判讀異常</td><td><strong>故障知識圖譜與預警庫</strong></td><td>大幅提升運維人效，成熟後可對外授權</td><td>FY2027–28</td></tr>
+              <tr><td>4</td><td>客製化防災儲能專案</td><td><strong>標準功率包（分檔月租）</strong></td><td>縮短 70% 銷售週期，快速鋪開節點</td><td>FY2027</td></tr>
+              <tr><td>5</td><td>建坤單一個案 SPV</td><td><strong>標準合資模板（SPV 工廠）</strong></td><td>從單案合作走向批次資產證券化機制</td><td>FY2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#1968AD" stroke-width="2.5"/></svg>
+            能力沉澱階梯：從個人手藝到可定價資產
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Steps -->
+            <rect x="30" y="190" width="130" height="70" rx="4" fill="#E8F1F9" stroke="#1968AD"/>
+            <text x="40" y="215" fill="#12518A" font-size="11" font-weight="800">第 1 階：個案經驗</text>
+            <text x="40" y="235" fill="#5B7285" font-size="9">副總/資深師傅口傳</text>
+            <text x="40" y="250" fill="#991B1B" font-size="9">瓶頸：無法複製擴大</text>
+
+            <rect x="180" y="130" width="150" height="130" rx="4" fill="#E2F5F7" stroke="#1BB1BF"/>
+            <text x="195" y="155" fill="#12818C" font-size="11" font-weight="800">第 2 階：標準 SOP 與工具</text>
+            <text x="195" y="175" fill="#5B7285" font-size="9">鑑價評分表 ‧ 工法包</text>
+            <text x="195" y="195" fill="#5B7285" font-size="9">標準合資模板 ‧ 功率包</text>
+            <text x="195" y="215" fill="#2E7D32" font-size="9" font-weight="700">效益：新人接手即戰力</text>
+
+            <rect x="350" y="60" width="160" height="200" rx="4" fill="#D1FAE5" stroke="#10b981"/>
+            <text x="365" y="85" fill="#065F46" font-size="12" font-weight="800">第 3 階：數位知識圖譜</text>
+            <text x="365" y="110" fill="#065F46" font-size="10">故障知識圖譜預警庫</text>
+            <text x="365" y="135" fill="#5B7285" font-size="9">結合外部外購監控系統</text>
+            <text x="365" y="160" fill="#5B7285" font-size="9">隨案場覆蓋數複利成長</text>
+            <rect x="365" y="180" width="130" height="24" rx="3" fill="#10b981"/>
+            <text x="375" y="196" fill="#FFF" font-size="9" font-weight="700">可對外授權收訂閱費</text>
+
+            <!-- Arrow stairs -->
+            <path d="M160 210 L180 180" stroke="#1968AD" stroke-width="2" marker-end="url(#arr)"/>
+            <path d="M330 150 L350 110" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr)"/>
+          </svg>
+          <div class="cap">圖 2.4：沉澱後的知識資產具備授權價值，擺脫工程人員工時綁架</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第三部</div>
+      <div class="pageno">2.4</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PART 3: 競爭標竿與服務設計 ================= -->
+<div class="view" id="view-p3">
+  <!-- P3-1 -->
+  <section class="slide" id="slide-p3-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 競爭標竿與服務設計</div>
+        <h2>中美晶／續升綠能標竿深度拆解與落差</h2>
+        <div class="sub">續升能源（7931）已掌握近 1700 座電廠、1000 億合約存量；但 1.9% 淨利率揭示其本質為工程通路結構。</div>
+      </div>
+      <div class="flags">
+        <span class="flag purple">中美晶/續升</span><span class="flag amber">1000億存量</span><span class="flag coral">淨利率1.9%</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-45">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>中美晶／續升綠能（7931）公開查證數據</th></tr></thead>
+            <tbody>
+              <tr><td><strong>集團定位</strong></td><td>環球晶/台特化專注算力；續升能源/中美晶聚焦電力</td></tr>
+              <tr><td><strong>續升整併</strong></td><td>整合「續興」與「艾涅爾」兩大售電平台</td></tr>
+              <tr><td><strong>電廠規模</strong></td><td>近 1,700 座電廠、超過 800 MW 太陽能裝置容量</td></tr>
+              <tr><td><strong>綠電合約</strong></td><td>累積 220 億度合約規模；指標客戶包含艾克爾（Amkor 10年7.8億度）</td></tr>
+              <tr class="hl-row"><td><strong>合約金額</strong></td><td><strong>累計突破 1,000 億元</strong>，逾 85% 年期超過 10 年</td></tr>
+              <tr><td><strong>2025 獲利</strong></td><td>營收 18.36 億元，稅後純益 3,576 萬元（<strong>淨利率約 1.9%</strong>）</td></tr>
+              <tr><td><strong>興櫃表現</strong></td><td>2026/6/29 登錄，認購價 100 元，盤中一度衝至 215 元（溢價115%）</td></tr>
+              <tr><td><strong>儲能佈局</strong></td><td>主導盛達電業（3027）；盛齊投入 EMS/VPP；成立「續齊儲能」</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4" stroke="#1968AD" stroke-width="2.5"/></svg>
+            續升數字真相：1000 億存量 vs 1.9% 淨利率
+          </div>
+          <svg viewBox="0 0 540 280">
+            <rect x="20" y="20" width="500" height="240" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Bar 1: Contract backlog -->
+            <rect x="50" y="50" width="80" height="180" rx="4" fill="#6B46C1"/>
+            <text x="60" y="40" fill="#6B46C1" font-size="12" font-weight="800">1,000 億</text>
+            <text x="55" y="100" fill="#FFF" font-size="10" font-weight="700">合約存量</text>
+            <text x="55" y="120" fill="#E9D5FF" font-size="8">10~20年攤提</text>
+            <text x="55" y="135" fill="#E9D5FF" font-size="8">年化約 100 億</text>
+
+            <!-- Bar 2: Actual revenue -->
+            <rect x="180" y="150" width="80" height="80" rx="4" fill="#1968AD"/>
+            <text x="185" y="140" fill="#1968AD" font-size="12" font-weight="800">18.36 億</text>
+            <text x="185" y="180" fill="#FFF" font-size="10" font-weight="700">2025 營收</text>
+            <text x="185" y="200" fill="#BFDBFE" font-size="8">僅年化18%</text>
+
+            <!-- Bar 3: Net profit -->
+            <rect x="310" y="210" width="80" height="20" rx="3" fill="#D95F45"/>
+            <text x="315" y="200" fill="#D95F45" font-size="11" font-weight="800">3,576 萬</text>
+            <text x="315" y="224" fill="#FFF" font-size="8" font-weight="700">淨利 1.9%</text>
+
+            <!-- Insight note -->
+            <rect x="410" y="50" width="100" height="180" rx="4" fill="#FFF" stroke="#E09A2B"/>
+            <text x="420" y="75" fill="#9a6a10" font-size="10" font-weight="800">關鍵啟示</text>
+            <text x="420" y="95" fill="#5B7285" font-size="8">續升是通路/工程</text>
+            <text x="420" y="110" fill="#5B7285" font-size="8">非高毛利平台</text>
+            <text x="420" y="135" fill="#991B1B" font-size="8" font-weight="700">進能服不可打</text>
+            <text x="420" y="150" fill="#991B1B" font-size="8" font-weight="700">「一站式服務」</text>
+            <text x="420" y="180" fill="#065F46" font-size="8">必須切入高毛利</text>
+            <text x="420" y="195" fill="#065F46" font-size="8">可用率責任承擔</text>
+          </svg>
+          <div class="cap">圖 3.1：興櫃溢價反映「合約能見度」，但若只做純綠電轉售，將陷入低毛利泥淖</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第四部</div>
+      <div class="pageno">3.1</div>
+    </div>
+  </section>
+
+  <!-- P3-2 -->
+  <section class="slide" id="slide-p3-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 競爭標竿與服務設計</div>
+        <h2>三張續升沒有的牌與命題轉換</h2>
+        <div class="sub">「中美晶賣材料給算力，進能服賣可用率給算力。」避開規模硬碰，發揮建坤 SPV、SOFC 熱電與防災儲能優勢。</div>
+      </div>
+      <div class="flags">
+        <span class="flag green">三張牌</span><span class="flag blue">賣可用率</span><span class="flag amber">利基護城河</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>進能服的三張牌</th><th>續升綠能的空白</th><th>沃德利地圖位置</th></tr></thead>
+            <tbody>
+              <tr class="good-row">
+                <td><strong>① 建坤式 SPV</strong><br><small>國泰／富邦資本槓桿</small></td>
+                <td>續升自有 800MW 需重資產壓身；未見大型表外資產收購 SPV 結構</td>
+                <td><strong>定制區</strong><br><span class="chip teal">表外槓桿</span></td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>② SOFC/CHP 熱電共生</strong><br><small>沙崙實證基地技術對接</small></td>
+                <td>續升有儲能與 EMS，但未見燃料電池與廢熱製冷降低 PUE 技術</td>
+                <td><strong>創生區</strong><br><span class="chip coral">極高門檻</span></td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>③ 防災韌性表後儲能</strong><br><small>ATMOCE 標準功率包</small></td>
+                <td>續升儲能重押電網側（台電調頻）與海外（澳洲/日本），缺乏台灣企業表後</td>
+                <td><strong>定制偏左</strong><br><span class="chip amber">高黏著度</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note" style="margin-top:14px">
+            <strong>核心命題躍遷：</strong>中美晶集團（環球晶）賣半導體材料給算力中心；進能服必須賣<strong>「電力可用率（Uptime SLA）與熱能管理」</strong>給算力中心。
+          </div>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+            商業價值演進：從賣度數 (kWh) 走向賣可用率責任 (SLA)
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Left curve -->
+            <rect x="30" y="40" width="200" height="200" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+            <text x="45" y="65" fill="#64748B" font-size="12" font-weight="800">傳統售電 (中美晶/續升)</text>
+            <text x="45" y="90" fill="#1E293B" font-size="11">計費：每度電多少錢 (元/kWh)</text>
+            <text x="45" y="115" fill="#1E293B" font-size="11">客戶：只要綠電合規憑證</text>
+            <text x="45" y="140" fill="#991B1B" font-size="11">競爭：價格戰、毛利率 &lt; 2%</text>
+            <text x="45" y="165" fill="#991B1B" font-size="11">本質：中介經銷商，易被取代</text>
+
+            <!-- Arrow -->
+            <path d="M245 140 L285 140" stroke="#1968AD" stroke-width="3" marker-end="url(#arr)"/>
+
+            <!-- Right curve -->
+            <rect x="300" y="40" width="210" height="200" rx="6" fill="#EFF6FF" stroke="#1968AD" stroke-width="2"/>
+            <text x="315" y="65" fill="#12518A" font-size="12" font-weight="800">進能服可用率交付 (v6)</text>
+            <text x="315" y="90" fill="#1E293B" font-size="11">計費：可用容量費 ＋ SLA 保障費</text>
+            <text x="315" y="115" fill="#1E293B" font-size="11">客戶：AIDC 絕對不能斷電</text>
+            <text x="315" y="140" fill="#065F46" font-size="11" font-weight="700">毛利：高利潤（不可比價）</text>
+            <text x="315" y="165" fill="#065F46" font-size="11" font-weight="700">護城河：SOFC 韌性 ＋ 保險背書</text>
+            <rect x="315" y="190" width="180" height="32" rx="3" fill="#10B981"/>
+            <text x="325" y="210" fill="#FFF" font-size="10" font-weight="800">賣「不斷電」的確定性</text>
+          </svg>
+          <div class="cap">圖 3.2：從比拚綠電採購規模轉向承擔斷電風險的高附加價值服務</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第四部</div>
+      <div class="pageno">3.2</div>
+    </div>
+  </section>
+
+  <!-- P3-3 -->
+  <section class="slide" id="slide-p3-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 競爭標竿與服務設計</div>
+        <h2>「電力交付算力」三層服務架構與保險前提</h2>
+        <div class="sub">第一層是規模入場券，第二層是蓋得起來的鑰匙，第三層是暴利頂峰；但未經保險支撐的保證是負債非護城河！</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">三層服務</span><span class="flag amber">保險前提</span><span class="flag blue">SLA 責任</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22" fill="none" stroke="#1968AD" stroke-width="2"/><line x1="7" y1="14" x2="17" y2="14" stroke="#1968AD" stroke-width="2"/><line x1="4.5" y1="18" x2="19.5" y2="18" stroke="#1968AD" stroke-width="2"/></svg>
+            電力交付算力三層服務金字塔模型
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Level 3: Top -->
+            <polygon points="270 25, 360 100, 180 100" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+            <text x="235" y="65" fill="#991B1B" font-size="11" font-weight="800">第三層：責任承擔</text>
+            <text x="215" y="82" fill="#7F1D1D" font-size="9">PUE 與可用率 SLA 保障</text>
+            <text x="215" y="94" fill="#991B1B" font-size="8" font-weight="700">★ 高利潤 ‧ 需富邦產險背書</text>
+
+            <!-- Level 2: Middle -->
+            <polygon points="180 105, 360 105, 430 185, 110 185" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+            <text x="210" y="135" fill="#92400E" font-size="12" font-weight="800">第二層：On-site 韌性供電</text>
+            <text x="185" y="155" fill="#78350F" font-size="10">SOFC/CHP ＋ 表後儲能 ＋ 灰區變電站</text>
+            <text x="210" y="172" fill="#92400E" font-size="9" font-weight="700">中高毛利 ‧ 讓 AIDC 落地之鑰匙</text>
+
+            <!-- Level 1: Bottom -->
+            <polygon points="110 190, 430 190, 490 260, 50 260" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="205" y="218" fill="#1E40AF" font-size="13" font-weight="800">第一層：綠電合規供應</text>
+            <text x="175" y="238" fill="#1E3A8A" font-size="10">綠電 CPPA 售電 ＋ T-REC 憑證交付</text>
+            <text x="200" y="253" fill="#1D4ED8" font-size="9">低毛利（淨利率約 1.9%）‧ 入場資格</text>
+          </svg>
+          <div class="cap">圖 3.3：在富邦產險可用率保險確認前，對外僅承諾第二層，嚴禁空口答應第三層！</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>層級</th><th>收入項目</th><th>計費基礎</th><th>毛利特性</th><th>前置約束條件</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>第一層</strong><br><small>綠電合規</small></td>
+                <td>• 綠電售電收入<br>• T-REC 銷售</td>
+                <td>kWh × 合約電價<br>張數 × 市價</td>
+                <td><strong>低毛利</strong><br>(對標續升約 1.9% 淨利)</td>
+                <td>取得售電執照與電廠供貨合約</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>第二層</strong><br><small>On-site 韌性</small></td>
+                <td>• on-site 供電費<br>• 機電系統整合費</td>
+                <td>kW × 月費 (含容量費)<br>專案總價承包</td>
+                <td><strong>中高毛利</strong><br>按容量月租計收</td>
+                <td>沙崙 SOFC 實證驗證與 161kV 機電工程能力</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>第三層</strong><br><small>責任承擔</small></td>
+                <td>• <strong>可用率保障費</strong><br>• PUE 節能分潤</td>
+                <td>年度合約 (依等級分檔)<br>節能效益分成</td>
+                <td><strong>高毛利</strong><br>全台無對手</td>
+                <td><strong>富邦產險承保</strong>＋母公司資本適足率（未解決）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第四部</div>
+      <div class="pageno">3.3</div>
+    </div>
+  </section>
+
+  <!-- P3-4 -->
+  <section class="slide" id="slide-p3-4">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 競爭標竿與服務設計</div>
+        <h2>泓德能源競爭訊號與富邦能源衝突警訊</h2>
+        <div class="sub">周仕昌提「電力主權」與「容量訂閱制」；泓德四大資產平台之一赫見「富邦能源」，潛藏算力入口衝突！</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">紅旗警訊</span><span class="flag amber">容量訂閱</span><span class="flag purple">電力主權</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>情報維度</th><th>泓德能源（6873）公開動態（2026/09 檢索）</th><th>進能服戰略意涵</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>發言人</strong></td>
+                <td>周仕昌 總經理暨發言人</td>
+                <td>產業指標領袖，論述高度直達國安層級</td>
+              </tr>
+              <tr>
+                <td><strong>電力主權</strong></td>
+                <td>主張國力由「AI 主權與電力主權」定義</td>
+                <td>電力從成本項改寫為國安戰略，拉高客戶願付價格</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>容量訂閱制</strong></td>
+                <td>公開主張「容量訂閱制」（參照日本 OCCTO 容量市場，20 年保障）</td>
+                <td>本質為轉移電價波動風險，與進能服賣可用率同構，但泓德已先發</td>
+              </tr>
+              <tr>
+                <td><strong>算力佈局</strong></td>
+                <td>成立「德雲算力」搶進 AI 算力中心市場</td>
+                <td>直接下場搶當算力營運商，與 CSP 直接對接</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>⚠️ 衝突警訊</strong></td>
+                <td><strong>泓德四大資產平台之一名為「富邦能源」</strong></td>
+                <td><strong>若為同一法人，進能服算力入口直接踩進競爭者平台！</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#EF4444" stroke-width="2" fill="none"/><line x1="12" y1="9" x2="12" y2="13" stroke="#EF4444" stroke-width="2"/><circle cx="12" cy="17" r="1" fill="#EF4444"/></svg>
+            最高優先查證：富邦能源股權與算力入口衝突
+          </div>
+          <svg viewBox="0 0 540 280">
+            <rect x="20" y="20" width="500" height="240" rx="6" fill="#FFF5F5" stroke="#F87171"/>
+            <!-- Box: 6692 Plan -->
+            <rect x="40" y="40" width="180" height="90" rx="4" fill="#FFF" stroke="#1968AD"/>
+            <text x="50" y="65" fill="#12518A" font-size="11" font-weight="800">進能服 AIDC 規劃</text>
+            <text x="50" y="85" fill="#5B7285" font-size="9">算力唯一入口：</text>
+            <text x="50" y="105" fill="#1968AD" font-size="12" font-weight="800">「富邦能源」投資持有</text>
+
+            <!-- Box: HD Energy -->
+            <rect x="320" y="40" width="180" height="90" rx="4" fill="#FFF" stroke="#6B46C1"/>
+            <text x="330" y="65" fill="#6B46C1" font-size="11" font-weight="800">泓德能源 (6873) 平台</text>
+            <text x="330" y="85" fill="#5B7285" font-size="9">四大壽險資產管理之一：</text>
+            <text x="330" y="105" fill="#6B46C1" font-size="12" font-weight="800">「富邦能源」光儲平台</text>
+
+            <!-- Center Conflict Question -->
+            <circle cx="270" cy="140" r="32" fill="#EF4444"/>
+            <text x="250" y="138" fill="#FFF" font-size="11" font-weight="800">同一</text>
+            <text x="250" y="152" fill="#FFF" font-size="11" font-weight="800">法人?</text>
+
+            <!-- Action Note -->
+            <rect x="60" y="180" width="420" height="65" rx="4" fill="#FFF" stroke="#EF4444"/>
+            <text x="75" y="202" fill="#B91C1C" font-size="11" font-weight="800">查證動作：立即調閱富邦能源統編、公司登記與董監事名冊</text>
+            <text x="75" y="222" fill="#5B7285" font-size="10">若屬實，進能服必須立刻建立備援通路（如封裝/PCB二線客戶），防止算力端被封殺！</text>
+          </svg>
+          <div class="cap">圖 3.4：戰略單點脆弱點：算力唯一入口可能與泓德平台重疊，列為最高危機事項</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第四部</div>
+      <div class="pageno">3.4</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PART 4: FY2027 業務四軌與 BP ================= -->
+<div class="view" id="view-p4">
+  <!-- P4-1 -->
+  <section class="slide" id="slide-p4-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 4 · FY2027 業務四軌與 BP</div>
+        <h2>短中期四軌業務方向與落地佈局</h2>
+        <div class="sub">短期光儲、微網、資產管理三大確定性營收軌道，搭配中期 AIDC 開發與灰區電力協作。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">四軌業務</span><span class="flag teal">光儲3億</span><span class="flag amber">微網3億</span><span class="flag green">資產4億</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>期別</th><th>業務軌別</th><th>重點專案與推動內容</th><th>營收屬性</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>短期</strong></td>
+                <td><strong>① 光儲</strong></td>
+                <td>
+                  • 新建物法規強裝太陽能<br>
+                  • 台積電供應鏈 RE 綠電需求<br>
+                  • 光電車棚 ‧ 風雨球場 EPC
+                </td>
+                <td><span class="chip blue">3 億</span> 現金週轉快，地圖右側工程毛利</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>短期</strong></td>
+                <td><strong>② 微網</strong></td>
+                <td>
+                  • 丹娜絲防災微電網（FY26–27/FY27–30）<br>
+                  • 台電大學微電網（FY25–27）<br>
+                  • 教育部大學微電網（FY26–27）<br>
+                  • 熊本地震防災微網（TBD 軍區/醫院）
+                </td>
+                <td><span class="chip amber">3 億</span> 公部門標案為主，具決標時點變數</td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>短期</strong></td>
+                <td><strong>③ 資產管理</strong></td>
+                <td>
+                  • 國泰電業（存量案場整新/整改 &rarr; 維運）<br>
+                  • 建坤 SPV（新收購案場 ‧ 綠能資產）
+                </td>
+                <td><span class="chip green">4 億</span> 最大單項，唯一具正現金流底座</td>
+              </tr>
+              <tr>
+                <td><strong>中期</strong></td>
+                <td><strong>④ AIDC 開發</strong></td>
+                <td>
+                  • 協作台灣大哥大（算力與設施出租）<br>
+                  • 對接富邦能源（持有算力中心設施）
+                </td>
+                <td><span class="chip coral">10 億</span> FY2027 簽約，跨至 FY2028 落地</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10" stroke="#1968AD" stroke-width="2"/><line x1="12" y1="20" x2="12" y2="4" stroke="#1968AD" stroke-width="2"/><line x1="6" y1="20" x2="6" y2="14" stroke="#1968AD" stroke-width="2"/></svg>
+            四軌業務時程推移與營收結構
+          </div>
+          <svg viewBox="0 0 540 280">
+            <rect x="20" y="20" width="500" height="240" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Track 1 -->
+            <rect x="40" y="40" width="220" height="40" rx="4" fill="#DBEAFE" stroke="#1968AD"/>
+            <text x="50" y="65" fill="#12518A" font-size="11" font-weight="700">① 光儲：3 億 (FY27 全額落地)</text>
+            <!-- Track 2 -->
+            <rect x="40" y="90" width="220" height="40" rx="4" fill="#FEF3C7" stroke="#E09A2B"/>
+            <text x="50" y="115" fill="#9A6A10" font-size="11" font-weight="700">② 微網：3 億 (需民間防災作緩衝)</text>
+            <!-- Track 3 -->
+            <rect x="40" y="140" width="260" height="40" rx="4" fill="#D1FAE5" stroke="#10B981"/>
+            <text x="50" y="165" fill="#065F46" font-size="11" font-weight="700">③ 資產管理：4 億 (國泰存量+建坤)</text>
+            <!-- Track 4 -->
+            <rect x="40" y="190" width="180" height="40" rx="4" fill="#FEE2E2" stroke="#EF4444" stroke-dasharray="4,4"/>
+            <text x="50" y="215" fill="#991B1B" font-size="11" font-weight="700">④ AIDC：簽約 10 億 (FY27 不認列)</text>
+            <!-- Cross-year Arrow -->
+            <path d="M220 210 L350 210" stroke="#EF4444" stroke-width="3" stroke-dasharray="4,4" marker-end="url(#arr)"/>
+            <rect x="350" y="190" width="150" height="40" rx="4" fill="#EF4444"/>
+            <text x="360" y="215" fill="#FFF" font-size="11" font-weight="800">FY2028 落地 10 億</text>
+          </svg>
+          <div class="cap">圖 4.1：四軌各司其職，前三軌保底 10 億現金流，第四軌蓄積未來爆發力</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第五部</div>
+      <div class="pageno">4.1</div>
+    </div>
+  </section>
+
+  <!-- P4-2 -->
+  <section class="slide" id="slide-p4-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 4 · FY2027 業務四軌與 BP</div>
+        <h2>BP 簽約 20 億 vs 落地 10 億三個結構性讀法</h2>
+        <div class="sub">向董事會溝通必須清楚切分「營運計畫（10 億）」與「佈局計畫（10 億）」，避免第一季無營收遭質疑。</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">簽約20億</span><span class="flag green">落地10億</span><span class="flag blue">結構性讀法</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-45">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>業務軌別</th><th>簽約金額</th><th>可落地營收</th><th>差額說明</th></tr></thead>
+            <tbody>
+              <tr><td>① 光儲</td><td class="num">3 億</td><td class="num">3 億</td><td class="ctr">—</td></tr>
+              <tr><td>② 微網</td><td class="num">3 億</td><td class="num">3 億</td><td class="ctr">—</td></tr>
+              <tr class="hl-row"><td>③ 資產管理</td><td class="num">4 億</td><td class="num">4 億</td><td class="ctr">—</td></tr>
+              <tr class="bad-row"><td>④ AIDC</td><td class="num">10 億</td><td class="num"><strong>0</strong></td><td>跨年度落地 (FY28 認列)</td></tr>
+              <tr class="good-row"><td><strong>合計</strong></td><td class="num"><strong>20 億</strong></td><td class="num"><strong>10 億</strong></td><td><strong>10 億落差全因 AIDC</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            BP 結構性瀑布流：對董事會清晰溝通兩份計畫
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- 3 structural reads -->
+            <rect x="20" y="20" width="500" height="70" rx="4" fill="#EFF6FF" stroke="#3B82F6"/>
+            <text x="35" y="45" fill="#1D4ED8" font-size="12" font-weight="800">讀法一：10 億差額全部來自 AIDC</text>
+            <text x="35" y="68" fill="#1E40AF" font-size="10">FY27 是兩份計畫：10 億營運底盤 ＋ 10 億 AIDC 佈局。反向印證 AIDC 排 P2 正確！</text>
+
+            <rect x="20" y="100" width="500" height="70" rx="4" fill="#F0FDF4" stroke="#10B981"/>
+            <text x="35" y="125" fill="#047857" font-size="12" font-weight="800">讀法二：資產管理 4 億是最大支柱，依賴收購成交</text>
+            <text x="35" y="148" fill="#065F46" font-size="10">若建坤收購在 FY27 上半年未成交，此 4 億會有缺口，而其他三軌無多餘產能可補。</text>
+
+            <rect x="20" y="180" width="500" height="70" rx="4" fill="#FFFBEB" stroke="#F59E0B"/>
+            <text x="35" y="205" fill="#B45309" font-size="12" font-weight="800">讀法三：微網 3 億不可控成分最高，需民間防災緩衝</text>
+            <text x="35" y="228" fill="#92400E" font-size="10">公部門標案決標時點受制於政策；若任一標案延後，需靠 ATMOCE 防災產品補位。</text>
+          </svg>
+          <div class="cap">圖 4.2：對董事會若含混講 20 億將承擔跳票風險，分開說明方顯專業治理紀律</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第五部</div>
+      <div class="pageno">4.2</div>
+    </div>
+  </section>
+
+  <!-- P4-3 -->
+  <section class="slide" id="slide-p4-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 4 · FY2027 業務四軌與 BP</div>
+        <h2>業務線與事業部對照及組織待決事項</h2>
+        <div class="sub">業務線依案源分類，戰略依組織編列；微網 3 億橫跨儲能與工程，需在會前定錨損益責任承接者。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">組織對照</span><span class="flag coral">微網待決</span><span class="flag green">損益權責</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>業務線 (案源分類)</th><th>對應事業部 (組織架構)</th><th>戰略本質與權責待決事項</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>① 光儲 (3 億)</strong></td>
+                <td>光伏工程事業部 ＋ ATMOCE</td>
+                <td>主要為 EPC 工程款，屬地圖右側低毛利，由工程團隊承接損益。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>② 微網 (3 億)</strong></td>
+                <td><strong>待決：ATMOCE 還是工程？</strong></td>
+                <td><strong>組織缺口！</strong>橫跨 ATMOCE 與工程部，需在年度計畫拍板損益責任歸屬。</td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>③ 資產管理 (4 億)</strong></td>
+                <td>建坤 SPV ＋ 維運 ＋ 國泰電業</td>
+                <td>對應「電力資產」與「能源服務」，維運主管與建坤團隊協同交付。</td>
+              </tr>
+              <tr>
+                <td><strong>④ AIDC (10 億)</strong></td>
+                <td>AIDC 專案團隊（孵化中）</td>
+                <td>對應「算力供電」，總部主導前置談判，由副總親自帶領。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" fill="none" stroke="#1968AD" stroke-width="2"/></svg>
+            微網事業組織歸屬決策樹
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Decision Question -->
+            <rect x="170" y="20" width="200" height="50" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+            <text x="195" y="42" fill="#92400E" font-size="11" font-weight="800">微網 3 億歸誰負損益？</text>
+            <text x="185" y="58" fill="#78350F" font-size="9">橫跨 ATMOCE 與光伏工程</text>
+
+            <!-- Choice A -->
+            <path d="M220 70 L130 110" stroke="#1968AD" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="40" y="110" width="190" height="130" rx="4" fill="#EFF6FF" stroke="#1968AD"/>
+            <text x="55" y="135" fill="#1E40AF" font-size="11" font-weight="800">方案 A：ATMOCE 統籌承接</text>
+            <text x="55" y="155" fill="#1E3A8A" font-size="9">• 將微網視為表後儲能旗艦案</text>
+            <text x="55" y="175" fill="#1E3A8A" font-size="9">• 工程部分委由工程部施工</text>
+            <text x="55" y="195" fill="#047857" font-size="9" font-weight="700">優點：沉澱 EMS 核心技術</text>
+            <text x="55" y="215" fill="#B91C1C" font-size="9">代價：ATMOCE 承擔標案交付風險</text>
+
+            <!-- Choice B -->
+            <path d="M320 70 L410 110" stroke="#1968AD" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="310" y="110" width="190" height="130" rx="4" fill="#F0FDF4" stroke="#10B981"/>
+            <text x="325" y="135" fill="#047857" font-size="11" font-weight="800">方案 B：工程部主導統包</text>
+            <text x="325" y="155" fill="#065F46" font-size="9">• 依循傳統公共工程標案模式</text>
+            <text x="325" y="175" fill="#065F46" font-size="9">• 儲能僅作為機電採購一環</text>
+            <text x="325" y="195" fill="#047857" font-size="9" font-weight="700">優點：工程施工掌控度高</text>
+            <text x="325" y="215" fill="#B91C1C" font-size="9">代價：無法累積儲能軟體資產</text>
+          </svg>
+          <div class="cap">圖 4.3：建議採方案 A，以微網磨練 ATMOCE 軟體實力與標案管理經驗</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第五部</div>
+      <div class="pageno">4.3</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PART 5: 優先序與三年路線圖 ================= -->
+<div class="view" id="view-p5">
+  <!-- P5-1 -->
+  <section class="slide" id="slide-p5-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 5 · 優先序與三年路線圖</div>
+        <h2>六事業部雙軸評估與現金流時間表</h2>
+        <div class="sub">以「自身資本強度」與「管理注意力」雙軸檢視，FY2026 唯有維運已正現金流，建坤年內轉正。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">雙軸評估</span><span class="flag green">現金牛維運</span><span class="flag amber">轉正時程</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>事業部</th><th>資本強度</th><th>注意力強度</th><th>對其他事業部解鎖作用</th><th>現金流轉正點</th></tr></thead>
+            <tbody>
+              <tr class="good-row">
+                <td><strong>建坤 SPV</strong></td>
+                <td>極低 (國泰95.1%)</td>
+                <td>中</td>
+                <td><strong>極高</strong> (解鎖售電、帶進維運)</td>
+                <td><strong>2026 年內</strong></td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>維運</strong></td>
+                <td>低 (自給自足)</td>
+                <td>高</td>
+                <td>中 (服務建坤、延伸 AIDC)</td>
+                <td><strong>已達成</strong></td>
+              </tr>
+              <tr>
+                <td><strong>ATMOCE</strong></td>
+                <td>中</td>
+                <td>中</td>
+                <td>中 (VPP節點供售電、儲能供AIDC)</td>
+                <td>2027 年 6 月</td>
+              </tr>
+              <tr>
+                <td><strong>售電業</strong></td>
+                <td>中高(收購)/低(自設)</td>
+                <td>中</td>
+                <td>中 (降為防禦性配置)</td>
+                <td>待電廠資產累積後</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>AIDC</strong></td>
+                <td>低 (富邦主投)</td>
+                <td><strong>極高</strong></td>
+                <td>低 (但為算力供電領域核心)</td>
+                <td>FY2028 商轉後</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>CPO 充電</strong></td>
+                <td>高 (收購純現金)</td>
+                <td>中</td>
+                <td><strong>低</strong> (不解鎖任何事業部)</td>
+                <td>主動延後啟動</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" stroke="#1968AD" stroke-width="2"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#1968AD" stroke-width="2"/></svg>
+            現金流時間軸：第二曲線供養第三曲線在 FY26 尚不成立
+          </div>
+          <svg viewBox="0 0 540 280">
+            <rect x="20" y="20" width="500" height="240" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Timeline bars -->
+            <text x="40" y="50" fill="#12518A" font-size="11" font-weight="700">維運事業部</text>
+            <rect x="130" y="38" width="370" height="20" rx="3" fill="#10B981"/>
+            <text x="140" y="52" fill="#FFF" font-size="9" font-weight="800">已正現金流 (唯一現金牛)</text>
+
+            <text x="40" y="90" fill="#12518A" font-size="11" font-weight="700">建坤 SPV</text>
+            <rect x="130" y="78" width="80" height="20" rx="3" fill="#93C5FD"/>
+            <rect x="210" y="78" width="290" height="20" rx="3" fill="#10B981"/>
+            <text x="220" y="92" fill="#FFF" font-size="9" font-weight="800">2026 年底轉正</text>
+
+            <text x="40" y="130" fill="#12518A" font-size="11" font-weight="700">ATMOCE 儲能</text>
+            <rect x="130" y="118" width="170" height="20" rx="3" fill="#FCD34D"/>
+            <rect x="300" y="118" width="200" height="20" rx="3" fill="#10B981"/>
+            <text x="310" y="132" fill="#FFF" font-size="9" font-weight="800">最快 2027/06 轉正</text>
+
+            <text x="40" y="170" fill="#12518A" font-size="11" font-weight="700">AIDC 專案</text>
+            <rect x="130" y="158" width="270" height="20" rx="3" fill="#FCA5A5"/>
+            <rect x="400" y="158" width="100" height="20" rx="3" fill="#10B981"/>
+            <text x="410" y="172" fill="#FFF" font-size="9" font-weight="800">FY28 轉正</text>
+
+            <!-- Warning Callout -->
+            <rect x="40" y="195" width="460" height="50" rx="4" fill="#FFF" stroke="#EF4444"/>
+            <text x="50" y="215" fill="#B91C1C" font-size="10" font-weight="800">關鍵結論：FY2026 第二曲線只有維運一頭現金牛！</text>
+            <text x="50" y="233" fill="#5B7285" font-size="9">「第二曲線供養第三曲線」在今明兩年不能盲目樂觀，必須依靠精準的序列化推進。</text>
+          </svg>
+          <div class="cap">圖 5.1：事業部現金流轉正階梯圖，說明為何不可在 FY26 盲目擴大資本支出</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第六部</div>
+      <div class="pageno">5.1</div>
+    </div>
+  </section>
+
+  <!-- P5-2 -->
+  <section class="slide" id="slide-p5-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 5 · 優先序與三年路線圖</div>
+        <h2>建議優先序 (P0~P3) 與序列化動態調度</h2>
+        <div class="sub">每年僅能支援一事業部資本與副總注意力；序列化不並行：P0（建坤/維運/AIDC前置）&rarr; P1 &rarr; P2 &rarr; P3。</div>
+      </div>
+      <div class="flags">
+        <span class="flag green">P0 啟動</span><span class="flag blue">P1 推進</span><span class="flag amber">P2 資本</span><span class="flag grey">P3 延後</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>順位</th><th>期間</th><th>事業部</th><th>啟動理由與資源紀律</th></tr></thead>
+            <tbody>
+              <tr class="good-row">
+                <td><strong>P0</strong></td>
                 <td>FY2026</td>
                 <td><strong>建坤 SPV</strong></td>
-                <td>解鎖售電業的關鍵鑰匙（持電廠即可申請）。SPV 結構自身 CapEx 極低，2026 年內轉正現金流。</td>
-                <td>資本：極低 (4.9%)<br>注意力：中</td>
+                <td>自身出資極低（國泰出大錢）、2026 年內轉正、解鎖售電業資產門檻。</td>
               </tr>
-              <tr>
-                <td><span class="card-badge badge-p0">P0</span></td>
+              <tr class="good-row">
+                <td><strong>P0</strong></td>
                 <td>FY2026</td>
-                <td><strong>維運事業</strong></td>
-                <td><strong>已正現金流</strong>，FY2026 唯一現金牛！不佔資本，但據點 SOP 與招募將佔滿管理注意力，為主戰場。</td>
-                <td>資本：自我造血<br>注意力：高</td>
+                <td><strong>維運事業部</strong></td>
+                <td>已正現金流，不吃資本額度，但佔滿副總注意力以打下全聯級據點密度。</td>
               </tr>
-              <tr>
-                <td><span class="card-badge badge-p1">P1</span></td>
+              <tr class="good-row">
+                <td><strong>P0</strong></td>
+                <td>FY2026</td>
+                <td><strong>AIDC 前置</strong></td>
+                <td><strong>提前</strong>。僅前置：談判富邦能源合作條件、設計可用率保險、沙崙 SOFC 驗證。<strong>零資本投入</strong>。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>P1</strong></td>
                 <td>FY2027</td>
-                <td><strong>綠電售電業</strong></td>
-                <td>建坤累積資產後才有電可賣。將建坤從 FIT 價格接受者轉為價格制定者。</td>
-                <td>資本：中高<br>注意力：中</td>
+                <td><strong>售電業</strong></td>
+                <td>降級為防禦性配置。依託建坤電廠資產順理成章取得執照，不追價併購。</td>
               </tr>
-              <tr>
-                <td><span class="card-badge badge-p1">P1</span></td>
+              <tr class="hl-row">
+                <td><strong>P1</strong></td>
                 <td>FY2027</td>
-                <td><strong>ATMOCE 儲能</strong></td>
-                <td>2027/6 現金流轉正的前提，需提前半年投入表後儲能 (BTM) 開發。</td>
-                <td>資本：中<br>注意力：中</td>
+                <td><strong>ATMOCE</strong></td>
+                <td>表後儲能標準功率包商轉，達成 2027/06 現金流轉正目標。</td>
               </tr>
               <tr>
-                <td><span class="card-badge badge-p2">P2</span></td>
+                <td><strong>P2</strong></td>
                 <td>FY2028</td>
-                <td><strong>AIDC 算力</strong></td>
-                <td>資本不是瓶頸 (富邦能源出資)，注意力是！待維運/建坤獨立釋放人力後啟動，SOFC 驗證提前推進。</td>
-                <td>資本：低<br>注意力：極高</td>
+                <td><strong>AIDC 資本投入</strong></td>
+                <td>富邦能源主投、進能服操盤灰區電力，對齊 BP 10 億跨年度落地。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>P3</strong></td>
+                <td>待評估</td>
+                <td><strong>CPO 充電</strong></td>
+                <td>全在右側無中左模組。除非順益車隊排程知識到位，否則不啟動。</td>
               </tr>
               <tr>
-                <td><span class="card-badge badge-p3">P3 延後</span></td>
-                <td>待評估</td>
-                <td><strong>充電 CPO</strong></td>
-                <td><strong>建議主動延後！</strong>不解鎖任何事業部、收購 noodle 為純現金、順益電動貨車採購量不可控。</td>
-                <td>資本：高<br>注意力：中</td>
+                <td><strong>降級</strong></td>
+                <td>—</td>
+                <td><strong>模組銷售</strong></td>
+                <td>徹底商品化，改為採購後勤職能，杜絕浪費業務兵力。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" fill="none" stroke="#1968AD" stroke-width="2"/></svg>
+            序列化漏斗：集中兵力擊穿單點
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Funnel levels -->
+            <rect x="40" y="30" width="460" height="50" rx="4" fill="#D1FAE5" stroke="#10B981"/>
+            <text x="60" y="55" fill="#065F46" font-size="12" font-weight="800">FY2026 (P0 聚焦)：建坤收購 ＋ 維運規模化 ＋ AIDC商務前置</text>
+            <text x="60" y="70" fill="#047857" font-size="10">副總注意力 100% 放在建坤鑑價、維運據點SOP與富邦能源對接</text>
+
+            <rect x="70" y="95" width="400" height="50" rx="4" fill="#EFF6FF" stroke="#1968AD"/>
+            <text x="90" y="120" fill="#1E40AF" font-size="12" font-weight="800">FY2027 (P1 擴展)：售電防禦落地 ＋ ATMOCE 表後儲能轉正</text>
+            <text x="90" y="135" fill="#1E3A8A" font-size="10">電廠產出解鎖售電業，ATMOCE 標準功率包規模化獲利</text>
+
+            <rect x="100" y="160" width="340" height="50" rx="4" fill="#FEF3C7" stroke="#E09A2B"/>
+            <text x="120" y="185" fill="#92400E" font-size="12" font-weight="800">FY2028 (P2 爆發)：AIDC 資本投入與電力交付商轉</text>
+            <text x="120" y="200" fill="#78350F" font-size="10">富邦能源大資本到位，10 億營收落地，SLA可用率保險生效</text>
+
+            <rect x="140" y="225" width="260" height="35" rx="4" fill="#F3F4F6" stroke="#9CA3AF"/>
+            <text x="160" y="247" fill="#6B7280" font-size="11" font-weight="700">P3 待命：CPO 凍結 ｜ 模組降級採購</text>
+          </svg>
+          <div class="cap">圖 5.2：杜絕六個事業部齊頭並進，確保每一階段均有正現金流與明確戰果</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第六部</div>
+      <div class="pageno">5.2</div>
+    </div>
+  </section>
+
+  <!-- P5-3 -->
+  <section class="slide" id="slide-p5-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 5 · 優先序與三年路線圖</div>
+        <h2>FY2026–FY2028 三年戰略全要素路線圖</h2>
+        <div class="sub">資本投向、注意力投向、外購動作、中央建置、BP 營收認列與組織演進的三年全景矩陣。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">三年全景</span><span class="flag teal">全要素落地</span><span class="flag green">組織演進</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>戰略維度</th><th>FY2026 (基建與資產年)</th><th>FY2027 (產品與擴展年)</th><th>FY2028 (算力與成熟年)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>資本投向 (右側)</strong></td>
+              <td>建坤電廠收購（國泰出大額）</td>
+              <td>售電業執照取得 ＋ ATMOCE 儲能案場</td>
+              <td>AIDC 灰區建置（富邦能源主投）</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>注意力投向 (左側)</strong></td>
+              <td>鑑價知識、維運故障庫、國泰富邦關係</td>
+              <td>客戶深度關係、責任邊界設計、知識圖譜深化</td>
+              <td>AIDC 電力交付責任設計、SOFC 技術整合</td>
+            </tr>
+            <tr>
+              <td><strong>外購動作</strong></td>
+              <td><strong>監控平台統一外購</strong>、派工工單系統選型</td>
+              <td>外購平台擴充至全公司事業部</td>
+              <td>EMS 專用軟體外購、AIDC 貨櫃與設備</td>
+            </tr>
+            <tr class="good-row">
+              <td><strong>中央建置階梯</strong></td>
+              <td><strong>階段一：投資併購 (M&A)</strong> 職能</td>
+              <td><strong>階段二：知識資產化</strong> (買平台+建知識)</td>
+              <td><strong>階段三：技術中台</strong> (責任承擔整合)</td>
+            </tr>
+            <tr>
+              <td><strong>BP 落地營收</strong></td>
+              <td>維持既有 EPC 工程基礎</td>
+              <td><strong>10 億落地</strong> (光儲3 + 微網3 + 資產4)</td>
+              <td><strong>AIDC 10 億進入認列</strong>，總營收翻倍</td>
+            </tr>
+            <tr>
+              <td><strong>現金流狀態</strong></td>
+              <td>維運正向、建坤轉正</td>
+              <td>ATMOCE 6 月轉正</td>
+              <td>第二曲線三大事業部<strong>全數正向運轉</strong></td>
+            </tr>
+            <tr class="bad-row">
+              <td><strong>組織架構演進</strong></td>
+              <td>六個事業部由一位副總兼任</td>
+              <td>維運、建坤達成畢業標準，設立獨立主管</td>
+              <td>第二曲線全面自立，副總轉戰第三曲線攻堅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第六部</div>
+      <div class="pageno">5.3</div>
+    </div>
+  </section>
+
+  <!-- P5-4 -->
+  <section class="slide" id="slide-p5-4">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 5 · 優先序與三年路線圖</div>
+        <h2>強中央三階段建置與中央 BU 權責界線</h2>
+        <div class="sub">中央定位不是衙門收權，而是分三年依業務順序長出基建職能；嚴格劃分中央裁決與地方自主界限。</div>
+      </div>
+      <div class="flags">
+        <span class="flag purple">強中央三階</span><span class="flag blue">權責劃分</span><span class="flag green">地方充分自主</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-55">
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1968AD" stroke-width="2" fill="none"/></svg>
+            強中央分三年依序長出能力階梯
+          </div>
+          <svg viewBox="0 0 540 280">
+            <!-- Stair 1 -->
+            <rect x="30" y="180" width="140" height="80" rx="4" fill="#EFF6FF" stroke="#1968AD"/>
+            <text x="45" y="205" fill="#12518A" font-size="11" font-weight="800">階段一：FY2026</text>
+            <text x="45" y="225" fill="#1968AD" font-size="12" font-weight="800">投資併購 (M&A)</text>
+            <text x="45" y="245" fill="#5B7285" font-size="9">主導電廠收購/SPV資金結構</text>
+
+            <!-- Stair 2 -->
+            <rect x="190" y="110" width="150" height="150" rx="4" fill="#E2F5F7" stroke="#1BB1BF"/>
+            <text x="205" y="135" fill="#12818C" font-size="11" font-weight="800">階段二：FY2027</text>
+            <text x="205" y="155" fill="#12818C" font-size="12" font-weight="800">知識資產化</text>
+            <text x="205" y="175" fill="#5B7285" font-size="9">原數據平台：改為平台外購</text>
+            <text x="205" y="195" fill="#5B7285" font-size="9">集中萃取全公司故障知識庫</text>
+            <text x="205" y="215" fill="#047857" font-size="9" font-weight="700">維運規模到了才養得起模型</text>
+
+            <!-- Stair 3 -->
+            <rect x="360" y="40" width="150" height="220" rx="4" fill="#D1FAE5" stroke="#10B981"/>
+            <text x="375" y="65" fill="#065F46" font-size="11" font-weight="800">階段三：FY2028</text>
+            <text x="375" y="85" fill="#065F46" font-size="12" font-weight="800">技術中台</text>
+            <text x="375" y="110" fill="#5B7285" font-size="9">對應 AIDC 算力商轉</text>
+            <text x="375" y="130" fill="#5B7285" font-size="9">核心在責任承擔與跨界整合</text>
+            <text x="375" y="150" fill="#5B7285" font-size="9">非自研冷卻或自研軟體</text>
+            <rect x="375" y="170" width="120" height="24" rx="3" fill="#10B981"/>
+            <text x="385" y="186" fill="#FFF" font-size="9" font-weight="700">對接富邦產險保險</text>
+
+            <!-- Connecting arrow -->
+            <path d="M170 200 L190 170" stroke="#1968AD" stroke-width="2" marker-end="url(#arr)"/>
+            <path d="M340 130 L360 100" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr)"/>
+          </svg>
+          <div class="cap">圖 5.4：不是一開始建龐大官僚總部，而是隨業務推移逐步建立專業中樞</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>決策事項</th><th>中央權責</th><th>BU 地方權責</th></tr></thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><strong>年度資本分配</strong></td>
+                <td><strong>最終裁決</strong></td>
+                <td>提案與商業論證</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>收購與 SPV 結構</strong></td>
+                <td><strong>主導談判</strong>與資金安排</td>
+                <td>提供標的 DD 與技術評估</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>監控鑑價共用系統</strong></td>
+                <td><strong>統一採購</strong>建置維護</td>
+                <td>實際使用與回饋數據</td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>日常營運與客戶關係</strong></td>
+                <td><strong>不介入</strong></td>
+                <td><strong>完全自主</strong></td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>產品定價與商業條件</strong></td>
+                <td><strong>不介入</strong></td>
+                <td><strong>完全自主</strong></td>
+              </tr>
+              <tr class="good-row">
+                <td><strong>BU 人員任用</strong></td>
+                <td><strong>不介入</strong></td>
+                <td><strong>完全自主</strong></td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>新事業孵化虧損</strong></td>
+                <td><strong>總部承擔</strong>，不扣考核</td>
+                <td>專注技術與市場驗證</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第六部</div>
+      <div class="pageno">5.4</div>
+    </div>
+  </section>
+</div>
 
-    <!-- ==================== 第四部：強中央的三階段建置 ==================== -->
-    <section id="part4" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 4</span>
-        <h2 class="section-title">第四部：強中央 (Strong HQ) 的三階段建置</h2>
+<!-- ================= PART 6: 五角色 25 問——決策抉擇 ================= -->
+<div class="view" id="view-p6">
+  <!-- P6-1: Chairman -->
+  <section class="slide" id="slide-p6-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 6 · 五角色 25 問——決策抉擇</div>
+        <h2>【董事長 5 問】A/B 方案與代價對照</h2>
+        <div class="sub">直面最高治理層的五大核心抉擇：營收揭露、AIDC資本、分拆獨立、中央費用與競爭定位。</div>
       </div>
+      <div class="flags">
+        <span class="flag purple">董事長 5 問</span><span class="flag blue">A/B 對決</span><span class="flag amber">代價攤開</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>決策提問 (Issue)</th><th>方案 A (保守/自律) 與代價</th><th>方案 B (激進/進取) 與代價</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Q1</strong></td>
+              <td><strong>20 億簽約 vs 10 億落地如何揭露？</strong></td>
+              <td><strong>只揭露落地營收 10 億</strong><br><span class="chip coral">代價</span> 低估成長性，錯失合約能見度帶來的本益比溢價（參考續升）。</td>
+              <td><strong>揭露簽約 20 億＋訂單能見度</strong><br><span class="chip coral">代價</span> 若 AIDC 跨期受阻，面臨未達標信譽風險，需持續向法人解釋。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q2</strong></td>
+              <td><strong>AIDC 10 億簽約的資本從哪來？</strong></td>
+              <td><strong>富邦能源主投，進能服表外 SPV</strong><br><span class="chip coral">代價</span> 受制於人；且若富邦能源與泓德關聯屬實，形同拱手讓人。</td>
+              <td><strong>進能服辦理增資自持部分股權</strong><br><span class="chip coral">代價</span> 掌握完全主導權，但股權稀釋且第一年無利潤貢獻。</td>
+            </tr>
+            <tr>
+              <td><strong>Q3</strong></td>
+              <td><strong>事業部獨立與分拆時程？</strong></td>
+              <td><strong>FY2027 啟動維運分拆，設畢業標準</strong><br><span class="chip coral">代價</span> 釋放副總注意力給第三曲線，但分拆耗費行政且需獨立管理層。</td>
+              <td><strong>全部維持一位副總兼任至 FY2028</strong><br><span class="chip coral">代價</span> 決策無摩擦，但風險綁在一人身上，第三曲線無人能管。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q4</strong></td>
+              <td><strong>強中央費用上限如何設定？</strong></td>
+              <td><strong>設營收百分比上限（如不超過落地 X%）</strong><br><span class="chip coral">代價</span> 紀律明確，但在營收未放大前會卡死中央建設（雞生蛋）。</td>
+              <td><strong>專案制逐案送董事會批准</strong><br><span class="chip coral">代價</span> 彈性高，但缺乏總量控制，每次溝通容易被打斷節奏。</td>
+            </tr>
+            <tr>
+              <td><strong>Q5</strong></td>
+              <td><strong>面對泓德/續升的競爭定位？</strong></td>
+              <td><strong>利基差異化（可用率/防災/SPV/SOFC）</strong><br><span class="chip coral">代價</span> 市場初期較小，短期營收成長慢，說服週期長。</td>
+              <td><strong>規模跟進打一站式服務</strong><br><span class="chip coral">代價</span> 正面硬碰續升 1000 億合約存量與 800MW 電廠，勝算極低。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第七部 7.1</div>
+      <div class="pageno">6.1</div>
+    </div>
+  </section>
 
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 0.5rem;">🛣️ 中央造公路：依業務階段順序長出三項職能</h3>
-        <p class="card-subtitle" style="margin-bottom: 1rem;">現有職能：財務、總務、人事、法務（支援型）。缺口職能依三年計畫逐年建置，不一次搞龐大總部！</p>
+  <!-- P6-2: President -->
+  <section class="slide" id="slide-p6-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 6 · 五角色 25 問——決策抉擇</div>
+        <h2>【總經理 5 問】A/B 方案與代價對照</h2>
+        <div class="sub">聚焦營運落地執行力：人力配置、微網標案依賴、資產管理拆分、AIDC 前置預算與 KPI 設計。</div>
+      </div>
+      <div class="flags">
+        <span class="flag blue">總經理 5 問</span><span class="flag teal">營運調度</span><span class="flag amber">KPI 對齊</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>決策提問 (Issue)</th><th>方案 A (保守/自律) 與代價</th><th>方案 B (激進/進取) 與代價</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Q1</strong></td>
+              <td><strong>10 億落地營收的人力配置？</strong></td>
+              <td><strong>現有人力硬撐，不大幅擴編</strong><br><span class="chip coral">代價</span> 節省固定人事費，但副總在 FY27 上半年必撞牆，交付風險劇增。</td>
+              <td><strong>Q1 提前補人培訓再接大案</strong><br><span class="chip coral">代價</span> 交付品質有保障，但費用前置，若營收落後將直接侵蝕當季獲利。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q2</strong></td>
+              <td><strong>微網 3 億的標案依賴如何處理？</strong></td>
+              <td><strong>全押公部門微網標案</strong><br><span class="chip coral">代價</span> 單案金額大、公家付款穩，但決標時點不可控，任一延遲即開天窗。</td>
+              <td><strong>保留部分產能給民間防災客戶</strong><br><span class="chip coral">代價</span> 分散政策風險並驗證 ATMOCE 功率包，但民間案開發週期長。</td>
+            </tr>
+            <tr>
+              <td><strong>Q3</strong></td>
+              <td><strong>資產管理 4 億的來源結構？</strong></td>
+              <td><strong>以國泰電業存量整新為主</strong><br><span class="chip coral">代價</span> 確定性極高、存量活化，但成長天花板受限於國泰既有案場。</td>
+              <td><strong>以建坤新收購案場為主</strong><br><span class="chip coral">代價</span> 擴大資產並解鎖售電業，但高度依賴外部收購成交與壽險審委會。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q4</strong></td>
+              <td><strong>AIDC 前置投入的預算歸屬？</strong></td>
+              <td><strong>由總部承擔（視為新事業孵化成本）</strong><br><span class="chip coral">代價</span> 符合強中央公路定位，但拉高總部管理費用率，需向董事會說明。</td>
+              <td><strong>由 AIDC 專案事業部自負盈虧</strong><br><span class="chip coral">代價</span> 權責分明，但無營收團隊背負龐大虧損將重創士氣並引發離職。</td>
+            </tr>
+            <tr>
+              <td><strong>Q5</strong></td>
+              <td><strong>FY2027 的考核 KPI 如何設計？</strong></td>
+              <td><strong>以簽約額（20 億）作為考核</strong><br><span class="chip coral">代價</span> 業務衝勁強，但可能誘發低價搶簽無法落地、交付爛攤子的惡意合約。</td>
+              <td><strong>以落地營收＋毛利（10 億）考核</strong><br><span class="chip coral">代價</span> 對齊實質獲利，但 AIDC 團隊當年度無營收 KPI 可達成，需設佈局指標。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第七部 7.2</div>
+      <div class="pageno">6.2</div>
+    </div>
+  </section>
 
-        <div class="grid-3" style="margin-bottom: 1.5rem;">
-          <div style="background: rgba(139, 92, 246, 0.08); border: 1.5px solid var(--purple); padding: 1.2rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-hq">階段一 (FY2026)</span>
-            <h4 style="color: var(--purple); margin: 0.4rem 0;">投資併購職能 (M&A)</h4>
-            <p style="font-size: 0.83rem; color: var(--text-muted);">
-              • <strong>為什麼是第一個</strong>：未來兩年核心動作全是收購 (建坤電廠/大自然售電/noodle)。在現有法務財務上疊加！<br>
-              • 內容：SPV 標準架構、國泰/富邦流程標準化、併購 DD 清單、3+3 評分表。
-            </p>
-          </div>
+  <!-- P6-3: Business Center Head -->
+  <section class="slide" id="slide-p6-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 6 · 五角色 25 問——決策抉擇</div>
+        <h2>【事業中心主管 5 問】A/B 方案與代價對照</h2>
+        <div class="sub">交付端的工程資源權衡：EPC 與自持抉擇、微網排序、維運 50MW 據點門檻、監控平台與調度權。</div>
+      </div>
+      <div class="flags">
+        <span class="flag teal">事業中心 5 問</span><span class="flag amber">交付管理</span><span class="flag coral">取捨排序</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>決策提問 (Issue)</th><th>方案 A (保守/聚焦) 與代價</th><th>方案 B (積極/整合) 與代價</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Q1</strong></td>
+              <td><strong>光儲 3 億是純接 EPC 還是部分轉自持？</strong></td>
+              <td><strong>純接 EPC 工程款</strong><br><span class="chip coral">代價</span> 現金回收快、不吃資本，但屬地圖右側低毛利，無法沉澱長期資產。</td>
+              <td><strong>部分轉入建坤 SPV 自持電廠</strong><br><span class="chip coral">代價</span> 累積自持資產、解鎖售電業，但占用 SPV 資本額度且營收遞延。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q2</strong></td>
+              <td><strong>微網四案時程重疊如何取捨？</strong></td>
+              <td><strong>四案平行推進，來者不拒</strong><br><span class="chip coral">代價</span> 不漏失任何客戶，但工程資源極度分散，任一案出包連鎖拖垮全盤。</td>
+              <td><strong>排序取捨，主動放棄一案</strong><br><span class="chip coral">代價</span> 確保關鍵三案如期如質交付，但放棄案未來極難再切入該客戶。</td>
+            </tr>
+            <tr>
+              <td><strong>Q3</strong></td>
+              <td><strong>維運據點 50MW 門檻在 FY27 設幾區？</strong></td>
+              <td><strong>僅設立南部單一旗艦站</strong><br><span class="chip coral">代價</span> 資源集中、確保單站損益平衡，但中部客戶需長途奔波支援。</td>
+              <td><strong>南北兩站同步設立</strong><br><span class="chip coral">代價</span> 擴大服務半徑，但若中部未達 50MW 規模經濟門檻，將拖累部門虧損。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q4</strong></td>
+              <td><strong>監控平台外購還是自建？</strong></td>
+              <td><strong>外購並全公司統一一套平台</strong><br><span class="chip coral">代價</span> 成本最低、快速上線，但受供應商綁定，需檢驗多逆變器相容性。</td>
+              <td><strong>各事業部自行採購或客製</strong><br><span class="chip coral">代價</span> 滿足個別需求，但重複造輪子、費用暴增，嚴重違反沃德利外包紀律。</td>
+            </tr>
+            <tr>
+              <td><strong>Q5</strong></td>
+              <td><strong>跨事業部工程資源調度權在誰？</strong></td>
+              <td><strong>事業中心主管享有直接調度權</strong><br><span class="chip coral">代價</span> 現場反應迅速，但容易引發各 BU 搶人、爭功諉過的內部矛盾。</td>
+              <td><strong>統一呈報總部仲裁分配</strong><br><span class="chip coral">代價</span> 公平且符合強中央戰略，但審批流長，遇到工期緊急案件可能錯失良機。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第七部 7.3</div>
+      <div class="pageno">6.3</div>
+    </div>
+  </section>
 
-          <div style="background: rgba(6, 182, 212, 0.08); border: 1.5px solid var(--cyan); padding: 1.2rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-p2">階段二 (FY2027)</span>
-            <h4 style="color: var(--cyan); margin: 0.4rem 0;">數據平台 (Data Platform)</h4>
-            <p style="font-size: 0.83rem; color: var(--text-muted);">
-              • <strong>為什麼是第二個</strong>：維運規模達到一定門檻後才有足夠數據養模型。太早建置是空殼。<br>
-              • 內容：統一案場監控系統 (建坤/維運/ATMOCE皆接入)、資產鑑價模型、發電數據庫。
-            </p>
-          </div>
+  <!-- P6-4: Sales Head -->
+  <section class="slide" id="slide-p6-4">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 6 · 五角色 25 問——決策抉擇</div>
+        <h2>【業務主管 5 問】A/B 方案與代價對照</h2>
+        <div class="sub">衝刺第一線訂單的戰術取捨：Pipeline 覆蓋倍數、定價策略、客戶集中度、AIDC 接觸與訂閱制。</div>
+      </div>
+      <div class="flags">
+        <span class="flag amber">業務主管 5 問</span><span class="flag blue">商業條件</span><span class="flag coral">風控邊界</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>決策提問 (Issue)</th><th>方案 A (保守/深耕) 與代價</th><th>方案 B (擴張/前瞻) 與代價</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Q1</strong></td>
+              <td><strong>20 億簽約需要多少 Pipeline 覆蓋？</strong></td>
+              <td><strong>2 倍覆蓋（儲備 40 億案源）</strong><br><span class="chip coral">代價</span> 業務負擔合理，但要求成案率達 50%；對公部門標案而言過於樂觀。</td>
+              <td><strong>3 倍覆蓋（儲備 60 億案源）</strong><br><span class="chip coral">代價</span> 達成率具安全邊際，但需大幅增加業務人力，違反精兵原則。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q2</strong></td>
+              <td><strong>定價策略：搶市占還是守毛利？</strong></td>
+              <td><strong>低價搶量，先衝案場密度</strong><br><span class="chip coral">代價</span> 迅速助攻維運據點跨過 50MW 門檻，但大幅壓縮毛利，後續難以提價。</td>
+              <td><strong>嚴守毛利率，寧缺毋濫</strong><br><span class="chip coral">代價</span> 確保每一單獲利品質，但案場量累積慢，規模經濟時點遞延。</td>
+            </tr>
+            <tr>
+              <td><strong>Q3</strong></td>
+              <td><strong>客戶結構：大戶集中還是分散中小型？</strong></td>
+              <td><strong>集中在用電大戶與能源基金（現況）</strong><br><span class="chip coral">代價</span> 客戶關係深、單筆金額大，但客戶已被泓德續升滲透，單點流失風險高。</td>
+              <td><strong>擴展加入公部門與製造業中小企業</strong><br><span class="chip coral">代價</span> 分散客戶風險，但單案金額零碎，銷售與售後服務成本大幅激增。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q4</strong></td>
+              <td><strong>AIDC 算力客戶如何有效接觸？</strong></td>
+              <td><strong>完全依賴富邦能源轉介</strong><br><span class="chip coral">代價</span> 省下巨額開發成本，但若富邦與泓德關聯屬實，等同命脈被掐住。</td>
+              <td><strong>自建二線名單（半導體封測/PCB廠）</strong><br><span class="chip coral">代價</span> 自行掌握客戶主導權，但前期需投入業務兵力，且單案規模較小。</td>
+            </tr>
+            <tr>
+              <td><strong>Q5</strong></td>
+              <td><strong>FY2027 要不要試點容量訂閱制？</strong></td>
+              <td><strong>試點 1~2 家核心客戶跑流程</strong><br><span class="chip coral">代價</span> 提前卡位並累積定價經驗，但在保險機制落實前，斷電風險需自行承擔。</td>
+              <td><strong>維持現有專案統包模式不動</strong><br><span class="chip coral">代價</span> 零新增履約風險，但泓德已在市場推廣，晚進場將徹底失去定義權。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第七部 7.4</div>
+      <div class="pageno">6.4</div>
+    </div>
+  </section>
 
-          <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid var(--emerald); padding: 1.2rem; border-radius: var(--radius-md);">
-            <span class="card-badge badge-p1">階段三 (FY2028)</span>
-            <h4 style="color: var(--emerald); margin: 0.4rem 0;">技術中台 (Tech Platform)</h4>
-            <p style="font-size: 0.83rem; color: var(--text-muted);">
-              • <strong>為什麼是第三個</strong>：對應 AIDC 的啟動時點。<br>
-              • 內容：儲能 EMS 與 VPP 調度、SOFC/CHP 熱電共生整合、跨 BU 技術支援避免重複造輪子。
-            </p>
+  <!-- P6-5: Sales Reps -->
+  <section class="slide" id="slide-p6-5">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 6 · 五角色 25 問——決策抉擇</div>
+        <h2>【業務成員 5 問】A/B 方案與代價對照</h2>
+        <div class="sub">最前線戰士的執行紀律：時間分配、案源篩選判準、售前技術支援、商機留存與投標分工。</div>
+      </div>
+      <div class="flags">
+        <span class="flag green">業務基層 5 問</span><span class="flag blue">執行紀律</span><span class="flag coral">案源把關</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>決策提問 (Issue)</th><th>方案 A (保守/維持) 與代價</th><th>方案 B (自律/升級) 與代價</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Q1</strong></td>
+              <td><strong>業務每日時間分配比重？</strong></td>
+              <td><strong>深耕既有客戶追加新案源</strong><br><span class="chip coral">代價</span> 熟門熟路成交機率高，但長期成長天花板被既有客戶綁死。</td>
+              <td><strong>分配 40% 時間開拓新興市場</strong><br><span class="chip coral">代價</span> 開拓全新客戶群，但轉換週期長、閉門羹多，短期待攤業績壓力大。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q2</strong></td>
+              <td><strong>第一線案源篩選標準？</strong></td>
+              <td><strong>來者不拒，先衝簽約數字</strong><br><span class="chip coral">代價</span> 快速交出簽約成績單，但接下不符 3+3 的垃圾專案，嚴重浪費後端工班。</td>
+              <td><strong>嚴格依循 3+3 戰略過濾器篩選</strong><br><span class="chip coral">代價</span> 確保案案具備戰略複利價值，但短期內會回絕不少案源，數字難看。</td>
+            </tr>
+            <tr>
+              <td><strong>Q3</strong></td>
+              <td><strong>複雜儲能/AIDC 提案技術支援？</strong></td>
+              <td><strong>業務自己硬啃技術向客戶提案</strong><br><span class="chip coral">代價</span> 不增加人力編制，但學習曲線長，客戶常因專業度不足而拒絕。</td>
+              <td><strong>為業務部配置專職售前工程師 (Pre-sales)</strong><br><span class="chip coral">代價</span> 提案命中率大幅躍升，但增加固定薪酬成本，且需工程部門割愛。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><strong>Q4</strong></td>
+              <td><strong>案件情報與客戶檔案如何留存？</strong></td>
+              <td><strong>業務業務本上記錄、個人化管理</strong><br><span class="chip coral">代價</span> 無任何系統導入摩擦，但人員離職檔案直接歸零，無法累積脈絡複利。</td>
+              <td><strong>統一登入公司 CRM 與知識庫</strong><br><span class="chip coral">代價</span> 數據可交接且餵養故障模型，但增加業務日常行政負擔與登打抗拒。</td>
+            </tr>
+            <tr>
+              <td><strong>Q5</strong></td>
+              <td><strong>微網標案的撰寫與投標角色分工？</strong></td>
+              <td><strong>業務主導寫標書，工程僅支援技術</strong><br><span class="chip coral">代價</span> 緊扣評選委員心態與商業條款，但工程規格細節可能出現重大技術漏洞。</td>
+              <td><strong>工程主導規格書，業務負責業主維護</strong><br><span class="chip coral">代價</span> 技術文件完美無瑕，但嚴重佔用工班精力，且業務喪失案件全局主導權。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第七部 7.5</div>
+      <div class="pageno">6.5</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PART 7: 結構化第二意見與待補充清單 ================= -->
+<div class="view" id="view-p7">
+  <!-- P7-1 -->
+  <section class="slide" id="slide-p7-1">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 7 · 結構化第二意見與待補充清單</div>
+        <h2>最有力的反對論點與四大替代假設</h2>
+        <div class="sub">批判性思維檢視：序列化可能錯過機會之窗？承擔 AIDC 供電可用率責任究竟是護城河還是致命陷阱？</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">反對論點</span><span class="flag amber">四替代假設</span><span class="flag blue">壓力測試</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <div class="card coral">
+          <h3>⚡ 最有力的反對論點：序列化的代價是錯過市場視窗</h3>
+          <p>
+            序列化在內部資源受限下是極其理性的，但<strong>市場不會等進能服</strong>。大自然售電業若在 FY2026 被對手搶親、AIDC 國際大客戶在 FY2027 就鎖定供應鏈長約——序列化形同把「時機」變數拱手讓出。
+          </p>
+          <div class="warn" style="margin-top:12px">
+            <strong>違約金陷阱：</strong>進能服之所以選「可用率交付」，是因為該領域無人競爭。但<strong>無人競爭可能不是因為別人沒想到，而是因為沒人敢承擔斷電的巨額違約金！</strong>中美晶不打這張牌，很可能是精算過後主動放棄。
           </div>
         </div>
 
-        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
-          <canvas id="hqStageChart" style="max-height: 200px;"></canvas>
-        </div>
-
-        <h4 style="margin-bottom: 0.75rem;">⚖️ 中央與 BU 的權責界線表</h4>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead><tr><th>事項</th><th>中央 (HQ) 權責</th><th>BU 地方權責</th></tr></thead>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>替代假設</th><th>內容與論證</th><th>檢驗與應對方式</th></tr></thead>
             <tbody>
-              <tr><td>年度資本分配</td><td>決定（依 3+3 判準）</td><td>提案與規劃</td></tr>
-              <tr><td>收購案資金安排</td><td>主導（SPV 夥伴窗口）</td><td>提供標的與 DD 技術支援</td></tr>
-              <tr><td>監控與鑑價系統</td><td>建置與維護（公路）</td><td>使用與數據輸入（車輛）</td></tr>
-              <tr><td>日常營運與客戶關係</td><td><strong>不介入</strong></td><td><strong>完全自主</strong></td></tr>
-              <tr><td>定價與商業條件</td><td><strong>不介入</strong></td><td><strong>完全自主</strong></td></tr>
-              <tr><td>新事業孵化期虧損</td><td><strong>承擔</strong></td><td>—</td></tr>
+              <tr>
+                <td><strong>假設一：兼任是優勢而非瓶頸</strong></td>
+                <td>一位副總兼任六部使得跨業務調度無摩擦、決策極快；強拆 BU 反而催生官僚內耗。</td>
+                <td>只要副總精力未崩潰，暫不強求拆分，以設立助理或售前減輕行政負擔。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>假設二：續升千億合約含大量意向長約</strong></td>
+                <td>800MW 自有電廠年發僅 10 億度，與 220 億度合約顯不對稱，續升大量依賴外購，履約風險極高。</td>
+                <td>中美晶看似龐大，實際履約韌性脆弱；進能服以自持案場實質履約，具防禦優勢。</td>
+              </tr>
+              <tr>
+                <td><strong>假設三：故障知識庫非進能服獨有</strong></td>
+                <td>逆變器原廠（台達、華為）手握全台數據，其演算法庫可能遠超越進能服的師傅經驗。</td>
+                <td>進能服應專注原廠拿不到的「多品牌跨設備混搭故障」與「現地電網異常」數據。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><strong>假設四：微網 3 億最易落空</strong></td>
+                <td>公部門微網標案決標只要延遲一季，FY2027 營收目標立刻破功。</td>
+                <td>必須將民間企業防災表後儲能列為強制備援 pipeline。</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第八部 8.1~8.2</div>
+      <div class="pageno">7.1</div>
+    </div>
+  </section>
 
-    <!-- ==================== 第五部：各事業部戰略與商業模型 ==================== -->
-    <section id="part5" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 5</span>
-        <h2 class="section-title">第五部：各事業部戰略與商業模型</h2>
+  <!-- P7-2 -->
+  <section class="slide" id="slide-p7-2">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 7 · 結構化第二意見與待補充清單</div>
+        <h2>改變評估的具體證據與前提假設檢驗</h2>
+        <div class="sub">訂立具體的正負向觸發條件；全面盤點 11 項缺乏支撐的前提假設，作為風控雷達。</div>
       </div>
-
-      <!-- 建坤 SPV -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-p0">P0 · FY2026</span>
-            <h3 class="card-title" style="margin-top: 0.4rem;">建坤 SPV — 持有電廠・解鎖售電業的鑰匙</h3>
-            <p class="card-subtitle">賣電不賣工程 (國泰 95.1% + 進金生 4.9%)：持電廠即解鎖售電業門檻，2026 年內轉正現金流！</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div style="background: var(--bg-secondary); padding: 1.1rem; border-radius: var(--radius-md);">
-            <h4 style="color: var(--amber); margin-bottom: 0.4rem;">💵 收入結構模型</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li>FIT 躉售收入 (kWh × FIT 費率)</li>
-              <li>PPA 轉供收入 (kWh × PPA 合約電價)</li>
-              <li>T-REC 綠電憑證收入 (張 × 市價)</li>
-              <li>整新後資產增值 (PR 值提升 10-20% → IRR 重估)</li>
-            </ul>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 1.1rem; border-radius: var(--radius-md);">
-            <h4 style="color: var(--cyan); margin-bottom: 0.4rem;">📋 收購標的門檻框架</h4>
-            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li>規模：≥ 500kW (優選 ≥ 2MW)</li>
-              <li>剩餘 FIT 年限：≥ 8 年 (優選 ≥ 12 年)</li>
-              <li>當前 PR 值：≥ 65% (優選 ≥ 70% 整新空間大)</li>
-              <li>南部優先、接近維運據點範圍</li>
-            </ul>
-          </div>
-        </div>
+      <div class="flags">
+        <span class="flag green">正面觸發</span><span class="flag coral">負面警訊</span><span class="flag amber">11項假設缺口</span>
       </div>
-
-      <!-- 維運事業 50MW 據點門檻 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-p0">P0 · FY2026</span>
-            <h3 class="card-title" style="margin-top: 0.4rem;">維運事業 — 唯一的現金牛與 50MW 據點門檻</h3>
-            <p class="card-subtitle">核心修正：先就近服務，區域案場量達 50MW 規模經濟門檻後才設據點！全聯的本質是有客人密度才開店。</p>
-          </div>
-        </div>
-
-        <div class="flow-steps" style="margin-bottom: 1rem;">
-          <div class="flow-step">1. 就近接案服務 (現有人力)</div>
-          <div class="flow-step">2. 累積區域案場量</div>
-          <div class="flow-step" style="border-color: var(--amber);">3. 達 50MW 門檻 → 設立據點</div>
-          <div class="flow-step" style="border-color: var(--emerald);">4. 據點深化損益平衡</div>
-        </div>
-      </div>
-
-      <!-- ATMOCE, 售電業, AIDC, CPO -->
-      <div class="grid-2" style="margin-bottom: 2rem;">
-        <div class="card">
-          <span class="card-badge badge-p1">P1 · FY2027</span>
-          <h3 class="card-title" style="margin-top: 0.4rem;">ATMOCE 表後儲能 (BTM)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">
-            • 賣發電與賣儲能功率 (防災高需求客群)。<br>
-            • <strong>現金流關鍵</strong>：表後儲能 (BTM) 案開發是 2027 年 6 月轉正現金流的前提，需提前半年投入研發與訪談。
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="card-badge badge-p1">P1 · FY2027</span>
-          <h3 class="card-title" style="margin-top: 0.4rem;">綠電售電業 (自產自銷樞紐)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">
-            • 雙路徑：收購大自然 (速度快) vs. 自行設立 (架構自主)。<br>
-            • 建坤累積電廠後才有電可賣，將建坤從 FIT 價格接受者轉為定價者。
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="card-badge badge-p2">P2 · FY2028</span>
-          <h3 class="card-title" style="margin-top: 0.4rem;">AIDC 算力供電 (ft. 富邦能源)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">
-            • <strong>分工明確</strong>：富邦能源主投算力銷售；進能服負責專案開發、On-site power (SOFC/CHP 降低 PUE) 及貨櫃 GPU 統包。<br>
-            • 注意力是瓶頸，SOFC 驗證在 FY26-27 先行。
-          </p>
-        </div>
-
-        <div class="card" style="border-color: var(--rose-glow);">
-          <span class="card-badge badge-uncontrollable">P3 · 建議延後</span>
-          <h3 class="card-title" style="margin-top: 0.4rem; color: var(--rose);">充電服務 CPO (建議延後)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">
-            • <strong>主動延後理由</strong>：不解鎖任何事業部、noodle 為純現金支出、順益電動貨車量不可控。<br>
-            • 主動延後不適合項目更能建立董事會信任！
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 第六部：OKR 矩陣 ==================== -->
-    <section id="part6" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 6</span>
-        <h2 class="section-title">第六部：OKR 即刻行動矩陣 (依 v5 優先序重排)</h2>
-      </div>
-
-      <div class="tab-controls">
-        <button class="tab-btn okr-tab-btn active" data-division="all">全部</button>
-        <button class="tab-btn okr-tab-btn" data-division="hq">總部 (階段一)</button>
-        <button class="tab-btn okr-tab-btn" data-division="jiankun">建坤 (P0)</button>
-        <button class="tab-btn okr-tab-btn" data-division="om">維運 (P0)</button>
-        <button class="tab-btn okr-tab-btn" data-division="atmoce">ATMOCE (P1)</button>
-        <button class="tab-btn okr-tab-btn" data-division="retailer">售電業 (P1)</button>
-        <button class="tab-btn okr-tab-btn" data-division="aidc">AIDC (P2)</button>
-      </div>
-
-      <div class="grid-2">
-        <div class="okr-card" data-division="hq">
-          <div class="info-box" style="border-color: var(--purple); height: 100%;">
-            <span class="card-badge badge-hq">強中央階段一 (HQ)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--purple);">O1: M&A 職能與 SPV 標準化</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-high">8w</span> SPV 標準架構文件 (股權/權責/退場)</li>
-              <li><span class="p-high">12w</span> 國泰/富邦 SPV 合作流程標準化</li>
-              <li><span class="p-medium">6w</span> 3+3 判準資源分配評分表與首次評分</li>
-            </ul>
-            <h4 style="margin: 0.5rem 0 0.3rem; color: var(--purple);">O2: 組織基礎與轉移定價</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-highest">8w</span> 「事業部獨立畢業標準」報董事會通過</li>
-              <li><span class="p-medium">4w</span> 導入一分鐘發言月度檢討會</li>
-              <li><span class="p-high">10w</span> 內部轉移定價機制設計 (維運vs建坤)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="okr-card" data-division="jiankun">
-          <div class="info-box" style="border-color: var(--amber); height: 100%;">
-            <span class="card-badge badge-p0">建坤 SPV (P0)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--amber);">O1: 電廠鑑價與首案電收</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-high">10w</span> 電廠鑑價模型與掃描 ≥20 個潛在標的評分</li>
-              <li><span class="p-highest">16w</span> 首個案場完成 DD 並進入議價</li>
-              <li><span class="p-highest">收購後12w</span> 首案整新 (PR≥+10%) 且 2026 年內產生電收</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="okr-card" data-division="om">
-          <div class="info-box" style="border-color: var(--amber); height: 100%;">
-            <span class="card-badge badge-p0">維運事業 (P0)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--amber);">O1: 50MW 門檻據點設立</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-medium">6w</span> 案場熱力圖標定達 50MW 門檻區域</li>
-              <li><span class="p-high">8w</span> 標準巡檢 SOP 與 P0-P3 響應流程</li>
-              <li><span class="p-highest">16w</span> 首個達 50MW 門檻區域完成據點設立</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="okr-card" data-division="atmoce">
-          <div class="info-box" style="border-color: var(--emerald); height: 100%;">
-            <span class="card-badge badge-p1">ATMOCE (P1)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--emerald);">O1: 表後儲能 (BTM) 開發</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-high">12w</span> 表後儲能 (BTM) 產品定義與定價</li>
-              <li><span class="p-high">16w</span> 鎖定 3 家高防災需求客戶進入訪談</li>
-              <li><span class="p-high">16w</span> 分潤標準合約與投資說明書</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="okr-card" data-division="retailer">
-          <div class="info-box" style="border-color: var(--emerald); height: 100%;">
-            <span class="card-badge badge-p1">綠電售電業 (P1)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--emerald);">O1: 執照路徑與大自然接觸</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-high">8w</span> 售電執照路徑分析 (持電廠門檻/施力點)</li>
-              <li><span class="p-high">12w</span> 大自然售電業初步估值與接觸</li>
-              <li><span class="p-high">12w</span> 確認建坤資產達執照門檻時點</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="okr-card" data-division="aidc">
-          <div class="info-box" style="border-color: var(--cyan); height: 100%;">
-            <span class="card-badge badge-p2">AIDC 算力 (P2)</span>
-            <h4 style="margin: 0.4rem 0; color: var(--cyan);">O1: 富邦合作與 SOFC 驗證</h4>
-            <ul style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><span class="p-high">12w</span> 與富邦能源完成 MOU (投資/算力分工)</li>
-              <li><span class="p-high">16w</span> SOFC 沙崙驗證完成 AIDC 規格設計</li>
-              <li><span class="p-medium">20w</span> 完成貨櫃 GPU 統包初步成本模型</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 第七/八部：三年路線圖、風險評估與待補充清單 ==================== -->
-    <section id="part7" class="section">
-      <div class="section-header">
-        <span class="section-tag">Part 7 & 8</span>
-        <h2 class="section-title">第七/八部：三年路線圖、結構化第二意見與待補充清單</h2>
-      </div>
-
-      <!-- 三年演進總覽表 -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 1rem;">🗓️ FY2026–FY2028 三年演進路線對照表</h3>
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr><th>維度</th><th>FY2026</th><th>FY2027</th><th>FY2028</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>資本投向</strong></td><td>建坤 (低) + 維運 (自我造血)</td><td>售電業 + ATMOCE</td><td>AIDC (富邦能源主投)</td></tr>
-              <tr><td><strong>管理注意力主戰場</strong></td><td>維運據點建置 (SOP)</td><td>售電業取得 + ATMOCE 產品</td><td>AIDC 專案開發</td></tr>
-              <tr><td><strong>中央建置職能</strong></td><td>階段一：投資併購職能 (M&A)</td><td>階段二：數據平台</td><td>階段三：技術中台</td></tr>
-              <tr><td><strong>現金流狀態</strong></td><td>維運正、建坤年內轉正</td><td>ATMOCE 6月轉正</td><td>三個第二曲線事業全數正向</td></tr>
-              <tr><td><strong>組織演進</strong></td><td>六部由一位副總兼任</td><td>維運、建坤具備獨立條件</td><td>第二曲線獨立，副總轉戰第三曲線</td></tr>
-              <tr><td><strong>CPO 姿態</strong></td><td>觀察</td><td>觀察</td><td>重新評估</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- 結構化第二意見 Red Teaming -->
-      <div class="card" style="margin-bottom: 2rem; border-color: rgba(244, 63, 94, 0.4);">
-        <div class="card-header">
-          <div>
-            <span class="card-badge badge-danger">紅隊觀點</span>
-            <h3 class="card-title" style="margin-top: 0.4rem; color: var(--rose);">🛡️ 第八部：結構化第二意見與缺口分析</h3>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-bottom: 1rem;">
-          <div style="background: rgba(244, 63, 94, 0.05); padding: 1.1rem; border-radius: var(--radius-md); border: 1px solid var(--rose-glow);">
-            <h4 style="color: var(--rose); margin-bottom: 0.4rem;">⚠️ 最有力的反對論點</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">
-              序列化的最大代價是<strong>錯過市場視窗</strong>（大自然被買走、noodle估值翻倍、AIDC客戶名單鎖定）。回應：一位副總兼六部並行會導致「六個半成品」，序列化至少保證階段性成效！
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <div>
+          <div class="card green" style="margin-bottom:12px">
+            <h3>📈 往正面修正的關鍵信號</h3>
+            <p style="font-size:.83rem">
+              1. 建坤在 2026 Q4 確實轉正現金流 &rarr; 序列化財務邏輯成立。<br>
+              2. 富邦能源提供 2 家以上真實 AIDC 業主直接洽談 &rarr; 算力端成立。<br>
+              3. 富邦產險確認承保「供電可用率保險」 &rarr; 第三層服務成立。<br>
+              4. 首個 50MW 維運據點於 6 個月內達平衡 &rarr; 全聯模式驗證。
             </p>
           </div>
-          <div style="background: var(--bg-secondary); padding: 1.1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="color: var(--amber); margin-bottom: 0.4rem;">💡 三個替代假設 (可能出錯)</h4>
-            <ol style="font-size: 0.83rem; color: var(--text-muted); padding-left: 1.1rem;">
-              <li><strong>副總兼六部可能是優勢</strong>：決策快、資訊對稱。過快獨立反而製造諸侯割據。</li>
-              <li><strong>SPV 資本輕有代價</strong>：國泰決策週期長，省錢但付出時間與自主權。</li>
-              <li><strong>董事會可能不接受連續三年總部費用增加</strong>：階段二三需階段一成果證明。</li>
-            </ol>
+          <div class="card coral">
+            <h3>📉 往負面推翻的紅旗警訊</h3>
+            <p style="font-size:.83rem">
+              1. 查證「富邦能源」為泓德四大資產之一 &rarr; 算力前提瓦解，需立刻轉向。<br>
+              2. 國泰 SPV 審查週期超過 6 個月 &rarr; 資產擴張速度不及，售電時程推遲。<br>
+              3. 監控平台供應商無法整合現有多廠牌逆變器 &rarr; 平台外購失敗需回歸自研。<br>
+              4. 查得續升綠能已悄悄切入 SOFC 燃料電池 &rarr; 進能服僅剩 SPV 單張牌。
+            </p>
           </div>
         </div>
-      </div>
 
-      <!-- 15 項待補充清單 Matrix -->
-      <div class="card" style="margin-bottom: 2rem;">
-        <h3 class="card-title" style="margin-bottom: 1rem;">📌 第九部：待補充清單與優先級追蹤 (15 項議題)</h3>
-        
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <input type="text" id="pendingSearchInput" class="search-input" placeholder="🔍 搜尋待補充項目或層級...">
-          <select id="priorityFilter" class="search-input" style="max-width: 200px;">
-            <option value="all">所有優先級</option>
-            <option value="最高">最高優先級</option>
-            <option value="高">高優先級</option>
-          </select>
-        </div>
-
-        <div class="custom-table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr><th>#</th><th>層級</th><th>待補充項目</th><th>重要性</th></tr>
-            </thead>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>缺乏支撐的前提假設</th><th>現有缺口說明</th></tr></thead>
             <tbody>
-              <tr class="pending-item-row" data-priority="最高"><td>1</td><td>組織</td><td>「事業部獨立畢業標準」的具體定義（營收/現金流/團隊規模門檻）</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>2</td><td>組織</td><td>資深副總的注意力分配現況——六個事業部各佔多少時間</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>3</td><td>資本</td><td>每年可支援一個事業部的具體金額範圍</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>4</td><td>資本</td><td>資金來源——自有現金、增資、發債、或全數 SPV 表外</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>5</td><td>總部</td><td>強中央階段一的人力配置與費用預算上限</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>6</td><td>建坤</td><td>國泰的 SPV 投資決策週期實測</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>7</td><td>建坤</td><td>富邦作為第二資本夥伴的接觸進度</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>8</td><td>維運</td><td>50MW 規模經濟門檻的損益推導基礎</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>9</td><td>維運</td><td>目前維運覆蓋量與現金流貢獻的實際數字</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>10</td><td>ATMOCE</td><td>表後儲能案的具體標的與客戶</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>11</td><td>售電業</td><td>執照門檻的電廠規模要求與其他法定條件</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>12</td><td>售電業</td><td>大自然售電業的估值區間與賣方意願</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="最高"><td>13</td><td>AIDC</td><td>富邦能源的投資比例、決策權、算力銷售收益分配</td><td><span class="p-highest">最高</span></td></tr>
-              <tr class="pending-item-row" data-priority="高"><td>14</td><td>地熱</td><td>地熱在進能服架構中的定位——是否為獨立事業或建坤延伸</td><td><span class="p-high">高</span></td></tr>
-              <tr class="pending-item-row" data-priority="中"><td>15</td><td>CPO</td><td>noodle 估值變化的追蹤機制與重啟評估的觸發條件</td><td><span class="p-medium">中</span></td></tr>
+              <tr class="bad-row"><td>1</td><td>富邦能源與泓德無關聯</td><td>算力唯一入口依賴，未查證統一編號</td></tr>
+              <tr class="bad-row"><td>2</td><td>進能服能承受可用率違約金</td><td>缺乏保險背書與資本適足試算</td></tr>
+              <tr><td>3</td><td>成熟後事業部可自立</td><td>缺乏營收/團隊規模等「畢業標準」</td></tr>
+              <tr><td>4</td><td>50MW 為據點損益門檻</td><td>缺乏細部成本推導模型</td></tr>
+              <tr><td>5</td><td>第二曲線能供養第三曲線</td><td>FY2026 實質上僅維運一頭現金牛</td></tr>
+              <tr><td>6</td><td>持有電廠即可獲售電執照</td><td>資本適足率與履約保證金門檻待確認</td></tr>
+              <tr><td>7</td><td>鑑價知識為進能服獨有</td><td>未對照泓德、雲豹電廠收購團隊能力</td></tr>
+              <tr><td>8</td><td>監控平台能多品牌外購整合</td><td>未進行實地 POC 壓力測試</td></tr>
+              <tr><td>9</td><td>微網 3 億在 FY27 內決標</td><td>公家政策與招標時程不可控</td></tr>
+              <tr><td>10</td><td>地熱在進能服的角色</td><td>出現在售電前提，未列入事業部規劃</td></tr>
+              <tr><td>11</td><td>微網的組織歸屬歸誰</td><td>橫跨 ATMOCE 與工程，損益無人負責</td></tr>
             </tbody>
           </table>
         </div>
       </div>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第八部 8.3~8.4</div>
+      <div class="pageno">7.2</div>
+    </div>
+  </section>
 
-      <!-- 附錄：一頁式決策摘要 -->
-      <div class="card" style="border-color: var(--amber);">
-        <h3 class="card-title" style="color: var(--amber); margin-bottom: 0.8rem;">📋 附錄：一頁式決策摘要</h3>
-        <div class="grid-5">
-          <div class="info-box" style="border-color: var(--amber);"><h4 style="color: var(--amber); font-size: 0.88rem;">要決策什麼</h4><p style="font-size: 0.8rem;">接受從諸侯制轉向「強中央、富地方」，並以序列化取代六線並進。</p></div>
-          <div class="info-box" style="border-color: var(--purple);"><h4 style="color: var(--purple); font-size: 0.88rem;">為什麼要改</h4><p style="font-size: 0.8rem;">光伏觸頂，一位副總兼六部+每年僅能支援一事業部資本。</p></div>
-          <div class="info-box" style="border-color: var(--emerald);"><h4 style="color: var(--emerald); font-size: 0.88rem;">怎麼排序</h4><p style="font-size: 0.8rem;">FY26:建坤+維運 → FY27:售電+ATMOCE → FY28:AIDC (延後CPO)。</p></div>
-          <div class="info-box" style="border-color: var(--cyan);"><h4 style="color: var(--cyan); font-size: 0.88rem;">中央建什麼</h4><p style="font-size: 0.8rem;">FY26:M&A併購 → FY27:數據平台 → FY28:技術中台 (不收權)。</p></div>
-          <div class="info-box" style="border-color: var(--rose);"><h4 style="color: var(--rose); font-size: 0.88rem;">最先確認</h4><p style="font-size: 0.8rem;">事業部獨立畢業標準、售電執照電廠門檻、富邦 AIDC 條件。</p></div>
+  <!-- P7-3 -->
+  <section class="slide" id="slide-p7-3">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">PART 7 · 結構化第二意見與待補充清單</div>
+        <h2>17 項待補充清單與一頁式決策閉環</h2>
+        <div class="sub">會前必備功課：按最高、高、中、低嚴格排序，收斂為年度計畫推動之一頁式決策綱領。</div>
+      </div>
+      <div class="flags">
+        <span class="flag coral">4項最高優先</span><span class="flag blue">17項清單</span><span class="flag green">決策閉環</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-55">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>優先度</th><th>#</th><th>待確認與待補項目</th></tr></thead>
+            <tbody>
+              <tr class="bad-row">
+                <td><strong>最高</strong></td>
+                <td>1~4</td>
+                <td>
+                  <strong>1. 查證「富邦能源」統編與股權（確認是否為泓德同一法人）</strong><br>
+                  <strong>2. 富邦產險對「供電可用率保險」承保意願與費率精算</strong><br>
+                  <strong>3. 進能服資產負債表可承受之最大賠付金額限制</strong><br>
+                  <strong>4. 微網 3 億事業之組織歸屬與損益承接負責主管</strong>
+                </td>
+              </tr>
+              <tr class="hl-row">
+                <td><strong>高</strong></td>
+                <td>5~11</td>
+                <td>
+                  5. 事業部獨立之畢業標準門檻（營收/現金流指標）<br>
+                  6. 每年可支援一個事業部之具體資本金額範圍<br>
+                  7. 資產管理 4 億中國泰電業與建坤拆分比例<br>
+                  8. 建坤 FY2027 收購案之標的與交割時點預估<br>
+                  9. 微網四案預計決標時點與個別專案金額<br>
+                  10. 售電業執照電廠規模門檻與保證金規範<br>
+                  11. 外部監控平台實地評選（多品牌相容度）
+                </td>
+              </tr>
+              <tr>
+                <td><strong>中/低</strong></td>
+                <td>12~17</td>
+                <td>
+                  12. 續升能源技術路線（是否切入 SOFC） ‧ 13. 續升 800MW 與合約對應<br>
+                  14. 50MW 據點損益推導基礎 ‧ 15. 地熱定位 ‧ 16. 台哥大角色 ‧ 17. CPO 重啟條件
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fig">
+          <div class="figtitle">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#1968AD" stroke-width="2" fill="none"/><path d="M12 8v8M8 12h8" stroke="#1968AD" stroke-width="2"/></svg>
+            一頁式決策閉環視覺總覽
+          </div>
+          <svg viewBox="0 0 540 310">
+            <rect x="15" y="15" width="510" height="280" rx="6" fill="#F8FAFC" stroke="#D9E3EC"/>
+            <!-- Box 1 -->
+            <rect x="30" y="30" width="220" height="65" rx="4" fill="#EFF6FF" stroke="#1968AD"/>
+            <text x="40" y="50" fill="#12518A" font-size="11" font-weight="800">外部現實：不打一站式</text>
+            <text x="40" y="68" fill="#5B7285" font-size="9">續升已千億合約上市，泓德卡位電力主權</text>
+            <text x="40" y="82" fill="#991B1B" font-size="9" font-weight="700">進能服正面對決零勝算，必須打利基牌！</text>
+
+            <!-- Box 2 -->
+            <rect x="290" y="30" width="220" height="65" rx="4" fill="#F0FDF4" stroke="#10B981"/>
+            <text x="300" y="50" fill="#065F46" font-size="11" font-weight="800">戰略選擇：三張續升空白牌</text>
+            <text x="300" y="68" fill="#5B7285" font-size="9">① 建坤 SPV 財務槓桿 (國泰出 95%)</text>
+            <text x="300" y="82" fill="#065F46" font-size="9" font-weight="700">② SOFC 熱電降低 PUE ‧ ③ 防災儲能包</text>
+
+            <!-- Box 3 -->
+            <rect x="30" y="115" width="220" height="75" rx="4" fill="#FEF3C7" stroke="#E09A2B"/>
+            <text x="40" y="135" fill="#92400E" font-size="11" font-weight="800">核心命題轉換</text>
+            <text x="40" y="155" fill="#92400E" font-size="11" font-weight="800">「中美晶賣材料，進能服賣可用率」</text>
+            <text x="40" y="175" fill="#5B7285" font-size="9">跨入高毛利電力交付與不斷電責任承擔</text>
+
+            <!-- Box 4 -->
+            <rect x="290" y="115" width="220" height="75" rx="4" fill="#FEE2E2" stroke="#EF4444"/>
+            <text x="300" y="135" fill="#991B1B" font-size="11" font-weight="800">FY2027 BP 結構性對齊</text>
+            <text x="300" y="155" fill="#991B1B" font-size="11" font-weight="800">簽約 20 億 ｜ 落地 10 億</text>
+            <text x="300" y="175" fill="#5B7285" font-size="9">對董事會切分：10億營運 ＋ 10億AIDC佈局</text>
+
+            <!-- Bottom summary -->
+            <rect x="30" y="210" width="480" height="70" rx="4" fill="#0C3A63"/>
+            <text x="50" y="235" fill="#8FD9E4" font-size="12" font-weight="800">自製外包紀律 ＆ 序列化優先序</text>
+            <text x="50" y="255" fill="#FFF" font-size="10">P0（建坤/維運/AIDC前置）&rarr; P1（售電/ATMOCE）&rarr; P2（AIDC資本）</text>
+            <text x="50" y="270" fill="#E2F5F7" font-size="9">資本買右側商品，注意力留左側護城河 ‧ 副總時間 100% 聚焦左側決策</text>
+          </svg>
+          <div class="cap">圖 7.3：進能服成長戰略規劃 v6 一頁式邏輯閉環總結</div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+    <div class="slide-foot">
+      <div>來源：1.2.3 年度計畫 v6 ‧ 第九部與附錄</div>
+      <div class="pageno">7.3</div>
+    </div>
+  </section>
+</div>
 
-  <footer>
-    <p>© 2026 進能服 (6692) 成長戰略 v5 (對內/董事會轉型計畫) Dashboard.</p>
-    <p style="font-size: 0.75rem; margin-top: 0.3rem;">方法論來源：商周 MEGA TALK《打造 10 兆新鴻海》</p>
-  </footer>
+<!-- ================= BOTTOM CONTROLS ================= -->
+<div class="deckbar" id="deckbar">
+  <div class="progress"><div class="fill" id="progressFill"></div></div>
+  <div class="hint">← → 換頁 ‧ Home 回封面 ‧ F 全螢幕 ‧ 點擊展開完整表格</div>
+  <div class="ctrl">
+    <span class="counter" id="counter">1 / 1</span>
+    <button id="btnPrev" aria-label="上一頁">‹</button>
+    <button id="btnNext" aria-label="下一頁">›</button>
+  </div>
+</div>
 
-  <script src="app.js"></script>
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+(function(){
+  var parts = {
+    p1: [].slice.call(document.querySelectorAll('#view-p1 .slide')),
+    p2: [].slice.call(document.querySelectorAll('#view-p2 .slide')),
+    p3: [].slice.call(document.querySelectorAll('#view-p3 .slide')),
+    p4: [].slice.call(document.querySelectorAll('#view-p4 .slide')),
+    p5: [].slice.call(document.querySelectorAll('#view-p5 .slide')),
+    p6: [].slice.call(document.querySelectorAll('#view-p6 .slide')),
+    p7: [].slice.call(document.querySelectorAll('#view-p7 .slide'))
+  };
+  var order = ['p1','p2','p3','p4','p5','p6','p7'];
+  var state = { view:'home', idx:0 };
+  var last = { p1:0, p2:0, p3:0, p4:0, p5:0, p6:0, p7:0 };
+  var views = {
+    home: document.getElementById('view-home'),
+    p1: document.getElementById('view-p1'),
+    p2: document.getElementById('view-p2'),
+    p3: document.getElementById('view-p3'),
+    p4: document.getElementById('view-p4'),
+    p5: document.getElementById('view-p5'),
+    p6: document.getElementById('view-p6'),
+    p7: document.getElementById('view-p7')
+  };
+  var deckbar = document.getElementById('deckbar');
+  var fill = document.getElementById('progressFill');
+  var counter = document.getElementById('counter');
+
+  function render(){
+    Object.keys(views).forEach(function(k){
+      if(views[k]) views[k].classList.toggle('active', k===state.view);
+    });
+    var navs = document.querySelectorAll('[data-nav]');
+    for(var i=0;i<navs.length;i++){
+      navs[i].classList.toggle('active', navs[i].getAttribute('data-nav')===state.view);
+    }
+    if(state.view==='home'){
+      deckbar.style.display='none';
+    } else {
+      deckbar.style.display='block';
+      var slides = parts[state.view];
+      if(slides && slides.length){
+        slides.forEach(function(s,i){ s.classList.toggle('active', i===state.idx); });
+        counter.textContent = (state.idx+1)+' / '+slides.length;
+        fill.style.width = ((state.idx+1)/slides.length*100)+'%';
+        last[state.view]=state.idx;
+      }
+    }
+    window.scrollTo(0,0);
+  }
+
+  function goHash(hash){
+    hash = (hash||'#home').replace('#','');
+    if(hash==='home'||hash===''){ state.view='home'; render(); return; }
+    var m = hash.match(/^(p[1-7])-(\d+)$/);
+    if(m){
+      var v=m[1], i=parseInt(m[2],10)-1;
+      if(parts[v] && parts[v][i]){ state.view=v; state.idx=i; render(); return; }
+    }
+    if(parts[hash]){ state.view=hash; state.idx=last[hash]||0; render(); return; }
+    state.view='home'; render();
+  }
+
+  function setHash(){
+    var h = state.view==='home' ? '#home' : '#'+state.view+'-'+(state.idx+1);
+    if(location.hash!==h) history.replaceState(null,'',h);
+  }
+
+  function move(d){
+    if(state.view==='home'){
+      if(d>0){ state.view='p1'; state.idx=0; render(); setHash(); }
+      return;
+    }
+    var slides = parts[state.view];
+    var n = state.idx + d, pos = order.indexOf(state.view);
+    if(n < 0){
+      if(pos > 0){ state.view=order[pos-1]; state.idx=parts[state.view].length-1; }
+      else { state.view='home'; }
+    } else if(n >= slides.length){
+      if(pos < order.length-1){ state.view=order[pos+1]; state.idx=0; }
+      else { state.view='home'; }
+    } else {
+      state.idx=n;
+    }
+    render(); setHash();
+  }
+
+  document.getElementById('btnPrev').addEventListener('click',function(){move(-1)});
+  document.getElementById('btnNext').addEventListener('click',function(){move(1)});
+
+  document.addEventListener('keydown',function(e){
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT')) return;
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); move(1); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); move(-1); }
+    else if(e.key==='Home'){ e.preventDefault(); state.view='home'; render(); setHash(); }
+    else if(e.key==='End'&&state.view!=='home'){ e.preventDefault(); state.idx=parts[state.view].length-1; render(); setHash(); }
+    else if(e.key==='f'||e.key==='F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
+  });
+
+  var tx=null, ty=null;
+  document.addEventListener('touchstart',function(e){ tx=e.changedTouches[0].clientX; ty=e.changedTouches[0].clientY; },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(tx===null) return;
+    var dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)) move(dx<0?1:-1);
+    tx=null; ty=null;
+  },{passive:true});
+
+  window.addEventListener('hashchange',function(){ goHash(location.hash); });
+  goHash(location.hash);
+})();
+</script>
+
+<script>
+/* 表格展開/收合功能 */
+document.querySelectorAll('.slide .table-wrap').forEach(function(wrap){
+  var rows=Array.prototype.slice.call(wrap.querySelectorAll('tbody tr'));
+  if(rows.length<=6){return;}
+  rows.slice(6).forEach(function(row){row.classList.add('table-extra');});
+  var button=document.createElement('button');
+  button.type='button';
+  button.className='table-toggle';
+  button.textContent='展開完整資料（共 '+rows.length+' 筆）';
+  button.addEventListener('click',function(){
+    var open=wrap.classList.toggle('expanded');
+    button.textContent=open?'收合完整資料':'展開完整資料（共 '+rows.length+' 筆）';
+  });
+  wrap.appendChild(button);
+});
+</script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>進能服(6692) 三年計畫 v8 實戰決策簡報 ｜ 事業部呈閱董總</title>
+<title>進能服(6692) 三年計畫 v9 實戰決策簡報 ｜ 事業部呈閱董總</title>
 <style>
 :root {
   --c-p: #1968AD; /* Deep Blue */
@@ -103,10 +103,6 @@ tr:hover td { background:rgba(25,104,173,0.02); }
 .td-hl { background:rgba(27,177,191,0.1) !important; font-weight:var(--fw-b); color:var(--c-p); }
 .td-warn { background:rgba(239,68,68,0.1) !important; font-weight:var(--fw-b); color:#EF4444; }
 
-/* Diagrams */
-.svg-wrap { width:100%; display:flex; justify-content:center; padding:20px; background:var(--c-gray1); border-radius:8px; margin-bottom:20px; border:1px dashed var(--c-gray3); }
-.svg-wrap svg { max-width:100%; height:auto; font-family:inherit; }
-
 /* QA List */
 .qa-list { display:flex; flex-direction:column; gap:16px; }
 .qa-item { background:var(--c-w); border:1px solid var(--c-gray2); padding:20px; border-radius:8px; border-left:4px solid var(--c-p); }
@@ -144,7 +140,7 @@ tr:hover td { background:rgba(25,104,173,0.02); }
       <rect x="0" y="14" width="12" height="12" rx="2" fill="#1BB1BF"/>
       <rect x="14" y="14" width="12" height="12" rx="2" fill="#1968AD"/>
     </svg>
-    <div class="tx">進能服 6692<small>三年計畫 v8 ｜ 決策簡報</small></div>
+    <div class="tx">進能服 6692<small>三年計畫 v9 ｜ 決策簡報</small></div>
   </a>
   <nav class="topnav" id="topnav">
     <a href="#home" data-nav="home">封面</a>
@@ -165,7 +161,7 @@ tr:hover td { background:rgba(25,104,173,0.02); }
     <div class="hero">
       <div class="h-tag">FY2027–FY2029 執行方案</div>
       <h1>進能服事業部 <span>三年業務與財務計畫</span></h1>
-      <p>基於 v8 底稿架構改版，聚焦「三年損益預估」、「Pipeline 分軌投標模型」與「專管業務查核 QA」，確保 11 人編制防線與開發導向 EPC 策略落地。</p>
+      <p>基於 v9 底稿，業務分類定案為「資金來源三軌制」。聚焦「三年損益預估」、「Pipeline 75 億分軌模型」與「專管業務查核 QA」，確保 11 人編制防線落地。</p>
     </div>
     <div class="stats">
       <div class="st-card">
@@ -173,16 +169,16 @@ tr:hover td { background:rgba(25,104,173,0.02); }
         <div class="st-l">FY27 簽約目標</div>
       </div>
       <div class="st-card">
-        <div class="st-v">11.1 <small style="font-size:1rem;color:#94A3B8">%</small></div>
-        <div class="st-l">FY29 基準淨利率</div>
+        <div class="st-v">75 <small style="font-size:1rem;color:#94A3B8">億</small></div>
+        <div class="st-l">所需 Pipeline (三軌合計)</div>
       </div>
       <div class="st-card">
-        <div class="st-v">11 <small style="font-size:1rem;color:#94A3B8">人</small></div>
-        <div class="st-l">編制防線 (業務4+專管4)</div>
+        <div class="st-v">9.0 <small style="font-size:1rem;color:#94A3B8">%</small></div>
+        <div class="st-l">FY27 基準淨利率</div>
       </div>
       <div class="st-card">
-        <div class="st-v">10 <small style="font-size:1rem;color:#94A3B8">題</small></div>
-        <div class="st-l">業務專管 BP 查核</div>
+        <div class="st-v">80 <small style="font-size:1rem;color:#94A3B8">%</small></div>
+        <div class="st-l">買方集中度風險</div>
       </div>
     </div>
     <div class="nav-grid">
@@ -190,17 +186,17 @@ tr:hover td { background:rgba(25,104,173,0.02); }
         <h3>Part 1: 三年損益表 <span>→</span></h3>
         <p>FY27~FY29 基準與保守情境財務模型，揭露獲利脆弱點與三大查核前提。</p>
         <ul>
-          <li>FY27~FY29 損益表推估</li>
+          <li>FY27~FY29 損益表 (v9 修正版)</li>
           <li>財務脆弱點與三大查核</li>
-          <li>四軌業務營收毛利拆解</li>
+          <li>三軌業務營收毛利拆解</li>
         </ul>
       </a>
       <a href="#p2-1" class="nav-card" onclick="app.navTo('p2-1')">
         <h3>Part 2: Pipeline 模型 <span>→</span></h3>
-        <p>摒棄齊頭式要求，按軌道精算命中率與投標負荷，確保業務負荷可控。</p>
+        <p>捨棄齊頭式要求，按「資金來源」三軌精算勝率，建立 75 億 Pipeline 防線。</p>
         <ul>
-          <li>分軌命中率與 Pipeline 漏斗</li>
-          <li>微網單案門檻情境推估</li>
+          <li>分軌勝率與 75 億 Pipeline</li>
+          <li>業務真實負荷分配</li>
         </ul>
       </a>
       <a href="#p3-1" class="nav-card" onclick="app.navTo('p3-1')">
@@ -219,13 +215,13 @@ tr:hover td { background:rgba(25,104,173,0.02); }
   <div class="view slide" id="p1-1" data-part="p1">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 1 三年損益表與財務假設</div>
+        <div class="sub">Part 1 三年損益表與財務假設 (v9 定案)</div>
         <h2>1.1 FY27–FY29 基準與保守情境損益推估</h2>
       </div>
       <div class="sh-r">財務規劃底稿 (非查證數據)</div>
     </div>
     <div class="alert warn">
-      ⚠️ <b>本表為模型推估，非會計確信數字。</b>所有毛利率與工期假設皆待實績校準。建構基礎：11 人編制、後段 OU 承接施工、開發費納入統包。
+      ⚠️ <b>本表為模型推估，非會計確信數字。</b>依新三軌 Mix 重算。所有毛利率與工期假設皆待實績校準。建構基礎：11 人編制、後段 OU 承接施工。
     </div>
     <div class="s-grid split">
       <div class="card">
@@ -238,14 +234,14 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             <tbody>
               <tr class="td-hl"><td><b>簽約總額</b></td><td><b>20.0</b></td><td><b>26.0</b></td><td><b>32.0</b></td></tr>
               <tr><td><b>營業收入</b></td><td>10.0</td><td>19.0</td><td>27.8</td></tr>
-              <tr><td>營業成本</td><td>8.47</td><td>15.93</td><td>23.23</td></tr>
-              <tr><td>營業毛利</td><td>1.53</td><td>3.07</td><td>4.57</td></tr>
-              <tr><td>毛利率</td><td>15.3%</td><td>16.2%</td><td>16.4%</td></tr>
+              <tr><td>營業毛利</td><td>1.56</td><td>2.99</td><td>4.38</td></tr>
+              <tr><td>毛利率</td><td>15.6%</td><td>15.7%</td><td>15.8%</td></tr>
               <tr><td>營業費用</td><td>0.45</td><td>0.60</td><td>0.80</td></tr>
-              <tr><td>營業利益</td><td>1.08</td><td>2.47</td><td>3.77</td></tr>
-              <tr><td>營益率</td><td>10.8%</td><td>13.0%</td><td>13.6%</td></tr>
-              <tr><td>稅後淨利</td><td>0.88</td><td>2.02</td><td>3.08</td></tr>
-              <tr class="td-hl"><td><b>淨利率</b></td><td><b>8.8%</b></td><td><b>10.6%</b></td><td><b>11.1%</b></td></tr>
+              <tr><td>營業利益</td><td>1.11</td><td>2.39</td><td>3.58</td></tr>
+              <tr><td>營益率</td><td>11.1%</td><td>12.6%</td><td>12.9%</td></tr>
+              <tr><td>稅前淨利</td><td>1.13</td><td>2.44</td><td>3.66</td></tr>
+              <tr class="td-hl"><td><b>稅後淨利</b></td><td><b>0.90</b></td><td><b>1.95</b></td><td><b>2.93</b></td></tr>
+              <tr class="td-hl"><td><b>淨利率</b></td><td><b>9.0%</b></td><td><b>10.3%</b></td><td><b>10.5%</b></td></tr>
             </tbody>
           </table>
         </div>
@@ -259,16 +255,16 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             </thead>
             <tbody>
               <tr><td><b>營業收入</b></td><td>10.0</td><td>19.0</td><td>27.8</td></tr>
-              <tr><td>毛利率</td><td>12.3%</td><td>13.2%</td><td>13.5%</td></tr>
-              <tr><td>營業毛利</td><td>1.23</td><td>2.50</td><td>3.74</td></tr>
+              <tr><td>毛利率</td><td>12.6%</td><td>12.7%</td><td>12.8%</td></tr>
+              <tr><td>營業毛利</td><td>1.26</td><td>2.42</td><td>3.55</td></tr>
               <tr><td>營業費用</td><td>0.45</td><td>0.60</td><td>0.80</td></tr>
-              <tr><td>營業利益</td><td>0.78</td><td>1.90</td><td>2.94</td></tr>
-              <tr><td>稅後淨利</td><td>0.64</td><td>1.56</td><td>2.42</td></tr>
-              <tr class="td-warn"><td><b>淨利率</b></td><td><b>6.4%</b></td><td><b>8.2%</b></td><td><b>8.7%</b></td></tr>
+              <tr><td>營業利益</td><td>0.81</td><td>1.82</td><td>2.75</td></tr>
+              <tr><td>稅後淨利</td><td>0.66</td><td>1.50</td><td>2.27</td></tr>
+              <tr class="td-warn"><td><b>淨利率</b></td><td><b>6.6%</b></td><td><b>7.9%</b></td><td><b>8.2%</b></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="tx-p"><b>情境差異分析：</b>保守情境反映若「開發費」無法順利包裝於統包報價內，或面臨激烈價格戰被迫讓利時，淨利率將回落至同業常態水平 (6~8%)。</p>
+        <p class="tx-p"><b>情境差異分析：</b>保守情境反映若「開發費」無法順利包裝於合約內，或面臨激烈價格戰被迫讓利時，淨利率將回落至同業常態水平 (6~8%)。</p>
       </div>
     </div>
   </div>
@@ -286,42 +282,37 @@ tr:hover td { background:rgba(25,104,173,0.02); }
         <div class="card-title red">⚠️ 三個最脆弱的數字結構</div>
         <div class="qa-list">
           <div class="qa-item risk">
-            <div class="qa-q">1. 淨利率 8.8–11.1% 顯著高於同業常態 (3-6%)</div>
-            <p><b>為何脆弱：</b>續升綠能 2025 年淨利率僅 1.9%。本模型高利潤建立在「開發費包裝於統包內」與「極精簡 11 人編制」。若業主要求拆包比價，或編制膨脹，數字將跌至保守情境以下。</p>
+            <div class="qa-q">1. 淨利率 9.0–10.5% 顯著高於同業常態 (3-6%)</div>
+            <p><b>為何脆弱：</b>續升綠能 2025 年淨利率僅 1.9%。本模型高利潤建立在「開發費包裝」與「極精簡 11 人編制」。若業主要求拆包比價，或編制膨脹，數字將跌至保守情境以下。</p>
           </div>
           <div class="qa-item risk">
             <div class="qa-q">2. AIDC 10 億營收拆分為兩年認列 (FY28/29)</div>
-            <p><b>為何脆弱：</b>大型電力工程工期多為 12~24 個月。若實際工期縮短或延宕，FY28 與 FY29 的營收分配將劇烈震盪，且若未採分期請款將導致龐大墊資缺口。</p>
+            <p><b>為何脆弱：</b>大型電力工程工期多為 12~24 個月。若實際工期縮短或延宕，FY28 與 FY29 的營收分配將劇烈震盪，未採分期請款更將導致龐大墊資缺口。</p>
           </div>
           <div class="qa-item risk">
             <div class="qa-q">3. 三年營收 CAGR 67%，但編制僅增至 20 人</div>
-            <p><b>為何脆弱：</b>此高速成長曲線的可行性，100% 押注在「後段 OU (施工處) 有能力承接全數工程」。若 OU 產能卡關，接單即等同違約，整張損益表將直接失效。</p>
+            <p><b>為何脆弱：</b>此高速成長曲線的可行性，100% 押注在「後段 OU (施工處) 產能」。OU 若接不下工程，本表整體失效，編制假設即崩潰。</p>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title blue">🔍 需要優先確定的三件事</div>
-        <div class="svg-wrap" style="padding:10px;">
-          <svg viewBox="0 0 300 250" width="100%">
-            <rect x="50" y="20" width="200" height="50" rx="8" fill="#1968AD" />
-            <text x="150" y="50" fill="white" font-size="16" font-weight="bold" text-anchor="middle">① 各軌實際毛利率</text>
-            <path d="M150 70 L150 100" stroke="#1BB1BF" stroke-width="3" marker-end="url(#arrow)"/>
-            
-            <rect x="50" y="100" width="200" height="50" rx="8" fill="#1BB1BF" />
-            <text x="150" y="130" fill="white" font-size="16" font-weight="bold" text-anchor="middle">② 後段 OU 產能上限</text>
-            <path d="M150 150 L150 180" stroke="#1BB1BF" stroke-width="3" marker-end="url(#arrow)"/>
-            
-            <rect x="50" y="180" width="200" height="50" rx="8" fill="#0B192C" />
-            <text x="150" y="210" fill="white" font-size="16" font-weight="bold" text-anchor="middle">③ AIDC 認列進度款結構</text>
-            
-            <defs>
-              <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                <path d="M0,0 L0,6 L9,3 z" fill="#1BB1BF" />
-              </marker>
-            </defs>
-          </svg>
+        <div class="card-title blue">🔍 需優先確定的三件事</div>
+        <div style="background:var(--c-gray1); border:1px dashed var(--c-gray3); border-radius:8px; padding:20px;">
+            <ul style="list-style:none; padding-left:0;">
+                <li style="margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                    <div style="width:36px; height:36px; background:#1968AD; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">1</div>
+                    <div><b>各軌實際毛利率</b> <br><small style="color:var(--c-gray3);">開發費在合約中包裝佔比是否可行</small></div>
+                </li>
+                <li style="margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                    <div style="width:36px; height:36px; background:#1BB1BF; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">2</div>
+                    <div><b>後段 OU 產能上限</b> <br><small style="color:var(--c-gray3);">轉撥計價與工程承接保證</small></div>
+                </li>
+                <li style="display:flex; align-items:center; gap:12px;">
+                    <div style="width:36px; height:36px; background:#0B192C; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">3</div>
+                    <div><b>AIDC 50 億 Pipeline 真實性</b> <br><small style="color:var(--c-gray3);">工期結構與實際案源清單確認</small></div>
+                </li>
+            </ul>
         </div>
-        <p class="tx-p" style="margin-top:10px; font-size:0.9rem;">未計算項目：每股盈餘 (需確認股本)、現金流量表 (需收付款條件)、資產負債表 (需 SPV 應收帳款假設)。</p>
       </div>
     </div>
   </div>
@@ -329,8 +320,8 @@ tr:hover td { background:rgba(25,104,173,0.02); }
   <div class="view slide" id="p1-3" data-part="p1">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 1 三年損益表與財務假設</div>
-        <h2>1.3 四軌業務營收與毛利貢獻拆解</h2>
+        <div class="sub">Part 1 三年損益表與財務假設 (v9 改版：按資金來源分類)</div>
+        <h2>1.3 三軌業務營收與毛利貢獻拆解</h2>
       </div>
       <div class="sh-r">FY2027 基準點</div>
     </div>
@@ -340,34 +331,33 @@ tr:hover td { background:rgba(25,104,173,0.02); }
         <div class="tb-wrap">
           <table>
             <thead>
-              <tr><th>軌道別</th><th>FY27 簽約</th><th>FY27 認列</th><th>設定毛利率</th><th>毛利結構說明</th></tr>
+              <tr><th>軌道別 (誰出錢)</th><th>FY27 簽約</th><th>FY27 認列</th><th>設定毛利率</th><th>毛利結構與風險</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td><b>① 統包工程 (光+儲)</b></td><td>3.0 億</td><td>3.0 億</td><td class="td-hl">12%</td>
-                <td>市場開發、競爭提案型。毛利內含設備採購毛利，工程端須讓利。</td>
+                <td><b>① 統包工程 (業主出錢)</b><br><small>光伏、儲能、微電網等</small></td>
+                <td>4.0 億</td><td>4.0 億</td><td class="td-hl">12%</td>
+                <td>純 EPC 競爭型，含設備採購毛利。承擔工程履約風險。</td>
               </tr>
               <tr>
-                <td><b>② 微電網工程</b></td><td>3.0 億</td><td>3.0 億</td><td class="td-hl">15%</td>
-                <td>全數為公開標案。技術規格門檻略高，享有技術溢價與較好毛利。</td>
-              </tr>
-              <tr>
-                <td><b>③ 資產管理 (整改/新建)</b></td><td>4.0 億</td><td>4.0 億</td><td class="td-hl">18%</td>
-                <td>關係型客戶 (建坤/國泰電業)。內含實質開發費，享有最高毛利率。</td>
+                <td><b>② 資產管理 (公司/建坤)</b><br><small>整改、新建</small></td>
+                <td>6.0 億</td><td>6.0 億</td><td class="td-hl">18%</td>
+                <td>內含實質開發費，享有最高毛利率。承擔開發與資產風險。</td>
               </tr>
               <tr class="td-warn" style="background:transparent;">
-                <td style="color:#000;"><b>④ AIDC 灰區電力</b></td><td style="color:#000;">10.0 億</td><td style="color:#000;">0 (跨期)</td><td class="td-warn">16%</td>
-                <td style="color:#000;">大型電力設施。客戶議價力強但競爭者少，FY27 不貢獻營收，FY28起認列。</td>
+                <td style="color:#000;"><b>③ AIDC 開發 (業者出錢)</b><br><small>灰區電力工程</small></td>
+                <td style="color:#000;">10.0 億</td><td style="color:#000;">0 (跨期)</td><td class="td-warn">16%</td>
+                <td style="color:#000;">大型電力設施。客戶議價力極強，承擔技術驗證風險，FY28起認列。</td>
               </tr>
               <tr style="background:var(--c-gray1); font-weight:bold;">
-                <td>合計 (含 AIDC)</td><td>20.0 億</td><td>10.0 億</td><td>15.3% (均值)</td>
-                <td>三軌當年認列，AIDC 往後遞延。</td>
+                <td>合計</td><td>20.0 億</td><td>10.0 億</td><td>15.6% (均值)</td>
+                <td>Mix 位移使依賴建坤/國泰度上升。</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="alert info">
-          <b>認列假設原則：</b> 統包、微網、資產管理因工期多在一年內，採「當年簽約、當年認列」估算。AIDC 則假設次年 (FY28) 認列 60%、第三年 (FY29) 認列 40%。
+        <div class="alert warn">
+          <b>集中度風險警報：</b> 資產管理 6 億＋AIDC 10 億，代表 <b>FY27 簽約額的 80% 高度集中於少數幾個買方</b>。買方議價力不僅極高，更成為結構性風險——任一買方策略轉向，整軌即歸零。國泰的決策速度已成為「關鍵路徑」。
         </div>
       </div>
     </div>
@@ -378,48 +368,45 @@ tr:hover td { background:rgba(25,104,173,0.02); }
     <div class="slide-hdr">
       <div class="sh-l">
         <div class="sub">Part 2 Pipeline 分軌模型與投標負荷</div>
-        <h2>2.1 四軌命中率與 Pipeline 漏斗模型</h2>
+        <h2>2.1 75 億 Pipeline 分軌漏斗與質疑</h2>
       </div>
       <div class="sh-r">命中率非齊頭式</div>
     </div>
     <div class="alert succ">
-      ✅ <b>摒棄齊頭式 25% 命中率：</b>若全軌採 25%，簽約 20 億需要 80 億 Pipeline，4 位業務每人需背 20 億，完全不切實際。
+      ✅ <b>依「資金來源」重新定案：</b>拋棄不切實際的 80 億全軌齊頭式 25% 命中率盲點，重新依三軌特性建立真實可行的漏斗。
     </div>
     <div class="s-grid split">
       <div class="card">
-        <div class="card-title teal">🎯 分軌 Pipeline 精算模型</div>
+        <div class="card-title teal">🎯 分軌 Pipeline (總計 75 億)</div>
         <div class="tb-wrap">
           <table>
             <thead>
-              <tr><th>軌道</th><th>簽約目標</th><th>合理命中率</th><th>所需 Pipeline</th></tr>
+              <tr><th>軌道</th><th>簽約目標</th><th>勝率 / 轉化率</th><th>所需 Pipeline</th></tr>
             </thead>
             <tbody>
-              <tr><td>① 統包工程</td><td>3 億</td><td>25%</td><td><b>12 億</b></td></tr>
-              <tr><td>② 微電網</td><td>3 億</td><td>20~25%</td><td><b>12~15 億</b></td></tr>
-              <tr><td>③ 資產管理</td><td>4 億</td><td>70~90% (關係型)</td><td><b>4.5~6 億</b></td></tr>
+              <tr><td>① 統包工程</td><td>4 億</td><td>40% (勝率)</td><td><b>10 億</b></td></tr>
+              <tr><td>② 資產管理</td><td>6 億</td><td>40% (轉化率)</td><td><b>15 億</b></td></tr>
+              <tr><td>③ AIDC</td><td>10 億</td><td>20% (里程碑)</td><td><b>50 億</b></td></tr>
               <tr style="background:#f8fafc;">
-                <td colspan="3" style="text-align:right;"><b>常規業務所需總 Pipeline：</b></td>
-                <td class="td-hl" style="font-size:1.1rem;">約 30~33 億</td>
+                <td colspan="3" style="text-align:right;"><b>所需總 Pipeline：</b></td>
+                <td class="td-hl" style="font-size:1.1rem;">75 億</td>
               </tr>
-              <tr><td>④ AIDC</td><td>10 億</td><td>不適用 (逐案里程碑)</td><td><b>2~3 個實案</b></td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="card">
-        <div class="card-title blue">🧮 業務個人負荷分析</div>
-        <div class="svg-wrap" style="padding:15px; background:white; border:none;">
-          <svg viewBox="0 0 300 200" width="100%">
-            <rect x="20" y="20" width="260" height="40" fill="#E2E8F0" rx="4"/>
-            <text x="150" y="45" text-anchor="middle" font-weight="bold" fill="#64748B">傳統迷思: 每人背 20 億 Pipeline (不可能)</text>
-            
-            <rect x="20" y="80" width="260" height="100" fill="#EFF6FF" rx="4" stroke="#3B82F6" stroke-width="2"/>
-            <text x="150" y="110" text-anchor="middle" font-weight="bold" fill="#1E40AF" font-size="18">精算後: 每位業務真實負荷</text>
-            <text x="150" y="145" text-anchor="middle" font-weight="900" fill="#1968AD" font-size="32">約 7.5 億</text>
-            <text x="150" y="170" text-anchor="middle" font-weight="bold" fill="#1E40AF" font-size="14">(總計 30 億 ÷ 4 位業務)</text>
-          </svg>
+        <div class="card-title red">🚨 對模型假設的兩大質疑</div>
+        <div class="qa-list">
+          <div class="qa-item risk">
+            <div class="qa-q">質疑一：資產管理的 40% 不是「勝率」是「轉化率」</div>
+            <p style="font-size:0.95rem;">內部資金的案子輸掉 60%，不是輸給競爭者，而是案子不成立（土地/併網/投資決策未過）。管理報表必須分開，改善手段應對準開發能力與決策速度，而非競標價格。</p>
+          </div>
+          <div class="qa-item risk">
+            <div class="qa-q">質疑二：AIDC 的 20% 不是統計量</div>
+            <p style="font-size:0.95rem;">市場上少數大案是「二元化」的成敗。用機率會產生「還有很多機會」的錯覺。AIDC 必須改用「逐案里程碑」階段推進管理，一個案子沒了就是缺 5 億。</p>
+          </div>
         </div>
-        <p class="tx-p" style="text-align:center;">此負擔量使業務能專注於案件質量，而非盲目湊數，具備高度落地可行性。</p>
       </div>
     </div>
   </div>
@@ -428,69 +415,54 @@ tr:hover td { background:rgba(25,104,173,0.02); }
     <div class="slide-hdr">
       <div class="sh-l">
         <div class="sub">Part 2 Pipeline 分軌模型與投標負荷</div>
-        <h2>2.2 微電網單案門檻情境推估</h2>
+        <h2>2.2 業務負荷分配與 11 人極限</h2>
       </div>
-      <div class="sh-r">人力負荷致命點</div>
+      <div class="sh-r">編制防線與負荷</div>
     </div>
     <div class="s-grid split-wide">
       <div class="card">
-        <div class="card-title red">🚨 為什麼單案金額決定生死？</div>
-        <p class="tx-p">微電網簽約目標 3 億。因全數為公開標案，投標文件撰寫、簡報提案全由 BU 專管與業務負責。不同的平均單案金額，將帶來天壤之別的行政負荷：</p>
+        <div class="card-title blue">⚖️ 業務端負荷分配 (全表唯一的斷點)</div>
         <div class="tb-wrap">
           <table>
             <thead>
               <tr>
-                <th>情境設定</th>
-                <th>需得標件數</th>
-                <th>需投標件數 (25%命中)</th>
-                <th>含統包後 每月投標量</th>
+                <th>負責人</th>
+                <th>負責 Pipeline</th>
+                <th>人均負荷</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><b>平均 2,000 萬/案</b></td>
-                <td>15 件</td>
-                <td class="td-warn">60 件</td>
-                <td class="td-warn">約 8 件 / 月</td>
+              <tr class="td-warn" style="background:transparent;">
+                <td style="color:#000;">副總 David + 1 位專職業務</td>
+                <td style="color:#000;">AIDC 50 億</td>
+                <td class="td-warn">25.0 億 / 人</td>
               </tr>
-              <tr class="td-hl">
-                <td><b>平均 5,000 萬/案</b></td>
-                <td>6 件</td>
-                <td>24 件</td>
-                <td>約 5 件 / 月</td>
+              <tr>
+                <td>其餘 3 位業務</td>
+                <td>統包 10 億 + 資管 15 億 = 25 億</td>
+                <td class="td-hl">8.3 億 / 人</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="alert info">
-          <b>結論：</b> 若不強制設定微電網單案門檻 > 5000 萬，11 人編制將被繁瑣的備標行政作業徹底拖垮，無法專注於高價值的開發工作。
+          <b>結論：</b> 3 位業務各背 8.3 億屬合理且高度可落地的負荷。然而，AIDC 的 50 億 Pipeline 全壓在 2 人身上，此為全表最嚴重的負荷斷點與市場可得性挑戰。
         </div>
       </div>
       <div class="card">
-        <div class="card-title blue">⚖️ 投標資源邊際效益曲線</div>
-        <div class="svg-wrap" style="height:250px;">
-          <svg viewBox="0 0 300 200" width="100%">
-            <!-- Axes -->
-            <line x1="40" y1="160" x2="280" y2="160" stroke="#94A3B8" stroke-width="2"/>
-            <line x1="40" y1="20" x2="40" y2="160" stroke="#94A3B8" stroke-width="2"/>
-            <text x="160" y="185" text-anchor="middle" font-size="12" font-weight="bold">單案金額 (千萬)</text>
-            <text x="20" y="90" transform="rotate(-90 20,90)" text-anchor="middle" font-size="12" font-weight="bold">行政負荷 (件數)</text>
-            
-            <!-- Curve -->
-            <path d="M 50 20 Q 80 120 130 140 T 270 150" fill="none" stroke="#EF4444" stroke-width="3"/>
-            
-            <!-- Points -->
-            <circle cx="70" cy="80" r="5" fill="#EF4444"/>
-            <text x="85" y="75" font-size="12" font-weight="bold" fill="#EF4444">2000萬 (60件)</text>
-            
-            <circle cx="160" cy="142" r="5" fill="#1BB1BF"/>
-            <text x="175" y="137" font-size="12" font-weight="bold" fill="#1BB1BF">5000萬 (24件)</text>
-            
-            <!-- Safe Zone -->
-            <rect x="130" y="20" width="150" height="140" fill="#1BB1BF" opacity="0.1"/>
-            <text x="205" y="40" font-size="12" font-weight="bold" fill="#0F7682">安全接單區</text>
-          </svg>
-        </div>
+        <div class="card-title red">⚠️ 11人編制與 OU 施工不可逾越的邊界</div>
+        <p class="tx-p">
+          本 BU 嚴格維持 11 人 (副總+4業務+4專管主管)。<br>
+          <b>致命邊界：</b> 
+        </p>
+        <ul style="padding-left:20px; line-height:1.8;">
+            <li>案源開發、投標提案、簽約：<strong style="color:var(--c-p)">BU 負責</strong></li>
+            <li>工程施作、內部轉撥：<strong style="color:#EF4444">後段 OU 負責</strong></li>
+            <li>驗收交付與進度管理：<strong style="color:var(--c-p)">BU 負責</strong></li>
+        </ul>
+        <p class="tx-p" style="margin-top:15px; border-top:1px dashed var(--c-gray2); padding-top:15px;">
+            若後段 OU 產能不足導致工程回流 BU，或者微網等小案缺乏投標金額底限篩選導致行政過載，<b>11人編制假設將瞬間失效。</b>
+        </p>
       </div>
     </div>
   </div>
@@ -505,21 +477,21 @@ tr:hover td { background:rgba(25,104,173,0.02); }
       <div class="sh-r">針對業務單位 (Sales)</div>
     </div>
     <div class="alert info">
-      🎯 本單元列出 10 個核心查核問題，供業務主管(Lucy)與專管主管(Silvia)於 FY27 日常營運中檢核，確保策略不走偏。
+      🎯 依據 v9 「資金來源三軌制」，本單元列出 10 個核心查核問題，供業務主管(Lucy)與專管主管(Silvia)於 FY27 日常營運中檢核。
     </div>
     <div class="card">
       <div class="qa-list">
         <div class="qa-item">
-          <div class="qa-q"><span class="qa-tag">Q1. 案源門檻</span> 微電網專案若單案規模未達 5,000 萬，是否有擋修機制？</div>
-          <p><b>查核重點：</b> 業務在投入備標資源前，是否具備「策略例外核准」的充足理由（如：具指標意義、後續有擴建期數）？如何避免稀釋每月僅 5 件的黃金投標資源？</p>
+          <div class="qa-q"><span class="qa-tag">Q1. 資金來源判斷</span> 拿到案源時，是否第一時間確認「誰出錢」？</div>
+          <p><b>查核重點：</b> 業主出錢（統包）是純拚價格；公司內部出錢（資管）是拚轉化率與資本決策；AIDC 出錢是拚技術防線。業務是否已將此分類邏輯內化於開發策略中？</p>
         </div>
         <div class="qa-item risk">
-          <div class="qa-q"><span class="qa-tag">Q2. 內部資源</span> 統包合約報價前，是否已取得後段 OU 的產能綠燈？</div>
-          <p><b>查核重點：</b> 業務對外承諾交期與價格前，是否已落實「先對內詢價排程」SOP？是否已與 OU 確認內部轉撥計價，確保 12% 統包毛利率不被事後追加成本侵蝕？</p>
+          <div class="qa-q"><span class="qa-tag">Q2. 內部資源承諾</span> 統包合約報價前，是否已取得後段 OU 的產能綠燈？</div>
+          <p><b>查核重點：</b> 業務對外承諾交期與價格前，是否落實「先對內詢價排程」SOP？是否已與 OU 確認內部轉撥計價，確保 12% 統包毛利率不被事後追加成本侵蝕？</p>
         </div>
         <div class="qa-item">
-          <div class="qa-q"><span class="qa-tag">Q3. 開發價值</span> 報價策略中，開發費是否已被妥善包裝？</div>
-          <p><b>查核重點：</b> 若業主（尤其是資產管理軌道）要求拆包比價，業務端是否有統一的防守說帖？我們賣的是「建置與併網的確定性」還是純工程？</p>
+          <div class="qa-q"><span class="qa-tag">Q3. 開發價值防守</span> 報價策略中，開發費是否已被妥善包裝？</div>
+          <p><b>查核重點：</b> 若業主（尤其是資管軌）要求拆包比價，業務端是否有統一的防守說帖？拆包威脅是比同業競爭更致命的商模瓦解危機。</p>
         </div>
       </div>
     </div>
@@ -538,23 +510,23 @@ tr:hover td { background:rgba(25,104,173,0.02); }
         <div class="qa-list">
           <div class="qa-item risk">
             <div class="qa-q"><span class="qa-tag">Q4. AIDC 跨期</span> 如何防範墊資現金流風險？</div>
-            <p><b>查核重點：</b> AIDC 工期長達 12-24 個月，業務與專管在合約請款條件上，如何確保里程碑付款符合「現收現做」原則，避免 BU 背負龐大應收帳款壓力？</p>
+            <p><b>查核重點：</b> AIDC 工期長達 12-24 個月，業務與專管在合約請款條件上，如何確保里程碑付款符合「現收現做」，避免 BU 背負龐大應收帳款壓力？</p>
           </div>
-          <div class="qa-item">
-            <div class="qa-q"><span class="qa-tag">Q5. 客戶集中</span> 如何維繫建坤/國泰電業關係？</div>
-            <p><b>查核重點：</b> 資產管理軌 4 億高度集中。日常營運上，專管單位如何確保業主滿意度與交付品質，防範買方議價力過高導致的抽單風險？</p>
+          <div class="qa-item risk">
+            <div class="qa-q"><span class="qa-tag">Q5. 客戶集中度 (80%)</span> 買方議價力極高如何防範？</div>
+            <p><b>查核重點：</b> 資管軌 6 億與 AIDC 10 億佔總目標 80%。日常營運上，專管如何確保建坤/國泰電業交付品質，防範任何單一買方策略轉向導致整軌歸零？</p>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="qa-list">
           <div class="qa-item">
-            <div class="qa-q"><span class="qa-tag">Q6. 協調 SOP</span> 跨部門備標資源如何分配？</div>
-            <p><b>查核重點：</b> 每月需投 5~8 件標案，專管(寫服務建議書)與業務(商務條件)的時間分配與協調 SOP 是否已經建立並開始運行？</p>
+            <div class="qa-q"><span class="qa-tag">Q6. 里程碑管理</span> AIDC 的 50 億 Pipeline 進度在哪？</div>
+            <p><b>查核重點：</b> 不再用 20% 機率自我欺騙。專管與業務是否將大案明確標註在「接觸/需求確認/規格提案/商務談判」等階段，落實逐案里程碑審查？</p>
           </div>
-          <div class="qa-item risk">
-            <div class="qa-q"><span class="qa-tag">Q7. 毛利底線</span> 遭遇價格戰的停損授權在哪？</div>
-            <p><b>查核重點：</b> 統包 12%、微網 15% 為防線。若遇流血競爭，業務主管是否有權限以「邊際貢獻」為由核准低毛利接單？標準為何？</p>
+          <div class="qa-item">
+            <div class="qa-q"><span class="qa-tag">Q7. 毛利底線授權</span> 遭遇價格戰的停損授權在哪？</div>
+            <p><b>查核重點：</b> 統包 12%、資管 18%、AIDC 16% 為目標防線。若遇流血競爭，主管是否有權限以「邊際貢獻」核准低毛利接單？標準為何？</p>
           </div>
         </div>
       </div>
@@ -572,21 +544,21 @@ tr:hover td { background:rgba(25,104,173,0.02); }
     <div class="card">
       <div class="qa-list">
         <div class="qa-item risk">
-          <div class="qa-q"><span class="qa-tag">Q8. 進度控管</span> 如何確保「當年簽約當年認列」不跳票？</div>
-          <p><b>查核重點：</b> 統包與微網的 6 億營收全押在一年內完工。專管單位對 OU 的施工進度監控點在哪？若發現延宕跡象，升級通報與挽救機制為何？</p>
+          <div class="qa-q"><span class="qa-tag">Q8. 認列控管</span> 如何確保統包與資管「當年簽約當年認列」不跳票？</div>
+          <p><b>查核重點：</b> 統包與資管的 10 億營收全押在一年內完工。專管單位對 OU 的施工進度監控點在哪？若發現延宕跡象，通報國泰或業主的預警挽救機制為何？</p>
         </div>
         <div class="qa-item">
           <div class="qa-q"><span class="qa-tag">Q9. 供應鏈綁定</span> 設備採購的毛利如何鎖定？</div>
-          <p><b>查核重點：</b> 模組與儲能電芯的規格選型上，專管單位是否已與業主及供應商建立對接，確保設備代理的採購毛利留在 BU 內，而不被業主自行指定拿走？</p>
+          <p><b>查核重點：</b> 統包軌的利潤極度依賴採購毛利。在模組與儲能規格選型上，專管是否已確保採購權與毛利留在 BU 內，而不被業主強行指定切走？</p>
         </div>
         <div class="qa-item">
-          <div class="qa-q"><span class="qa-tag">Q10. 情報留存</span> 失標案件是否成為資產？</div>
-          <p><b>查核重點：</b> 對於未得標的案件，業務與專管是否建立了強制複盤機制與失標資料庫？如何利用這些失敗數據，持續修正並提高未來 20~25% 的命中率？</p>
+          <div class="qa-q"><span class="qa-tag">Q10. 轉化率複盤</span> 失標或未立案的情報是否留存？</div>
+          <p><b>查核重點：</b> 對於未得標(統包)或未通過決策(資管)的案件，業務與專管是否建立了強制複盤機制？如何修正 40% 的勝率/轉化率，而非讓寶貴失敗經驗隨風而逝？</p>
         </div>
       </div>
     </div>
     <div class="alert succ" style="margin-top:20px;">
-      ✅ <b>總結：</b>這 10 個 QA 是 FY27 BP 執行的靈魂。只要能持續對這些問題給出及格的答案，11 人編制的開發型 EPC 商模就能穩健創造 10.6% 以上的淨利率。
+      ✅ <b>總結：</b>這 10 個 QA 是 FY27 執行的靈魂。只要能持續對這些問題給出及格的答案，11 人編制的開發型 EPC 商模就能穩健創造 9.0%~10.5% 的淨利率。
     </div>
   </div>
 

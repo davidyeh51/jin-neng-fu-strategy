@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>進能服(6692) 南區事業 FY2027–FY2029 營運計畫調整 ｜ 三類主管 15 問與雙方案決策簡報</title>
+<title>進能服(6692) 南區事業 FY2027–FY2029 營運計畫調整 v10 ｜ 機會對帳、15 問對照與敏感性動態模擬</title>
 <style>
 :root {
   --c-p: #1968AD; /* 科技海軍藍 */
@@ -23,7 +23,7 @@
   --shadow: 0 10px 25px -5px rgba(11,25,44,0.08);
 }
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI','Microsoft JhengHei',sans-serif; }
-body { background:#F8FAFC; color:var(--c-text); overflow-x:hidden; font-size:15px; line-height:1.5; }
+body { background:#F8FAFC; color:var(--c-text); overflow-x:hidden; font-size:14.5px; line-height:1.5; }
 
 /* Grid Background */
 .bg { position:fixed; top:0; left:0; right:0; bottom:0; z-index:-1; pointer-events:none; }
@@ -32,75 +32,77 @@ body { background:#F8FAFC; color:var(--c-text); overflow-x:hidden; font-size:15p
 .bg-blob2 { position:absolute; bottom:-10%; left:-10%; width:60vw; height:60vw; border-radius:50%; background:radial-gradient(circle,rgba(25,104,173,0.06) 0%,transparent 70%); filter:blur(60px); }
 
 /* Header */
-.hdr { position:fixed; top:0; left:0; right:0; height:70px; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--c-gray2); display:flex; align-items:center; justify-content:space-between; padding:0 24px; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.02); }
+.hdr { position:fixed; top:0; left:0; right:0; height:68px; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid var(--c-gray2); display:flex; align-items:center; justify-content:space-between; padding:0 24px; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.02); }
 .logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--c-dark); }
-.logo .tx { font-weight:var(--fw-eb); font-size:1.1rem; line-height:1.2; letter-spacing:0.5px; }
+.logo .tx { font-weight:var(--fw-eb); font-size:1.05rem; line-height:1.2; letter-spacing:0.5px; }
 .logo small { display:block; font-weight:var(--fw-m); color:var(--c-p); font-size:0.75rem; }
-.topnav { display:flex; gap:6px; }
-.topnav a { text-decoration:none; color:var(--c-gray3); font-weight:var(--fw-b); font-size:0.85rem; padding:7px 14px; border-radius:6px; transition:all 0.2s; white-space:nowrap; }
+.topnav { display:flex; gap:4px; }
+.topnav a { text-decoration:none; color:var(--c-gray3); font-weight:var(--fw-b); font-size:0.82rem; padding:6px 12px; border-radius:6px; transition:all 0.2s; white-space:nowrap; }
 .topnav a:hover { color:var(--c-p); background:var(--c-gray1); }
 .topnav a.active { color:var(--c-w); background:var(--c-p); }
-.meta { display:flex; gap:12px; font-size:0.8rem; font-weight:var(--fw-b); color:var(--c-gray3); align-items:center; }
-.meta .tag { background:rgba(27,177,191,0.15); color:#0F7682; padding:4px 10px; border-radius:20px; }
+.meta { display:flex; gap:10px; font-size:0.8rem; font-weight:var(--fw-b); color:var(--c-gray3); align-items:center; }
+.meta .tag { background:rgba(27,177,191,0.15); color:#0F7682; padding:3px 9px; border-radius:20px; }
+.meta .vtag { background:rgba(220,38,38,0.12); color:#DC2626; padding:3px 9px; border-radius:20px; font-weight:bold; }
 
 /* Views Container */
-.views { padding-top:70px; padding-bottom:70px; min-height:100vh; }
-.view { display:none; animation:fade 0.3s ease; padding:30px 24px; max-width:1400px; margin:0 auto; }
+.views { padding-top:68px; padding-bottom:60px; min-height:100vh; }
+.view { display:none; animation:fade 0.25s ease; padding:24px 20px; max-width:1420px; margin:0 auto; }
 .view.active { display:block; }
-@keyframes fade { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
 
 /* Hero / Cover */
-.hero { text-align:center; padding:40px 20px 30px; }
-.h-tag { display:inline-block; background:rgba(25,104,173,0.1); color:var(--c-p); font-weight:var(--fw-b); padding:6px 18px; border-radius:30px; letter-spacing:1px; margin-bottom:18px; font-size:0.85rem; }
-.hero h1 { font-size:2.8rem; font-weight:var(--fw-eb); color:var(--c-dark); line-height:1.2; margin-bottom:16px; letter-spacing:-0.5px; }
+.hero { text-align:center; padding:30px 20px 24px; }
+.h-tag { display:inline-block; background:rgba(25,104,173,0.1); color:var(--c-p); font-weight:var(--fw-b); padding:5px 16px; border-radius:30px; letter-spacing:1px; margin-bottom:14px; font-size:0.82rem; }
+.hero h1 { font-size:2.5rem; font-weight:var(--fw-eb); color:var(--c-dark); line-height:1.2; margin-bottom:14px; letter-spacing:-0.5px; }
 .hero h1 span { color:var(--c-p); }
-.hero p { font-size:1.1rem; color:var(--c-gray3); max-width:860px; margin:0 auto 30px; font-weight:var(--fw-m); }
-.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
-.st-card { background:var(--c-w); padding:20px; border-radius:var(--br); box-shadow:var(--shadow); border:1px solid var(--c-gray2); text-align:left; border-top:4px solid var(--c-s); }
+.hero p { font-size:1.05rem; color:var(--c-gray3); max-width:920px; margin:0 auto 24px; font-weight:var(--fw-m); }
+.stats { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:30px; }
+.st-card { background:var(--c-w); padding:16px; border-radius:var(--br); box-shadow:var(--shadow); border:1px solid var(--c-gray2); text-align:left; border-top:4px solid var(--c-s); }
 .st-card:nth-child(2) { border-top-color:var(--c-p); }
-.st-card:nth-child(3) { border-top-color:var(--c-amber); }
-.st-card:nth-child(4) { border-top-color:var(--c-purple); }
-.st-v { font-size:1.8rem; font-weight:var(--fw-eb); color:var(--c-dark); margin-bottom:2px; line-height:1; }
-.st-l { font-size:0.85rem; color:var(--c-gray3); font-weight:var(--fw-b); }
+.st-card:nth-child(3) { border-top-color:var(--c-red); }
+.st-card:nth-child(4) { border-top-color:var(--c-amber); }
+.st-card:nth-child(5) { border-top-color:var(--c-purple); }
+.st-v { font-size:1.6rem; font-weight:var(--fw-eb); color:var(--c-dark); margin-bottom:2px; line-height:1; }
+.st-l { font-size:0.8rem; color:var(--c-gray3); font-weight:var(--fw-b); }
 
-.nav-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:20px; }
-.nav-card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:22px; text-decoration:none; color:inherit; transition:all 0.25s; box-shadow:var(--shadow); }
-.nav-card:hover { transform:translateY(-4px); border-color:var(--c-p); box-shadow:0 12px 24px -5px rgba(25,104,173,0.15); }
-.nav-card h3 { font-size:1.15rem; color:var(--c-p); margin-bottom:8px; display:flex; justify-content:space-between; }
-.nav-card p { font-size:0.85rem; color:var(--c-gray3); margin-bottom:12px; min-height:36px; line-height:1.4; }
+.nav-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:16px; }
+.nav-card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:18px; text-decoration:none; color:inherit; transition:all 0.2s; box-shadow:var(--shadow); }
+.nav-card:hover { transform:translateY(-3px); border-color:var(--c-p); box-shadow:0 10px 20px -5px rgba(25,104,173,0.15); }
+.nav-card h3 { font-size:1.05rem; color:var(--c-p); margin-bottom:6px; display:flex; justify-content:space-between; }
+.nav-card p { font-size:0.8rem; color:var(--c-gray3); margin-bottom:10px; min-height:36px; line-height:1.35; }
 .nav-card ul { list-style:none; }
-.nav-card li { font-size:0.8rem; color:var(--c-text); margin-bottom:6px; padding-left:14px; position:relative; font-weight:var(--fw-m); }
-.nav-card li::before { content:''; position:absolute; left:0; top:6px; width:5px; height:5px; background:var(--c-s); border-radius:50%; }
+.nav-card li { font-size:0.76rem; color:var(--c-text); margin-bottom:5px; padding-left:12px; position:relative; font-weight:var(--fw-m); }
+.nav-card li::before { content:''; position:absolute; left:0; top:5px; width:4px; height:4px; background:var(--c-s); border-radius:50%; }
 
 /* Slide Layout */
-.slide-hdr { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--c-gray2); padding-bottom:12px; margin-bottom:20px; }
-.sh-l h2 { font-size:1.8rem; font-weight:var(--fw-eb); color:var(--c-dark); letter-spacing:-0.5px; }
-.sh-l .sub { font-size:0.95rem; color:var(--c-p); font-weight:var(--fw-b); margin-top:2px; }
-.sh-r { font-size:0.8rem; font-weight:var(--fw-b); color:var(--c-gray3); padding:6px 14px; background:var(--c-gray1); border-radius:20px; }
+.slide-hdr { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--c-gray2); padding-bottom:10px; margin-bottom:18px; }
+.sh-l h2 { font-size:1.65rem; font-weight:var(--fw-eb); color:var(--c-dark); letter-spacing:-0.5px; }
+.sh-l .sub { font-size:0.9rem; color:var(--c-p); font-weight:var(--fw-b); margin-top:2px; }
+.sh-r { font-size:0.78rem; font-weight:var(--fw-b); color:var(--c-gray3); padding:5px 12px; background:var(--c-gray1); border-radius:20px; }
 
 /* Side-by-Side Split Compare Grid */
-.s-grid.split-compare { display:grid; grid-template-columns:1.15fr 1fr; gap:20px; align-items:start; }
+.s-grid.split-compare { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start; }
 @media (max-width:1100px) { .s-grid.split-compare { grid-template-columns:1fr; } }
 
-.card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:20px; box-shadow:var(--shadow); margin-bottom:16px; }
+.card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:18px; box-shadow:var(--shadow); margin-bottom:14px; }
 .card:last-child { margin-bottom:0; }
-.card-title { font-size:1.05rem; font-weight:var(--fw-eb); color:var(--c-dark); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.card-title { font-size:1rem; font-weight:var(--fw-eb); color:var(--c-dark); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
 .card-title.blue { color:var(--c-p); }
 .card-title.teal { color:var(--c-s); }
 .card-title.red { color:var(--c-red); }
 .card-title.purple { color:var(--c-purple); }
 
 /* Typography */
-.tx-p { font-size:0.95rem; margin-bottom:12px; }
-.alert { padding:12px 16px; border-radius:8px; font-weight:var(--fw-b); margin-bottom:14px; border-left:4px solid; font-size:0.88rem; }
+.tx-p { font-size:0.9rem; margin-bottom:10px; }
+.alert { padding:10px 14px; border-radius:8px; font-weight:var(--fw-b); margin-bottom:12px; border-left:4px solid; font-size:0.85rem; }
 .alert.info { background:#EFF6FF; color:#1E40AF; border-color:#3B82F6; }
 .alert.warn { background:#FEF2F2; color:#991B1B; border-color:var(--c-red); }
 .alert.succ { background:#F0FDF4; color:#166534; border-color:var(--c-green); }
 
 /* Tables */
-.tb-wrap { width:100%; overflow-x:auto; border-radius:8px; border:1px solid var(--c-gray2); margin-bottom:14px; }
-table { width:100%; border-collapse:collapse; text-align:left; font-size:0.88rem; }
-th, td { padding:10px 12px; border-bottom:1px solid var(--c-gray2); }
+.tb-wrap { width:100%; overflow-x:auto; border-radius:8px; border:1px solid var(--c-gray2); margin-bottom:12px; }
+table { width:100%; border-collapse:collapse; text-align:left; font-size:0.84rem; }
+th, td { padding:8px 10px; border-bottom:1px solid var(--c-gray2); }
 th { background:var(--c-gray1); font-weight:var(--fw-eb); color:var(--c-dark); white-space:nowrap; }
 tr:last-child td { border-bottom:none; }
 tr:hover td { background:rgba(25,104,173,0.02); }
@@ -108,41 +110,60 @@ tr:hover td { background:rgba(25,104,173,0.02); }
 .td-warn { background:rgba(220,38,38,0.08) !important; font-weight:var(--fw-b); color:var(--c-red); }
 
 /* Diagrams */
-.svg-wrap { width:100%; display:flex; justify-content:center; padding:12px; background:var(--c-gray1); border-radius:8px; margin-bottom:14px; border:1px dashed var(--c-gray3); }
+.svg-wrap { width:100%; display:flex; justify-content:center; padding:10px; background:var(--c-gray1); border-radius:8px; margin-bottom:12px; border:1px dashed var(--c-gray3); }
 .svg-wrap svg { max-width:100%; height:auto; font-family:inherit; }
 
 /* Decision Question Cards (Right Column) */
-.decision-card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:18px; margin-bottom:16px; box-shadow:0 4px 14px rgba(0,0,0,0.03); border-left:4px solid var(--c-p); }
+.decision-card { background:var(--c-w); border:1px solid var(--c-gray2); border-radius:var(--br); padding:16px; margin-bottom:14px; box-shadow:0 3px 12px rgba(0,0,0,0.03); border-left:4px solid var(--c-p); }
 .decision-card.orange { border-left-color:var(--c-amber); }
 .decision-card.purple { border-left-color:var(--c-purple); }
 .decision-card.red { border-left-color:var(--c-red); }
-.dc-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
-.q-badge { background:var(--c-p); color:var(--c-w); font-weight:var(--fw-eb); font-size:0.75rem; padding:3px 8px; border-radius:4px; white-space:nowrap; }
+.dc-header { display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; }
+.q-badge { background:var(--c-p); color:var(--c-w); font-weight:var(--fw-eb); font-size:0.72rem; padding:2px 7px; border-radius:4px; white-space:nowrap; }
 .q-badge.orange { background:var(--c-amber); }
 .q-badge.purple { background:var(--c-purple); }
-.q-title { font-size:1.02rem; font-weight:var(--fw-eb); color:var(--c-dark); line-height:1.3; }
-.dc-basis { font-size:0.84rem; color:var(--c-gray3); background:var(--c-gray1); padding:8px 12px; border-radius:6px; margin-bottom:12px; }
-.dc-dual-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+.q-title { font-size:0.96rem; font-weight:var(--fw-eb); color:var(--c-dark); line-height:1.3; }
+.dc-basis { font-size:0.8rem; color:var(--c-gray3); background:var(--c-gray1); padding:6px 10px; border-radius:6px; margin-bottom:10px; }
+.dc-dual-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
 @media (max-width:600px) { .dc-dual-grid { grid-template-columns:1fr; } }
-.plan-box { padding:10px 12px; border-radius:6px; border:1px solid; font-size:0.84rem; line-height:1.45; }
+.plan-box { padding:8px 10px; border-radius:6px; border:1px solid; font-size:0.8rem; line-height:1.4; }
 .plan-box.plan-a { background:#F0F9FF; border-color:#BAE6FD; color:#0369A1; }
 .plan-box.plan-b { background:#FDF4FF; border-color:#F5D0FE; color:#86198F; }
-.plan-box .ptag { font-weight:var(--fw-eb); font-size:0.75rem; margin-bottom:4px; display:inline-block; padding:2px 6px; border-radius:3px; }
+.plan-box .ptag { font-weight:var(--fw-eb); font-size:0.7rem; margin-bottom:3px; display:inline-block; padding:2px 5px; border-radius:3px; }
 .plan-box.plan-a .ptag { background:#0284C7; color:#fff; }
 .plan-box.plan-b .ptag { background:#A21CAF; color:#fff; }
-.dc-action { font-size:0.82rem; color:#334155; border-top:1px dashed var(--c-gray2); padding-top:8px; }
+.dc-action { font-size:0.78rem; color:#334155; border-top:1px dashed var(--c-gray2); padding-top:6px; }
+
+/* Interactive Simulator Styles (Part 4) */
+.sim-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start; }
+@media (max-width:1100px) { .sim-grid { grid-template-columns:1fr; } }
+.slider-group { margin-bottom:12px; }
+.slider-hdr { display:flex; justify-content:space-between; font-size:0.84rem; font-weight:var(--fw-b); margin-bottom:4px; }
+.slider-hdr span.val { color:var(--c-p); font-family:monospace; font-size:0.9rem; }
+input[type=range] { width:100%; height:6px; border-radius:3px; background:#CBD5E1; outline:none; -webkit-appearance:none; accent-color:var(--c-p); }
+.preset-bar { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.preset-btn { font-size:0.76rem; padding:4px 10px; border-radius:4px; border:1px solid var(--c-p); background:white; color:var(--c-p); font-weight:bold; cursor:pointer; transition:all 0.2s; }
+.preset-btn:hover { background:var(--c-p); color:white; }
+.kpi-dash { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.kpi-box { background:var(--c-gray1); border:1px solid var(--c-gray2); border-radius:8px; padding:10px; text-align:center; }
+.kpi-box.hl { border-color:var(--c-p); background:#EFF6FF; }
+.kpi-v { font-size:1.35rem; font-weight:var(--fw-eb); color:var(--c-dark); font-family:monospace; }
+.kpi-l { font-size:0.75rem; color:var(--c-gray3); font-weight:bold; }
+.matrix-wrap { width:100%; overflow-x:auto; margin-top:10px; font-size:0.78rem; }
+.matrix-cell { text-align:center; padding:6px 4px; }
+.matrix-cell.active-cell { background:var(--c-p) !important; color:white !important; font-weight:bold; }
 
 /* Bottom Nav */
-.btm-nav { position:fixed; bottom:0; left:0; right:0; height:56px; background:var(--c-w); border-top:1px solid var(--c-gray2); display:flex; align-items:center; justify-content:space-between; padding:0 24px; z-index:100; box-shadow:0 -2px 10px rgba(0,0,0,0.02); }
+.btm-nav { position:fixed; bottom:0; left:0; right:0; height:54px; background:var(--c-w); border-top:1px solid var(--c-gray2); display:flex; align-items:center; justify-content:space-between; padding:0 20px; z-index:100; box-shadow:0 -2px 10px rgba(0,0,0,0.02); }
 .btm-progress { position:absolute; top:0; left:0; height:3px; background:var(--c-p); transition:width 0.3s ease; }
-.btm-controls { display:flex; gap:12px; align-items:center; }
-.btn { padding:6px 16px; border:none; background:var(--c-gray1); color:var(--c-dark); font-weight:var(--fw-b); border-radius:6px; cursor:pointer; transition:all 0.2s; font-size:0.88rem; }
+.btm-controls { display:flex; gap:10px; align-items:center; }
+.btn { padding:5px 14px; border:none; background:var(--c-gray1); color:var(--c-dark); font-weight:var(--fw-b); border-radius:6px; cursor:pointer; transition:all 0.2s; font-size:0.84rem; }
 .btn:hover { background:var(--c-gray2); }
 .btn.primary { background:var(--c-p); color:var(--c-w); }
 .btn.primary:hover { background:#155a96; }
-.page-indicator { font-weight:var(--fw-b); color:var(--c-gray3); font-size:0.9rem; min-width:80px; text-align:center; }
-.kb-hint { font-size:0.8rem; color:var(--c-gray3); display:flex; gap:8px; align-items:center; }
-.kb-key { background:var(--c-gray2); padding:2px 6px; border-radius:4px; font-weight:var(--fw-b); font-family:monospace; }
+.page-indicator { font-weight:var(--fw-b); color:var(--c-gray3); font-size:0.85rem; min-width:70px; text-align:center; }
+.kb-hint { font-size:0.76rem; color:var(--c-gray3); display:flex; gap:6px; align-items:center; }
+.kb-key { background:var(--c-gray2); padding:2px 5px; border-radius:4px; font-weight:var(--fw-b); font-family:monospace; }
 </style>
 </head>
 <body>
@@ -155,163 +176,414 @@ tr:hover td { background:rgba(25,104,173,0.02); }
 
 <header class="hdr">
   <a href="#home" class="logo" onclick="app.goHome()">
-    <svg width="24" height="24" viewBox="0 0 26 26">
+    <svg width="22" height="22" viewBox="0 0 26 26">
       <rect x="0" y="0" width="12" height="12" rx="2" fill="#1968AD"/>
       <rect x="14" y="0" width="12" height="12" rx="2" fill="#1BB1BF"/>
       <rect x="0" y="14" width="12" height="12" rx="2" fill="#1BB1BF"/>
       <rect x="14" y="14" width="12" height="12" rx="2" fill="#1968AD"/>
     </svg>
-    <div class="tx">進能服 6692<small>南區事業 FY2027 營運調整 ｜ 15 問與雙方案對照</small></div>
+    <div class="tx">進能服 6692<small>南區事業 FY2027 營運調整 v10 ｜ 敏感性動態模擬</small></div>
   </a>
   <nav class="topnav" id="topnav">
     <a href="#home" data-nav="home">封面總覽</a>
-    <a href="#p1-1" data-nav="p1">Part 1 損益與承諾 (3頁)</a>
-    <a href="#p2-1" data-nav="p2">Part 2 Pipeline 與負荷 (2頁)</a>
-    <a href="#p3-1" data-nav="p3">Part 3 交付履約與防線 (3頁)</a>
-    <a href="#p4-1" data-nav="p4">Part 4 主管會議決議 (1頁)</a>
+    <a href="#p1-1" data-nav="p1">Part 1 v10 機會對帳 (2頁)</a>
+    <a href="#p2-1" data-nav="p2">Part 2 損益與15問 (3頁)</a>
+    <a href="#p3-1" data-nav="p3">Part 3 負荷與交付 (2頁)</a>
+    <a href="#p4-1" data-nav="p4">Part 4 敏感性模擬 (2頁)</a>
+    <a href="#p5-1" data-nav="p5">Part 5 主管決議 (1頁)</a>
   </nav>
   <div class="meta">
-    <span class="tag">雙方案決策對照版</span>
-    <span>呈閱：董事長、總經理、三類主管</span>
+    <span class="vtag">v10 對帳版</span>
+    <span class="tag">含動態敏感性分析</span>
   </div>
 </header>
 
 <main class="views" id="views">
 
-  <!-- HOME COVER -->
+  <!-- ==================== HOME COVER ==================== -->
   <div class="view" id="home">
     <div class="hero">
-      <div class="h-tag">FY2027–FY2029 營運計畫檢討與調整決策</div>
-      <h1>南區事業 <span>三類主管 15 問與雙方案對照</span></h1>
-      <p>將《三年計畫 v9》之簽約、營收、毛利、現金與交付產能逐案串聯。左側對照原始財務與數據架構，右側並列「方案 A 穩健交付」與「方案 B 條件式成長」，協助高階主管精準定錨決策。</p>
+      <div class="h-tag">FY2027–FY2029 營運計畫對帳與動態敏感性模擬</div>
+      <h1>南區事業 <span>v10 機會對帳 ｜ 15 問對照 ｜ 敏感性分析</span></h1>
+      <p>依據 53 筆實際機會清單逐案對帳，揭露加權期望 17.83 億與 74% 參數改善真相。整合三類主管 15 問雙方案對照，並提供可動態調整之系統動力學與財務敏感性模擬器！</p>
     </div>
     
     <div class="stats">
       <div class="st-card">
-        <div class="st-v">20 <small style="font-size:1rem;color:#94A3B8">億</small></div>
-        <div class="st-l">簽約目標（承諾 vs 挑戰分層）</div>
+        <div class="st-v">17.83 <small style="font-size:0.9rem;color:#94A3B8">億</small></div>
+        <div class="st-l">v10 加權期望簽約 (缺口-2.17億)</div>
       </div>
       <div class="st-card">
-        <div class="st-v">75 <small style="font-size:1rem;color:#94A3B8">億</small></div>
-        <div class="st-l">Pipeline（實質案源需去重核實）</div>
+        <div class="st-v">74 <small style="font-size:0.9rem;color:#94A3B8">%</small></div>
+        <div class="st-l">改善金額來自「勝率參數調整」</div>
       </div>
       <div class="st-card">
-        <div class="st-v">15 <small style="font-size:1rem;color:#94A3B8">問</small></div>
-        <div class="st-l">三類主管檢討核心題目</div>
+        <div class="st-v">49 <small style="font-size:0.9rem;color:#94A3B8">%</small></div>
+        <div class="st-l">全體加權期望集中於「台糖三案」</div>
       </div>
       <div class="st-card">
-        <div class="st-v">A · B</div>
-        <div class="st-l">雙方案口徑與落入計畫對照</div>
+        <div class="st-v">24.5 <small style="font-size:0.9rem;color:#94A3B8">%</small></div>
+        <div class="st-l">統包實測勝率 (假設為40%)</div>
+      </div>
+      <div class="st-card">
+        <div class="st-v">即時連動</div>
+        <div class="st-l">動態參數敏感性試算模擬器</div>
       </div>
     </div>
 
-    <!-- 原計畫基準與補正總表 (Table) -->
-    <div class="card" style="margin-bottom:24px;">
-      <div class="card-title blue">📑 原計畫基準 vs 本次營運調整應釐清重點對照表</div>
+    <!-- v10 版本變更說明總表 (Table) -->
+    <div class="card" style="margin-bottom:20px;">
+      <div class="card-title blue">📑 v10 機會清單對帳核心結論與版本變更說明</div>
       <div class="tb-wrap">
         <table>
           <thead>
             <tr>
-              <th>項目</th>
-              <th>網站原計畫 (v9 基準)</th>
-              <th>本次營運調整應釐清與補正重點 (2026-09-10 檢討)</th>
-              <th>對應檢討題號</th>
+              <th>#</th>
+              <th>檢討維度</th>
+              <th>v9 版本規劃</th>
+              <th>v10 實際機會清單對帳結果 (53 筆)</th>
+              <th>關鍵管理啟示</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b>FY27 簽約</b></td>
-              <td>統包 4 億、資管 6 億、AIDC 10 億（合計 20 億）</td>
-              <td class="td-hl">分成「年度承諾 (10億)」、「條件式挑戰 (AIDC 10億)」及「未成熟商機」</td>
-              <td><b>A1, B1</b></td>
+              <td>1</td>
+              <td><b>Pipeline 本質</b></td>
+              <td>75 億為勝率公式反推需求量</td>
+              <td class="td-hl">清單內名目 58.88 億、加權 14.29 億；加計待補案合計 <b>76.59 億、加權 17.83 億</b></td>
+              <td>短少 2.17 億；若維持原始勝率則為 12.61 億（短少 7.39 億）</td>
             </tr>
             <tr>
-              <td><b>FY27 營收</b></td>
-              <td>統包 4 億、資管 6 億、AIDC 0（合計 10 億）</td>
-              <td>逐案交付與財務認列依據；簽約不等於營收，無法如期完工需跨年移轉</td>
-              <td><b>C1</b></td>
+              <td>2</td>
+              <td><b>勝率參數真相</b></td>
+              <td>假設統包 40%、資管 40%、AIDC 20%</td>
+              <td class="td-warn"><b>改善的 7.03 億中，5.22 億 (74%) 來自參數調整 (5%&rarr;20%)</b>，非案源推進！</td>
+              <td>報表必須嚴格區分「20%(下限)」與「20%(評估)」防範錯覺</td>
             </tr>
             <tr>
-              <td><b>毛利率與損益</b></td>
-              <td>毛利 1.56 億 (15.6%)、費用 0.45 億、淨利 0.90 億 (9.0%)</td>
-              <td>費用是否涵蓋完整支援成本、OU 轉撥及新增資源；業外與稅額需財務核對</td>
-              <td><b>A2, C4</b></td>
+              <td>3</td>
+              <td><b>資產管理集中度</b></td>
+              <td>6 億簽約依賴國泰資本決策速度</td>
+              <td class="td-warn"><b>台糖三案佔資管名目 96%、加權 91%，佔全公司加權期望 49%！</b></td>
+              <td>這一軌實質為「台糖依賴軌」，台糖延宕即全盤腰斬</td>
             </tr>
             <tr>
-              <td><b>買方集中度</b></td>
-              <td>資管 6 億＋AIDC 10 億佔簽約目標 80%</td>
-              <td class="td-warn">80% 是兩軌合計，須按最終買方及共同決策來源重算現金與付款曝險</td>
-              <td><b>A3, B4</b></td>
+              <td>4</td>
+              <td><b>統包勝率缺口</b></td>
+              <td>統包假設勝率 40% (需 10 億 Pipeline)</td>
+              <td>名目 10.19 億雖達標，但<b>實測勝率僅 24.5% (落差 15.5pp)</b></td>
+              <td>若勝率下修為 25%，需補足 5.8 億新案源</td>
             </tr>
             <tr>
-              <td><b>組織與產能</b></td>
-              <td>宣稱 11 人（括號副總＋4 業務＋4 專管主管，合計僅 9 人）</td>
-              <td>補正 11 人完整名冊與職責；OU 缺逐月容量、承接承諾、轉撥價格與延誤處置</td>
-              <td><b>A4, C2, C5</b></td>
+              <td>5</td>
+              <td><b>AIDC 推進時程</b></td>
+              <td>逐案里程碑推進管理</td>
+              <td>麻豆、嘉惠、桃園三個獨立客戶，<b>決標日同為 2026/12/31</b></td>
+              <td>時程疑為預設值而非客戶真實承諾，基礎需逐案核實</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- 導覽卡片 -->
+    <!-- 導覽卡片 (5 大模組) -->
     <div class="nav-grid">
       <a href="#p1-1" class="nav-card" onclick="app.navTo('p1-1')">
-        <h3>Part 1 損益與承諾 <span>→</span></h3>
-        <p>損益推估、9% 淨利率驗證、80% 買方集中壓測與決策觸發訊號。</p>
+        <h3>Part 1 v10 機會對帳 <span>→</span></h3>
+        <p>53 筆機會逐案對帳結果、加權期望 17.83 億、74% 參數改善真相與四大結構問題。</p>
         <ul>
-          <li>A1 成果承諾與 AIDC 調整</li>
-          <li>A2 淨利率下修條件與壓測</li>
-          <li>A3 買方集中與現金流防守</li>
-          <li>A5 決策升級與停損訊號</li>
+          <li>1.1 三軌對帳與改善來源拆解</li>
+          <li>1.2 四大新浮現結構問題診斷</li>
         </ul>
       </a>
       <a href="#p2-1" class="nav-card" onclick="app.navTo('p2-1')">
-        <h3>Part 2 Pipeline 與負荷 <span>→</span></h3>
-        <p>75 億漏斗核實、資管 40% 轉化障礙、AIDC 50 億斷點與投標篩選。</p>
+        <h3>Part 2 損益與15問 <span>→</span></h3>
+        <p>三年損益推估、三軌資金來源，對照事業中心與業務主管問答（A1~A5, B4）。</p>
         <ul>
-          <li>B1 75 億真實成交機會</li>
-          <li>B2 資管 60% 轉化卡點</li>
-          <li>B3 AIDC 50 億推進陣列</li>
-          <li>B5 小案過載防範與決策表</li>
+          <li>2.1 損益推估 vs A1/A2</li>
+          <li>2.2 三軌拆解 vs A3/B4</li>
+          <li>2.3 組織邊界 vs A4/C2/A5</li>
         </ul>
       </a>
       <a href="#p3-1" class="nav-card" onclick="app.navTo('p3-1')">
-        <h3>Part 3 交付履約與防線 <span>→</span></h3>
-        <p>10 億營收倒排、OU 轉撥與追加、AIDC 跨期現金缺口與專管品質。</p>
+        <h3>Part 3 負荷與交付 <span>→</span></h3>
+        <p>業務負荷分配、投標門檻篩選、營收認列倒排與 AIDC 跨期現金缺口。</p>
         <ul>
-          <li>C1 逐案交付與營收認列</li>
-          <li>A4/C2 11 人名冊與 OU 承接單</li>
-          <li>C3 AIDC 墊資與現金曲線</li>
-          <li>C4 完工毛利與 C5 品質關卡</li>
+          <li>3.1 業務負荷 vs B1/B2/B3/B5</li>
+          <li>3.2 交付認列 vs C1/C3/C4/C5</li>
         </ul>
       </a>
       <a href="#p4-1" class="nav-card" onclick="app.navTo('p4-1')">
-        <h3>Part 4 主管會議決議 <span>→</span></h3>
-        <p>會議應形成之五大決議主責表、四週調整順序與紀錄核定模板。</p>
+        <h3>Part 4 敏感性模擬 <span>→</span></h3>
+        <p>可即時調整參數的財務模擬器、雙因子 OU 容量 x 毛利矩陣與系統動力學反饋。</p>
         <ul>
-          <li>五大決議主題與主責主管</li>
-          <li>建議四週調整工作順序</li>
-          <li>會議紀錄核定模板</li>
+          <li>4.1 互動式財務敏感性模擬器</li>
+          <li>4.2 系統動力學四大迴路與壓測</li>
+        </ul>
+      </a>
+      <a href="#p5-1" class="nav-card" onclick="app.navTo('p5-1')">
+        <h3>Part 5 主管決議 <span>→</span></h3>
+        <p>五大決議主責矩陣、四週營運調整順序與會議紀錄簽核模板。</p>
+        <ul>
+          <li>5.1 五大決議與四週推進排程</li>
         </ul>
       </a>
     </div>
   </div>
 
-  <!-- ==================== PART 1: 損益與承諾 (3 Slides) ==================== -->
+  <!-- ==================== PART 1: v10 機會對帳 (2 Slides) ==================== -->
 
-  <!-- Slide 1.1: 損益推估 vs A1/A2 -->
+  <!-- Slide 1.1: 三軌對帳與改善來源拆解 -->
   <div class="view slide" id="p1-1" data-part="p1">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 1 損益與承諾 ｜ 事業中心主管檢討</div>
-        <h2>1.1 FY27–FY29 損益推估 vs 成果承諾與淨利下修</h2>
+        <div class="sub">Part 1 v10 機會對帳 ｜ 數據基線核實</div>
+        <h2>1.1 三軌機會清單對帳結果與改善來源拆解</h2>
+      </div>
+      <div class="sh-r">依機會清單 2026-09-07 對帳</div>
+    </div>
+    
+    <div class="s-grid split-compare">
+      <div class="left-col">
+        <div class="card">
+          <div class="card-title blue">📊 v10 三軌對帳總表（名目 vs 加權期望）</div>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>軌道</th><th>目標簽約</th><th>名目 Pipeline</th><th>加權期望</th><th>目標差額</th><th>實況特徵</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>① 統包工程</b></td><td>4.0 億</td><td>10.19 億</td><td><b>2.50 億</b></td><td class="td-warn">−1.50 億</td>
+                  <td>實測平均勝率僅 24.5%</td>
+                </tr>
+                <tr>
+                  <td><b>② 資產管理 (清單內)</b></td><td>6.0 億</td><td>18.69 億</td><td><b>5.79 億</b></td><td>−0.21 億</td>
+                  <td>高度依賴台糖停車場二案</td>
+                </tr>
+                <tr>
+                  <td><b>③ AIDC 算力</b></td><td>10.0 億</td><td>30.00 億</td><td><b>6.00 億</b></td><td class="td-warn">−4.00 億</td>
+                  <td>三案同日決標，勝率調至 20%</td>
+                </tr>
+                <tr style="background:#f8fafc; font-weight:bold;">
+                  <td>小計 (清單內)</td><td>20.0 億</td><td>58.88 億</td><td>14.29 億</td><td class="td-warn">−5.71 億</td>
+                  <td>未達 20 億簽約門檻</td>
+                </tr>
+                <tr>
+                  <td>待補：鉅鋼 600kWp</td><td>—</td><td>0.21 億</td><td>0.04 億</td><td>—</td><td>屋頂統包案</td>
+                </tr>
+                <tr>
+                  <td>待補：台糖中安 25MW</td><td>—</td><td>17.50 億</td><td>3.50 億</td><td>—</td><td>車棚單價 7 萬/kWp，勝率暫估 20%</td>
+                </tr>
+                <tr class="td-hl">
+                  <td><b>合計 (含待補案)</b></td><td><b>20.0 億</b></td><td><b>76.59 億</b></td><td><b>17.83 億</b></td><td><b>−2.17 億</b></td>
+                  <td><b>情境一基準 (情境二為 12.61 億)</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SVG: 改善來源瀑布圖 -->
+          <div class="svg-wrap">
+            <svg viewBox="0 0 460 130" width="100%">
+              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
+              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">加權期望值 7.03 億改善來源拆解 (參數調整佔 74%)</text>
+              <!-- Bars -->
+              <rect x="30" y="45" width="60" height="60" fill="#64748B" rx="3"/>
+              <text x="60" y="75" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">10.80億</text>
+              <text x="60" y="118" font-size="9" fill="#475569" text-anchor="middle">對帳前原始</text>
+
+              <rect x="105" y="45" width="80" height="35" fill="#DC2626" rx="3"/>
+              <text x="145" y="65" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">+4.50億</text>
+              <text x="145" y="118" font-size="9" fill="#DC2626" font-weight="bold" text-anchor="middle">算力中心5%&rarr;20%</text>
+
+              <rect x="195" y="45" width="65" height="15" fill="#F59E0B" rx="3"/>
+              <text x="227" y="56" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">+0.72億</text>
+              <text x="227" y="118" font-size="9" fill="#D97706" text-anchor="middle">其他9案5%&rarr;20%</text>
+
+              <rect x="270" y="45" width="60" height="12" fill="#64748B" opacity="0.6" rx="3"/>
+              <text x="300" y="55" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">-1.25億</text>
+              <text x="300" y="118" font-size="9" fill="#64748B" text-anchor="middle">剔除過期案</text>
+
+              <rect x="340" y="45" width="70" height="28" fill="#16A34A" rx="3"/>
+              <text x="375" y="62" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">+3.54億</text>
+              <text x="375" y="118" font-size="9" fill="#16A34A" font-weight="bold" text-anchor="middle">補台糖中安/鉅鋼</text>
+
+              <rect x="420" y="45" width="30" height="60" fill="#1968AD" rx="3"/>
+              <text x="435" y="75" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">17.8</text>
+              <text x="435" y="118" font-size="9" fill="#1968AD" font-weight="bold" text-anchor="middle">對帳後</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="card" style="border-left:4px solid var(--c-red);">
+          <div class="card-title red">🚨 必須誠實面對的關鍵真相</div>
+          <div class="alert warn" style="margin-bottom:10px;">
+            <b>74% 的改善來自「參數放寬」而非實質推進：</b><br>
+            在淨增加的 7.03 億期望值中，<b>5.22 億來自勝率下限由 5% 拉升至 20%</b>。其中 3 個算力中心完全沒有新客戶進展，僅因參數重設就膨脹了 4.5 億！
+          </div>
+          <p class="tx-p">
+            <b>管理必備動作（分開標示制度）：</b><br>
+            報表必須將案件勝率明確區分為：
+          </p>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>標示</th><th>實質意義</th><th>管理作為</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="q-badge orange">20% (下限)</span></td>
+                  <td>未取得客戶端預算或時程證據，純套用下限</td>
+                  <td>列為「待補件清單」，限期補齊預算、規格與決策者證據</td>
+                </tr>
+                <tr>
+                  <td><span class="q-badge">20% (評估)</span></td>
+                  <td>已逐案確認客戶有明確採購意圖之評估結論</td>
+                  <td>進入實質專案推進，監控里程碑推移</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tx-p" style="font-size:0.82rem; color:var(--c-gray3);">
+            若不分開標示，三個月後團隊將無法辨別哪些是真推進、哪些只是當初試算表上的數字遊戲。
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title blue">⚖️ 兩大情境加權期望對比</div>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>情境</th><th>計算口徑說明</th><th>加權期望簽約</th><th>對 20 億缺口</th><th>FY27 推估淨利</th></tr>
+              </thead>
+              <tbody>
+                <tr class="td-hl">
+                  <td><b>情境一 (基準)</b></td>
+                  <td>5% 勝率全數修正為 20%，補入中安</td>
+                  <td><b>17.83 億</b></td>
+                  <td>−2.17 億</td>
+                  <td>約 0.76 億</td>
+                </tr>
+                <tr>
+                  <td><b>情境二 (下限)</b></td>
+                  <td>維持清單原始勝率，不調高參數</td>
+                  <td><b>12.61 億</b></td>
+                  <td class="td-warn">−7.39 億</td>
+                  <td>約 0.46 億</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 1.2: 四大新浮現的結構問題 -->
+  <div class="view slide" id="p1-2" data-part="p1">
+    <div class="slide-hdr">
+      <div class="sh-l">
+        <div class="sub">Part 1 v10 機會對帳 ｜ 結構性風險診斷</div>
+        <h2>1.2 機會清單對帳後四大新浮現之結構性問題</h2>
+      </div>
+      <div class="sh-r">風險具體化與決策聚焦</div>
+    </div>
+    
+    <div class="s-grid split-compare">
+      <div class="left-col">
+        <!-- 問題 1 & 2 -->
+        <div class="card" style="border-left:4px solid var(--c-amber);">
+          <div class="card-title blue">① 資產管理成最健康一軌，但集中度極端 (靠台糖)</div>
+          <p class="tx-p">
+            資產管理加權期望達 9.02 億（超越 6 億目標），但**台糖三案（高雄停車場 13.3 億、中安 17.5 億、明正 4.2 億）佔該軌名目 96%、加權 91%，更佔全公司加權期望的 49%！**
+          </p>
+          <div class="alert warn" style="margin-bottom:6px;">
+            <b>結論：</b>這一軌不是「有 6 億健康案源」，而是「完全依賴台糖」。台糖若政策轉向或延宕，全公司加權期望將瞬間從 17.83 億驟降至 9.1 億。
+          </div>
+        </div>
+
+        <div class="card" style="border-left:4px solid var(--c-red);">
+          <div class="card-title red">② 統包量夠質不夠：實測勝率僅 24.5% (假設 40%)</div>
+          <p class="tx-p">
+            統包名目 10.19 億看似達標，但加權僅 2.50 億，實測平均勝率僅 24.5%，與 v9 假設的 40% 出現 **15.5 個百分點的巨大鴻溝**。
+          </p>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>因應選項</th><th>管理動作</th><th>代價與後果</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>選項甲</b></td>
+                  <td>維持 40% 假設，全力投入資源推高案場勝率</td>
+                  <td>需大量售前與技術支援，且非所有案件皆可改善</td>
+                </tr>
+                <tr>
+                  <td><b>選項乙 (推薦)</b></td>
+                  <td>認清現實下修勝率至 25%，重新倒算所需 Pipeline</td>
+                  <td>統包 4 億目標需 16 億 Pipeline，<b>實質短缺 5.8 億案源</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <!-- 問題 3 & 4 -->
+        <div class="card" style="border-left:4px solid var(--c-purple);">
+          <div class="card-title purple">③ 三個算力中心同日決標 (2026/12/31) 存疑</div>
+          <p class="tx-p">
+            麻豆、嘉惠、桃園三個獨立客戶、三個不同場址，在清單上決標日完全相同。這通常是業務輸入時套用之預設值，而非買方真實決策時程。
+          </p>
+          <div class="alert info" style="margin-bottom:6px;">
+            <b>管理動作：</b>AIDC 佔加權期望 34%，時程基礎必須由 David 與專職業務逐案向客戶確認，不可直接作為工程排程依據。
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title teal">④ 微網實質退出：加權僅 0.09 億 (佔全體 0.5%)</div>
+          <p class="tx-p">
+            名目僅 0.9 億（高科大 0.6 億、嘉義大學 0.3 億），加權僅 0.09 億。成熟度最高的「中山大學 0.9 億案」依規則被排除。
+          </p>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>策略決策方向</th><th>後續執行作為</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>若微網仍為策略方向</b></td>
+                  <td>確認中山大學排除原因（加權可增 0.36 億），重啟教育與公部門案源</td>
+                </tr>
+                <tr>
+                  <td><b>若已非核心方向</b></td>
+                  <td>自年度重點業務表中剔除，釋放業務精力回歸統包大案</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PART 2: 損益與 15 問對照 (3 Slides) ==================== -->
+
+  <!-- Slide 2.1: 損益推估 vs A1/A2 -->
+  <div class="view slide" id="p2-1" data-part="p2">
+    <div class="slide-hdr">
+      <div class="sh-l">
+        <div class="sub">Part 2 損益與15問對照 ｜ 財務承諾與下修條件</div>
+        <h2>2.1 三年損益模型 vs 成果承諾與淨利下修</h2>
       </div>
       <div class="sh-r">對照問題：A1、A2</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄：原始計畫數據與圖表 -->
       <div class="left-col">
         <div class="card">
           <div class="card-title blue">📊 原始三年損益模型（基準 vs 保守）</div>
@@ -332,65 +604,56 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             </table>
           </div>
           
-          <!-- 圖表輔助說明：淨利率趨勢圖 (SVG) -->
           <div class="svg-wrap">
-            <svg viewBox="0 0 460 140" width="100%">
-              <rect x="0" y="0" width="460" height="140" fill="#ffffff" rx="6"/>
-              <text x="20" y="24" font-size="12" font-weight="bold" fill="#0B192C">淨利率情境對比趨勢 (FY27~FY29)</text>
-              <!-- Axes -->
-              <line x1="50" y1="110" x2="430" y2="110" stroke="#CBD5E1" stroke-width="1.5"/>
-              <line x1="50" y1="30" x2="50" y2="110" stroke="#CBD5E1" stroke-width="1.5"/>
-              <text x="40" y="114" font-size="10" fill="#64748B" text-anchor="end">0%</text>
-              <text x="40" y="70" font-size="10" fill="#64748B" text-anchor="end">6%</text>
-              <text x="40" y="35" font-size="10" fill="#64748B" text-anchor="end">12%</text>
-              <!-- FY markers -->
-              <text x="120" y="125" font-size="11" fill="#475569" text-anchor="middle">FY2027</text>
-              <text x="240" y="125" font-size="11" fill="#475569" text-anchor="middle">FY2028</text>
-              <text x="360" y="125" font-size="11" fill="#475569" text-anchor="middle">FY2029</text>
-              <!-- Baseline Line -->
-              <polyline points="120,50 240,41 360,39" fill="none" stroke="#1968AD" stroke-width="3"/>
-              <circle cx="120" cy="50" r="4" fill="#1968AD"/>
-              <circle cx="240" cy="41" r="4" fill="#1968AD"/>
-              <circle cx="360" cy="39" r="4" fill="#1968AD"/>
-              <text x="120" y="44" font-size="10" font-weight="bold" fill="#1968AD" text-anchor="middle">9.0%</text>
-              <text x="240" y="35" font-size="10" font-weight="bold" fill="#1968AD" text-anchor="middle">10.3%</text>
-              <text x="360" y="33" font-size="10" font-weight="bold" fill="#1968AD" text-anchor="middle">10.5% (基準)</text>
-              <!-- Conservative Line -->
-              <polyline points="120,66 240,57 360,55" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,4"/>
-              <circle cx="120" cy="66" r="3.5" fill="#DC2626"/>
-              <circle cx="240" cy="57" r="3.5" fill="#DC2626"/>
-              <circle cx="360" cy="55" r="3.5" fill="#DC2626"/>
-              <text x="120" y="80" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">6.6%</text>
-              <text x="240" y="71" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">7.9%</text>
-              <text x="360" y="69" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">8.2% (保守)</text>
+            <svg viewBox="0 0 460 130" width="100%">
+              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
+              <text x="20" y="22" font-size="11" font-weight="bold" fill="#0B192C">三年淨利率趨勢：基準 (10.5%) vs 保守 (8.2%)</text>
+              <line x1="50" y1="100" x2="430" y2="100" stroke="#CBD5E1" stroke-width="1.5"/>
+              <line x1="50" y1="30" x2="50" y2="100" stroke="#CBD5E1" stroke-width="1.5"/>
+              <text x="40" y="104" font-size="9" fill="#64748B" text-anchor="end">0%</text>
+              <text x="40" y="65" font-size="9" fill="#64748B" text-anchor="end">6%</text>
+              <text x="40" y="35" font-size="9" fill="#64748B" text-anchor="end">12%</text>
+              <text x="120" y="115" font-size="10" fill="#475569" text-anchor="middle">FY2027</text>
+              <text x="240" y="115" font-size="10" fill="#475569" text-anchor="middle">FY2028</text>
+              <text x="360" y="115" font-size="10" fill="#475569" text-anchor="middle">FY2029</text>
+              <polyline points="120,48 240,40 360,38" fill="none" stroke="#1968AD" stroke-width="2.5"/>
+              <circle cx="120" cy="48" r="3.5" fill="#1968AD"/>
+              <circle cx="240" cy="40" r="3.5" fill="#1968AD"/>
+              <circle cx="360" cy="38" r="3.5" fill="#1968AD"/>
+              <text x="120" y="42" font-size="9" font-weight="bold" fill="#1968AD" text-anchor="middle">9.0%</text>
+              <text x="240" y="34" font-size="9" font-weight="bold" fill="#1968AD" text-anchor="middle">10.3%</text>
+              <text x="360" y="32" font-size="9" font-weight="bold" fill="#1968AD" text-anchor="middle">10.5%</text>
+              <polyline points="120,62 240,54 360,52" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,4"/>
+              <circle cx="120" cy="62" r="3" fill="#DC2626"/>
+              <circle cx="240" cy="54" r="3" fill="#DC2626"/>
+              <circle cx="360" cy="52" r="3" fill="#DC2626"/>
+              <text x="120" y="74" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">6.6%</text>
+              <text x="240" y="66" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">7.9%</text>
+              <text x="360" y="64" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">8.2%</text>
             </svg>
-          </div>
-          <div class="alert info" style="margin-bottom:0;">
-            <b>脆弱點警示：</b>續升綠能 2025 年淨利僅 1.9%。9.0% 建立在「開發費納入統包」與「11人編制」兩大脆弱假設。
           </div>
         </div>
       </div>
 
-      <!-- 右欄：主管 15 問與雙方案對照 -->
       <div class="right-col">
         <!-- A1 -->
         <div class="decision-card">
           <div class="dc-header">
             <span class="q-badge">A1</span>
-            <div class="q-title">FY2027 究竟承諾什麼成果？若 AIDC 未簽，年度計畫如何調整？</div>
+            <div class="q-title">FY2027 究竟承諾什麼成果？若 AIDC 未簽如何調整？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>AIDC 占簽約一半 (10億) 卻不貢獻 FY27 營收。把 20 億當單一成敗指標會混淆當年經營與未來成長。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>AIDC 占簽約目標一半但當年不認列營收，把 20 億當單一成敗指標會混淆當年經營與未來成長。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
               <span class="ptag">方案 A 穩健交付</span>
-              <p>統包 4 億＋資管 6 億經逐案查核確認「能簽、能做、能請款」後列承諾。AIDC 10 億列獨立挑戰；未成交如實下修簽約與後兩年營收，不抓低毛利急單補缺口，重算 FY27 10 億營收與 0.90 億淨利。</p>
+              <p>統包 4 億＋資管 6 億經逐案查核確認能簽、能做後列承諾。AIDC 10 億列獨立挑戰；未成交如實下修預測，不抓低毛利急單補缺口，重算 FY27 10 億營收與 0.90 億淨利。</p>
             </div>
             <div class="plan-box plan-b">
               <span class="ptag">方案 B 條件式成長</span>
-              <p>保留 20 億簽約挑戰，但 AIDC 必須具備買方資金、規格確認、商務進度與 OU 承接證據才升為承諾。每季更新時點；條件未達移回挑戰清單並啟動替代案。營收、毛利、現金另設目標避免只追簽約。</p>
+              <p>保留 20 億挑戰，但 AIDC 必須具備買方資金、規格確認、商務與 OU 承接證據才升承諾。未達關鍵條件移回挑戰清單並啟動替代案。營收、毛利另設目標防只追簽約。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>事業中心主管核定「承諾／挑戰／商機」三層目標及損益橋接表；財務與業務共同維護。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>事業中心主管核定「承諾／挑戰／商機」三層目標及三年損益橋接表。</div>
         </div>
 
         <!-- A2 -->
@@ -399,35 +662,34 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             <span class="q-badge">A2</span>
             <div class="q-title">9% 淨利率靠哪些可驗證條件成立？何時必須下修？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>FY27 毛利 1.56 億、費用 0.45 億；資管 18% 毛利與精簡編制是關鍵前提，同業常態僅 3~6%。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>FY27 毛利 1.56 億、費用 0.45 億；資管 18% 毛利與 11 人編制是關鍵前提，同業常態僅 3~6%。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
               <span class="ptag">方案 A 穩健交付</span>
-              <p>以客戶認可範圍、供應商報價及 OU 轉撥價格重估毛利。未被接受的開發費不先列確定收益。除毛利率降 3% 情境，增加延後交付與支援成本情境；核實後若不支持 9% 則主動修正預算。</p>
+              <p>以客戶認可範圍、供應商報價及 OU 轉撥價格重估毛利。除毛利降 3% 情境，增加延後交付與支援成本情境；核實後若不支持 9% 則主動修正預算。</p>
             </div>
             <div class="plan-box plan-b">
               <span class="ptag">方案 B 條件式成長</span>
-              <p>保留 9% 作挑戰，要求每筆高毛利有可交付價值及付款依據。策略性低毛利須說明增量成本、資源占用與後續收益證據並經核准。新增售前、技術與專管費用納入模型後決定是否投入。</p>
+              <p>保留 9% 作挑戰，要求每筆高毛利有可交付價值及付款依據。策略性低毛利須說明增量成本並經核准。新增售前與專管費用納入模型後決定是否投入。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>財務提出三軌毛利橋接、費用明細及預警；毛利底線與例外授權由事業中心另行核定。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>財務提出三軌毛利橋接、費用明細及預警；毛利底線與例外授權另行核定。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Slide 1.2: 三軌拆解 vs A3/B4 -->
-  <div class="view slide" id="p1-2" data-part="p1">
+  <!-- Slide 2.2: 三軌拆解 vs A3/B4 -->
+  <div class="view slide" id="p2-2" data-part="p2">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 1 損益與承諾 ｜ 買方集中與拆包防守</div>
-        <h2>1.2 三軌營收拆解 vs 買方集中與付款延遲壓測</h2>
+        <div class="sub">Part 2 損益與15問對照 ｜ 集中度與防拆包</div>
+        <h2>2.2 三軌營收拆解 vs 買方集中與拆包防守</h2>
       </div>
       <div class="sh-r">對照問題：A3、B4</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄 -->
       <div class="left-col">
         <div class="card">
           <div class="card-title teal">📈 三軌業務資金來源與毛利結構 (v9 定案)</div>
@@ -445,7 +707,7 @@ tr:hover td { background:rgba(25,104,173,0.02); }
                 <tr>
                   <td><b>② 資產管理 (公司/建坤)</b></td>
                   <td>6.0 億 (30%)</td><td>6.0 億</td><td class="td-hl">18%</td>
-                  <td>內含開發費，毛利最高；依賴國泰/建坤資本審批</td>
+                  <td>內含開發費，毛利最高；依賴台糖/建坤資本審批</td>
                 </tr>
                 <tr class="td-warn">
                   <td><b>③ AIDC 開發 (業者)</b></td>
@@ -460,36 +722,29 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             </table>
           </div>
 
-          <!-- 圖表輔助：80% 買方集中度與風險雷達 (SVG) -->
           <div class="svg-wrap">
-            <svg viewBox="0 0 460 140" width="100%">
-              <rect x="0" y="0" width="460" height="140" fill="#ffffff" rx="6"/>
-              <text x="20" y="24" font-size="12" font-weight="bold" fill="#0B192C">FY27 簽約結構與 80% 集中度風險圖形化</text>
-              <!-- Bar chart -->
-              <rect x="50" y="45" width="80" height="40" fill="#1BB1BF" rx="4"/>
-              <text x="90" y="70" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">統包 4 億</text>
-              <text x="90" y="102" font-size="10" fill="#475569" text-anchor="middle">分散業主 (20%)</text>
+            <svg viewBox="0 0 460 130" width="100%">
+              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
+              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">FY27 簽約結構與 80% 買方集中度風險圖示</text>
+              <rect x="50" y="40" width="80" height="35" fill="#1BB1BF" rx="4"/>
+              <text x="90" y="62" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">統包 4 億</text>
+              <text x="90" y="92" font-size="9" fill="#475569" text-anchor="middle">分散業主 (20%)</text>
 
-              <rect x="140" y="45" width="120" height="40" fill="#1968AD" rx="4"/>
-              <text x="200" y="70" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">資管 6 億</text>
-              <text x="200" y="102" font-size="10" fill="#475569" text-anchor="middle">建坤/國泰 (30%)</text>
+              <rect x="140" y="40" width="120" height="35" fill="#1968AD" rx="4"/>
+              <text x="200" y="62" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">資管 6 億</text>
+              <text x="200" y="92" font-size="9" fill="#475569" text-anchor="middle">台糖/國泰 (30%)</text>
 
-              <rect x="270" y="45" width="160" height="40" fill="#DC2626" rx="4"/>
-              <text x="350" y="70" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">AIDC 10 億</text>
-              <text x="350" y="102" font-size="10" fill="#DC2626" font-weight="bold" text-anchor="middle">少數或單一買方 (50%)</text>
+              <rect x="270" y="40" width="160" height="35" fill="#DC2626" rx="4"/>
+              <text x="350" y="62" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">AIDC 10 億</text>
+              <text x="350" y="92" font-size="9" fill="#DC2626" font-weight="bold" text-anchor="middle">少數算力買方 (50%)</text>
 
-              <!-- Highlight Bracket -->
-              <path d="M 140 38 L 430 38" stroke="#DC2626" stroke-width="2" fill="none"/>
-              <text x="285" y="32" font-size="11" font-weight="bold" fill="#DC2626" text-anchor="middle">🚨 80% 簽約集中於少數決策方 (結構性風險)</text>
+              <path d="M 140 34 L 430 34" stroke="#DC2626" stroke-width="2" fill="none"/>
+              <text x="285" y="28" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">🚨 80% 簽約集中於少數買方 (台糖與算力業者)</text>
             </svg>
-          </div>
-          <div class="alert warn" style="margin-bottom:0;">
-            <b>警訊：</b>任一買方策略轉向即整軌歸零；國泰決策速度由潛在瓶頸上升為關鍵路徑。
           </div>
         </div>
       </div>
 
-      <!-- 右欄 -->
       <div class="right-col">
         <!-- A3 -->
         <div class="decision-card red">
@@ -497,18 +752,18 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             <span class="q-badge" style="background:var(--c-red);">A3</span>
             <div class="q-title">買方集中與付款延遲同時發生時，事業中心承受得住嗎？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>資管與 AIDC 占目標 80%，未提供逐買方曝險與現金占用模型，若大客戶延後付款恐引發連鎖資金缺口。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>資管與 AIDC 占目標 80%，未提供逐買方曝險與現金占用，大客戶延遲付款恐引發連鎖資金斷裂。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
               <span class="ptag">方案 A 穩健交付</span>
-              <p>按最終買方及共同資金決策來源重算集中度，看簽約、營收、應收與未收回投入。最大買方延後時，先停止未獲保障的新增支出，保留其他客戶交付。財務以逐月收支核定曝險上限，不只看帳面毛利。</p>
+              <p>按最終買方及共同資金決策來源重算集中度，看簽約、營收與應收。最大買方延後時停止未獲保障的新增支出。財務以逐月收支核定曝險上限，不只看帳面毛利。</p>
             </div>
             <div class="plan-box plan-b">
               <span class="ptag">方案 B 條件式成長</span>
-              <p>接受成長期一定集中，但大案必須有分階段承諾與付款安排，並建立另一個獨立買方。把最大買方延後一季及半年列壓測；超出核定資金承受範圍即縮小承作範圍或延後啟動。</p>
+              <p>接受成長期一定集中，但大案必須有分階段承諾與付款安排。把最大買方延後一季及半年列壓測；超出資金承受範圍即縮小承作範圍或延後啟動。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立買方群組曝險表及逐案現金曲線；核定資金上限、停止投入條件與替代案責任人。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>建立買方群組曝險表及逐案現金曲線；核定資金上限與替代案責任人。</div>
         </div>
 
         <!-- B4 -->
@@ -517,266 +772,146 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             <span class="q-badge orange">B4</span>
             <div class="q-title">客戶要求拆包比價時，如何保住開發價值並取得合理價格？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>資管 18% 毛利依賴開發價值，但僅靠費用「包裝」不足以保證客戶付費；業主拆包威脅比同業競爭更致命。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>資管 18% 毛利依賴開發價值，但僅靠費用包裝不足以保證付費；業主拆包是比同業競爭更危險的商模威脅。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
               <span class="ptag">方案 A 穩健交付</span>
-              <p>將開發工作、成果與責任明確列出（已解決問題、交付資料、節省時間）。若客戶只買工程，按工程範圍重報價與重估毛利；未簽認開發費不計入承諾利潤。接受拆包前先確認已投入成本處理。</p>
+              <p>將開發成果與責任明確列出（土地/許可/節省時間）。若客戶只買工程，按工程範圍重報價並重估毛利；未簽認開發費不計承諾利潤，先確認已投入成本如何收回。</p>
             </div>
             <div class="plan-box plan-b">
               <span class="ptag">方案 B 條件式成長</span>
-              <p>提供整合交付與分階段採購兩種商務選項，明示責任範圍與價格差異。可獨立驗收的技術服務先取得付費委託再進工程。折扣必須交換範圍簡化或付款改善，不可為空頭未來訂單折價。</p>
+              <p>提供整合交付與分階段採購雙商務選項，明示責任範圍與價格差異。可獨立驗收之技術服務先取得付費委託再進工程。折扣必須交換範圍簡化或付款改善。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立開發成果清單、報價模板、範圍排除項目與讓價授權；具體條款交法務合約審查。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>建立開發成果清單、報價模板、範圍排除項目與讓價授權。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Slide 1.3: 脆弱點三大查核 vs A5 -->
-  <div class="view slide" id="p1-3" data-part="p1">
+  <!-- Slide 2.3: 組織與邊界 vs A4/C2/A5 -->
+  <div class="view slide" id="p2-3" data-part="p2">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 1 損益與承諾 ｜ 脆弱前提與決策升級</div>
-        <h2>1.3 財務模型三大查核 vs 計畫調整觸發訊號</h2>
+        <div class="sub">Part 2 損益與15問對照 ｜ 組織邊界與決策觸發</div>
+        <h2>2.3 組織 11 人邊界、OU 施工責任與決策升級</h2>
       </div>
-      <div class="sh-r">對照問題：A5</div>
+      <div class="sh-r">對照問題：A4、C2、A5</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄 -->
       <div class="left-col">
         <div class="card">
-          <div class="card-title blue">🔍 財務模型三大脆弱前提與查核清冊</div>
+          <div class="card-title red">⚠️ BU 與後段 OU 職責邊界矩陣（11 人防線關鍵）</div>
           <div class="tb-wrap">
             <table>
               <thead>
-                <tr><th>脆弱項目</th><th>原計畫依賴假設</th><th>失效之連鎖後果</th><th>驗證查核要求</th></tr>
+                <tr><th>作業事項</th><th>前台 BU (業務/專管 11人)</th><th>後台 OU (工程施工處)</th><th>致命邊界</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><b>① 各軌實際毛利</b></td>
-                  <td>開發費成功包裝於統包/資管總價內</td>
-                  <td class="td-warn">業主拆包或競標比價，毛利驟降 3~5%</td>
-                  <td>取得客戶認可之服務範圍與正式簽認單價</td>
+                  <td><b>案源開發與客戶關係</b></td>
+                  <td>負責 (100%)</td><td>—</td><td>避免過度承諾未確認的交期</td>
                 </tr>
                 <tr>
-                  <td><b>② OU 承接產能</b></td>
-                  <td>後段 OU 施工處能 100% 承接全部工程</td>
-                  <td class="td-warn">施工回流 BU，11 人編制崩潰，交期違約</td>
-                  <td>OU 月度容量排程表與內部轉撥協議簽字</td>
+                  <td><b>投標文件與報價方案</b></td>
+                  <td>主責 (商務/提案)</td><td>技術支援與成本核算</td><td>報價前必須簽認轉撥價</td>
                 </tr>
                 <tr>
-                  <td><b>③ AIDC 工期結構</b></td>
-                  <td>工期 12~24 個月，次年 60%、三年 40%</td>
-                  <td class="td-warn">實際工期縮短/延宕，營收分配劇烈失衡</td>
-                  <td>逐案工程進度款、付款里程碑及現金曲線</td>
+                  <td><b>工程施作與工班調度</b></td>
+                  <td class="td-warn">嚴禁回流 (0%)</td>
+                  <td class="td-hl">負責 (100%)</td>
+                  <td><b>施工若回流，11 人編制即刻瓦解</b></td>
+                </tr>
+                <tr>
+                  <td><b>進度控管與驗收交付</b></td>
+                  <td>負責 (對接/請款)</td><td>執行測試與點交</td><td>OU 延誤補救責任歸屬</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- 圖表輔助：決策確認流程圖 (SVG) -->
           <div class="svg-wrap">
             <svg viewBox="0 0 460 120" width="100%">
               <rect x="0" y="0" width="460" height="120" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">優先確認三件事之決策閉環路徑</text>
-              <!-- 3 Blocks -->
-              <rect x="20" y="36" width="120" height="60" rx="6" fill="#1968AD"/>
-              <text x="80" y="60" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">1. 實際毛利包裝</text>
-              <text x="80" y="80" font-size="10" fill="#E2E8F0" text-anchor="middle">防拆包 / 鎖定採購</text>
+              <text x="20" y="18" font-size="11" font-weight="bold" fill="#0B192C">BU 與後段 OU 交付鏈接與防火牆架構</text>
+              <rect x="25" y="32" width="160" height="70" rx="6" fill="#1968AD"/>
+              <text x="105" y="52" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">BU 南區事業 (11人)</text>
+              <text x="105" y="72" font-size="9" fill="#E2E8F0" text-anchor="middle">副總+4業務+4專管+2補正</text>
+              <text x="105" y="90" font-size="9" fill="#93C5FD" text-anchor="middle">開發、商務、專案管理</text>
 
-              <line x1="140" y1="66" x2="175" y2="66" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr)"/>
+              <line x1="205" y1="30" x2="205" y2="110" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,4"/>
+              <text x="205" y="24" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">內部承接單</text>
 
-              <rect x="175" y="36" width="120" height="60" rx="6" fill="#1BB1BF"/>
-              <text x="235" y="60" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">2. OU 產能上限</text>
-              <text x="235" y="80" font-size="10" fill="#E2E8F0" text-anchor="middle">簽承接單 / 轉撥價</text>
-
-              <line x1="295" y1="66" x2="330" y2="66" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr)"/>
-
-              <rect x="330" y="36" width="115" height="60" rx="6" fill="#0B192C"/>
-              <text x="387" y="60" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">3. AIDC 50億清冊</text>
-              <text x="387" y="80" font-size="10" fill="#E2E8F0" text-anchor="middle">里程碑 / 現金流</text>
-
-              <defs>
-                <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L6,3 z" fill="#1BB1BF" />
-                </marker>
-              </defs>
+              <rect x="225" y="32" width="200" height="70" rx="6" fill="#0F7682"/>
+              <text x="325" y="52" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">後段施工工程處 (OU)</text>
+              <text x="325" y="72" font-size="9" fill="#E2E8F0" text-anchor="middle">100% 承接現場施作工班</text>
+              <text x="325" y="90" font-size="9" fill="#99F6E4" text-anchor="middle">負責現場履約、工期安全</text>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- 右欄 -->
       <div class="right-col">
+        <!-- A4 & C2 -->
+        <div class="decision-card">
+          <div class="dc-header">
+            <span class="q-badge">A4</span>
+            <div class="q-title">11 人與 OU 分工是否真能支持計畫？哪些資源必須先承諾？</div>
+          </div>
+          <div class="dc-basis"><strong>提問依據：</strong>網站列示僅 9 人（缺 2 人名冊）；將施工能力 100% 依賴在 OU 身上。</div>
+          <div class="dc-dual-grid">
+            <div class="plan-box plan-a">
+              <span class="ptag">方案 A</span>
+              <p>補齊 11 人清冊，用工時與 OU 月度容量反推接案量。無 OU 承接單不簽交期，嚴防施工回流。</p>
+            </div>
+            <div class="plan-box plan-b">
+              <span class="ptag">方案 B</span>
+              <p>以 11 人為核心搭配跨部門支援。AIDC 達節點才啟用技術售前，鎖定 OU 產能窗口。</p>
+            </div>
+          </div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>補正名冊與 OU 月度產能承諾，由事業中心協調簽認。</div>
+        </div>
+
         <!-- A5 -->
         <div class="decision-card">
           <div class="dc-header">
             <span class="q-badge">A5</span>
             <div class="q-title">什麼訊號會觸發計畫調整？誰有權停止投標或暫停投入？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>原計畫列出查核問題，但尚缺明確的決策節奏、停損門檻及跨部門升級處置規則。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>欠缺明確的月度/季度決策節奏與例外授權停損機制。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>每月檢視營收預測、完工毛利、現金缺口與 OU 負荷。只要付款、成本或交期證據失效即要求重估該案；低於核定接案條件時停止新增承諾。每季將預測變化正式更新至年度計畫，避免脫節。</p>
+              <span class="ptag">方案 A</span>
+              <p>每月檢視營收毛利現金缺口，證據失效即重估，低於條件停止新增承諾，每季滾動修正。</p>
             </div>
             <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>設立跨部門大案決策會，逐案決定繼續、補件或停止。業務提商機、專管確認可交付性、財務確認資金，事業中心處理例外。例外設期限、投入上限與退出條件，逾期即退回正常門檻。</p>
+              <span class="ptag">方案 B</span>
+              <p>設立跨部門大案決策會逐案拍板。例外設期限、投入上限與退出條件，逾期退回。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>核定月度營運會、季度滾動預測與例外授權表；決議明定責任人、完成期限及驗證文件。</div>
-        </div>
-
-        <div class="card" style="background:#FAF5FF; border-color:#E9D5FF;">
-          <div class="card-title purple" style="font-size:0.95rem;">💡 Part 1 核心決策指引</div>
-          <p class="tx-p" style="font-size:0.85rem; margin-bottom:0; color:#581C87;">
-            年度目標必須分成「當年營運 (10億)」與「跨年成長 (AIDC 10億)」。不可把 20 億當作單一考核指標。未取得 OU 容量與買方付款保障前，絕不盲目以低毛利案湊數！
-          </p>
+          <div class="dc-action"><strong>落入調整計畫：</strong>核定月度營運會與季度滾動預測升級規則。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== PART 2: PIPELINE 與負荷 (2 Slides) ==================== -->
+  <!-- ==================== PART 3: 負荷與交付 (2 Slides) ==================== -->
 
-  <!-- Slide 2.1: Pipeline 漏斗 vs B1/B2 -->
-  <div class="view slide" id="p2-1" data-part="p2">
+  <!-- Slide 3.1: 業務負荷 vs B1/B2/B3/B5 -->
+  <div class="view slide" id="p3-1" data-part="p3">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 2 Pipeline 與負荷 ｜ 業務主管檢討</div>
-        <h2>2.1 75 億 Pipeline 分軌漏斗 vs 真實案源與轉化障礙</h2>
+        <div class="sub">Part 3 負荷與交付 ｜ 案源開發與投標紀律</div>
+        <h2>3.1 業務負荷分配、50 億 AIDC 斷點與投標篩選</h2>
       </div>
-      <div class="sh-r">對照問題：B1、B2</div>
+      <div class="sh-r">對照問題：B1、B2、B3、B5</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄 -->
       <div class="left-col">
         <div class="card">
-          <div class="card-title teal">🎯 75 億分軌漏斗模型 (v9 定案)</div>
-          <div class="tb-wrap">
-            <table>
-              <thead>
-                <tr><th>軌道</th><th>簽約目標</th><th>勝率 / 轉化率</th><th>所需 Pipeline</th><th>案件特性與改善手段</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>① 統包工程</b></td>
-                  <td>4 億</td><td>40% (勝率)</td><td class="td-hl">10 億</td>
-                  <td>對外競爭標案；提升提案力、技術規格與價格</td>
-                </tr>
-                <tr>
-                  <td><b>② 資產管理</b></td>
-                  <td>6 億</td><td class="td-warn">40% (轉化率)</td><td class="td-hl">15 億</td>
-                  <td>內部/建坤出資；取決於土地、併網與國泰審批</td>
-                </tr>
-                <tr class="td-warn">
-                  <td><b>③ AIDC 開發</b></td>
-                  <td>10 億</td><td>20% (非統計)</td><td class="td-warn">50 億</td>
-                  <td>少數大案二元成敗；不可套用機率，需逐案里程碑</td>
-                </tr>
-                <tr style="font-weight:bold; background:var(--c-gray1);">
-                  <td>合計</td><td>20 億</td><td>—</td><td>75 億</td>
-                  <td>常規業務 25 億 ＋ AIDC 50 億</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- 圖表輔助：漏斗與性質差異圖 (SVG) -->
-          <div class="svg-wrap">
-            <svg viewBox="0 0 460 140" width="100%">
-              <rect x="0" y="0" width="460" height="140" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">Pipeline 本質差異：勝率 (對外) vs 轉化率 (對內)</text>
-              <!-- Funnel 1: EPC -->
-              <polygon points="40,35 150,35 125,75 65,75" fill="#1BB1BF" opacity="0.8"/>
-              <polygon points="65,75 125,75 110,115 80,115" fill="#1968AD"/>
-              <text x="95" y="55" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">統包 10億</text>
-              <text x="95" y="98" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">4億 (40%)</text>
-              <text x="95" y="130" font-size="10" fill="#475569" text-anchor="middle">對外競標「勝率」</text>
-
-              <!-- Funnel 2: Asset -->
-              <polygon points="175,35 285,35 260,75 200,75" fill="#F59E0B" opacity="0.8"/>
-              <polygon points="200,75 260,75 245,115 215,115" fill="#D97706"/>
-              <text x="230" y="55" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">資管 15億</text>
-              <text x="230" y="98" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">6億 (40%)</text>
-              <text x="230" y="130" font-size="10" fill="#D97706" font-weight="bold" text-anchor="middle">內部成立「轉化率」</text>
-
-              <!-- Milestone 3: AIDC -->
-              <rect x="310" y="35" width="130" height="80" rx="6" fill="#0B192C"/>
-              <text x="375" y="60" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">AIDC 50 億</text>
-              <text x="375" y="80" font-size="10" fill="#EF4444" font-weight="bold" text-anchor="middle">二元成敗里程碑</text>
-              <text x="375" y="100" font-size="9" fill="#94A3B8" text-anchor="middle">少一個案子少 5 億</text>
-              <text x="375" y="130" font-size="10" fill="#475569" text-anchor="middle">逐案里程碑管控</text>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄 -->
-      <div class="right-col">
-        <!-- B1 -->
-        <div class="decision-card orange">
-          <div class="dc-header">
-            <span class="q-badge orange">B1</span>
-            <div class="q-title">75 億 Pipeline 中，有多少是可在 FY27 成交的真實機會？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>10／15／50 億是按公式倒推需求量，尚非驗證案源；算式成立不等於案源存在。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>逐案補齊買方、資金來源、承作範圍、合約金額、決策日與證據。把重複案、全案總投資額（非自身範圍）及無需求證明者移出有效庫。AIDC 用里程碑取代 20% 加權成交承諾。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>保留三軌開發規模，分成商機池、合格案、提案及可承諾成交四級。設退出條件與下一步客戶行動；不足者補具體客戶。AIDC 必須確認能承作的灰區機電範圍，不可虛報。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>業務主管交付三軌逐案清冊與去重規則；週會追蹤階段推移與逾期案，而非只報總額。</div>
-        </div>
-
-        <!-- B2 -->
-        <div class="decision-card orange">
-          <div class="dc-header">
-            <span class="q-badge orange">B2</span>
-            <div class="q-title">資產管理未轉化的 60%，主要卡在哪裡？誰能移除障礙？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>資管 40% 為轉化率而非對外競標勝率，輸掉的 60% 是案子本身不成立（土地、併網、財務模型、國泰審批）。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>將卡點拆解為場址權利、技術條件、投資可行性與資金決策，優先處理年度內可解除障礙者。缺少關鍵條件先降階，不以折價硬推不能成立的案子。6 億目標依通過條件重排。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>與資金方（建坤/國泰）建立固定預審節奏，整理成標準決策包讓否決原因更早浮現。對可補正案件設負責人與完成期限；轉化率提升必須基於已排除之障礙，不可憑空調高。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立未立案原因分析、障礙排除時程表及投資決策清單；定期更新真實轉化率。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 2.2: 業務負荷 vs B3/B5 -->
-  <div class="view slide" id="p2-2" data-part="p2">
-    <div class="slide-hdr">
-      <div class="sh-l">
-        <div class="sub">Part 2 Pipeline 與負荷 ｜ 人員配比與投標篩選</div>
-        <h2>2.2 業務端負荷分配 vs AIDC 50 億推進與投標門檻</h2>
-      </div>
-      <div class="sh-r">對照問題：B3、B5</div>
-    </div>
-    
-    <div class="s-grid split-compare">
-      <!-- 左欄 -->
-      <div class="left-col">
-        <div class="card">
-          <div class="card-title blue">⚖️ 業務端負荷分配 (全表最大斷點)</div>
+          <div class="card-title blue">⚖️ 業務端負荷分配 (AIDC 50 億全表斷點)</div>
           <div class="tb-wrap">
             <table>
               <thead>
@@ -799,431 +934,475 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             </table>
           </div>
 
-          <!-- 圖表輔助：邊際投標效益曲線 (SVG) -->
-          <div class="svg-wrap">
-            <svg viewBox="0 0 460 140" width="100%">
-              <rect x="0" y="0" width="460" height="140" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">小案過載 vs 門檻篩選之邊際效益曲線</text>
-              <line x1="50" y1="110" x2="420" y2="110" stroke="#CBD5E1" stroke-width="1.5"/>
-              <line x1="50" y1="30" x2="50" y2="110" stroke="#CBD5E1" stroke-width="1.5"/>
-              <text x="235" y="128" font-size="10" fill="#64748B" text-anchor="middle">單案規模 (金額越大，行政損耗比率越低)</text>
-              <!-- Curve -->
-              <path d="M 60 40 Q 110 95 180 102 T 400 106" fill="none" stroke="#DC2626" stroke-width="2.5"/>
-              <!-- Danger zone -->
-              <rect x="55" y="32" width="100" height="75" fill="#FEE2E2" opacity="0.6"/>
-              <text x="105" y="55" font-size="10" font-weight="bold" fill="#991B1B" text-anchor="middle">小於 2000 萬</text>
-              <text x="105" y="70" font-size="9" fill="#991B1B" text-anchor="middle">月投 8 件 (拖垮11人)</text>
-              <!-- Safe zone -->
-              <rect x="220" y="32" width="180" height="75" fill="#DCFCE7" opacity="0.6"/>
-              <text x="310" y="55" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">大於 5000 萬 (推薦門檻)</text>
-              <text x="310" y="70" font-size="9" fill="#166534" text-anchor="middle">月投 5 件內 (具備交付與利潤保障)</text>
-            </svg>
-          </div>
-          <div class="alert info" style="margin-bottom:0;">
-            <b>篩選紀律：</b>若無單案門檻，業務與專管將被瑣碎備標行政淹沒，無法維持 11 人編制。
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄 -->
-      <div class="right-col">
-        <!-- B3 -->
-        <div class="decision-card orange">
-          <div class="dc-header">
-            <span class="q-badge orange">B3</span>
-            <div class="q-title">David 加一位專職業務，如何推進 50 億 AIDC 案源？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>AIDC 高度集中在兩人（人均 25 億）；合約總金額不能證明日常工作量是否真能由 2 人推進。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>以案件成熟度、成功條件與售前工時排序，集中於少數最可能推進案。David 主責高層決策，專職業務維護需求與證據。未確認預算案只做低成本追蹤，避免無上限客製提案。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>由兩人維持客戶窗口，另行配置專管、電力技術與商務跨部門陣列。設責任矩陣與工時預算，技術交由專家確認。達成資金節點才升級投入，避免以 25 億當唯一指標。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立 AIDC 帳戶計畫、決策關係圖、售前工時預算與逐案技術驗證清單。</div>
-        </div>
-
-        <!-- B5 -->
-        <div class="decision-card orange">
-          <div class="dc-header">
-            <span class="q-badge orange">B5</span>
-            <div class="q-title">什麼案件值得投標？如何避免小案過載與承諾超出交付能力？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>統包毛利僅 12%，OU 詢價排程延誤與低毛利小案行政負荷均是拖垮團隊的潛在殺手。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>以預期毛利額扣除售前與專管成本，確認買方付款與 OU 承接排程。低貢獻、高客製小案不進正式投標。沒有施工容量或成本確認前，絕不承諾固定交期。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>將可重複小案標準化，採固定範圍批次交付降低工時；具示範價值案可申請限額例外。每次輸標記錄價格、規格、關係原因，校正客群並修正勝率模型。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>業務與專管共同採用投標決策表，附 OU 確認書、成本基準、預期淨貢獻及例外理由。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== PART 3: 交付履約與防線 (3 Slides) ==================== -->
-
-  <!-- Slide 3.1: 當年認列關鍵路徑 vs C1/C4 -->
-  <div class="view slide" id="p3-1" data-part="p3">
-    <div class="slide-hdr">
-      <div class="sh-l">
-        <div class="sub">Part 3 交付履約與防線 ｜ 專案管理主管檢討</div>
-        <h2>3.1 當年認列關鍵路徑 vs 跨年移轉與完工毛利守護</h2>
-      </div>
-      <div class="sh-r">對照問題：C1、C4</div>
-    </div>
-    
-    <div class="s-grid split-compare">
-      <!-- 左欄 -->
-      <div class="left-col">
-        <div class="card">
-          <div class="card-title blue">📅 統包與資管 10 億營收交付認列時程分解</div>
-          <div class="tb-wrap">
-            <table>
-              <thead>
-                <tr><th>業務軌道</th><th>簽約金額</th><th>原假設認列</th><th>交付關鍵路徑與認列條件</th><th>延宕跨年移轉風險</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>統包工程</b></td>
-                  <td>4.0 億</td><td>FY27 當年 100%</td>
-                  <td>設計許可 &rarr; 設備進場 &rarr; 施工 &rarr; 完工並聯</td>
-                  <td class="td-warn">Q3 後簽約案恐無法於 12/31 前驗收認列</td>
-                </tr>
-                <tr>
-                  <td><b>資產管理</b></td>
-                  <td>6.0 億</td><td>FY27 當年 100%</td>
-                  <td>土地/租約 &rarr; 國泰審批 &rarr; 併網審查 &rarr; 移轉 SPV</td>
-                  <td class="td-warn">資本決策週期若大於 90 天即產生跨年移轉</td>
-                </tr>
-                <tr style="background:var(--c-gray1); font-weight:bold;">
-                  <td>合計</td><td>10.0 億</td><td>10.0 億</td><td colspan="2">簽約不等於營收！須建立「簽約—交付—認列—收款」逐案追蹤表</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- 圖表輔助：時程倒排與認列甘特 (SVG) -->
           <div class="svg-wrap">
             <svg viewBox="0 0 460 130" width="100%">
               <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">FY27 營收認列倒排時程與關鍵截止點 (Deadlines)</text>
-              <!-- Months -->
-              <line x1="50" y1="40" x2="430" y2="40" stroke="#E2E8F0" stroke-width="1"/>
-              <text x="90" y="35" font-size="10" fill="#64748B" text-anchor="middle">Q1</text>
-              <text x="190" y="35" font-size="10" fill="#64748B" text-anchor="middle">Q2</text>
-              <text x="290" y="35" font-size="10" fill="#64748B" text-anchor="middle">Q3</text>
-              <text x="390" y="35" font-size="10" fill="#64748B" text-anchor="middle">Q4</text>
-              <!-- Bars -->
-              <rect x="60" y="48" width="180" height="20" rx="3" fill="#1BB1BF"/>
-              <text x="150" y="62" font-size="10" fill="#fff" font-weight="bold" text-anchor="middle">上半年簽約案：如期認列</text>
-
-              <rect x="220" y="74" width="150" height="20" rx="3" fill="#F59E0B"/>
-              <text x="295" y="88" font-size="10" fill="#fff" font-weight="bold" text-anchor="middle">Q3 簽約案：最晚啟動截止點</text>
-
-              <rect x="340" y="100" width="80" height="20" rx="3" fill="#DC2626"/>
-              <text x="380" y="114" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">Q4 案：移轉 FY28</text>
+              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">小案過載 vs 門檻篩選之邊際效益曲線 (單案 > 5000 萬)</text>
+              <line x1="50" y1="105" x2="420" y2="105" stroke="#CBD5E1" stroke-width="1.5"/>
+              <line x1="50" y1="30" x2="50" y2="105" stroke="#CBD5E1" stroke-width="1.5"/>
+              <text x="235" y="122" font-size="9" fill="#64748B" text-anchor="middle">單案規模 (金額越大，行政損耗比率越低)</text>
+              <path d="M 60 38 Q 110 90 180 98 T 400 102" fill="none" stroke="#DC2626" stroke-width="2.5"/>
+              <rect x="55" y="30" width="100" height="70" fill="#FEE2E2" opacity="0.6"/>
+              <text x="105" y="52" font-size="9" font-weight="bold" fill="#991B1B" text-anchor="middle">小於 2000 萬</text>
+              <text x="105" y="67" font-size="8.5" fill="#991B1B" text-anchor="middle">月投 8 件 (拖垮11人)</text>
+              <rect x="220" y="30" width="180" height="70" fill="#DCFCE7" opacity="0.6"/>
+              <text x="310" y="52" font-size="9" font-weight="bold" fill="#166534" text-anchor="middle">大於 5000 萬 (建議門檻)</text>
+              <text x="310" y="67" font-size="8.5" fill="#166534" text-anchor="middle">月投 5 件內 (具備交付毛利保障)</text>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- 右欄 -->
       <div class="right-col">
-        <!-- C1 -->
-        <div class="decision-card purple">
+        <!-- B1 & B2 -->
+        <div class="decision-card orange">
           <div class="dc-header">
-            <span class="q-badge purple">C1</span>
-            <div class="q-title">統包與資管的 10 億營收，逐案如何在 FY27 達成？</div>
+            <span class="q-badge orange">B1</span>
+            <div class="q-title">75 億 Pipeline 中，有多少是真實成交機會？</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>原計畫把兩軌簽約全列當年營收，未考慮工期與交付節奏，簽約不等於可確認營收。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>10/15/50 億是反推量，算式成立不等於案源存在。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>從客戶決策、許可、採購、施工到驗收倒排時程，標註最晚啟動點。年度內無法達財務認列者，主動移至次年。營收預測由專管提交付證據、財務確認，不因簽約即預估全認。</p>
+              <span class="ptag">方案 A</span>
+              <p>逐案補買方資金與證據，重複及無需求案移出，AIDC 用里程碑取代 20% 成交承諾。</p>
             </div>
             <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>對具備條件者採分區/分階段交付，與業務、OU 及客戶預先確認可驗收成果。重要設備提前鎖定交期（需過資金門檻）。每月更新可認列與可收款金額，交付變更立即反映預測。</p>
+              <span class="ptag">方案 B</span>
+              <p>分商機池、合格案、提案及可承諾成交四級，設退出條件，AIDC 限灰區範圍。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立逐案簽約—交付—認列—收款表，列最晚啟動日、證據及年度移轉金額。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>業務主管交付三軌逐案清冊與去重規則。</div>
         </div>
 
-        <!-- C4 -->
-        <div class="decision-card purple">
+        <!-- B3 & B5 -->
+        <div class="decision-card orange">
           <div class="dc-header">
-            <span class="q-badge purple">C4</span>
-            <div class="q-title">如何把投標毛利變成完工毛利，避免採購與變更侵蝕？</div>
+            <span class="q-badge orange">B3/B5</span>
+            <div class="q-title">AIDC 推進陣列與小案過載防範</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>原計畫統包極度依賴設備採購毛利，業主指定品牌或範圍變更極易侵蝕微薄利潤。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>兩人背 50 億屬全表斷點；統包毛利 12% 經不起小案行政拖累。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>簽約前建立成本基準，逐項確認設備、施工、測試、保固與預備金。客戶指定品牌或改範圍立即評估價差工期，不默認由 BU 吸收。每月更新預估完工成本，預警毛利偏差。</p>
+              <span class="ptag">方案 A</span>
+              <p>AIDC 聚焦少數成熟案；以淨毛利額扣除售前專管成本作為投標門檻，無 OU 產能不承諾交期。</p>
             </div>
             <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>推動標準規格、合格替代品與框架採購，在功能需求內降本。若採購權轉移給客戶，重界定整合責任與服務價格，不留假毛利。變更完成影響評估與授權後才納入執行基準。</p>
+              <span class="ptag">方案 B</span>
+              <p>配置技術商務跨部門支援 AIDC；小案模組化批次交付，每次輸標強制複盤修正勝率。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立目標成本基準、採購鎖價表、變更紀錄與預估完工毛利追蹤表。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>業務與專管共同採用投標決策表與輸標資料庫。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Slide 3.2: 11人與 OU 界面 vs A4/C2 -->
+  <!-- Slide 3.2: 交付認列與現金 vs C1/C3/C4/C5 -->
   <div class="view slide" id="p3-2" data-part="p3">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 3 交付履約與防線 ｜ 組織邊界與承接保證</div>
-        <h2>3.2 11 人編制防線 vs 後段 OU 產能承諾與延誤究責</h2>
+        <div class="sub">Part 3 負荷與交付 ｜ 專案履約與現金缺口</div>
+        <h2>3.2 營收認列倒排、AIDC 跨期墊資與專管品質</h2>
       </div>
-      <div class="sh-r">對照問題：A4、C2</div>
+      <div class="sh-r">對照問題：C1、C3、C4、C5</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄 -->
       <div class="left-col">
         <div class="card">
-          <div class="card-title red">⚠️ BU 與後段 OU 職責邊界矩陣（11 人防線關鍵）</div>
+          <div class="card-title blue">💰 AIDC 長工期現金收支缺口與專管防線</div>
           <div class="tb-wrap">
             <table>
               <thead>
-                <tr><th>作業事項</th><th>前台 BU (業務/專管 11人)</th><th>後台 OU (工程施工處)</th><th>致命風險檢討</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>案源開發與客戶關係</b></td>
-                  <td>負責 (100%)</td><td>—</td><td>避免過度承諾未經確認的施工交期</td>
-                </tr>
-                <tr>
-                  <td><b>投標文件與報價方案</b></td>
-                  <td>主責 (商務/服務建議書)</td><td>技術支援與成本核算</td><td>報價前必須簽認 OU 內部轉撥價</td>
-                </tr>
-                <tr>
-                  <td><b>工程施作與工班調度</b></td>
-                  <td class="td-warn">嚴禁回流 (0%)</td>
-                  <td class="td-hl">負責 (100%)</td>
-                  <td><b>若施工回流，11 人編制即刻瓦解</b></td>
-                </tr>
-                <tr>
-                  <td><b>進度控管與驗收交付</b></td>
-                  <td>負責 (客戶對接/請款)</td><td>執行現場測試與點交</td><td>OU 延誤或變更之補救與責任歸屬</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- 圖表輔助：前台後台交付架構 (SVG) -->
-          <div class="svg-wrap">
-            <svg viewBox="0 0 460 130" width="100%">
-              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">前店後廠分工架構與防護閘門 (Firewall)</text>
-              <!-- BU Box -->
-              <rect x="30" y="38" width="160" height="75" rx="6" fill="#1968AD"/>
-              <text x="110" y="58" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">BU 南區事業 (11人)</text>
-              <text x="110" y="78" font-size="10" fill="#E2E8F0" text-anchor="middle">副總+4業務+4專管+2補正</text>
-              <text x="110" y="98" font-size="9" fill="#93C5FD" text-anchor="middle">專注：開發、商務、專管</text>
-
-              <!-- Interface Firewall -->
-              <line x1="215" y1="35" x2="215" y2="120" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,4"/>
-              <text x="215" y="28" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">承接單與轉撥協議</text>
-
-              <!-- OU Box -->
-              <rect x="240" y="38" width="190" height="75" rx="6" fill="#0F7682"/>
-              <text x="335" y="58" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">後段施工工程處 (OU)</text>
-              <text x="335" y="78" font-size="10" fill="#E2E8F0" text-anchor="middle">100% 承接現場施作工班</text>
-              <text x="335" y="98" font-size="9" fill="#99F6E4" text-anchor="middle">責任：履約、工期、安全品質</text>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄 -->
-      <div class="right-col">
-        <!-- A4 -->
-        <div class="decision-card">
-          <div class="dc-header">
-            <span class="q-badge">A4</span>
-            <div class="q-title">11 人與 OU 分工是否真能支持計畫？哪些資源必須先承諾？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>原計畫括號列副總＋4 業務＋4 專管主管僅 9 人（缺 2 人名冊）；且將施工能力完全依賴於 OU。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>補齊 11 人職位與成本表，釐清未列之 2 人；用各角色工時與 OU 月度容量反推接案量。無 OU 承接與價格確認之案不得承諾交期。超容時排序案子，嚴禁施工回流 BU。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>以 11 人為核心，搭配跨部門明確工時、成本及責任之支援。AIDC 達核定階段才啟用技術售前或外部專業；與 OU 鎖定產能窗口。新增成本若侵蝕獲利則調節奏或重估編制。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>補正組織名冊、BU/OU 責任分工、月度產能與成本承諾；協調 OU 主管簽認。</div>
-        </div>
-
-        <!-- C2 -->
-        <div class="decision-card purple">
-          <div class="dc-header">
-            <span class="q-badge purple">C2</span>
-            <div class="q-title">OU 延誤或追加成本時誰負責？BU 如何保住交期與毛利？</div>
-          </div>
-          <div class="dc-basis"><strong>提問依據：</strong>OU 承接能力與內部計價是精簡 BU 的生死線，若缺乏合約化約束，內部矛盾將直接轉化為交付違約。</div>
-          <div class="dc-dual-grid">
-            <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>要求 OU 內部承接單載明工作範圍、價格有效期限、排程、驗收與變更責任。未確認前不當作工期鎖定。延誤先核實原因與補救成本，超權限由事業中心協調，不私自承擔。</p>
-            </div>
-            <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>與 OU 建立滾動產能預約，對高確定性案件保留施工窗口，並準備合格外部備援工班。啟用備援前重估安全、品質、保固與毛利影響；延誤時提出有成本與期限的恢復計畫。</p>
-            </div>
-          </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立內部承接單、共同排程、責任矩陣與備援啟動規則；追蹤承接兌現率及延誤損失。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 3.3: AIDC 墊資與專管品質 vs C3/C5 -->
-  <div class="view slide" id="p3-3" data-part="p3">
-    <div class="slide-hdr">
-      <div class="sh-l">
-        <div class="sub">Part 3 交付履約與防線 ｜ 現金缺口與品質把關</div>
-        <h2>3.3 AIDC 跨期現金缺口 vs 專管品質關卡與複盤留存</h2>
-      </div>
-      <div class="sh-r">對照問題：C3、C5</div>
-    </div>
-    
-    <div class="s-grid split-compare">
-      <!-- 左欄 -->
-      <div class="left-col">
-        <div class="card">
-          <div class="card-title blue">💰 AIDC 長工期現金流缺口與專管四道品質防線</div>
-          <div class="tb-wrap">
-            <table>
-              <thead>
-                <tr><th>專案管理階段</th><th>關鍵交付與品質要求</th><th>現金流與採購風險控管</th><th>防範措施</th></tr>
+                <tr><th>專案管理階段</th><th>關鍵交付與品質要求</th><th>現金流與採購風險控管</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td><b>階段一：設計審查</b></td>
                   <td>受配電規格、台電併網審查</td>
                   <td>客戶前期訂金請款，限制售前無償客製</td>
-                  <td>取得正式需求規範書方啟動深層設計</td>
                 </tr>
                 <tr>
                   <td><b>階段二：設備進場</b></td>
                   <td>特高壓變壓器、開關盤驗收</td>
-                  <td class="td-warn">大額設備採購款（🚨 最大現金缺口點）</td>
-                  <td>必須背對背綁定客戶設備進度款，嚴禁墊資採購</td>
+                  <td class="td-warn">大額設備採購款（🚨 最大現金缺口，嚴禁墊資）</td>
                 </tr>
                 <tr>
                   <td><b>階段三：現場施工</b></td>
                   <td>OU 工序銜接、隱蔽工程驗收</td>
-                  <td>按施工進度月度請款，監控 OU 施工成本</td>
-                  <td>每週現場進度核對，偏差達 5% 即發預警</td>
+                  <td>按施工進度月度請款，監控 OU 轉撥追加</td>
                 </tr>
                 <tr>
                   <td><b>階段四：併聯測試</b></td>
-                  <td>試運轉、PUE/可用率責任驗收</td>
-                  <td>驗收款與保留款收回；結案毛利結算</td>
-                  <td>落實首次驗收通過率，進行結案三方複盤</td>
+                  <td>試運轉、可用率責任驗收</td>
+                  <td>驗收款與保留款收回；結案毛利結算與複盤</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- 圖表輔助：長工期現金收支缺口曲線 (SVG) -->
           <div class="svg-wrap">
-            <svg viewBox="0 0 460 130" width="100%">
-              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">AIDC 12~24 個月專案現金收支曲線與墊資缺口警示</text>
-              <line x1="50" y1="90" x2="430" y2="90" stroke="#CBD5E1" stroke-width="1.5"/>
-              <text x="40" y="93" font-size="10" fill="#64748B" text-anchor="end">平衡</text>
-              <!-- Cash In (Green) -->
-              <path d="M 60 90 L 150 70 L 260 50 L 380 30" fill="none" stroke="#16A34A" stroke-width="2.5"/>
-              <text x="385" y="33" font-size="10" font-weight="bold" fill="#16A34A">客戶累計付款</text>
-              <!-- Cash Out (Red) -->
-              <path d="M 60 90 L 130 115 L 220 118 L 320 80 L 380 40" fill="none" stroke="#DC2626" stroke-width="2.5"/>
-              <text x="210" y="128" font-size="10" font-weight="bold" fill="#DC2626">累計採購施工支出</text>
-              <!-- Gap Area -->
-              <polygon points="130,115 220,118 260,50 150,70" fill="#DC2626" opacity="0.15"/>
-              <text x="185" y="88" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">🚨 最大現金缺口 (需財務核定融資)</text>
+            <svg viewBox="0 0 460 120" width="100%">
+              <rect x="0" y="0" width="460" height="120" fill="#ffffff" rx="6"/>
+              <text x="20" y="18" font-size="11" font-weight="bold" fill="#0B192C">AIDC 12~24 個月專案現金收支曲線與墊資缺口警示</text>
+              <line x1="50" y1="85" x2="430" y2="85" stroke="#CBD5E1" stroke-width="1.5"/>
+              <path d="M 60 85 L 150 65 L 260 48 L 380 28" fill="none" stroke="#16A34A" stroke-width="2.5"/>
+              <text x="385" y="32" font-size="9" font-weight="bold" fill="#16A34A">客戶累計付款</text>
+              <path d="M 60 85 L 130 108 L 220 112 L 320 75 L 380 38" fill="none" stroke="#DC2626" stroke-width="2.5"/>
+              <text x="210" y="122" font-size="9" font-weight="bold" fill="#DC2626">累計採購施工支出</text>
+              <polygon points="130,108 220,112 260,48 150,65" fill="#DC2626" opacity="0.15"/>
+              <text x="185" y="82" font-size="9" font-weight="bold" fill="#DC2626" text-anchor="middle">🚨 最大現金缺口 (需背對背)</text>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- 右欄 -->
       <div class="right-col">
-        <!-- C3 -->
+        <!-- C1 & C4 -->
         <div class="decision-card purple">
           <div class="dc-header">
-            <span class="q-badge purple">C3</span>
-            <div class="q-title">AIDC 長工期下，如何避免採購先付、客戶後付的現金缺口？</div>
+            <span class="q-badge purple">C1/C4</span>
+            <div class="q-title">營收認列倒排與完工毛利守護</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>AIDC 工期長達 12–24 個月，若未精算逐案現金流，巨額設備採購先付款將造成致命現金失血。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>簽約不等於營收；業主指定品牌與工期追加極易侵蝕設備毛利。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>按月列出訂金、設備款、施工款、驗收與保留款，找出最大缺口。業務談判同步提供支出時程；資金未核定前，不下不可撤銷之大額採購。若客戶付款不足以支撐即回報調整進度。</p>
+              <span class="ptag">方案 A</span>
+              <p>倒排時程無法達認列條件者主動移轉次年；建立成本基準，業主指定品牌立即重新評估價差。</p>
             </div>
             <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>用可驗證的設計、設備與施工成果安排階段付款，爭取供應商背對背付款節奏。必要墊資由財務核定額度與融資成本並納入報價。客戶逾期時依合約機制中止下一階段投入。</p>
+              <span class="ptag">方案 B</span>
+              <p>分區分階段交付確認成果；推動框架採購與標準化替代品，採購權轉移則重估服務費。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>維護專案逐月現金曲線、最大墊資額、請款證據及逾期清單；融資與合約條件由財務確認。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>建立簽約—交付—認列—收款表與目標成本追蹤表。</div>
         </div>
 
-        <!-- C5 -->
+        <!-- C3 & C5 -->
         <div class="decision-card purple">
           <div class="dc-header">
-            <span class="q-badge purple">C5</span>
-            <div class="q-title">四位專管主管如何兼顧交付與品質，並把經驗回饋下一案？</div>
+            <span class="q-badge purple">C3/C5</span>
+            <div class="q-title">AIDC 現金缺口與專管四道防線</div>
           </div>
-          <div class="dc-basis"><strong>提問依據：</strong>強調交付品質，但未列專管案量上限、工作分配與品質防護關卡，容易陷入以加班掩蓋管理失職。</div>
+          <div class="dc-basis"><strong>提問依據：</strong>大額採購先付後收將造成致命缺口；4 位專管主管缺乏案量上限與品質關卡。</div>
           <div class="dc-dual-grid">
             <div class="plan-box plan-a">
-              <span class="ptag">方案 A 穩健交付</span>
-              <p>確認四位主管可用工時與支援，按複雜度、工序與施工量分派。設計審查、進場、測試設必要關卡；超載時提出調排程，不靠加班掩蓋。結案把工期成本與缺失回填估價資料。</p>
+              <span class="ptag">方案 A</span>
+              <p>資金未核定不下不可撤銷採購；按工序複雜度分派工時容量，設品質硬指標拒絕加班掩蓋。</p>
             </div>
             <div class="plan-box plan-b">
-              <span class="ptag">方案 B 條件式成長</span>
-              <p>以共用排程、文件與品質模板降重複工作，高複雜案配置專職技術支援。業務與專管共同參與成交、未立案及結案複盤，把付款、工期和毛利偏差回饋投標，改善客戶回饋。</p>
+              <span class="ptag">方案 B</span>
+              <p>背對背請款與融資核定；共用排程模板與跨部門支援，業務專管三方結案複盤。</p>
             </div>
           </div>
-          <div class="dc-action"><strong>落入調整計畫：</strong>建立專管負荷表、品質關卡、缺失結案紀錄及案例庫；追蹤首次驗收通過率與毛利偏差。</div>
+          <div class="dc-action"><strong>落入調整計畫：</strong>維護逐月現金曲線與專管品質負荷表。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== PART 4: 主管會議決議 (1 Slide) ==================== -->
+  <!-- ==================== PART 4: 敏感性分析與動態模擬 (NEW! 2 Slides) ==================== -->
 
-  <!-- Slide 4.1: 主管會議具體決議與四週排程 -->
+  <!-- Slide 4.1: 互動式財務敏感性模擬器 -->
   <div class="view slide" id="p4-1" data-part="p4">
     <div class="slide-hdr">
       <div class="sh-l">
-        <div class="sub">Part 4 主管會議決議 ｜ 執行落地與調整節奏</div>
-        <h2>4.1 主管會議五大決議主責矩陣與建議四週調整順序</h2>
+        <div class="sub">Part 4 敏感性動態模擬 ｜ 財務彈性壓測</div>
+        <h2>4.1 互動式財務敏感性模擬器（主管自主參數調節）</h2>
+      </div>
+      <div class="sh-r">模型來源：南區事業財務敏感性分析.xlsx</div>
+    </div>
+    
+    <div class="sim-grid">
+      <!-- 左欄：參數控制台 -->
+      <div class="left-col card">
+        <div class="card-title blue">🎛️ 關鍵變數調節面板（拖曳滑桿即時計算）</div>
+        
+        <div class="preset-bar">
+          <span style="font-size:0.78rem; font-weight:bold; color:var(--c-gray3); align-self:center;">快速情境：</span>
+          <button class="preset-btn" onclick="sim.applyPreset('v10base')">v10 基準 (17.8億)</button>
+          <button class="preset-btn" onclick="sim.applyPreset('raw')">清單原始勝率 (12.6億)</button>
+          <button class="preset-btn" onclick="sim.applyPreset('taisugar_delay')">台糖延宕衝擊</button>
+          <button class="preset-btn" onclick="sim.applyPreset('ou_choke')">OU 產能不足 (8億)</button>
+          <button class="preset-btn" onclick="sim.applyPreset('cost_spike')">成本通膨 (+5%)</button>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>① 統包勝率 / 轉化率</span>
+            <span class="val" id="val-epc-win">24.5%</span>
+          </div>
+          <input type="range" id="sl-epc-win" min="15" max="50" step="0.5" value="24.5" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>② 資管立案轉化率 (台糖/國泰)</span>
+            <span class="val" id="val-asset-win">40%</span>
+          </div>
+          <input type="range" id="sl-asset-win" min="10" max="60" step="1" value="40" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>③ AIDC 算力中心勝率</span>
+            <span class="val" id="val-aidc-win">20%</span>
+          </div>
+          <input type="range" id="sl-aidc-win" min="5" max="35" step="1" value="20" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>④ OU 年度施工交付容量</span>
+            <span class="val" id="val-ou-cap">10.0 億</span>
+          </div>
+          <input type="range" id="sl-ou-cap" min="6" max="14" step="0.5" value="10" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>⑤ 共同毛利率調整 (讓利/加成)</span>
+            <span class="val" id="val-margin-delta">0.0%</span>
+          </div>
+          <input type="range" id="sl-margin-delta" min="-4" max="4" step="0.5" value="0" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>⑥ 直接成本漲價率 (通膨/追加)</span>
+            <span class="val" id="val-cost-inflation">0.0%</span>
+          </div>
+          <input type="range" id="sl-cost-inflation" min="0" max="8" step="0.5" value="0" oninput="sim.calc()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-hdr">
+            <span>⑦ 案源規模倍率 (開發活動強弱)</span>
+            <span class="val" id="val-scale-mult">1.00x</span>
+          </div>
+          <input type="range" id="sl-scale-mult" min="0.7" max="1.3" step="0.05" value="1.0" oninput="sim.calc()">
+        </div>
+      </div>
+
+      <!-- 右欄：即時連動看板 -->
+      <div class="right-col">
+        <div class="card">
+          <div class="card-title teal">📊 即時連動損益與指標試算結果</div>
+          
+          <div class="kpi-dash">
+            <div class="kpi-box hl">
+              <div class="kpi-v" id="res-signed">17.83</div>
+              <div class="kpi-l">FY27 加權簽約 (億)</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-v" id="res-rev">10.00</div>
+              <div class="kpi-l">FY27 認列營收 (億)</div>
+            </div>
+            <div class="kpi-box hl">
+              <div class="kpi-v" id="res-profit">0.76</div>
+              <div class="kpi-l">FY27 稅後淨利 (億)</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-v" id="res-margin">15.6%</div>
+              <div class="kpi-l">平均毛利率</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-v" id="res-net-rate">7.6%</div>
+              <div class="kpi-l">淨利率</div>
+            </div>
+            <div class="kpi-box" id="box-diff">
+              <div class="kpi-v" id="res-diff" style="color:var(--c-red);">−0.14</div>
+              <div class="kpi-l">距 0.9億目標差額</div>
+            </div>
+          </div>
+
+          <!-- 動態 SVG 柱狀圖 -->
+          <div class="svg-wrap" style="padding:6px; margin-bottom:8px;">
+            <svg viewBox="0 0 460 115" width="100%" id="sim-svg-chart">
+              <!-- Dynamically populated by JS -->
+            </svg>
+          </div>
+
+          <!-- 雙因子敏感性矩陣 (OU容量 x 毛利調整) -->
+          <div class="card-title purple" style="margin-top:6px; font-size:0.9rem;">
+            🎯 雙因子敏感性即時定位（當前參數所在位置高亮）
+          </div>
+          <div class="matrix-wrap">
+            <table style="text-align:center;">
+              <thead>
+                <tr>
+                  <th>毛利變動 \ OU容量</th>
+                  <th>6 億</th><th>8 億</th><th>10 億</th><th>12 億</th><th>14 億</th>
+                </tr>
+              </thead>
+              <tbody id="matrix-tbody">
+                <!-- Dynamically populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4.2: 系統動力學四大迴路與壓測實驗 -->
+  <div class="view slide" id="p4-2" data-part="p4">
+    <div class="slide-hdr">
+      <div class="sh-l">
+        <div class="sub">Part 4 敏感性動態模擬 ｜ 系統動力學結構</div>
+        <h2>4.2 系統動力學反饋迴路與四大極限壓測實驗</h2>
+      </div>
+      <div class="sh-r">離散流存量模型：Δt＝1年</div>
+    </div>
+    
+    <div class="s-grid split-compare">
+      <div class="left-col">
+        <div class="card">
+          <div class="card-title blue">🔄 系統動力學四大核心反饋迴路</div>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>迴路名稱</th><th>類型與方向</th><th>因果反饋鏈</th><th>管理控制點</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>R1 成長再投入</b></td>
+                  <td><span class="q-badge">增強迴路 (+)</span></td>
+                  <td>交付(+) &rarr; 毛利(+) &rarr; 淨利(+) &rarr; 次年資金池(+) &rarr; 交付能力(+)</td>
+                  <td>保留盈餘提撥比例、融資上限</td>
+                </tr>
+                <tr>
+                  <td><b>B1 訂單消化</b></td>
+                  <td><span class="q-badge purple">平衡迴路 (−)</span></td>
+                  <td>在手訂單(+) &rarr; 可交付量(+) &rarr; 交付(−) &rarr; 在手訂單結存</td>
+                  <td>受限於 MIN(訂單, OU容量, 資金)</td>
+                </tr>
+                <tr>
+                  <td><b>R2 壅塞惡化</b></td>
+                  <td><span class="q-badge" style="background:var(--c-red);">增強惡化 (+)</span></td>
+                  <td>積壓(+) &rarr; 超載負荷(+) &rarr; 額外成本(−) &rarr; 淨利萎縮 &rarr; 交付受阻</td>
+                  <td>超負荷係數：超出 100% 扣 1pp 毛利</td>
+                </tr>
+                <tr>
+                  <td><b>B2 融資成本制約</b></td>
+                  <td><span class="q-badge orange">平衡迴路 (−)</span></td>
+                  <td>交付(+) &rarr; 營運資金需求(+) &rarr; 借款(+) &rarr; 利息侵蝕(−) &rarr; 淨利</td>
+                  <td>DSO (應收天數) 與 DPO (應付天數)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SVG: Causal Loop Diagram -->
+          <div class="svg-wrap">
+            <svg viewBox="0 0 460 130" width="100%">
+              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
+              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">系統動力學因果反饋與瓶頸約束結構圖</text>
+              
+              <!-- Pipeline Node -->
+              <circle cx="60" cy="70" r="28" fill="#1968AD"/>
+              <text x="60" y="68" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">案源池</text>
+              <text x="60" y="80" font-size="8" fill="#BAE6FD" text-anchor="middle">75億</text>
+
+              <line x1="88" y1="70" x2="132" y2="70" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr2)"/>
+              <text x="110" y="62" font-size="8" fill="#475569" text-anchor="middle">轉化率</text>
+
+              <!-- Backlog Node -->
+              <rect x="135" y="46" width="70" height="48" rx="4" fill="#0F7682"/>
+              <text x="170" y="66" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">在手訂單</text>
+              <text x="170" y="80" font-size="8" fill="#99F6E4" text-anchor="middle">積壓庫存</text>
+
+              <line x1="205" y1="70" x2="250" y2="70" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr2)"/>
+              <text x="227" y="62" font-size="8" fill="#DC2626" text-anchor="middle">OU容量瓶頸</text>
+
+              <!-- Delivery Node -->
+              <rect x="252" y="46" width="70" height="48" rx="4" fill="#16A34A"/>
+              <text x="287" y="66" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">年度交付</text>
+              <text x="287" y="80" font-size="8" fill="#DCFCE7" text-anchor="middle">認列營收</text>
+
+              <line x1="322" y1="70" x2="368" y2="70" stroke="#1BB1BF" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <!-- Profit Node -->
+              <circle cx="398" cy="70" r="28" fill="#D97706"/>
+              <text x="398" y="68" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">淨利潤</text>
+              <text x="398" y="80" font-size="8" fill="#FEF3C7" text-anchor="middle">資金池</text>
+
+              <!-- Feedback Curve (R1) -->
+              <path d="M 398 42 C 398 18, 170 18, 170 42" fill="none" stroke="#1968AD" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arr2)"/>
+              <text x="280" y="24" font-size="8.5" font-weight="bold" fill="#1968AD" text-anchor="middle">R1: 盈餘再投入增強迴路 (+)</text>
+
+              <!-- Feedback Curve (R2 Congestion) -->
+              <path d="M 170 94 C 170 120, 398 120, 398 98" fill="none" stroke="#DC2626" stroke-width="1.8" stroke-dasharray="3,3" marker-end="url(#arr2)"/>
+              <text x="280" y="118" font-size="8.5" font-weight="bold" fill="#DC2626" text-anchor="middle">R2: 產能壅塞超載成本惡化 (−)</text>
+
+              <defs>
+                <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L6,3 z" fill="#1BB1BF" />
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="card">
+          <div class="card-title purple">🔬 四大極限壓測實驗啟示（決策指南）</div>
+          <div class="tb-wrap">
+            <table>
+              <thead>
+                <tr><th>實驗情境</th><th>操作假設</th><th>系統動力學連鎖反應</th><th>決策警語</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>① 只追簽約</b></td>
+                  <td>案源倍率 1.3x，轉化率硬推高</td>
+                  <td class="td-warn">簽約衝至 25 億，但營收卡在 OU 10 億上限，在手積壓暴增，引發超載違約成本</td>
+                  <td><b>「衝簽約不等於衝營收」</b>，無產能配合只是徒增違約金</td>
+                </tr>
+                <tr>
+                  <td><b>② 壓價換單</b></td>
+                  <td>統包讓利 3%，換取轉化率升至 45%</td>
+                  <td class="td-warn">毛利額並未增加，稅後淨利跌至 0.55 億，次年營運資金池縮水，失去成長動能</td>
+                  <td><b>「讓利無法創造規模效應」</b>，開發費絕不可讓</td>
+                </tr>
+                <tr>
+                  <td><b>③ 買方延遲</b></td>
+                  <td>台糖與國泰 DSO 由 90 天拉長至 120 天</td>
+                  <td>資金占用上升 0.8 億，短期借款逼近上限，利息支出倍增</td>
+                  <td><b>「大買方延遲付款即致命」</b>，需設定客戶曝險上限</td>
+                </tr>
+                <tr>
+                  <td><b>④ OU 擴產</b></td>
+                  <td>OU 容量擴至 14 億，但需增聘人手</td>
+                  <td class="td-hl">營收上限打開，但若無案源支撐將徒增固定人事費用</td>
+                  <td><b>「產能擴張必須與真實簽約鎖定聯動」</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="alert succ" style="margin-bottom:0;">
+            <b>系統動力學總結：</b>「獲利是系統各要素平衡的結果。不可在產能不足時盲目催逼業務簽單，亦不可在案源未驗證前盲目擴充編制！」
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PART 5: 主管會議決議 (1 Slide) ==================== -->
+
+  <!-- Slide 5.1: 主管會議具體決議 -->
+  <div class="view slide" id="p5-1" data-part="p5">
+    <div class="slide-hdr">
+      <div class="sh-l">
+        <div class="sub">Part 5 主管會議決議 ｜ 執行落地與調整節奏</div>
+        <h2>5.1 主管會議五大決議主責矩陣與建議四週調整順序</h2>
       </div>
       <div class="sh-r">落實方案與會議範本</div>
     </div>
     
     <div class="s-grid split-compare">
-      <!-- 左欄 -->
       <div class="left-col">
         <div class="card">
           <div class="card-title blue">📋 主管會議應形成的五大具體決議內容</div>
@@ -1262,39 +1441,36 @@ tr:hover td { background:rgba(25,104,173,0.02); }
             </table>
           </div>
 
-          <!-- 圖表輔助：四週推進甘特圖 (SVG) -->
           <div class="svg-wrap">
-            <svg viewBox="0 0 460 130" width="100%">
-              <rect x="0" y="0" width="460" height="130" fill="#ffffff" rx="6"/>
-              <text x="20" y="20" font-size="11" font-weight="bold" fill="#0B192C">建議四週營運調整推進工作順序與交付證據</text>
-              <!-- Week 1 -->
-              <rect x="30" y="35" width="95" height="42" rx="4" fill="#1968AD"/>
-              <text x="77" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 1 週</text>
-              <text x="77" y="68" font-size="9" fill="#E2E8F0" text-anchor="middle">核名冊/清Pipeline</text>
-              <!-- Week 2 -->
-              <rect x="135" y="35" width="95" height="42" rx="4" fill="#1BB1BF"/>
-              <text x="182" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 2 週</text>
-              <text x="182" y="68" font-size="9" fill="#E2E8F0" text-anchor="middle">查OU容量/收付款</text>
-              <!-- Week 3 -->
-              <rect x="240" y="35" width="95" height="42" rx="4" fill="#D97706"/>
-              <text x="287" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 3 週</text>
-              <text x="287" y="68" font-size="9" fill="#E2E8F0" text-anchor="middle">重編季度營運預測</text>
-              <!-- Week 4 -->
-              <rect x="345" y="35" width="95" height="42" rx="4" fill="#7C3AED"/>
-              <text x="392" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 4 週</text>
-              <text x="392" y="68" font-size="9" fill="#E2E8F0" text-anchor="middle">拍板A/B與核例外</text>
+            <svg viewBox="0 0 460 120" width="100%">
+              <rect x="0" y="0" width="460" height="120" fill="#ffffff" rx="6"/>
+              <text x="20" y="18" font-size="11" font-weight="bold" fill="#0B192C">建議四週營運調整推進工作順序與交付證據</text>
+              <rect x="30" y="32" width="95" height="38" rx="4" fill="#1968AD"/>
+              <text x="77" y="48" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 1 週</text>
+              <text x="77" y="62" font-size="8.5" fill="#E2E8F0" text-anchor="middle">核名冊/清Pipeline</text>
 
-              <text x="230" y="105" font-size="10" fill="#64748B" text-anchor="middle">證據鏈：11人名冊 &rarr; OU承接表 &rarr; 損益現金橋接表 &rarr; 主管簽字決議紀錄</text>
+              <rect x="135" y="32" width="95" height="38" rx="4" fill="#1BB1BF"/>
+              <text x="182" y="48" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 2 週</text>
+              <text x="182" y="62" font-size="8.5" fill="#E2E8F0" text-anchor="middle">查OU容量/收付款</text>
+
+              <rect x="240" y="32" width="95" height="38" rx="4" fill="#D97706"/>
+              <text x="287" y="48" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 3 週</text>
+              <text x="287" y="62" font-size="8.5" fill="#E2E8F0" text-anchor="middle">重編季度營運預測</text>
+
+              <rect x="345" y="32" width="95" height="38" rx="4" fill="#7C3AED"/>
+              <text x="392" y="48" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">第 4 週</text>
+              <text x="392" y="62" font-size="8.5" fill="#E2E8F0" text-anchor="middle">拍板A/B與核例外</text>
+
+              <text x="230" y="96" font-size="9" fill="#64748B" text-anchor="middle">證據鏈：11人名冊 &rarr; OU承接表 &rarr; 損益現金橋接表 &rarr; 主管簽字決議紀錄</text>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- 右欄 -->
       <div class="right-col">
         <div class="card">
           <div class="card-title purple">📝 主管決策會議紀錄簽核模板</div>
-          <div class="tb-wrap" style="margin-bottom:12px;">
+          <div class="tb-wrap" style="margin-bottom:10px;">
             <table>
               <thead>
                 <tr><th>題號</th><th>選定版本</th><th>決策理由與支持證據</th><th>責任人</th><th>完成期限</th></tr>
@@ -1315,19 +1491,19 @@ tr:hover td { background:rgba(25,104,173,0.02); }
                 <tr>
                   <td><b>A4 人力名冊</b></td>
                   <td><span class="q-badge">方案 A</span></td>
-                  <td>補齊 11 人清冊及各角色可用工時</td>
+                  <td>補齊 11 人清冊及可用工時</td>
                   <td>人事/David</td><td>第 1 週</td>
                 </tr>
                 <tr>
                   <td><b>B1 Pipeline</b></td>
                   <td><span class="q-badge orange">方案 B</span></td>
-                  <td>四級商機池去重核實，AIDC 設退出條件</td>
+                  <td>四級商機池去重核實</td>
                   <td>Lucy</td><td>第 2 週</td>
                 </tr>
                 <tr>
                   <td><b>C2 OU 界面</b></td>
                   <td><span class="q-badge purple">方案 A</span></td>
-                  <td>全面推行內部承接單鎖定工期與轉撥價</td>
+                  <td>推行內部承接單鎖定工期價格</td>
                   <td>Silvia/OU</td><td>第 2 週</td>
                 </tr>
               </tbody>
@@ -1344,6 +1520,7 @@ tr:hover td { background:rgba(25,104,173,0.02); }
 
 </main>
 
+<!-- Bottom Navigation Bar -->
 <nav class="btm-nav">
   <div class="btm-progress" id="progress"></div>
   <div class="kb-hint">
@@ -1354,14 +1531,15 @@ tr:hover td { background:rgba(25,104,173,0.02); }
   </div>
   <div class="btm-controls">
     <button class="btn" onclick="app.prev()">← 上一頁</button>
-    <div class="page-indicator" id="page-counter">1 / 10</div>
+    <div class="page-indicator" id="page-counter">1 / 11</div>
     <button class="btn primary" onclick="app.next()">下一頁 →</button>
   </div>
 </nav>
 
 <script>
+// Main Application Navigation
 const app = {
-  slides: ['home', 'p1-1', 'p1-2', 'p1-3', 'p2-1', 'p2-2', 'p3-1', 'p3-2', 'p3-3', 'p4-1'],
+  slides: ['home', 'p1-1', 'p1-2', 'p2-1', 'p2-2', 'p2-3', 'p3-1', 'p3-2', 'p4-1', 'p4-2', 'p5-1'],
   idx: 0,
   
   init() {
@@ -1399,10 +1577,17 @@ const app = {
     // Update topnav active state
     document.querySelectorAll('.topnav a').forEach(a => a.classList.remove('active'));
     if(cur === 'home') {
-      document.querySelector('.topnav a[data-nav="home"]').classList.add('active');
+      const homeNav = document.querySelector('.topnav a[data-nav="home"]');
+      if(homeNav) homeNav.classList.add('active');
     } else {
-      const part = document.getElementById(cur).getAttribute('data-part');
-      if(part) document.querySelector('.topnav a[data-nav="'+part+'"]').classList.add('active');
+      const el = document.getElementById(cur);
+      if(el) {
+        const part = el.getAttribute('data-part');
+        if(part) {
+          const navEl = document.querySelector('.topnav a[data-nav="'+part+'"]');
+          if(navEl) navEl.classList.add('active');
+        }
+      }
     }
   },
 
@@ -1412,7 +1597,217 @@ const app = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => app.init());
+// Interactive Sensitivity Simulator
+const sim = {
+  // Base pipelines from v10 reconciliation (in 100M NTD / 億元)
+  baseEpcPipe: 10.19,
+  baseAssetPipe: 36.41, // 18.69 + 17.50 + 0.21
+  baseAidcPipe: 30.00,
+
+  calc() {
+    const epcWin = parseFloat(document.getElementById('sl-epc-win').value) / 100;
+    const assetWin = parseFloat(document.getElementById('sl-asset-win').value) / 100;
+    const aidcWin = parseFloat(document.getElementById('sl-aidc-win').value) / 100;
+    const ouCap = parseFloat(document.getElementById('sl-ou-cap').value);
+    const marginDelta = parseFloat(document.getElementById('sl-margin-delta').value) / 100;
+    const costInf = parseFloat(document.getElementById('sl-cost-inflation').value) / 100;
+    const scaleMult = parseFloat(document.getElementById('sl-scale-mult').value);
+
+    // Update value displays
+    document.getElementById('val-epc-win').textContent = (epcWin * 100).toFixed(1) + '%';
+    document.getElementById('val-asset-win').textContent = (assetWin * 100).toFixed(0) + '%';
+    document.getElementById('val-aidc-win').textContent = (aidcWin * 100).toFixed(0) + '%';
+    document.getElementById('val-ou-cap').textContent = ouCap.toFixed(1) + ' 億';
+    document.getElementById('val-margin-delta').textContent = (marginDelta >= 0 ? '+' : '') + (marginDelta * 100).toFixed(1) + '%';
+    document.getElementById('val-cost-inflation').textContent = (costInf * 100).toFixed(1) + '%';
+    document.getElementById('val-scale-mult').textContent = scaleMult.toFixed(2) + 'x';
+
+    // 1. Calculate weighted signed contracts (億)
+    const epcSigned = this.baseEpcPipe * scaleMult * epcWin;
+    const assetSigned = this.baseAssetPipe * scaleMult * assetWin;
+    const aidcSigned = this.baseAidcPipe * scaleMult * aidcWin;
+    const totalSigned = epcSigned + assetSigned + aidcSigned;
+
+    // 2. Deliverable Revenue in FY27 (統包與資管當年交付，AIDC當年預設 0)
+    const deliverable = epcSigned + assetSigned;
+    // Actual revenue is constrained by MIN(deliverable, ouCap)
+    const actualRev = Math.min(deliverable, ouCap);
+
+    // 3. Gross Margin calculation
+    // Base gross margins: 統包 12%, 資管 18%
+    const epcMargin = Math.max(0, 0.12 + marginDelta - (0.88 * costInf));
+    const assetMargin = Math.max(0, 0.18 + marginDelta - (0.82 * costInf));
+    
+    // Weight margin by revenue ratio
+    let grossProfit = 0;
+    if (deliverable > 0) {
+      const epcRevPart = actualRev * (epcSigned / deliverable);
+      const assetRevPart = actualRev * (assetSigned / deliverable);
+      grossProfit = (epcRevPart * epcMargin) + (assetRevPart * assetMargin);
+    }
+    const avgMarginRate = actualRev > 0 ? (grossProfit / actualRev) : 0;
+
+    // 4. OPEX (11人 = 0.45 億)
+    const opex = 0.45;
+    const operatingProfit = grossProfit - opex;
+
+    // 5. Non-operating (+0.02) & Pre-tax profit
+    const nonOp = 0.02;
+    // Interest expense proxy if revenue exceeds base
+    const interest = 0.003;
+    const preTax = operatingProfit + nonOp - interest;
+
+    // 6. Tax (20%) & Net profit
+    const tax = preTax > 0 ? preTax * 0.20 : 0;
+    const netProfit = preTax - tax;
+    const netRate = actualRev > 0 ? (netProfit / actualRev) : 0;
+    const diff = netProfit - 0.9027;
+
+    // Update KPI Dashboard
+    document.getElementById('res-signed').textContent = totalSigned.toFixed(2);
+    document.getElementById('res-rev').textContent = actualRev.toFixed(2);
+    document.getElementById('res-profit').textContent = netProfit.toFixed(2);
+    document.getElementById('res-margin').textContent = (avgMarginRate * 100).toFixed(1) + '%';
+    document.getElementById('res-net-rate').textContent = (netRate * 100).toFixed(1) + '%';
+    
+    const diffEl = document.getElementById('res-diff');
+    diffEl.textContent = (diff >= 0 ? '+' : '') + diff.toFixed(2);
+    diffEl.style.color = diff >= 0 ? 'var(--c-green)' : 'var(--c-red)';
+
+    // Render Dynamic SVG Chart
+    this.renderChart(actualRev, grossProfit, opex, netProfit);
+
+    // Render 2D Heatmap Matrix
+    this.renderMatrix(ouCap, marginDelta);
+  },
+
+  renderChart(rev, gp, opex, np) {
+    const svg = document.getElementById('sim-svg-chart');
+    if(!svg) return;
+    const maxVal = Math.max(12, rev * 1.15);
+    const scale = 80 / maxVal;
+    
+    const hRev = rev * scale;
+    const hGp = Math.max(2, gp * scale);
+    const hOp = Math.max(2, opex * scale);
+    const hNp = Math.max(1, np * scale);
+
+    svg.innerHTML = `
+      <rect x="0" y="0" width="460" height="115" fill="#ffffff" rx="4"/>
+      <text x="20" y="18" font-size="10" font-weight="bold" fill="#0B192C">即時財務水流對比 (單位：億元)</text>
+      
+      <!-- Baseline Ref line 0.90B -->
+      <line x1="40" y1="${95 - (0.90 * scale)}" x2="430" y2="${95 - (0.90 * scale)}" stroke="#94A3B8" stroke-dasharray="3,3" stroke-width="1.2"/>
+      <text x="435" y="${98 - (0.90 * scale)}" font-size="8" fill="#64748B">目標 0.90億</text>
+
+      <!-- Revenue Bar -->
+      <rect x="60" y="${95 - hRev}" width="60" height="${hRev}" fill="#1968AD" rx="3"/>
+      <text x="90" y="${90 - hRev}" font-size="9" font-weight="bold" fill="#1968AD" text-anchor="middle">${rev.toFixed(2)}</text>
+      <text x="90" y="107" font-size="8.5" fill="#475569" text-anchor="middle">營收</text>
+
+      <!-- Gross Profit Bar -->
+      <rect x="155" y="${95 - hGp}" width="60" height="${hGp}" fill="#1BB1BF" rx="3"/>
+      <text x="185" y="${90 - hGp}" font-size="9" font-weight="bold" fill="#0F7682" text-anchor="middle">${gp.toFixed(2)}</text>
+      <text x="185" y="107" font-size="8.5" fill="#475569" text-anchor="middle">毛利</text>
+
+      <!-- OPEX Bar -->
+      <rect x="250" y="${95 - hOp}" width="60" height="${hOp}" fill="#F59E0B" rx="3"/>
+      <text x="280" y="${90 - hOp}" font-size="9" font-weight="bold" fill="#D97706" text-anchor="middle">${opex.toFixed(2)}</text>
+      <text x="280" y="107" font-size="8.5" fill="#475569" text-anchor="middle">營業費用</text>
+
+      <!-- Net Profit Bar -->
+      <rect x="345" y="${95 - hNp}" width="60" height="${hNp}" fill="${np >= 0.8 ? '#16A34A' : (np >= 0.6 ? '#D97706' : '#DC2626')}" rx="3"/>
+      <text x="375" y="${90 - hNp}" font-size="9" font-weight="bold" fill="${np >= 0.8 ? '#16A34A' : (np >= 0.6 ? '#D97706' : '#DC2626')}" text-anchor="middle">${np.toFixed(2)}</text>
+      <text x="375" y="107" font-size="8.5" font-weight="bold" fill="#0B192C" text-anchor="middle">稅後淨利</text>
+    `;
+  },
+
+  renderMatrix(activeOu, activeMargin) {
+    const tbody = document.getElementById('matrix-tbody');
+    if(!tbody) return;
+    
+    const ouList = [6, 8, 10, 12, 14];
+    const marginList = [-0.03, -0.015, 0, 0.015, 0.03];
+    // Matrix data from Excel sheet 雙因子敏感性
+    const rawMatrix = [
+      [-0.03,  0.23, 0.45, 0.66, 0.66, 0.66],
+      [-0.015, 0.30, 0.54, 0.78, 0.78, 0.78],
+      [ 0.00,  0.37, 0.64, 0.90, 0.90, 0.90],
+      [ 0.015, 0.44, 0.73, 1.02, 1.02, 1.02],
+      [ 0.03,  0.52, 0.83, 1.14, 1.14, 1.14]
+    ];
+
+    let html = '';
+    for(let r=0; r<rawMatrix.length; r++) {
+      const mVal = rawMatrix[r][0];
+      const mLabel = (mVal > 0 ? '+' : '') + (mVal * 100).toFixed(1) + '%';
+      const isMActive = Math.abs(mVal - activeMargin) < 0.008;
+      
+      html += `<tr><td style="font-weight:bold; background:var(--c-gray1);">${mLabel}</td>`;
+      for(let c=1; c<=5; c++) {
+        const ouVal = ouList[c-1];
+        const isOuActive = Math.abs(ouVal - activeOu) < 1.0;
+        const cellActive = isMActive && isOuActive;
+        const cellVal = rawMatrix[r][c].toFixed(2);
+        const bg = rawMatrix[r][c] >= 0.90 ? 'rgba(22,163,74,0.1)' : (rawMatrix[r][c] >= 0.60 ? 'rgba(217,119,6,0.1)' : 'rgba(220,38,38,0.1)');
+        
+        html += `<td class="matrix-cell ${cellActive ? 'active-cell' : ''}" style="background:${bg};">${cellVal}</td>`;
+      }
+      html += `</tr>`;
+    }
+    tbody.innerHTML = html;
+  },
+
+  applyPreset(type) {
+    if(type === 'v10base') {
+      document.getElementById('sl-epc-win').value = 24.5;
+      document.getElementById('sl-asset-win').value = 40;
+      document.getElementById('sl-aidc-win').value = 20;
+      document.getElementById('sl-ou-cap').value = 10;
+      document.getElementById('sl-margin-delta').value = 0;
+      document.getElementById('sl-cost-inflation').value = 0;
+      document.getElementById('sl-scale-mult').value = 1.0;
+    } else if(type === 'raw') {
+      document.getElementById('sl-epc-win').value = 24.5;
+      document.getElementById('sl-asset-win').value = 40;
+      document.getElementById('sl-aidc-win').value = 5;
+      document.getElementById('sl-ou-cap').value = 10;
+      document.getElementById('sl-margin-delta').value = 0;
+      document.getElementById('sl-cost-inflation').value = 0;
+      document.getElementById('sl-scale-mult').value = 1.0;
+    } else if(type === 'taisugar_delay') {
+      document.getElementById('sl-epc-win').value = 24.5;
+      document.getElementById('sl-asset-win').value = 15;
+      document.getElementById('sl-aidc-win').value = 20;
+      document.getElementById('sl-ou-cap').value = 10;
+      document.getElementById('sl-margin-delta').value = -1.0;
+      document.getElementById('sl-cost-inflation').value = 1.0;
+      document.getElementById('sl-scale-mult').value = 0.9;
+    } else if(type === 'ou_choke') {
+      document.getElementById('sl-epc-win').value = 24.5;
+      document.getElementById('sl-asset-win').value = 40;
+      document.getElementById('sl-aidc-win').value = 20;
+      document.getElementById('sl-ou-cap').value = 8.0;
+      document.getElementById('sl-margin-delta').value = 0;
+      document.getElementById('sl-cost-inflation').value = 0;
+      document.getElementById('sl-scale-mult').value = 1.0;
+    } else if(type === 'cost_spike') {
+      document.getElementById('sl-epc-win').value = 24.5;
+      document.getElementById('sl-asset-win').value = 40;
+      document.getElementById('sl-aidc-win').value = 20;
+      document.getElementById('sl-ou-cap').value = 10;
+      document.getElementById('sl-margin-delta').value = -1.5;
+      document.getElementById('sl-cost-inflation').value = 5.0;
+      document.getElementById('sl-scale-mult').value = 1.0;
+    }
+    this.calc();
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  app.init();
+  sim.calc();
+});
 </script>
 </body>
 </html>
